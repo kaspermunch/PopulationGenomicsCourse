@@ -23,7 +23,7 @@ This dataset is a subset of the Simons Diversity Project, and as you can see, it
 
 ## Log in to the server via terminal
 
-This time, we will use the option -Y, so we can open Rstudio from the terminal later.
+This time we will add an option so we can open Rstudio from the terminal later.
 
 ### For windows users
 
