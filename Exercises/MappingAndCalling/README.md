@@ -28,10 +28,16 @@ This time, we will use the option -Y, so we can open Rstudio from the terminal l
 ### For windows users
 
 ```bash
-    plink -Y -P 8922 [user]@185.45.23.197
+    plink -X -P 8922 [user]@185.45.23.197
 ```
 
 ### For mac users
+
+```bash
+    ssh -X -p 8922 [user]@185.45.23.197
+```
+
+or
 
 ```bash
     ssh -Y -p 8922 [user]@185.45.23.197
