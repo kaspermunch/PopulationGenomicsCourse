@@ -63,7 +63,7 @@ You also need to generate a fasta file index. This can be done using **samtools*
 
 Now you can map the reads back to the reference. This will take around 10 minutes. You can start installing the software that will be used later in this tutorial (IGV) while you wait for it.
 
-    bwa mem -t 16 -p Homo_sapiens.GRCh37.75.dna.chromosome.2 sorted_ERR1019076_reads_135_145.fq | \
+    bwa mem -t 16 -p Homo_sapiens.GRCh37.75.dna.chromosome.2 /home/Data/sorted_ERR1019076_reads_135_145.fq | \
     samtools sort -O BAM -o ERR1019076.bam
 
 Have a look at the bam file generated:
