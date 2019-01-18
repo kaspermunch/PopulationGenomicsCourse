@@ -33,7 +33,7 @@ This time, we will use the option -Y, so we can open Rstudio from the terminal l
 
 ### For mac users
 
-``bash
+```bash
     ssh -Y -p 8922 [user]@185.45.23.197
 ```
 
