@@ -21,6 +21,8 @@ In order to copy files from your local machine to the cluster, you just need to 
 scp -P 8922 ./[file] [user]@185.45.23.197:[dir]/
 ```
 
+If your file is not in the current directory, you just need to provide the entire path.
+
 ## Login from windows
 
 If you are on a windows machine you need to first install PuTTy. It can be downloaded here:
@@ -39,6 +41,14 @@ And you can transfer files between the cluster and your local machine by running
 ```bash
 pscp -P 8922 [user]@185.45.23.197:[dir]/[file] .
 ```
+
+In order to copy files from your local machine to the cluster, you just need to invers the order:
+
+```bash
+pscp -P 8922 ./[file] [user]@185.45.23.197:[dir]/
+```
+
+If your file is not in the current directory, you just need to provide the entire path.
 
 If you have any problems with the upper commands, there is a more interactive way for both accessing the cluster and transferring files in a windows machine.
 
