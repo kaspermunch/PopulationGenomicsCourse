@@ -107,7 +107,7 @@ You can have a look at the resulted file. What do you find in the three differen
 
     less deduped_ERR1019076.coverage
 
-Now open the subset file in R and plot it. You can do it in the terminal, you just need to type R.
+Now open the subset file in R and plot it. You can transfer it to your local device using scp. Alternatively, you can also do it in the terminal. You can open a R session in the terminal by typing R or you can make a new file with a text editor like vi, add the code, save it with a ".R" extension and run it with Rscript.
 
     library(ggplot2)
     library(dplyr)
@@ -123,7 +123,7 @@ Now open the subset file in R and plot it. You can do it in the terminal, you ju
     ## 
     ##     intersect, setdiff, setequal, union
 
-    scaf <- read.table("/Users/PM/Desktop/PHD_incomplete/data/deduped_ERR1019076.coverage",header=FALSE, sep="\t", na.strings="NA", dec=".", strip.white=TRUE, col.names = c("Scaffold", "locus", "depth"))
+    scaf <- read.table("./deduped_ERR1019076.coverage",header=FALSE, sep="\t", na.strings="NA", dec=".", strip.white=TRUE, col.names = c("Scaffold", "locus", "depth"))
       
     head(scaf)
 
@@ -147,7 +147,7 @@ Now open the subset file in R and plot it. You can do it in the terminal, you ju
     #p
 
     # Saving your coverage plot
-    ggsave(p, device = "pdf")
+    ggsave("deduped_ERR1019076.coverage.pdf",p)
 
     ## Saving 7 x 5 in image
 
