@@ -82,7 +82,7 @@ Once the map is generated, you can index the bam file to visualize it using igv.
 
 You can download the data via terminal by the following:
 
-    scp -P 8922 root@185.45.23.197:/home/Data/ERR1019076.bam Directory/My_computer
+    scp -P 8922 user_name@185.45.23.197:/home/user_name/ERR1019076.bam Directory/My_computer
 
 ## IGV software
 
