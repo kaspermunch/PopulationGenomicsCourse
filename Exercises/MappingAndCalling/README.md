@@ -23,15 +23,29 @@ This dataset is a subset of the Simons Diversity Project, and as you can see, it
 
 ## Log in to the server via terminal
 
-This time we will add an option so we can open Rstudio from the terminal later.
+This time we will add an option so we can open Rstudio from the terminal later. For that to work, we need to install another software first.
 
 ### For windows users
+
+Install Xming. You cna download from here: http://sourceforge.net/project/downloading.php?group_id=156984&filename=Xming-6-9-0-31-setup.exe
+
+And then access the terminal like:
 
 ```bash
     plink -X -P 8922 [user]@185.45.23.197
 ```
 
+If in our previous exercise session you had problems with the plink command of PuTTy and you accessed the cluster by setting the options manually on the program, you will need to modify an additional parameter on the X11 option of SHH as seen here:
+
+![Alt text](https://user-images.githubusercontent.com/38723379/51423518-cd638400-1bc1-11e9-9938-2e06a71cf24d.png)
+
+And then you can access the terminal as we saw last week.
+
 ### For mac users
+
+Install XQuarz. It can be downloaded from here: https://www.xquartz.org/
+
+And then access the terminal like:
 
 ```bash
     ssh -X -p 8922 [user]@185.45.23.197
