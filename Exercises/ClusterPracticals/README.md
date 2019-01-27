@@ -1,7 +1,7 @@
 # Linux server for exercises
 During the course there will be several exercises that use command line tools that are only available on linux machines. These programs have been installed on a linux server that you can log onto using ssh.
 
-## Login from linux of mac
+## Login from linux or mac
  If you are on a linux or mac computer then ssh is usually installed by default and you can use the following command to log in to the server:
 
 ```bash
