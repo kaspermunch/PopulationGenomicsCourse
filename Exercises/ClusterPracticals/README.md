@@ -8,14 +8,14 @@ During the course there will be several exercises that use command line tools th
 ssh -p 8922 [user]@185.45.23.197
 ```
 
-Where [user] is your user name. We have created an account for each of you with your first name (all lowercase) as user name and password = 1234[user] (you can use the command passwd to change the password).
+Where [user] is your user name. We have created an account for each of you with your first name (all lowercase) as user name and your surname (all lowercase) as password (you can use the command passwd to change the password).
 
 To copy a file called [file] in a directory called [dir] on the server to your local machine you can use the scp command (you can also use sftp if you prefer that):
 
 ```bash
 scp -P 8922 [user]@185.45.23.197:[dir]/[file] .
 ```
-In order to copy files from your local machine to the cluster, you just need to invers the order:
+In order to copy files from your local machine to the cluster, you just need to inverse the order:
 
 ```bash
 scp -P 8922 ./[file] [user]@185.45.23.197:[dir]/
@@ -34,7 +34,7 @@ To log in you can write:
 plink -P 8922 [user]@185.45.23.197
 ```
 
-Where [user] is your user name. We have created an account for each of you with your first name (all lowercase) as user name and password = 1234[user] (you can use the command passwd to change the password).
+Where [user] is your user name. We have created an account for each of you with your first name (all lowercase) as user name and your surname (all lowercase) as password (you can use the command passwd to change the password).
 
 And you can transfer files between the cluster and your local machine by running:
 
