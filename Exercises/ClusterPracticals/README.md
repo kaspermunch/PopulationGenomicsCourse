@@ -42,7 +42,7 @@ And you can transfer files between the cluster and your local machine by running
 pscp -P 8922 [user]@185.45.23.197:[dir]/[file] .
 ```
 
-In order to copy files from your local machine to the cluster, you just need to invers the order:
+In order to copy files from your local machine to the cluster, you just need to inverse the order:
 
 ```bash
 pscp -P 8922 ./[file] [user]@185.45.23.197:[dir]/
