@@ -29,9 +29,11 @@ There are two ways to connect from a Windows machine:
 
 ### Using Moba Xterm (which has a Graphical User Interface)
 
-It can be downloaded here: https://mobaxterm.mobatek.net/. Get teh Free version and then choose "MobaXterm Home Edition v11.1
-(Portable edition)". You can download it to your Desktop. Double-click it. Click new session. Choose SSH. Fill in address, username and port and you should be able to connect.
+It can be downloaded here: https://mobaxterm.mobatek.net/. Click "GET MOBAXTERM NOW" and then click to get the Free version. Then choose "MobaXterm Home Edition v11.1 (Portable edition)". It is important that it is the "portable" version. You can download it to your Desktop. Double-click it to open it.
 
+To connect to the machine, click "Session" in the top left corner. Then click SSH in the top left corner of the window that pops up. Now fill in the address (185.45.23.197), your user name and the port (8922). The  and you should be able to connect.
+
+You should now see a command prompt where you can type commands. The left part should show the folder structure of the folders under your user folder. Fom here you can easily download files to your local machine.
 
 ### Using PuTTy
 
