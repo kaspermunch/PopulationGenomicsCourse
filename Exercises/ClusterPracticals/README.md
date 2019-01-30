@@ -5,7 +5,7 @@ During the course there will be several exercises that use command line tools th
  If you are on a linux or mac computer then ssh is usually installed by default and you can use the following command to log in to the server:
 
 ```bash
-ssh -p 8922 [user]@185.45.23.197
+ssh -X -p 8922 [user]@185.45.23.197
 ```
 
 Where [user] is your user name. We have created an account for each of you with your first name (all lowercase) as user name and your surname (all lowercase) as password (you can use the command passwd to change the password).
@@ -25,13 +25,23 @@ If your file is not in the current directory, you just need to provide the entir
 
 ## Login from windows
 
+There are two ways to connect from a Windows machine:
+
+### Using Moba Xterm (which has a Graphical User Interface)
+
+It can be downloaded here: https://mobaxterm.mobatek.net/. Get teh Free version and then choose "MobaXterm Home Edition v11.1
+(Portable edition)". You can download it to your Desktop. Double-click it. Click new session. Choose SSH. Fill in address, username and port and you should be able to connect.
+
+
+### Using PuTTy
+
 If you are on a windows machine you need to first install PuTTy. It can be downloaded here:
 https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
 To log in you can write:
 
 ```bash
-plink -P 8922 [user]@185.45.23.197
+plink -X -P 8922 [user]@185.45.23.197
 ```
 
 Where [user] is your user name. We have created an account for each of you with your first name (all lowercase) as user name and your surname (all lowercase) as password (you can use the command passwd to change the password).
@@ -67,14 +77,5 @@ Then, in the program set the options like this:
 ## Using the command line
 If you are not used to using a unix command-line interface you might find this introduction useful:
 https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything
-
-
-## Libre servers with Graphical User Interface (GUI)
-
-For windows:
-https://mobaxterm.mobatek.net/
-
-For mac:
-https://cyberduck.io/
 
 
