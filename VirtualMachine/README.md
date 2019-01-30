@@ -18,6 +18,10 @@ Unlock user by setting password
 
 	passwd stine
 
+You should be able to set the default shell to bash in `/etc/adduser.conf`, but if it does not work, you can always do:
+
+	usermod -s /bin/bash stine
+
 # Removing users
 
 Remove user and its home dir:
