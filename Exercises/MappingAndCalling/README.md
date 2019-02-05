@@ -136,7 +136,7 @@ Go to Genomes ----> Load Genome from server... ----> Filter by human and choose 
 
 After it you will the chromosomes and genes. Now you can download the mapping results by typing: File ----> Load from File... ----> ERR1019076.bam.
 
-You will see something like this: ![](img/IGV_example.png)
+When you zoom in to the lactase region on chromosome 2, you will see something like this: ![](img/IGV_example.png)
 
 Try to understand what are the different attributes present in the viewer. If you zoom in very much you will find single nucleotide polymorphisms (SNPs), where the reference sequence does not have the same nucleotide as the data mapped to.
 
