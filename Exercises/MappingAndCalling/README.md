@@ -27,7 +27,7 @@ This time we will add an option so we can open Rstudio from the terminal later. 
 
 ### For windows users
 
-Install Xming. You cna download from here: http://sourceforge.net/project/downloading.php?group_id=156984&filename=Xming-6-9-0-31-setup.exe
+Install Xming. You can download it from here: http://sourceforge.net/project/downloading.php?group_id=156984&filename=Xming-6-9-0-31-setup.exe
 
 And then access the terminal like:
 
