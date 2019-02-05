@@ -237,7 +237,7 @@ Once you install software in a conda environment, you can always use it (like cl
 To run platypus, we can use this line of code:
 
 ```bash
-    platypus callVariants --bamFile=ERR1019076.bam --refFile=/home/Data/Homo_sapiens.GRCh37.75.dna.chromosome.2.fa --output=AllVariants.vcf
+    platypus callVariants --bamFile=ERR1019076.bam --refFile=Homo_sapiens.GRCh37.75.dna.chromosome.2.fa --output=AllVariants.vcf
 ```
 
 The output will be a single [VCF](http://samtools.github.io/hts-specs/VCFv4.2.pdf) file containing all the variants that Platypus identified, and a 'log.txt' file, containing log information.
