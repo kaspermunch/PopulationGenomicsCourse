@@ -258,3 +258,5 @@ You will be using this format further in the course, for now let's just count th
 -   0/1 - the sample is heterozygous, carrying 1 copy of each of the REF
     and ALT alleles
 -   1/1 - the sample is homozygous alternate
+
+Given this information you are now able to estimate the mean SNP heterozygosity for your individual of the 10 MB region in chromosome 2.
