@@ -59,7 +59,7 @@ or
 
 ## Data source
 
-You will be separated in pairs so you can help each other out with the commands. Each of you will be responsible for 2 individuals and at the end of this exercise we will estimate the SNP heterozygosity per individual. The data is placed in a folder called **Data** in the same directory as users folder. The individuals for each person is written in the spreadsheet
+You will be separated in pairs so you can help each other out with the commands. Each of you will be responsible for 2 individuals and at the end of this exercise we will estimate the mean SNP heterozygosity per individual of the 10 MB region in chromosome 2. The data is placed in a folder called **Data** in the same directory as users folder. The individuals for each person is written in the spreadsheet
 [here](https://docs.google.com/spreadsheets/d/1OEHI1tNiwHrwKkl9L5rPtbVKCHQDpCZtKzpnZ1sWKJY/edit?usp=sharing).
 In the following tutorial I am using one individual as an example **ERR1019076**, please replace it by the individual you've got.
 
