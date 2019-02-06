@@ -65,7 +65,7 @@ In the following tutorial I am using one individual as an example **ERR1019076**
 
 ## Mapping reads against the reference
 
-We will be using the bwa mapper. If you are interested in understanding a bit more of the software and its algorithm, you can look it up [here](http://bio-bwa.sourceforge.net/bwa.shtml). We have thousands of reads and we want to find out their best location in the genome. We decided to focus on a 10 MB region of chromosome 2, which can be downloaded through [Ensembl](ftp://ftp.ensembl.org/pub/release-75//fasta/homo_sapiens/dna/). This region goes from 135MB to 145MB and it is known to containg the lactase gene.
+We will be using the bwa mapper. If you are interested in understanding a bit more of the software and its algorithm, you can look it up [here](http://bio-bwa.sourceforge.net/bwa.shtml). We have thousands of reads and we want to find out their best location in the genome. We decided to focus on a 10 MB region of chromosome 2, which can be downloaded through [Ensembl](ftp://ftp.ensembl.org/pub/release-75//fasta/homo_sapiens/dna/). This region goes from 135MB to 145MB and it is known to contain the lactase gene.
 
 Two input files are needed to do genome mapping:
 
