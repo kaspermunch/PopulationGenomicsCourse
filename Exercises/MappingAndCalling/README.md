@@ -65,7 +65,7 @@ In the following tutorial I am using one individual as an example **ERR1019076**
 
 ## Mapping reads against the reference
 
-The first step when dealing with raw reads is mapping (aligning) them to a reference sequence. For this, we will be using the BWA mapper. BWA stands for Burrows-Wheeler aligner, which allow for fast and accurate alignment of short reads to an indexed reference sequence. If you are interested in understanding a bit more of the software and its algorithm, you can look it up [here](http://bio-bwa.sourceforge.net/bwa.shtml). We have thousands of reads and we want to find out their best location in the genome. We decided to focus on a 10 MB region of chromosome 2, which can be downloaded through [Ensembl](ftp://ftp.ensembl.org/pub/release-75//fasta/homo_sapiens/dna/). This region goes from 135MB to 145MB and it is known to contain the lactase gene.
+The first step when dealing with raw reads is mapping (aligning) them to a reference sequence. For this, we will be using the BWA mapper. BWA stands for Burrows-Wheeler aligner, which allows for fast and accurate alignment of short reads to an indexed reference sequence. If you are interested in understanding a bit more of the software and its algorithm, you can look it up [here](http://bio-bwa.sourceforge.net/bwa.shtml). We have thousands of reads and we want to find out their best location in the genome. We decided to focus on a 10 MB region of chromosome 2, which can be downloaded through [Ensembl](ftp://ftp.ensembl.org/pub/release-75//fasta/homo_sapiens/dna/). This region goes from 135MB to 145MB and it is known to contain the lactase gene.
 
 Two input files are needed to do genome mapping:
 
@@ -73,15 +73,13 @@ Two input files are needed to do genome mapping:
     ([GRCh37](http://grch37.ensembl.org/index.html))
 - The reads in fastq format
 
-First we need to index the reference file for later use. This step is important for the speed and process of the mapping algorithm. It takes around 4 minutes. This creates a collecion of files that are used by BWA to perform the alignment.
-
-First we will create a soft-link of fasta reference to your folder, so that we don't need to type in the full path to the reference everytime we want to use it:
+We will create a soft-link of fasta reference to your folder, so that we don't need to type in the full path to the reference everytime we want to use it:
 
 ```bash
     ln -s /home/Data/Homo_sapiens.GRCh37.75.dna.chromosome.2.fa /home/user_name/
 ```
 
-Then produce the indexes needed for bwa mapper:
+First we need to index the reference file for later use. This step is important for the speed and process of the mapping algorithm. It takes around 4 minutes. This creates a collecion of files that are used by BWA to perform the alignment. To produce the indexes needed for bwa mapper run the following command:
 
 ```bash
 
@@ -102,9 +100,10 @@ Now you can map the reads to the reference. This will take around 10 minutes. Yo
     bwa mem -t 16 -p Homo_sapiens.GRCh37.75.dna.chromosome.2 /home/Data/sorted_ERR1019076_reads_135_145.fq | \
     samtools sort -O BAM -o ERR1019076.bam
 ```
-This command is compoised to two sub-commands where the output of the first line is ``piped''
 
-Have a look at the bam file generated:
+This command is composed of two sub-commands where the output of the "bwa mem" command is piped ("|" is the pipe symbol) into the "samtools sort" command. The output of the "bwa mem" command is an unsorted bam file, which is then used as input into the "samtools sort" command to produce a sorted bam file, which is necessary for further analysis. We could also run the two commands separately, but by using piping we save disc space, as we do not have to save the intermediate unsorted bam file, and altogether speed up the analysis.
+
+You can have a look at the bam file generated:
 
 ```bash
     samtools view ERR1019076.bam | head
@@ -116,7 +115,7 @@ Get some useful stats of your mapping:
     samtools flagstat ERR1019076.bam
 ```
 
-Once the map is generated, you can index the bam file to visualize it using igv. Indexing a genome sorted BAM file allows one to quickly extract alignments overlapping particular genomic regions. Moreover, indexing is required by genome viewers such as IGV so that the viewers can quickly display alignments in each genomic region to which you navigate.
+Once the map is generated, you can index the bam file to visualize it using IGV. Indexing a genome sorted BAM file allows one to quickly extract alignments overlapping particular genomic regions. Moreover, indexing is required by genome viewers such as IGV so that the viewers can quickly display alignments in each genomic region to which you navigate.
 
 ```bash
     samtools index ERR1019076.bam
@@ -212,10 +211,9 @@ What are the conclusions you can extract from these analysis? Does the coverage 
 
 ## SNP calling
 
-Even though just a tiny portion (around 2%) of our genomes are based of protein coding regions, this partition contains most of the disease causal variants (mutations), and that is why variant calling is so important in a medical point of view. In the population genetics side of view it is also possible to use these variants to establish differences between individuals, populations and species. It can also be used to
-clarify the genetic basis of adaptation. These topics will come back to your mind during the following weeks.
+Even though just a tiny portion (around 2%) of our genomes are based of protein coding regions, this partition contains most of the disease causal variants (mutations), and that is why variant calling is so important from a medical point of view. From the population genetics side of view it is also possible to use these variants to establish differences between individuals, populations and species. It can also be used to clarify the genetic basis of adaptation. These topics will come back to your mind during the following weeks.
 
-Once we have mapped our reads we can now start with variant detection. For now we will be using the software **Platypus**: a tool designed for efficient and accurate variant-detection in high-throughput sequencing data. You can access their website [here](http://www.well.ox.ac.uk/platypus).
+Once we have mapped our reads we can now start with variant detection. For now we will be using the software **Platypus**: a tool designed for efficient and accurate variant-detection in high-throughput sequencing data. You can access their website [here](http://www.well.ox.ac.uk/platypus). We will also illustrate how to create an evironment in which to run the **Platypus** software. The reason for creating an environment to run specific software is because a lot of programs have specific dependencies, which may be different to the one installed on your machine. For example, say that you have python v2.7 as default on your machine and you need to run a software which depends on python v3.5. You could either update the python version of your machine (and potentially disrupt running of other programs which depend on v2.7) or create a virtual environment which has v3.5 installed. By using the virtual environment, you do not disrupt the default state of your machine, but you are still able to run any software with different dependencies. The environment manager we will be called **Conda** - you can read more about it here: [website](https://conda.io/projects/conda/en/latest/index.html#).
 
 Creating a conda environment:
 
