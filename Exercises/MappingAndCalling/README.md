@@ -1,6 +1,6 @@
 # Mapping and SNP calling exercise
 
-As we learned last week, high-throughput sequencing technologies have in the past few years been producing millions of reads of human genome and other species. To be useful, this genetic information has to be 'put together' in a smart way, in the same way as the pieces of a puzzle (reads) need to be mounted according to a picture (reference genome). In this exercise section you will be exposed to different softwares used for mapping and snp calling. We will use a dataset composed of 30 individuals from 3 different regions: Africa, EastAsia and WestEurasia.
+As we learned last week, high-throughput sequencing technologies have in the past few years been producing millions of reads of human genome and other species. To be useful, this genetic information has to be 'put together' in a smart way, in the same way as the pieces of a puzzle (reads) need to be mounted according to a picture (reference genome). In this exercise section you will be exposed to different softwares used for mapping reads to a reference sequence and calling variants from the produced alignments. We will use a dataset composed of 30 individuals from 3 different regions: Africa, EastAsia and WestEurasia.
 
     ##       X...ID    ENA.RUN    population region country latitude longitude
     ## 1 ERS1042176 ERR1019075 Ju_hoan_North Africa Namibia    -18.9      21.5
@@ -65,7 +65,7 @@ In the following tutorial I am using one individual as an example **ERR1019076**
 
 ## Mapping reads against the reference
 
-We will be using the bwa mapper. If you are interested in understanding a bit more of the software and its algorithm, you can look it up [here](http://bio-bwa.sourceforge.net/bwa.shtml). We have thousands of reads and we want to find out their best location in the genome. We decided to focus on a 10 MB region of chromosome 2, which can be downloaded through [Ensembl](ftp://ftp.ensembl.org/pub/release-75//fasta/homo_sapiens/dna/). This region goes from 135MB to 145MB and it is known to contain the lactase gene.
+The first step when dealing with raw reads is mapping (aligning) them to a reference sequence. For this, we will be using the BWA mapper. BWA stands for Burrows-Wheeler aligner, which allow for fast and accurate alignment of short reads to an indexed reference sequence. If you are interested in understanding a bit more of the software and its algorithm, you can look it up [here](http://bio-bwa.sourceforge.net/bwa.shtml). We have thousands of reads and we want to find out their best location in the genome. We decided to focus on a 10 MB region of chromosome 2, which can be downloaded through [Ensembl](ftp://ftp.ensembl.org/pub/release-75//fasta/homo_sapiens/dna/). This region goes from 135MB to 145MB and it is known to contain the lactase gene.
 
 Two input files are needed to do genome mapping:
 
@@ -75,7 +75,7 @@ Two input files are needed to do genome mapping:
 
 First we need to index the reference file for later use. This step is important for the speed and process of the mapping algorithm. It takes around 4 minutes. This creates a collecion of files that are used by BWA to perform the alignment.
 
-Create a soft-link of fasta reference to your folder:
+First we will create a soft-link of fasta reference to your folder, so that we don't need to type in the full path to the reference everytime we want to use it:
 
 ```bash
     ln -s /home/Data/Homo_sapiens.GRCh37.75.dna.chromosome.2.fa /home/user_name/
@@ -88,18 +88,21 @@ Then produce the indexes needed for bwa mapper:
     bwa index -p Homo_sapiens.GRCh37.75.dna.chromosome.2 -a bwtsw Homo_sapiens.GRCh37.75.dna.chromosome.2.fa
 ```
 
+where -a bwtsw specifies that we want to use the indexing algorithm that is capable of handling the human genome.
+
 You also need to generate a fasta file index. This can be done using **samtools**:
 
 ```bash
     samtools faidx Homo_sapiens.GRCh37.75.dna.chromosome.2.fa
 ```
 
-Now you can map the reads back to the reference. This will take around 10 minutes. You can start installing the software that will be used later in this tutorial (IGV) while you wait for it.
+Now you can map the reads to the reference. This will take around 10 minutes. You can start installing the software that will be used later in this tutorial (IGV) while you wait for it.
 
 ```bash
     bwa mem -t 16 -p Homo_sapiens.GRCh37.75.dna.chromosome.2 /home/Data/sorted_ERR1019076_reads_135_145.fq | \
     samtools sort -O BAM -o ERR1019076.bam
 ```
+This command is compoised to two sub-commands where the output of the first line is ``piped''
 
 Have a look at the bam file generated:
 
