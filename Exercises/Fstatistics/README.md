@@ -1,7 +1,12 @@
 # vcfR exercises
 
 ## Data
-In this exercise we will analyse a vcf-file like the one you created yourselves last week. We will only use R so you can do the analyses on your own machine this week. The vcf-file is called `chr2_135_145.vcf.gz` and you can download it from Materials/Week3 on blackboard.
+In this exercise we will analyse a vcf-file like the one you created yourselves last week. We will only use R so you can do the analyses on your own machine this week. However, in order to practice more how to get data from the cluster, you will have to fetch the files we will use from there. The paths are the following:
+
+- vcf file: /home/meritxell/chr2_135_145.vcf.gz
+- annotation file: /home/meritxell/sample_infos_accessionnb.csv
+
+The vcf file contains the variants called for 28 individuals from different regions across the globe. It is the same type of file we obtained as an output when running Platypus but with more individuals so we can study population genetics' summary statistics from the variants called. The annotation file is needed to provide more information for each of the samples in the vcf file.  
 
 ## Useful links
 In this exercise we will be using two very useful packages: `dplyr` and `ggplot`. The learning curve can be quite steep, but once you learn it, it becomes very natural and useful! :)
@@ -29,9 +34,12 @@ tvcf <- vcfR2tidy(vcf,
           format_types = c(NR="i",GQ="i"))
 ```
 
+One of the measures provided for each variant call is the Phred score, which is a measure of the quality associated with that given base pair. It is computed by the following equation:
+
+<a href="https://www.codecogs.com/eqnedit.php?latex=Q&space;=&space;-10&space;log10(P)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Q&space;=&space;-10&space;log10(P)" title="Q = -10 log10(P)" /></a>
+
 We also want ta add some info about the samples:
 ```r
-library(dplyr)
 info <- read.csv2("sample_infos_accessionnb.csv")
 d <- inner_join(tvcf$dat,info, by= c("Indiv" = "ENA.RUN")) %>%
   mutate(gt_GT=replace(gt_GT, gt_GT=="1/0", "0/1"))
