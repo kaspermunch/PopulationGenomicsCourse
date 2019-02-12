@@ -38,6 +38,8 @@ One of the measures provided for each variant call is the Phred score, which is 
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=Q&space;=&space;-10&space;log10(P)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Q&space;=&space;-10&space;log10(P)" title="Q = -10 log10(P)" /></a>
 
+Being P the probability of error of a given the base call.
+
 We also want ta add some info about the samples:
 ```r
 info <- read.csv2("sample_infos_accessionnb.csv")
