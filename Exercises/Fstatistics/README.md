@@ -97,7 +97,7 @@ Using `d2` from above you can calculate `H_S` as `H_S=mean(2*pS*qS)` and `H_T=2*
 5. *Use `d2` from above to calculate `FST` for each position. What is the median FST value?*
 6. *Make a histogram of the `FST` values.*
 7. *Calculate `FST` using only the European and African samples and make a histogram of the values. (Hint: use geom_histogram() instead of geom_bar())*
-8. *Make a plot with the genomic position on the x axis and the `FST` value on the y axis. (Hint: use geom_point() or geom_line()) *
+8. *Make a plot with the genomic position on the x axis and the `FST` value on the y axis. (Hint: use geom_point() or geom_line())*
 
 We can also look at bins of a given size along the genome (to keep it simple we will just plot non-overlapping bins instead of sliding windows). We can fx. plot the fraction of sites in each bin that are polymorphic for each subpopulation:
 ```r
