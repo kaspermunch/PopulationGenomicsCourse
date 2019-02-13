@@ -91,13 +91,13 @@ d2 %>%
 
 ## Calculating F-statistics
 
-`F_ST` can be calculated as `F_ST = 1- (H_S/H_T)`. Where `H_T` is the expected heterozygocity of the entire population and `H_S` is the mean expected heterozygocity across subpopulations.
+`FST` can be calculated as `FST = 1- (H_S/H_T)`. Where `H_T` is the expected heterozygocity of the entire population and `H_S` is the mean expected heterozygocity across subpopulations.
 Using `d2` from above you can calculate `H_S` as `H_S=mean(2*pS*qS)` and `H_T=2*mean(pS)*mean(qS)`.
 
-5. *Use `d2` from above to calculate `F_ST` for each position. What is the median F_ST value?*
-6. *Make a histogram of the `F_ST` values.*
-7. *Calculate `F_ST` using only the European and African samples and make a histogram of the values.*
-8. *Make a plot with the genomic position on the x axis and the `F_ST` value on the y axis.*
+5. *Use `d2` from above to calculate `FST` for each position. What is the median FST value?*
+6. *Make a histogram of the `FST` values.*
+7. *Calculate `FST` using only the European and African samples and make a histogram of the values.*
+8. *Make a plot with the genomic position on the x axis and the `FST` value on the y axis.*
 
 We can also look at bins of a given size along the genome (to keep it simple we will just plot non-overlapping bins instead of sliding windows). We can fx. plot the fraction of sites in each bin that are polymorphic for each subpopulation:
 ```r
@@ -110,5 +110,5 @@ d2 %>%
   ggplot(aes(x=binmid, y=frac_polymorph, color=region)) + geom_line()
 ```
 
-9. *Make a plot with average F_ST in bins along the genome.*
+9. *Make a plot with average FST in bins along the genome.*
 
