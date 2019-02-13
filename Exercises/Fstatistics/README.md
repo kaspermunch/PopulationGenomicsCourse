@@ -103,7 +103,7 @@ We can also look at bins of a given size along the genome (to keep it simple we 
 ```r
 bin_width = 500000
 d2 %>% 
-  mutate(binmid=((as.integer(POS/bin_width)+0.5)*bin_width)) %>%
+  mutate(binmid=((POS %/% bin_width)*bin_width)) %>%
   filter(na!=0, nA!=0) %>%
   group_by(binmid, region) %>%
   summarise(frac_polymorph=n()/bin_width) %>%
