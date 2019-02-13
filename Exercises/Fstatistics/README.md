@@ -91,8 +91,6 @@ d2 %>%
 
 ## Calculating F-statistics
 
-A description of `F_ST` can be found in Box 5.2. on page 147 of HEG.
-
 `F_ST` can be calculated as `F_ST = 1- (H_S/H_T)`. Where `H_T` is the expected heterozygocity of the entire population and `H_S` is the mean expected heterozygocity across subpopulations.
 Using `d2` from above you can calculate `H_S` as `H_S=mean(2*pS*qS)` and `H_T=2*mean(pS)*mean(qS)`.
 
