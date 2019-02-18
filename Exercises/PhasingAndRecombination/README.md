@@ -142,6 +142,7 @@ This produces a file called `res.txt` that describes the confidence in the estim
 In order to have the positions of the loci for which we have estimated mean recombination rates, we will merge the new dataset created with one that contains the positions for each loci, which are:
 
 /home/Data/afr_pos_NR.txt 
+
 /home/Data/we_pos_NR.txt 
 
 For Africa and West-Eurasia, respectively.
