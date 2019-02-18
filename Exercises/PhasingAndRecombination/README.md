@@ -30,22 +30,14 @@ West Eurasia
 
 ## Browsing the phased results
 
-Download the phased VCF file:
-
-    scp -P 8922 user_name@185.45.23.197:Allvariants_africa_phased.vcf.gz dir_on_your_computer
-
-or 
-
-    scp -P 8922 user_name@185.45.23.197:Allvariants_westeurasia_phased.vcf.gz dir_on_your_computer
-
-Open the file in IGV (integrative genomics viewer): 
+Download the phased VCF files to your computer and open them in IGV (integrative genomics viewer): 
     
 1. Choose Human hg19 as the reference genome.
 2. Click `File > Load from File...` and select you phased VCF file.
 
 Explore phases of haplotypes at two positions in the alignment:
 
-Zoom all the way in and select find the base at position 136608646. Select that base in a European individual (ERR1025620 is English). Group alignments by genotype (right-click on the base in the alignment tracks to get a popup menu). Consider these questions:
+Select chr2, zoom all the way in and select find the base at position 136608646. Select that base in a European individual (ERR1025620 is English). Sort alignments by genotype (right-click on the base in the alignment tracks to get a popup menu). Consider these questions:
 
 1. What does the haplotypes look like?
 2. Do you see any long streches of homozygosity?
@@ -80,13 +72,13 @@ How do you think the information is encoded in these files?
 
 ## Running LDhat
 
-To speed up computations you can make a lookup table first. That takes a while, so I did if for you. But it is done like this using the `complete` program that comes with LDhat:
+To speed up computations you can make a lookup table first. That takes a while, so I did if for you. But it is done using the `complete` program that comes with LDhat:
 
-    /usr/local/bin/complete -n 20 -rhomax 100 -n_pts 101 -theta 0.001
+    /usr/local/bin/complete -n 20 -rhomax 100 -n_pts 101 -theta 0.0001
 
-- `-n 56`:the number of haplotypes (2 * 10).
-- `-rhomax 100`: maximum rho ($4N_e r$) alowed.
-- `-n_pts 101`: number of points in grid: 101 (recommended)
+- `-n 20`:the number of haplotypes (2 * 10).
+- `-rhomax 100`: maximum rho ($4N_e r$) alowed: 100 (recommended).
+- `-n_pts 101`: number of points in grid: 101 (recommended).
 - `-theta 0.0001`: human theta ($4N_e \mu$).
 
 That produces a file named `new_lk.txt` that I renamed to `lk_n20_theta1e-3.txt`. 
@@ -99,7 +91,7 @@ Africa:
 
 *or* West Eurasia:
 
-    rhomap -seq recmap_data_westeurasia.ldhat.sites -loc recmap_data_africa.ldhat.locs -lk /home/shared/data/lk_n20_theta1e-3.txt -its 100000 -samp 2000 -burn 0
+    rhomap -seq recmap_data_westeurasia.ldhat.sites -loc recmap_data_africa.ldhat.locs -lk /home/shared/data/lk_n20_theta1e-3.txt -its 1000000 -samp 2000 -burn 0
 
 - `-lk`: likelihood lookup table.
 - `-its`: number of iterations of the MCMC chain.
@@ -109,10 +101,10 @@ Africa:
 When rhomap completes it writes three files:
 
 - `acceptance_rates.txt`: acceptance rates of the MCMC. If they are lower than 1%. The program should be run with more iterations.
-- `summary.txt`: summary of the recombination rates estimated.
+- `summary.txt`: (quoting the manual) for each SNP interval, the estimated genetic map position, the estimated recombination rate, and the hotspot density (the number of hotspots per kb per iteration).
 - `rates.txt`: (quoting the manual) is the output from each sample detailing the recombination rate (expressed in $4N_e r$ per kb) between each SNP. summary.txt contains a summary of the samples from the chain detailing, for each SNP interval, the estimated genetic map position, the estimated recombination rate, and the hotspot density (the number of hotspots per kb per iteration). The rates.txt file can be summarized by use of the program stat.
 
-Rename the `rates.txt` to `rates_africa.txt` or `rates_westeurasia.txzt` depending on which analysis you do. E.g.:
+Rename the `rates.txt` to `rates_africa.txt` or `rates_westeurasia.txt` depending on which analysis you do. E.g.:
 
         mv rates.txt rates_africa.txt
 
@@ -133,19 +125,32 @@ That loads a lot of R functions written by the author of LDhat.
 Now run this code (if you analyze west eurasians you need to change the arguments accordingly):
 
 ```R
-summary<-summarise.rhomap(rates.file = "rates_africa_.txt", locs.file="recmap_data_africa.ldhat.locs")
+summary<-summarise.rhomap(rates.file = "rates_africa.txt", locs.file="recmap_data_africa.ldhat.locs")
 ```
 
 The summary produces two plots:
 
-- A graph of the recombination rate across the sequence, along with confidence intervals.
-- A plot showing how estimation of recombination rate has progressed with each MCMC sample. Notice that the initial run of MCMC samples are atypical. This is the "burn-in" of the MCMC. We want to remove that, so take notice of how many samples it corresponds to. If it is 50 they we can produce a new set of estimates that excludes this burn-in using the `stat` program that comes with LDhat:
+- A graph of the recombination rate across on each polymorphic loci, along with confidence intervals.
+- A plot showing how estimation of recombination rate has progressed with each MCMC sample (taken every 2000 updates). Notice that the initial run of MCMC samples are atypical. This is the "burn-in" of the MCMC. We want to remove that, so take notice of how many samples it corresponds to. If it is 50 they we can produce a new set of estimates that excludes this burn-in using the `stat` program that comes with LDhat:
 
         /usr/local/bin/stat -input rates_africa.txt -loc recmap_data.ldhat.locs -burn 50
 
-This produces a file called `res.txt` that describes the confidence in the estimated recombination rate along the sequence. Rename the `res.txt` to `res_africa.txt` or `res_westeurasia.txzt` depending on which analysis you do. E.g.:
+This produces a file called `res.txt` that describes the confidence in the estimated recombination rate along the sequence. Rename the `res.txt` to `res_africa.txt` or `res_westeurasia.txt` depending on which analysis you do. E.g.:
 
         mv res.txt res_africa.txt
+
+In order to have the positions of the loci for which we have estimated mean recombination rates, we will merge the new dataset created with one that contains the positions for each loci, which are:
+
+/home/Data/afr_pos_NR.txt 
+/home/Data/we_pos_NR.txt 
+
+For Africa and West-Eurasia, respectively.
+
+If you are curious, these files were generated by simply doing:
+
+```bash
+less -S Allvariants_africa_phased.vcf.gz |grep -v "#"|awk 'BEGIN{OFS="\t"; print "pos","nr"}{OFS="\t";print $2,NR}' > afr_pos_NR.txt
+```
 
 Now try to plot the final results (if you analyze West Eurasians you must read `res_westeurasia.txt`):
 
@@ -156,9 +161,10 @@ library(tidyr)
 library(magrittr)
 
 rates <- read.table('res_africa.txt', header = T)
-rates %>%
-    # filter(Loci > 140000.000, Loci < 142000.000) %>%
-    ggplot(aes(x=Loci, y=Mean_rho, ymin=L95, ymax=U95)) +  
+pos <- read.table("afr_pos_NR.txt", header=T)
+d <- merge(rates, pos, by.x="Loci", by.y="nr")
+d %>%
+        ggplot(aes(x=pos, y=Mean_rho, ymin=L95, ymax=U95)) +  
         geom_line(color='blue') +
         geom_ribbon(alpha=0.1) +
         theme_bw()
