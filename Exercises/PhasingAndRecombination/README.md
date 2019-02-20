@@ -44,7 +44,7 @@ Select chr2, zoom all the way in and select find the base at position 136608646.
 3. Which haplotypes agree?
 4. How wide is the region where they agree?
 
-The SNP at position 136608646 is called rs4988235. Try to search for 136608646 in the [UCSC genome browser](https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redirect=manual&source=genome.ucsc.edu). Can you find anything that explains your observations?
+The SNP at position 136608646. Try to search for 136608646 in the [UCSC genome browser](https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redirect=manual&source=genome.ucsc.edu). Can you find anything that explains your observations?
 
 # Estimating a recombination map
 
