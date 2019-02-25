@@ -114,3 +114,4 @@ g
 
 ```
 
+Now that you are more familiar with PSCM, revisit the Figure 2 of the Mallick et al (2016) about the The Simons Genome Diversity Project. What conclusions do they draw from running PSMC? What are the conclusions drawn from running the related MSMC?
