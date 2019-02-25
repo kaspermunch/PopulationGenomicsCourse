@@ -120,7 +120,7 @@ each eigenvector:
 ![](img/unnamed-chunk-3-1.png)
 
 **Q.2** How many PC's do we need in order to explain 50% of the variance
-of the data? Can you make an accumulative plot of the variance explained
+of the data? Can you make a cumulative plot of the variance explained
 PC?
 
 Now, let's plot the two first PC's and color the datapoints by the
