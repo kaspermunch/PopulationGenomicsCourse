@@ -15,10 +15,15 @@ and do the PCA. If you want to explore a bit more on the functionality
 of the package access
 [here](https://www.rdocumentation.org/packages/SNPRelate/versions/1.6.4).
 
-In this first of the exercise please download the vcf file
-(Allvariants\_135\_145\_chr2.vcf) and the metadata placed in the
-cluster: `/home/shared/PCA_admixture_data`
+In this first of the exercise please download these files in your local machine:
+```bash
+/home/shared/PCA_admixture_data/Allvariants_135_145_chr2.vcf
+/home/Data/Sample_meta_data.csv
+```
 
+Then, open Rstudio and use the following code:
+
+```R
     # Dependencies
     source("http://bioconductor.org/biocLite.R")
     biocLite("SNPRelate")
@@ -68,8 +73,8 @@ cluster: `/home/shared/PCA_admixture_data`
     ## PCA: the sum of all selected genotypes (0, 1 and 2) = 2250084
     ## Wed Feb 28 12:35:41 2018    (internal increment: 27760)
     ## 
-    [..................................................]  0%, ETC: ---    
-    [==================================================] 100%, completed      
+    ## [..................................................]  0%, ETC: ---    
+    ## [==================================================] 100%, completed      
     ## Wed Feb 28 12:35:41 2018    Begin (eigenvalues and eigenvectors)
     ## Wed Feb 28 12:35:41 2018    Done.
 
@@ -85,9 +90,13 @@ cluster: `/home/shared/PCA_admixture_data`
     ## Bayesian      1  -none- logical  
     ## genmat        0  -none- NULL
 
+```
+
 **Q.1** How many individuals and snps does this dataset have? What is an
 eigenvector and an eigenvalue? Hint: Have a look at page 180 of HEG.
 
+
+```R
     eigenvectors = as.data.frame(pca$eigenvect)
     colnames(eigenvectors) = as.vector(sprintf("PC%s", seq(1:nrow(pca$eigenvect))))
     pca$sample.id = sub("_chr2_piece_dedup", "", pca$sample.id)
@@ -95,14 +104,18 @@ eigenvector and an eigenvalue? Hint: Have a look at page 180 of HEG.
     # Matching the sample names with their origin and population
     eigenvectors$region = info[match(pca$sample.id, info$ENA.RUN),]$region 
     eigenvectors$population = info[match(pca$sample.id, info$ENA.RUN),]$population
+```
 
 Let's first look at how much of the variance of the data is explained by
 each eigenvector:
 
+
+```R
     # Variance proportion:
     pca_percent <- pca$varprop*100
 
     qplot(y = pca_percent, x = seq(1, length(pca$eigenval))) + geom_line() + geom_point() + theme_bw() + xlab("PC's") + ylab("Variance explained (%)") 
+```
 
 ![](img/unnamed-chunk-3-1.png)
 
@@ -113,10 +126,12 @@ PC?
 Now, let's plot the two first PC's and color the datapoints by the
 origin of each individual sample.
 
+```R
     ggplot(data = eigenvectors, aes(x = PC1, y = PC2, col = region)) + 
             geom_point(size=3,alpha=0.5) +
             scale_color_manual(values = c("#FF1BB3","#A7FF5B","#99554D")) +
             theme_bw()
+```
 
 ![](img/unnamed-chunk-4-1.png)
 
@@ -128,6 +143,7 @@ observe?
 
 Now we will implement LD prunning.
 
+```R
     set.seed(1000)
 
     # This function prune the snps with a thrshold of maximum 0.3 of LD
@@ -156,8 +172,8 @@ Now we will implement LD prunning.
     ## PCA: the sum of all selected genotypes (0, 1 and 2) = 29329
     ## Wed Feb 28 12:35:42 2018    (internal increment: 27760)
     ## 
-    [..................................................]  0%, ETC: ---    
-    [==================================================] 100%, completed      
+    ##[..................................................]  0%, ETC: ---    
+    ##[==================================================] 100%, completed      
     ## Wed Feb 28 12:35:42 2018    Begin (eigenvalues and eigenvectors)
     ## Wed Feb 28 12:35:42 2018    Done.
 
@@ -173,6 +189,7 @@ Now we will implement LD prunning.
             geom_point(size=3,alpha=0.5) +
             scale_color_manual(values = c("#FF1BB3","#A7FF5B","#99554D")) +
             theme_bw() + coord_flip()
+```
 
 ![](img/unnamed-chunk-5-1.png)
 
@@ -183,6 +200,7 @@ linked?
 Now we are going to convert this GDS file into a plink format, to be
 later used in the admixture exercise:
 
+```R
     snpgdsGDS2BED(genofile, "Allvariants_135_145_chr2_pruned.gds", sample.id=NULL, snp.id=snpset.id, snpfirstdim=NULL, verbose=TRUE)
 
     ## Converting from GDS to PLINK binary PED:
@@ -192,6 +210,7 @@ later used in the admixture exercise:
     ##      Wed Feb 28 12:35:43 2018    0%
     ##      Wed Feb 28 12:35:43 2018    100%
     ## Done.
+```
 
 Upload the 3 files produced by this last code
 (**Allvariants\_135\_145\_chr2\_pruned.gds.bed**,
@@ -211,7 +230,9 @@ Now with adjusted format and pruned snps, we are ready to run the
 admixture analysis. We believe that our individuals are derived from
 three ancestral populations:
 
+```bash
     ../shared/PCA_admixture_data/admixture_linux-1.3.0/admixture Allvariants_135_145_chr2_pruned.gds.bed 3
+```
 
 **Q.5** Have a look at the Fst across populations, that is printed in
 the terminal. Would you guess which populations are Pop0, Pop1 and Pop2
@@ -227,24 +248,32 @@ Sometimes we may have no priori about K, one good way of choosing the
 best K is by doing a cross-validation procedure impletemented in
 admixture as follow:
 
+```bash
     for K in 1 2 3 4 5; \
       do ../shared/PCA_admixture_data/admixture_linux-1.3.0/admixture --cv Allvariants_135_145_chr2_pruned.gds.bed $K | tee log${K}.out; done
-
+```
+      
 Have a look at the Cross Validation error of each K:
 
+```bash
     grep -h CV log*.out
+```
 
 Save it in a text file:
 
+```bash
     grep -h CV log*.out > CV_logs.txt
+```
 
 Look at the distribution of CV error. You can download your file to your
 own computer or run it in the cluster.
 
+```R
     CV = read.table('CV_logs.txt')
     p <- ggplot(data = CV, aes(x = V3, y = V4, group = 1)) + geom_line() + geom_point() + theme_bw() + labs(x = 'Number of clusters', y = 'Cross validation error')
 
     p
+```
 
 ![](img/unnamed-chunk-11-1.png)
 
@@ -255,6 +284,7 @@ graph, what is the best K?
 
 Plotting the Q estimates. Choose the K that makes more sense to you.
 
+```R
     tbl = read.table("Allvariants_135_145_chr2_pruned.gds.3.Q")
     ord = tbl[order(tbl$V1,tbl$V2,tbl$V3),]
     bp = barplot(t(as.matrix(ord)), 
@@ -263,6 +293,7 @@ Plotting the Q estimates. Choose the K that makes more sense to you.
                   xlab="Individual #", 
                   ylab="Ancestry",
                   border=NA)
+```
 
 ![](img/unnamed-chunk-12-1.png)
 
