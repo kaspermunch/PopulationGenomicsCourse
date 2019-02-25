@@ -288,11 +288,12 @@ Plotting the Q estimates. Choose the K that makes more sense to you.
     tbl = read.table("Allvariants_135_145_chr2_pruned.gds.3.Q")
     ord = tbl[order(tbl$V1,tbl$V2,tbl$V3),]
     bp = barplot(t(as.matrix(ord)), 
-                  space = c(0.2),
-                  col=rainbow(3),
-                  xlab="Individual #", 
-                  ylab="Ancestry",
-                  border=NA)
+             space = c(0.2),
+             col=rainbow(3),
+             xlab="Individual #", 
+             ylab="Ancestry",
+             border=NA,
+             las=2)
 ```
 
 ![](img/unnamed-chunk-12-1.png)
