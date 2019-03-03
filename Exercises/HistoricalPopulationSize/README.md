@@ -6,9 +6,9 @@ For additional detail on how to run PSMC see the [GitHub page](https://github.co
 
 The bam files and reference genome necessary to run the following scripts can be found at: `/home/Data'.
 
-The method you used for base calling in an earlier exercise is state of the art. Unfortunately, to produce the input data for PSMC we cannot just use the base calls or VCF files that we already produced. The first reason is that PSMC required more data than the 10Mb of chromosome 2 that you called bases on. The second reason is that the way you did your base calls do not let us easily produce input data for PSMC. The method that allows this is a little dated but is good enough for this special purpose. 
+The method you used for base calling in an earlier exercise is state of the art. Unfortunately, to produce the input data for PSMC we cannot just use the base calls or VCF files that we already produced. The first reason is that PSMC required more data than the 10Mb of chromosome 2 that you called bases on. The second reason is that the way you did your base calls do not let us easily produce input data for PSMC. 
 
-So we need to take step back and start from the BAM files and map the reads to the reference genome to make so-called consensus base calls.
+So we need to take step back and start from the BAM files and map the reads to the reference genome to make consensus base calls.
 
 The example individual used below is a Hungarian indivisual with id ERR1025630. You can replace that to run the same analysis on another individual.
 
@@ -114,4 +114,4 @@ g
 
 ```
 
-Now that you are more familiar with PSCM, revisit the Figure 2 of the Mallick et al (2016) about the The Simons Genome Diversity Project. What conclusions do they draw from running PSMC? What are the conclusions drawn from running the related MSMC?
+Now that you are more familiar with PSCM, revisit the Figure 2 of the Mallick et al (2016) about the The Simons Genome Diversity Project. What conclusions do they draw from running PSMC? What are the conclusions were drawn from running the related MSMC?
