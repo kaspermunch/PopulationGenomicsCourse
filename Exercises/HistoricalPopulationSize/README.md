@@ -1,6 +1,6 @@
 # Inferring historical populations sizes using PSMC
 
-The Pairwise Sequentially Markovian Coalescent (PSMC) model uses information in the complete diploid sequence of a single individual to infer the history of population size changes. The method was published in 2011 ([Li and Durbin 2011](https://www.nature.com/articles/nature10231)) in the paper that you had discussed in class. It has become a very popular tool in the world of genomics. In this exercise, we first walk through the steps to generate the necessary input data for PSMC. Then we run PSMC on chromosome 2 of an individual from the Simons Diversity Panel and plot the results.
+The Pairwise Sequentially Markovian Coalescent (PSMC) model uses information in the complete diploid sequence of a single individual to infer the history of population size changes. The method was published in 2011 ([Li and Durbin 2011](https://www.nature.com/articles/nature10231)) in the paper that you discussed in class. It has become a very popular tool in the world of genomics. In this exercise, we first walk through the steps to generate the necessary input data for PSMC. Then we run PSMC on chromosome 2 of an individual from the Simons Diversity Panel and plot the results.
 
 For additional detail on how to run PSMC see the [GitHub page](https://github.com/lh3/psmc) for PSMC source code.
 
