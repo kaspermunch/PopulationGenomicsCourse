@@ -66,7 +66,7 @@ The `-u` option specifies the per year mutation rate and the `-g` the generation
 
 Does the plot resemble the ones in Li and Durbin. We used a different (more correct) mutation rate than Li et al.. What do you think that does to the plot?
 
-## Repeat the analysis on two individuals from other regions of the world
+## Compare individuals from other regions of the world
 
 Now compare individuals from different regions. You cna find all individuals at:
 
