@@ -71,7 +71,7 @@ Does the plot resemble the ones in Li and Durbin. We used a different (more corr
 Now compare individuals from different regions. You can find all individuals at:
 
 ```bash
-/home/data/consensus_files/PSMC
+/home/Data/consensus_files/PSMC
 ```
 
 Do they look different? If so, what do you think could explain this?
