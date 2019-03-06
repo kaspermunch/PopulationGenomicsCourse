@@ -68,9 +68,13 @@ Does the plot resemble the ones in Li and Durbin. We used a different (more corr
 
 ## Repeat the analysis on two individuals from other regions of the world
 
-Now redo the analysis (remember that you can just read the fast files from `/home/Data/consensus_files/`) so that you have a plot for both a European, an Asian and an African. Coordinate your work so you do all individuals between all of you.
+Now compare individuals from different regions. You cna find all individuals at:
 
-Do the plots for your three individuals look different? If so, what do you think could explain this?
+```bash
+/home/data/consensus_files/PSMC
+```
+
+Do they look different? If so, what do you think could explain this?
 
 Try to make a plot that show all your results together. Try out the code below:
 
