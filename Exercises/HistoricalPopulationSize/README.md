@@ -110,8 +110,8 @@ library(ggplot2)
 g <- ggplot(df3, aes(x=Years, y=Effective_pop_size, color="NCL-08")) + geom_line(aes(color=type), size=1.5) + 
   theme_bw() + 
   labs(x= expression(paste("Years (g=25, ", mu, "=2,5*", 10^-8,")")), y=expression(paste("Effective population size (x", 10^-8, ")")), title='Results of PSMC') +
-  scale_x_log10(breaks=c(1000, 10000, 100000, 1000000),
-                minor_breaks=c(500, 5000, 50000, 500000))
+  scale_x_log10(breaks=c(1000, 10000, 100000, 1000000), minor_breaks=c(500, 5000, 50000, 500000)) +
+  scale_y_continuous(limits = c(0,3))
 g
 
 ```
