@@ -18,6 +18,12 @@ You will have data from the following populations:
 
 The data consists of **24198** SNPs from the region 73-81 Mb on the X chromosome and there is no missing data. The haplotype data for each population is found in separate files (**genotypes360\_400\_.**), whereas they use a common SNP identity file **snps360\_400\_filtered.snp**.
 
+You can find these files at:
+
+```bash
+/home/Data/
+```
+
 Package
 -------
 
