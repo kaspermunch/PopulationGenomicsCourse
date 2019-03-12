@@ -67,24 +67,6 @@ hap360_400_AF <-data2haplohh(hap_file="genotypes360_400_AF",map_file="snps360_40
     ## No SNP discarded
     ## Data consists of 26 haplotypes and 24198 SNPs
 
-``` r
-hap360_400_WE <-data2haplohh(hap_file="genotypes360_400_WE",map_file="snps360_400_filtered",
-                             recode.allele=TRUE,
-                             min_perc_geno.snp=100,
-                             min_perc_geno.hap=80,
-                             haplotype.in.columns=TRUE, chr.name=1)
-```
-
-    ## Map file seems OK: 24198  SNPs declared for chromosome 1 
-    ## Haplotype are in columns with no header
-    ## Alleles are being recoded according to map file as:
-    ##  0 (missing data), 1 (ancestral allele) or 2 (derived allele)
-    ## Discard Haplotype with less than  80 % of genotyped SNPs
-    ## No haplotype discarded
-    ## Discard SNPs genotyped on less than  100 % of haplotypes
-    ## No SNP discarded
-    ## Data consists of 44 haplotypes and 24198 SNPs
-
 #### Q1. How many haplotypes and snps are found in each population?
 
 Scan the region using iHS, Rsb and XP-EHH
