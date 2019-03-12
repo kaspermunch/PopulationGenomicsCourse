@@ -66,11 +66,6 @@ hap360_400_AF <-data2haplohh(hap_file="genotypes360_400_AF",map_file="snps360_40
     ## Discard SNPs genotyped on less than  100 % of haplotypes
     ## No SNP discarded
     ## Data consists of 26 haplotypes and 24198 SNPs
-    
-```r
-res.scanAF %>% ggplot() +
-  geom_histogram(aes(x=freq_A))
-```
 
 ``` r
 hap360_400_WE <-data2haplohh(hap_file="genotypes360_400_WE",map_file="snps360_400_filtered",
@@ -123,6 +118,11 @@ head(res.scanAF)
     ## X:X_73264603                    NA
     ## X:X_73265256                    NA
     ## X:X_73266095                    NA
+    
+```r
+res.scanAF %>% ggplot() +
+  geom_histogram(aes(x=freq_A))
+```
 
 #### Q3. For what reason do they standardize iHS measure?
 
