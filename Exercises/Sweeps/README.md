@@ -54,7 +54,7 @@ hap360_400_AF <-data2haplohh(hap_file="genotypes360_400_AF",map_file="snps360_40
                              min_perc_geno.snp=100,
                              min_perc_geno.hap=80,
                              haplotype.in.columns=TRUE,
-                             chr.name=1)
+                             chr.name=X)
 ```
 
     ## Map file seems OK: 24198  SNPs declared for chromosome 1 
