@@ -119,7 +119,7 @@ head(res.scanAF)
     ## X:X_73265256                    NA
     ## X:X_73266095                    NA
 
-#### Q3. How is the standardized iHH calculated? For what reason do they standardize iHS measure?
+#### Q3. For what reason do they standardize iHS measure?
 
 ``` r
 # Scanning each population at time:
