@@ -151,12 +151,14 @@ Zooming in interesting markers
 
 From the scan you can find SNPs that give extreme values of iEHS or of XPEHH for a set of populations. You can then analyse the haplotype structure around them. This is done by including the index position of the interested marker in the functions `calc_ehhs` and `bifurcation.diagram`.
 
+Try to plot markers that show outlier values in the above statistics and compare populations. Hint: use which.max() and which.min() (especially when using XPEHH or Rsb). Select a SNP that shows some interesting results.
+
 ``` r
-#For African Western Europe the most significant marker is 4901
-a = calc_ehhs(hap360_400_WE, mrk=4901)
+#If x is the index of an outlier marker
+a = calc_ehhs(hap360_400_WE, mrk=x)
 
 layout(matrix(1:2,2,1))
-diag = bifurcation.diagram(hap360_400_WE,mrk_foc=4901,
+diag = bifurcation.diagram(hap360_400_WE,mrk_foc=x,
                     all_foc=1,nmrk_l=200,
                     nmrk_r=200, 
                     refsize = 0.8,
