@@ -96,8 +96,6 @@ You should first perform a scan for each of the regions for extreme values of **
 
 Hint: Allele frequencies are calculated and stored as part of the dataframe resulted from scan\_hh. Use (par mfrow) function to combibe the 4 different population plots. Once you have obtained the data\_frame produced by `scan_hh` you can compute the standardized iHS (iHH), as described in [Voight et al. (2006)](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.0040072).
 
-#### Q3. How is the standardized iHH calculated? For what reason do they standardize iHS measure?
-
 ``` r
 # Producing the required input dataframe:
 res.scanAF<-scan_hh(hap360_400_AF)
@@ -120,6 +118,8 @@ head(res.scanAF)
     ## X:X_73264603                    NA
     ## X:X_73265256                    NA
     ## X:X_73266095                    NA
+
+#### Q3. How is the standardized iHH calculated? For what reason do they standardize iHS measure?
 
 ``` r
 # Scanning each population at time:
