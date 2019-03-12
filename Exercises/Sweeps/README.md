@@ -36,7 +36,7 @@ The package requires 2 inputs:
 Analysis
 --------
 
-You will perform a genome wide scan and then focus on candidate SNPs. The package that you will be using on these analysis is `rehh`. And the vignette of the package can be found at blackboard or [here](https://cran.r-project.org/web/packages/rehh/vignettes/rehh.pdf). Please have a look at the document and get familiarized with the functions of the package.
+You will perform a genome wide scan and then focus on candidate SNPs. The package that you will be using on these analysis is `rehh`. The manual of the package can be found [here](https://cran.r-project.org/web/packages/rehh/rehh.pdf). 
 
 ### Reading in data in REHH format
 
