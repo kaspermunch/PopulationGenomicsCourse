@@ -116,7 +116,7 @@ wg.ihsAF<-ihh2ihs(res.scanAF, freqbin = 0.05)
 ihsplot(wg.ihsAF, plot.pval = TRUE)
 ```
 
-#### Q4. Do you find outliers with significant iHS?
+#### Q4. Do you find outliers?
 
 If so, record the SNP positions of the most significant SNPs for later analysis, using e.g. which.max() or which.min().
 
