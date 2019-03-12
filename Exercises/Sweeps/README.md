@@ -167,4 +167,4 @@ diag = bifurcation.diagram(hap360_400_WE,mrk_foc=x,
 
 #### Q6. What is the biological function of the region around this snp?
 
-Have a look at [NCBI](ncbi.nlm.nih.gov) and remember that this dataset belongs to chromosome X and [HG19](https://www.ncbi.nlm.nih.gov/assembly/GCF_000001405.13/) as reference.
+Have a look at UCSC Genome Browser and remember that this dataset belongs to chromosome X and Hg19 as reference assembly.
