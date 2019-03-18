@@ -6,8 +6,6 @@ provided by Laurits Skov, the author of the paper you discussed on Monday. He ha
 using his method in a large number of individuals from the Simons genome
 diversity project and from the 1000 genomes project, paper
 [here](https://www.biorxiv.org/content/early/2018/03/16/283606.full.pdf).
-We will introduce you to the data format and then you should aim to
-answer some of the questions that we pose below.
 
 ``` r
 archaic_df = read.table('~/Dropbox/PG2018/exercises/archaic_segments/ArchaicSegments.txt',
