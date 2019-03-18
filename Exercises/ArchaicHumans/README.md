@@ -2,20 +2,12 @@ Detecting archaic ancestry in modern humans
 -------------------------------------------
 
 The dataset you will be working in this exercise section was kindly
-provided by Laurits (Postdoc here at BiRC) and he is also the author of
-one of the papers you have be reading. He has called archaic fragments
+provided by Laurits Skov, the author of the paper you discussed on Monday. He has called archaic fragments
 using his method in a large number of individuals from the Simons genome
 diversity project and from the 1000 genomes project, paper
 [here](https://www.biorxiv.org/content/early/2018/03/16/283606.full.pdf).
 We will introduce you to the data format and then you should aim to
 answer some of the questions that we pose below.
-
-In this exercise we will be asked to do a lot of data manipulation. One
-way of doing it is through the package `dplyr`. If you have any doubts
-about how to execute a specific task, do not be afraid to google it!
-[Here](https://www3.nd.edu/~steve/computing_with_data/24_dplyr/dplyr.html)
-you can find some examples on how to use it. The package `ggplot` will
-also help you to quickily visualize your results.
 
 ``` r
 archaic_df = read.table('~/Dropbox/PG2018/exercises/archaic_segments/ArchaicSegments.txt',
