@@ -7,8 +7,15 @@ using his method in a large number of individuals from the Simons genome
 diversity project and from the 1000 genomes project, paper
 [here](https://www.biorxiv.org/content/early/2018/03/16/283606.full.pdf).
 
+The path to the dataset is the following:
+
+```bash
+  /home/Data/ArchaicSegments.txt
+ ```
+Transfer it from the cluster to your local machine and use Rstudio for the rest of the exercise. Here is an example of the code you can use to answer the first set of questions. 
+
 ``` r
-archaic_df = read.table('~/Dropbox/PG2018/exercises/archaic_segments/ArchaicSegments.txt',
+archaic_df = read.table('ArchaicSegments.txt',
     sep='\t', header = T)
 
 # How many individuals do we have?
