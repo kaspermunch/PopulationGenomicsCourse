@@ -135,7 +135,7 @@ along the genome.
 
 ##### Q4. Combine the Neanderthal fragments for all individuals and plot all the fragments on top of each other along chromosomes (hint use geom_segment() and alpha = 0.02). Can you find “deserts” of archaic admixture and/or evidence for places where Neanderthal or Denisova ancestry has reached very high frequency?
 
-##### Q6. Do you find regions that are devoid of introgression for both the Neanderthal and the Denisovan admixture events? You can also look at specific genes, like EPAS1, TLR or FOXP2.
+##### Q6. Do you find regions that are devoid of introgression for both the Neanderthal and the Denisovan admixture events?
 
 
 
