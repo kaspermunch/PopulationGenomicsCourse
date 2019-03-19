@@ -81,13 +81,13 @@ The lengths of Archaic fragments
 
 The lengths of the fragments are given by the length variable and is
 regarding the segments that appear to have too many SNPs after the
-African SNPs have been filtered away (see Laurits’ method). You will
+African SNPs have been filtered away. You will
 first look at these before classifying them into their most likely
 archaic origin
 
 ##### Q1. Find the total lengths of Arcahic fragments in each individual.
 
-##### Q2. Summarise the total length per population and per region.
+##### Q2. Get the mean total proportion of archaic fragments on the individuals of a given population.
 
 ##### Q3. Which population has most archaic ancestry? Why?
 
@@ -97,38 +97,22 @@ archaic origin
 
 ##### Q6. What can cause different mean fragment lengths?
 
-##### Q7. If you have a recombination rate of 1cM per Megabase, how many generations do your average fragment length for the different regions then correspond to? How many years is that if generation time=30 years.
-
-##### Optional question: Combining all individuals, how large a fraction of the genome contains archaic segments?
-
 The origin of archaic fragments
 -------------------------------
 
-Following the Cell paper method you can assign individuals fragments to
-archaic origin using the number of SNPs they share with Denisovans,
-Altai Neanderthal and Vindija Neanderthal. Let us make it simple and say
-that you assign a fragment to the archaic species that its shares most
-SNPs with. If there are equally many SNPs shared then share the fragment
-between the two individuals. If there are no SNPs shared with any of the
-archaics then considewr the fragment unassigned.
+You can assign individuals fragments to archaic origin using the number of SNPs they share with Denisovans, Altai Neanderthal and Vindija Neanderthal. As a simple first approach, we can assign a fragment to the archaic species with whom shares more
+SNPs. If there are no SNPs shared with any of the archaics then considewr the fragment unassigned.
 
 ##### Q1. For each individual, assign the archaic segments to origin and reconstruct a Figure in the same style as Figure 5 of the Cell paper (plot below).
 
 ![](img/figure5_cell.png)
 
-##### Q2. What are major differences? What can explain these differences?
-
 ##### Q3. Summarize the results by averaging over region and plot these.
 
-##### Q4. How much of the Neanderthal genome (combining Vindija and Altai) and the Denisovan genomes can be reconstructed in total?
+##### Q4. Look at the proportion of Denisova SNPs in the individuals assigned closest to Denisova, stratified by region. What do you see?
 
-##### Q5. Can you find any evidence of the second Denisova in the East Asian genomes? (hint: compare the ratio of denisovans snps to total snps in the denisovan fragments).
+##### Q5. Determine the fragment length distribution of segments of Neanderthal, Denisova and Unassigned origin separately for each region. Compare the median of the distributions. Try applying some thresholds to the minimum number SNPs shared with the reference genomes.
 
-##### Q6. Determine the fragment length distribution of segment of Neanderthal and Denisova origin separately for each region. Compare the mean of the distributions.
-
-###### a. What can cause the differences you observe?
-
-###### b. How does this compare to the fragment size distribution of the fragments that could not be assigned to archaic origin (these are removed from the Cell paper analyses). Discuss reasons for the differences.
 
 Comparison of chromosomes
 -------------------------
@@ -140,10 +124,13 @@ along the genome.
 
 ##### Q2. Repeat this with assignment of archaic regions to archaic species.
 
-##### Q3. Combine the Neanderthal fragments for all individuals and plot all the fragments on top of each other (as proxy for the site frequency disitribution) along chromosomes (hint use alpha = 0.1). Can you find “deserts” of archaic admixture and/or evidence for places where Neanderthal ancestry has reached very high frequency?
+##### Q3. You will find that the X chromosome is an outlier (compared to a chromosome of a similar size - chr8). How and why?
 
-##### Q4. You will find that the X chromosome is an outlier (compare to a chormossome of a similar size - chr8). How and why?
+##### Q4. Combine the Neanderthal fragments for all individuals and plot all the fragments on top of each other along chromosomes (hint use geom_segment() and alpha = 0.02). Can you find “deserts” of archaic admixture and/or evidence for places where Neanderthal or Denisova ancestry has reached very high frequency?
 
-##### Q5. Repeat the analysis with Denisova fragments.
+##### Q6. Do you find regions that are devoid of introgression for both the Neanderthal and the Denisovan admixture events? You can also look at specific genes, like EPAS1, TLR or FOXP2.
 
-##### Q6. Do you find regions that are devoid of introgression for both the Neanderthal and the Denisovan admixture events?
+
+
+
+
