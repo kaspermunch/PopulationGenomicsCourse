@@ -114,11 +114,11 @@ SNPs. If there are no SNPs shared with any of the archaics then considewr the fr
 
 ![](img/figure5_cell.png)
 
-##### Q3. Summarize the results by averaging over region and plot these.
+##### Q2. Summarize the results by averaging over region and plot these.
 
-##### Q4. Look at the proportion of Denisova SNPs in the individuals assigned closest to Denisova, stratified by region. What do you see?
+##### Q3. Look at the proportion of Denisova SNPs in the individuals assigned closest to Denisova, stratified by region. What do you see?
 
-##### Q5. Determine the fragment length distribution of segments of Neanderthal, Denisova and Unassigned origin separately for each region. Compare the median of the distributions. Try applying some thresholds to the minimum number SNPs shared with the reference genomes.
+##### Q4. Determine the fragment length distribution of segments of Neanderthal, Denisova and Unassigned origin separately for each region. Compare the median of the distributions. Try applying some thresholds to the minimum number SNPs shared with the reference genomes.
 
 
 Comparison of chromosomes
