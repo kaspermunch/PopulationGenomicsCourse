@@ -96,7 +96,7 @@ archaic origin
 
 ##### Q2. Find the total lengths of Arcahic fragments in each population.
 
-##### Q3. Which population has most archaic ancestry? Why?
+##### Q3. Which population has longer fragment reads? Why?
 
 ##### Q4. What is the length distribution of fragments for the five different regions (hint: you can use facet\_grid to plot all at once).
 
