@@ -94,7 +94,7 @@ archaic origin
 
 ##### Q1. Find the total lengths of Arcahic fragments in each individual.
 
-##### Q2. Get the mean total proportion of archaic fragments on the individuals of a given population.
+##### Q2. Find the total lengths of Arcahic fragments in each population.
 
 ##### Q3. Which population has most archaic ancestry? Why?
 
