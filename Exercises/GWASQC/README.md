@@ -4,7 +4,7 @@ ___
 One of the most important aspects of a GWAS is to do thorough Quality control (QC) of the data before analysing it.
 
 ### Software:
-We will be using plink 1.9 which can be downloaded [here](https://www.cog-genomics.org/plink/1.9/). Plink is a comprehensive tool for handling and analyzing SNP data that can perform many different kinds of analyses. In the left side panel of the website you can see links to the documentation of the different plink data formats and functions.
+We will be using plink 1.9. Plink is a comprehensive tool for handling and analyzing SNP data that can perform many different kinds of analyses. Check the documentation [here](https://www.cog-genomics.org/plink/1.9/)
 If you want info about a specific command you can also use help command:
 ```
 plink --help <name_of_command>
@@ -13,7 +13,12 @@ We will also be using R and Rstudio to make plots and make simple calculations.
 
 ### Data:
 In this practical, we will go through the steps in performing quality control (QC) of genotype data from a simulated genome-wide association study of 1000 cases and 1000 controls, typed for 317,503 autosomal and X chromosome SNPs.
-The data set can be downloaded from blackboard.
+The data set can be found here:
+
+```bash
+
+```
+
 The practical is based on “Data quality control in genetic case-control association studies” (Anderson et al. 2010, Nature Protocols 5: 1564-73).
 
 ### Exercise contents:
