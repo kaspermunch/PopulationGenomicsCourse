@@ -39,7 +39,7 @@ Problematic samples can be removed by copying the family ID (FID) and individual
 ```
 plink --bfile GWA-data --remove wrong_sex.txt --make-bed --out GWA-data
 ```
-The `--out` option in plink specifies the prefix of the output files that plink generates. And when we use the --make-bed command with the same prefix as the input we are actually overwriting the input files. This is OK for these exercises (so we avoid using to much space on your machines) but on a “real” data set you might not want to do that.
+The `--out` option in plink specifies the prefix of the output files that plink generates. And when we use the --make-bed command with the same prefix as the input we are actually overwriting the input files. This is OK for these exercises, but on a “real” data set you might not want to do that.
 
 *2) Each time a plink command is run it writes a summary to a log file (the file name ends with `.log`). Look at the log file after removing the problematic individuals. How many cases and controls are left in the data set?*
 
