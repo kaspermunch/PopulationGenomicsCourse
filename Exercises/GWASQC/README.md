@@ -13,11 +13,8 @@ We will also be using R and Rstudio to make plots and make simple calculations.
 
 ### Data:
 In this practical, we will go through the steps in performing quality control (QC) of genotype data from a simulated genome-wide association study of 1000 cases and 1000 controls, typed for 317,503 autosomal and X chromosome SNPs.
-The data set can be found here:
 
-```bash
-
-```
+The data set can be found [here](https://drive.google.com/open?id=1XC-BF1ikrhoJ6JrklaJDjCijVMqfwmYe)
 
 The practical is based on “Data quality control in genetic case-control association studies” (Anderson et al. 2010, Nature Protocols 5: 1564-73).
 
