@@ -14,7 +14,16 @@ We will also be using R and Rstudio to make plots and make simple calculations.
 ### Data:
 In this practical, we will go through the steps in performing quality control (QC) of genotype data from a simulated genome-wide association study of 1000 cases and 1000 controls, typed for 317,503 autosomal and X chromosome SNPs.
 
-The data set can be found [here](https://drive.google.com/open?id=1XC-BF1ikrhoJ6JrklaJDjCijVMqfwmYe)
+The data set can be found:
+
+```bash
+/home/Data/GWAS_QC_data
+```
+Copy the folder to contents to your home, by something like this:
+
+```bash
+cp -r /home/Data/GWAS_QC_data/* ./
+```
 
 The practical is based on “Data quality control in genetic case-control association studies” (Anderson et al. 2010, Nature Protocols 5: 1564-73).
 
@@ -61,8 +70,11 @@ Het = (N(NM) − O(Hom))/N(NM)
 
 *4) Use R to make a file with the FID and IID of all individuals that have a genotype missing rate >=0.03 or a heterozygosity rate that is more than 3 s.d. from the mean. Then use plink to remove these individuals from the data set.*
 
+```bash
+plink --bfile GWA-data --remove wrong_het_missing_values.txt --make-bed --out GWA-data
+```
 ### Identification of duplicated or related individuals
-To identify duplicated or related individuals we will calculate the identity by descent (IBD) matrix. This works best if it is done on a set of non-correlated SNPs. So first we will “prune” the data and create a list of SNPs where no pair (within a given genomic interval) has an r2 value greater than a given threshold, typically chosen to be 0.2.  This can be done by the `indep-pairwise` command:
+To identify duplicated or related individuals we will calculate the identity by descent (IBD) matrix. This works best if it is done on a set of non-correlated SNPs. So first we will “prune” the data and create a list of SNPs where no pair (within a given genomic interval) has an r2 value greater than a given threshold, typically chosen to be 0.2.  This can be done by the `indep-pairwise` command, using 500kb as window size and 5 variants as step size:
 ```
 plink --bfile GWA-data --indep-pairwise 500kb 5 0.2 --out GWA-data
 ```
@@ -71,9 +83,9 @@ To calculate IBD between each pair of individuals, type the following command at
 ```
 plink --bfile GWA-data --extract GWA-data.prune.in --genome --min 0.185 --out GWA-data
 ```
-The `--min 0.185` option means that it will only print the calculated IBD if it is above 0.185. The PI_HAT value in column 10 of the output file will be a number between 0 and 1 saying how much of the genome the two individuals share (1 for identical twins, 0.5 for siblings etc.).
+The `--min 0.185` option means that it will only print the calculated IBD if it is above 0.185 (Mean between second-degree relatives:0.25 and third-degree relatives:0.125). The PI_HAT value in column 10 of the output file will be a number between 0 and 1 saying how much of the genome the two individuals share (1 for identical twins, 0.5 for siblings etc.). This command will produce a file called GWA-data.genome .
 
-*5) Remove a member from each of the pairs that are too closely related from the data set. To keep it simple you can just always remove the individual mentioned first.*
+*5) Remove a member from each of the pairs that are too closely related from the data set. To keep it simple you can just always remove the individual mentioned first. *
 
 ## SNP QC
 ### SNPs with an excessive missing data rate
