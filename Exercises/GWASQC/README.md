@@ -101,6 +101,6 @@ To remove low-quality SNPs, type the following command at the shell prompt:
 ```
 plink --bfile GWA-data --exclude fail-diffmiss-qc.txt --geno 0.05 --hwe 0.00001 --maf 0.01 --make-bed --out GWA-data
 ```
-In addition to removing SNPs identified with differential call rates between cases and controls, this command removes SNPs with call rate less than 5% with `--geno` option and deviation from HWE (p<1e-5) with the `--hwe` option. It also removes all SNPs with minor allele frequency less than a specified threshold using the `--maf` option.
+In addition to removing SNPs identified with differential call rates between cases and controls, this command removes SNPs with call rate less than 95% with `--geno` option and deviation from HWE (p<1e-5) with the `--hwe` option. It also removes all SNPs with minor allele frequency less than a specified threshold using the `--maf` option.
 
 *8) How many SNPs are left in the clean data set?*
