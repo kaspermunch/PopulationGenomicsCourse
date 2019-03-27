@@ -22,7 +22,7 @@ The data set can be found:
 Copy the folder to contents to your home, by something like this:
 
 ```bash
-cp -r /home/Data/GWAS_QC_data/* ./
+cp /home/Data/GWAS_QC_data/* ./
 ```
 
 The practical is based on “Data quality control in genetic case-control association studies” (Anderson et al. 2010, Nature Protocols 5: 1564-73).
