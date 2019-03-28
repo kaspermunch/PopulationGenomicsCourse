@@ -2,8 +2,8 @@
 
 ### Software:
 
-In this exercise we will be using GCTA. Unfortunately binaries for the newest version are only available for linux. If you are on a windows or mac you can download binaries for the old version 1.02. That version is slower and lacks many of the options available in the newer versions but it is sufficient to complete these exercises:
-http://cnsgenomics.com/software/gcta/download.html
+In this exercise we will be using GCTA. It can be downloaded here:
+http://cnsgenomics.com/software/gcta/#Download
 
 We will also be using plink 1.9 which can be downloaded here:
 https://www.cog-genomics.org/plink/1.9/
