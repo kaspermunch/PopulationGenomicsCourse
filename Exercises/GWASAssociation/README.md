@@ -1,7 +1,7 @@
 # Association testing using PLINK
 
 ### Software:
-We will be using plink 1.9 which can be downloaded [here](https://www.cog-genomics.org/plink/1.9/).
+We will be using plink 1.9, you cna see the documentation [here](https://www.cog-genomics.org/plink/1.9/).
 We will also be using R and Rstudio to make plots and make simple calculations.
 
 ### Data:
