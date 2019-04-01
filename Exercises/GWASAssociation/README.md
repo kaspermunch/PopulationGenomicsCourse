@@ -1,11 +1,16 @@
 # Association testing using PLINK
 
 ### Software:
-We will be using plink 1.9, you cna see the documentation [here](https://www.cog-genomics.org/plink/1.9/).
+We will be using plink 1.9, you can see the documentation [here](https://www.cog-genomics.org/plink/1.9/).
 We will also be using R and Rstudio to make plots and make simple calculations.
 
 ### Data:
-We will use a simulated date set of 47 cases and 41 controls. It is uploaded to Blackboard (Materials/week10).
+We will use a simulated date set of 47 cases and 41 controls. You can find it in:
+
+```bash
+/home/Data/GWAS_test
+```
+Copy the contents of the folder to your home.
 
 ### Exercise contents:
 In this practical, we will go through the steps of performing association tests in plink and adjusting for principle components.
@@ -13,14 +18,14 @@ In this practical, we will go through the steps of performing association tests 
 ### Test for association with disease status using a Fisher’s exact test
 To test for association between SNPs and disease status using an allelic Fisher’s exact test, type the following command at the shell prompt:
 ```
-plink --bfile gwa --fisher --out gwa
+plink --bfile GWAS_test --fisher --out GWAS_test
 ```
 *1) Take a look at the output file “gwa.assoc.fisher”. What is the p-value and location of the most significant variant?*
 
 *2) Is the most significant variant significant if you do Bonferroni correction?*
 
 ### Make plots
-We will use the R package “qqman” to make Manhattan plots and qq-plots. The package is available in CRAN so it can be installed using the “install.packages” commando. You can read in the association results and make a Manhattan plot by typing:
+We will use the R package “qqman” to make Manhattan plots and qq-plots. The package is available in CRAN so it can be installed using the “install.packages” command. You can read in the association results and make a Manhattan plot by typing:
 ```
 d <- read.table('gwa.assoc.fisher', head=T)
 manhattan(d)
@@ -34,14 +39,14 @@ qq(d$P)
 ```
 *4) Is there a general inflation of the test statistic?*
 
-### Genomic Control.
-The inflation factor, 𝝺 , can be calculated as the median chi-square value divided by 0.456. Given a p-value, p, the corresponding Chi-square can be calculated as:
+### Genomic Control.T
+The inflation factor (𝝺) can be calculated as the median of the Chi-squared statistics computed divided by the median of the Chi-squared distribution under the null. Given a p-value (p) the corresponding Chi-squared quantile can be calculated as:
 ```
 qchisq(p, df=1, lower.tail = F)
 ```
 *5) What is the inflation factor?*
 
-To do genomic control (to adjust for inflated test statistic) you divide the chi-square values with the inflation factor. To turn a chi-square value, q, into a p-value you use the “pchisq” function:
+To do genomic control (to adjust for inflated test statistic) you divide the Chi-squared values by the inflation factor. To turn a Chi-squared quantile (q) into a p-value you use the “pchisq” function:
 ```
 pchisq(q, df=1, lower.tail = F)
 ```
