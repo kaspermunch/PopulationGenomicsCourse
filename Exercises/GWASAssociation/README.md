@@ -79,5 +79,3 @@ The resulting file “plink.assoc.logistic” contains p-values for both the SNP
 *9) Create Manhattan plot and QQ-plot for the new results. Does the QQ-plot look better?*
 
 *10) What is the inflation factor now?*
-
-Hello 
