@@ -18,7 +18,7 @@ In this practical, we will go through the steps of performing association tests 
 ### Test for association with disease status using a Fisher’s exact test
 To test for association between SNPs and disease status using an allelic Fisher’s exact test, type the following command at the shell prompt:
 ```
-plink --bfile GWAS_test --fisher --out GWAS_test
+plink --bfile gwa --fisher --out gwa
 ```
 *1) Take a look at the output file “gwa.assoc.fisher”. What is the p-value and location of the most significant variant?*
 
