@@ -2,22 +2,24 @@
 
 ### Software:
 
-In this exercise we will be using GCTA. It can be downloaded here:
-http://cnsgenomics.com/software/gcta/#Download
-
-We will also be using plink 1.9 which can be downloaded here:
-https://www.cog-genomics.org/plink/1.9/
+In this exercise we will be using GCTA. You can see the documentation [here](
+http://cnsgenomics.com/software/gcta/#Download). We will be also using plink 1.9, you can see the documentation [here](https://www.cog-genomics.org/plink/1.9/).
 
 ### Exercise contents:
 
-We will estimate the amount of variance explained by the SNPs in a GWAS dataset.
+We will estimate the amount of variance explained by the SNPs in a GWAS dataset. You can find the data here:
+
+```bash
+/home/Data/GWAS_heritability
+```
+Copy the content of the directory to your home.
 
 ### Calculating the genetic relationship matrix
 
 We will use plink to calculate the genetic relationship matrix (GRM) since it is faster than gcta. At the shell prompt, type:
 
 ```
-plink --make-grm-bin --bfile gwa --out gwa
+plink --make-grm-gz --bfile gwa --out gwa
 ```
 
  This will save the genetic relationship matrix in the zipped file gwa.grm.gz. Try to read it into R:
@@ -33,7 +35,7 @@ d <- read.table(gzfile('gwa.grm.gz'))
 We can use gcta to estimate how much of the variance in the phenotype in gwa.phen is explained by the SNPs:
 
 ```
-./gcta --grm gwa --pheno gwa.phen --reml --out test
+gcta64 --grm gwa --pheno gwa.phen --reml --out test
 ```
 
 *2) How much of the phenotypic variance (Vp) is explained by the genetic variance (V(G))?*
@@ -46,4 +48,4 @@ The estimation of variance components can be used to answer questions about how 
 
  *4) How much of the phenotypic variance can be explained by the genetic variants on chromosome 6? (You can use the “--chr” flag in plink to build a GRM only using variants from a particular chromosome)*
 
-*5) Does chromosome 6 contribute more to the heritability than would be expected how many of the genetic variants in the data set are located on chr6? (you can use the genetic map in gwa.bim to see the location of the variants).*
+*5) Does chromosome 6 contribute more to the heritability than would be expected? How many of the genetic variants in the data set are located on chr 6? (you can use the genetic map in gwa.bim to see the location of the variants).*
