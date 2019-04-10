@@ -35,7 +35,7 @@ d <- read.table(gzfile('gwa.grm.gz'))
 We can use gcta to estimate how much of the variance in the phenotype in gwa.phen is explained by the SNPs:
 
 ```
-gcta64 --grm gwa --pheno gwa.phen --reml --out test
+gcta64 --grm-gz gwa --pheno gwa.phen --reml --out test
 ```
 
 *2) How much of the phenotypic variance (Vp) is explained by the genetic variance (V(G))?*
