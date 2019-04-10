@@ -108,7 +108,7 @@ The method called LD-score regression can be used to estimate heritability using
 
 ### How alike are non-African genomes in terms of how archaic segments are distributed?
 
-In this project you will be working with an extended version of the data set that you worked with in the admixture exercise. In this version you also have access to the positions of each archaic SNP in the introgressed segments. These are found in the column that before just contained the number of these SNPS in each segment.
+In this project you will be working with an extended version of the data set that you worked with in the admixture exercise. In this version you also have an addtional file with the positions of candidate archaic SNPs.
 
 In your project you must address the questions below, but you are also expected to expand the project to answer your own questions. How you do this is up to you. You do not need to answer them in the order they are listed. Make a project plan with a set of analyses that  will allow you to answer the questions. 
 
@@ -127,5 +127,7 @@ F. What is the total amount of admixture in the region around EPAS1 in each indi
 G Do individuals with large admixture totals have more correlated admixture patterns? Do individuals with large admixture totals *in the EPAS1 region* have more correlated admixture patterns *in the EPAS1 region*? Can you find any evidence of adaptive introgression?
 
 ### Data
+
+[Google Drive folder with data](https://drive.google.com/open?id=1lrRfFcoxpyVpXgOi4RYP2_vauM_-rRz_)
 
 A DropBox link uploaded on BlackBoard (./Materials/Week 12: Projects Materials)
