@@ -73,7 +73,7 @@ E. Perform any additional analysis of your own choice, such as (diversity along 
 
 ### Data
 
-A DropBox link uploaded on BlackBoard (./Materials/Week 12: Projects Materials)
+[Google drive folder with data](https://drive.google.com/open?id=1lrRfFcoxpyVpXgOi4RYP2_vauM_-rRz_)
 
 -----------------------------------------------------------------------------------------------
 
@@ -98,6 +98,8 @@ Try to see if the genes affecting BMI are enriched in specific Gene Ontologies o
 
 ### Estimating heritability
 The method called LD-score regression can be used to estimate heritability using summary statistics. The method is described in [this article](https://www.nature.com/articles/ng.3211). A description of how to use the software to estimate heritability can be found [here](https://github.com/bulik/ldsc/wiki/Heritability-and-Genetic-Correlation). The software can be downloaded [here](https://github.com/bulik/ldsc).
+
+[Google drive folder with data](https://drive.google.com/open?id=1gOzJAh-2lJsZSMqN92M4xLeTCMCGolVn)
 
 -----------------------------------------------------------------------------------------------
 
