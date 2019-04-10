@@ -129,5 +129,3 @@ G Do individuals with large admixture totals have more correlated admixture patt
 ### Data
 
 [Google Drive folder with data](https://drive.google.com/open?id=1lrRfFcoxpyVpXgOi4RYP2_vauM_-rRz_)
-
-A DropBox link uploaded on BlackBoard (./Materials/Week 12: Projects Materials)
