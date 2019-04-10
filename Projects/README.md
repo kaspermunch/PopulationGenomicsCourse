@@ -128,6 +128,18 @@ F. What is the total amount of admixture in the region around EPAS1 in each indi
 
 G Do individuals with large admixture totals have more correlated admixture patterns? Do individuals with large admixture totals *in the EPAS1 region* have more correlated admixture patterns *in the EPAS1 region*? Can you find any evidence of adaptive introgression?
 
+### Papers
+
+- [Analysis of Human Sequence Data Reveals Two
+Pulses of Archaic Denisovan Admixture](https://doi.org/10.1016/j.cell.2018.02.031)
+- [Detecting archaic introgression using an unadmixed outgroup](https://doi.org/10.1371/journal.pgen.1007641
+)
+- [Altitude adaptation in Tibetans caused by introgression of Denisovan-like DNA](https://doi.org/10.1038/nature13408)
+
 ### Data
 
 [Google Drive folder with data](https://drive.google.com/open?id=1lrRfFcoxpyVpXgOi4RYP2_vauM_-rRz_)
+
+- ArchaicSegments.txt: This files is formatted the same was as the one you used for the archiac admixture exercise.
+- SNP.txt: This file has all the non-African SNPs that remain after removing all SNPs found in (Subsaharan) Africa. Each SNP is found in any of the high coverage archaic genomes (Altai or Vindija Neanderthals or the Denisova) it is labelled as such. Otherwise it is labeled "human".
+
