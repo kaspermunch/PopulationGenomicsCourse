@@ -18,7 +18,7 @@ Three choices are given and you must choose one and produce the required:
 
 1. **Population Genetics on X-chromosome**
 
-2. **Analysis of GWAS summary statistics**
+2. **GWAS of eye color**
 
 3. **Exploring non-African archaic segments**
 
@@ -77,27 +77,36 @@ E. Perform any additional analysis of your own choice, such as (diversity along 
 
 -----------------------------------------------------------------------------------------------
 
-## Analysis of GWAS summary statistics
+## GWAS of eye color
 
 -----------------------------------------------------------------------------------------------
 
-### Summary statistics
+In this project you will be looking at GWAS data from [openSNP](https://opensnp.org), which is a web site where users of direct-to-customer genetic tests can share their personal data with other users. The phenotype we will be looking at is self-reported eye color. 
+When looking at the data you should have in mind that:
+- The data comes from different companies that use different chips so there are markers that are missing from some individuals because they were not present on the chip used by their company.
+- Many users have not reported their gender. By default plink will ignore the phenotype of these individuals unless you tell it not to.
 
-To protect the privacy of the participants in GWA studies the raw genotype data is usually not made public. It has, however, become the norm that studies will publish the summary statistics (p-value, effect size, frequency etc.) for all the variants they have tested. For this reason there are many new methods designed to do further analyses based on summary statistics. In this project you will analyse summary statistcs from a large meta-analysis of BMI and:
-- Do a per gene test and look for enriched gene sets.
-- Estimate the heritability of BMI.
+### Investigate the following
 
-### Data
-You can download summary statistics from a BMI study with ~700,000 individuals [here](http://portals.broadinstitute.org/collaboration/giant/images/6/63/Meta-analysis_Wood_et_al%2BUKBiobank_2018.txt.gz).
+A. Are there any closely related individuals in the sample?
 
-### Per gene test.
-The gcta tool that you used in the last GWAS exercise can calculate a per gene test based on summary statistics (see [here](http://gcta.freeforums.net/thread/309/gcta-fastbat-based-association-analysis)). In order to see if the presence of multiple significant variants in the same gene is due to LD or multiple independent signals it is necessary to provide a data set in plink-format that the program can use to estimate the LD between variants. For this purpose you can use data from the 1000 genomes project that can be downloaded in plink format [here](https://data.broadinstitute.org/alkesgroup/LDSCORE/1000G_Phase3_plinkfiles.tgz). The BMI study and LD data is based on hg19 so you should use the gene list file called "glist-hg19.txt". The genotype data consists of separate files for each chromosome so you can do a test per chromosome and then concatenate the results in the end.
+B. Do a PCA plot. What does it tell you about the samples?
 
-#### Gene set enrichment
-Try to see if the genes affecting BMI are enriched in specific Gene Ontologies or Pathways or Tissue types. You can for example use the tool enrichR: http://amp.pharm.mssm.edu/Enrichr/
+C. The file eye_color.txt contains the self-reported eye colors for the individuals in the data set. First try to do a GWAS for Brown vs. Blue eyes. How many loci do you find? 
 
-### Estimating heritability
-The method called LD-score regression can be used to estimate heritability using summary statistics. The method is described in [this article](https://www.nature.com/articles/ng.3211). A description of how to use the software to estimate heritability can be found [here](https://github.com/bulik/ldsc/wiki/Heritability-and-Genetic-Correlation). The software can be downloaded [here](https://github.com/bulik/ldsc).
+D. Try to look at the SNPs at the most significant locus. If you want to analyse it in R you can use the "--recode A" together wither the "--snp" and "--window" option in plink to get a the variants around a specific SNP written to a text file that it is easy to load in R. How is the distribution of eye colors for each genotype of the most significant SNP? Is the effect additive, dominant or recessive?
+
+E. Are there any significant variants after you condition on the most significant hit? (you can use the "--condition" option in plink)
+
+F. Can you find genome-wide significant hits that helps distinguish between other colors (fx. green or hazel)? What if you restrict the analysis to a region around the most significant SNP in the blue vs brown comparison?
+
+G. Do any additional analysis. Using plink, GCTA or any other tool you might find relevant.
+
+### Papers:
+
+[A GWAS in Latin Americans highlights the convergent evolution of lighter skin pigmentation in Eurasia | Nature Communications](https://www.nature.com/articles/s41467-018-08147-0)
+
+### Data:
 
 [Google drive folder with data](https://drive.google.com/open?id=1gOzJAh-2lJsZSMqN92M4xLeTCMCGolVn)
 
