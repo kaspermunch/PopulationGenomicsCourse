@@ -58,7 +58,7 @@ C. Perform an XP-EHH scan of the whole X chromosome for at least three populatio
 
 D. Intersect the analysis of Fst and XP-EHH.
 
-E. Perform any additional analysis of your own choice, such as (diversity along the X chromosome)
+E. Perform any additional analysis of your own choice, such as (diversity along the X chromosome).
 
 ### Data
 
