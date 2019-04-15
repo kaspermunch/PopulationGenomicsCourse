@@ -42,38 +42,43 @@ We encourage you to help each other during the process. Feel free to approach th
 
 -----------------------------------------------------------------------------------------------
 
-The data consists of a vcf file of 150 male full X chromosomes, a bed file with callable regions, a gif gene annotation file, a metafile with information about the samples and a set of files for use with REHH.
-
-Gene annotation:
-
-Gene annotation (gtf format) for Hg19 can be found in the following website
-https://www.gencodegenes.org/releases/17.html
-It was also uploaded to the dropbox as **gencode.v17.annotation.gtf**
-
-Fst Calculation:
-
-You will do the analysis from scratch by reading the genotype file of each population into different tables (rememeber rows are SNP positions and columns are individuals), the information about the snps are in the .snp file (ancestral and derived alleles). The data is haploid (n) therefore calculating Fst consists of estimating the allele frequencies for each position and calculating the expected heterozygosity within population Hs and contrasting Expected Heterozygosity across populations Ht. 
-
-Fst = (Ht - Hs)/Ht. 
-
-This can be done by averaging Fst values for a set of consecutive markers in a given window size (100 SNPs).
-
+In this project you will perform an extension of the analyisis we performed during the exercise session on selective sweeps. Thereby, you will try to infer signs of positive selection on the X chromosome, by comparing intraspecific variation among populations. 
 
 ### Investigate the following
 
 A. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, including at least the contrast between Africa and Europe, between Europe and East Asia, and between East Asia and Africa. Identify the 10 strongest Fst outlier regions in each case. Identify their genomic position and the genes covered by these Fst peaks. Discuss potential adaptive explanations. 
 
+The data is haploid (n) therefore calculating Fst consists of estimating the allele frequencies for each position and calculating the expected heterozygosity within population Hs and contrasting Expected Heterozygosity across populations Ht. 
+
+Fst = (Ht - Hs)/Ht. 
+
 B. Perform an iHS scan of the whole X chromosome for at least three populations. Identify the 10 most significant regions and associated with genes as in A.
 
 C. Perform an XP-EHH scan of the whole X chromosome for at least three populations. Identify the 10 most significant regions and associated with genes as in A. 
 
-D. Intersect the analysis of Fst and XP-EHH
+D. Intersect the analysis of Fst and XP-EHH.
 
-E. Perform any additional analysis of your own choice, such as (diversity along the C X chromosome)
+E. Perform any additional analysis of your own choice, such as (diversity along the X chromosome)
 
 ### Data
 
 [Google drive folder with data](https://drive.google.com/open?id=16TKX5WJ0vPDVttb5bHAwcVla2o4ARlay)
+
+The dataset is composed of 150 individuals from Simons Diversity Project. African individuals with high probability of a non-african component (Masai, Somali, Mozabite and Saharawi) have been excluded. We will use a total of 411892 SNPs with no missing data.
+
+Files description:
+
+snps_filtered.txt: text file containing id, chromosome, position, ancestral allele and derived allele.
+genotypes_* : File containing genotypes for each individual and position. Rows correspond to SNP positions and columns to individuals.
+WE = WestEurasia
+AF = Africa
+EA = EastAsia
+SA = South Asia
+Am = America
+CAS = CentralAsiaSiberia
+O = Oceania
+metadata.txt: Text file containing the population and region of all individuals used.
+gencode.v30lift37.annotation.gtf.gz: Gtf file containing the gene annotation for human (assembly version Hg19; the same used in Simons Diversity Project). 
 
 -----------------------------------------------------------------------------------------------
 
