@@ -42,13 +42,13 @@ We encourage you to help each other during the process. Feel free to approach th
 
 -----------------------------------------------------------------------------------------------
 
-In this project you will perform an extension of the analyisis we performed during the exercise session on selective sweeps. Thereby, you will try to infer signs of positive selection on the X chromosome, by comparing intraspecific variation among populations. 
+In this project you will perform an extension of the analysis done during the exercise session on selective sweeps. Thereby, you will try to infer signs of positive selection on the X chromosome, by comparing intraspecific variation among populations. 
 
 ### Investigate the following
 
 A. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, including at least the contrast between Africa and Europe, between Europe and East Asia, and between East Asia and Africa. Identify the 10 strongest Fst outlier regions in each case. Identify their genomic position and the genes covered by these Fst peaks. Discuss potential adaptive explanations. 
 
-The data is haploid (n) therefore calculating Fst consists of estimating the allele frequencies for each position and calculating the expected heterozygosity within population Hs and contrasting Expected Heterozygosity across populations Ht. 
+You can obtain the allele frequencies at each position from the haplotype data. Then, you can estimate FST by comparing the expected heterozygosity within population (Hs) and across populations (Ht). 
 
 Fst = (Ht - Hs)/Ht. 
 
@@ -60,15 +60,19 @@ D. Intersect the analysis of Fst and XP-EHH.
 
 E. Perform any additional analysis of your own choice, such as (diversity along the X chromosome).
 
+### Papers:
+
+[Extreme selective sweeps displaced archaic admixture across the human X chromosome around 50,000 years ago](https://www.biorxiv.org/content/10.1101/503995v2)
+
 ### Data
 
 [Google drive folder with data](https://drive.google.com/open?id=16TKX5WJ0vPDVttb5bHAwcVla2o4ARlay)
 
-The dataset is composed of 150 individuals from Simons Diversity Project. African individuals with high probability of a non-african component (Masai, Somali, Mozabite and Saharawi) have been excluded. We will use a total of 411892 SNPs with no missing data.
+The dataset is composed of 150 male individuals from the Simons Diversity Project. African individuals with high probability of a non-african component (Masai, Somali, Mozabite and Saharawi) have been excluded. We will use a total of 411892 SNPs with no missing data.
 
 Files description:
 
-snps_filtered.txt: text file containing id, chromosome, position, ancestral allele and derived allele.
+snps_filtered.txt: Text file containing id, chromosome, position, ancestral allele and derived allele.
 genotypes_* : File containing genotypes for each individual and position. Rows correspond to SNP positions and columns to individuals.
 WE = WestEurasia
 AF = Africa
