@@ -73,6 +73,7 @@ The dataset is composed of 150 male individuals from the Simons Diversity Projec
 Files description:
 
 snps_filtered.txt: Text file containing id, chromosome, position, ancestral allele and derived allele.
+
 genotypes_* : File containing genotypes for each individual and position. Rows correspond to SNP positions and columns to individuals.
 WE = WestEurasia
 AF = Africa
@@ -81,7 +82,9 @@ SA = South Asia
 Am = America
 CAS = CentralAsiaSiberia
 O = Oceania
+
 metadata.txt: Text file containing the population and region of all individuals used.
+
 gencode.v30lift37.annotation.gtf.gz: Gtf file containing the gene annotation for human (assembly version Hg19; the same used in Simons Diversity Project). 
 
 -----------------------------------------------------------------------------------------------
