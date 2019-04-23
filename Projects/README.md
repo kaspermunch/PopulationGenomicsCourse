@@ -44,7 +44,7 @@ MICA_archaic.pdf, MICA_xchromosome.pdf or MICA_GWAS.pdf
 
 -----------------------------------------------------------------------------------------------
 
-In this project you will perform an extension of the analysis you did in the exercise on selective sweeps. You will identify regions affected by positive selection on the X chromosome by comparing within and between human populations. 
+In this project you will perform an extension of the analysis you did in the exercise on selective sweeps. You will identify regions affected by positive selection on the X chromosome by comparing patterns of genetic variation within and between human populations. 
 
 ### Investigate the following
 
