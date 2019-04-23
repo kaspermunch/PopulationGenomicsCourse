@@ -1,26 +1,32 @@
 
 ### Project description and requirements
 
-The last part of this course focus on applying the knowledge acquired during these 10 weeks into real genetic datasets. The project is **mandatory** and needs to be handed-in as a report. The requirements of the report are:
+The last part of this course focus on applying the knowledge acquired during these 10 weeks into real genetic datasets. We encourage you to work on the project in class Monday and Wednesday where one (or several of us) will be there to guide you and answer questions. 
 
- * Report of at maximum 10 pages (including reference and figures)
+The project is **mandatory** and needs to be handed in as a report. 
+
+The requirements of the report are:
+
+ * It should be at most 10 pages (including reference and figures)
  
- * It needs to be divided by sections: abstract, introduction,
+ * It must to be divided into sections: abstract, introduction,
  results/discussion, conclusion and references. 
  
- * It needs to be cohesive and coerent.
+ * It must to be cohesive and coerent.
  
- * Source code must be provided (appended or linked/github repository).
+ * Source code must be provided (appended or linked/github repository). 
  
- * It must be in a pdf format.
- 
-Three choices are given and you must choose one and produce the required:
+ * It must be in a PDF format.
 
-1. **Population Genetics on X-chromosome**
+You can choose between three different projects:
+
+1. **Selective sweeps on the X-chromosome**
 
 2. **GWAS of eye color**
 
 3. **Exploring non-African archaic segments**
+
+Each project lists two relevant papers. The two papers, which go with the project you choose, are included in your curriculum for the oral exam.
 
 #### Deadline
 The report must be handed in on the 22th of May at 9 AM.
@@ -32,17 +38,13 @@ The name of your report must states your *name* and the chosen *project*:
 
 MICA_archaic.pdf, MICA_xchromosome.pdf or MICA_GWAS.pdf
 
-#### Q&A session
-
-We encourage you to help each other during the process. Feel free to approach the TA when necessary. We will also give you the opportunity to ask questions in a QA session that will happen on the 9th of May. 
-
 -----------------------------------------------------------------------------------------------
 
 ## Population Genetics on X-chromosome 
 
 -----------------------------------------------------------------------------------------------
 
-In this project you will perform an extension of the analysis done during the exercise session on selective sweeps. Thereby, you will try to infer signs of positive selection on the X chromosome, by comparing intraspecific variation among populations. 
+In this project you will perform an extension of the analysis you did in the exercise on selective sweeps. You will identify regions affected by positive selection on the X chromosome by comparing within and between human populations. 
 
 ### Investigate the following
 
@@ -124,14 +126,13 @@ G. Do any additional analysis. Using plink, GCTA or any other tool you might fin
 
 -----------------------------------------------------------------------------------------------
 
-
 ## Exploring non-African archaic segments
 
 -----------------------------------------------------------------------------------------------
 
-### How alike are non-African genomes in terms of how archaic segments are distributed?
+In this project you will be looking at segments of archaic genomes idendentified individual modern humans. You will investigate how alike  non-African genomes are in terms of how archaic segments are distributed. You will be working with an extended version of the data set that you worked with in the admixture exercise. In this version you also have an addtional file with the positions of candidate archaic SNPs.
 
-In this project you will be working with an extended version of the data set that you worked with in the admixture exercise. In this version you also have an addtional file with the positions of candidate archaic SNPs.
+### Investigate the following
 
 In your project you must address the questions below, but you are also expected to expand the project to answer your own questions. How you do this is up to you. You do not need to answer them in the order they are listed. Make a project plan with a set of analyses that  will allow you to answer the questions. 
 
@@ -143,18 +144,18 @@ C. Is it even stronger when comparing individuals from different geographical re
 
 D. Does the region containing the EPAS1 gene stand out in any way? (Redo the analysis above for a 1Mb window surrounding this gene).
 
-E. What is the total amount of admixture in each non-African individual?
+E. What is the total amount of admixture (archiac genomic sequence) in each non-African individual genome?
 
-F. What is the total amount of admixture in the region around EPAS1 in each individual?
+F. What is the total amount of admixture (archiac genomic sequence) in the region around EPAS1 in each individual?
 
-G Do individuals with large admixture totals have more correlated admixture patterns? Do individuals with large admixture totals *in the EPAS1 region* have more correlated admixture patterns *in the EPAS1 region*? Can you find any evidence of adaptive introgression?
+G. Do individuals with large admixture totals have more correlated admixture patterns? Do individuals with large admixture totals *in the EPAS1 region* have more correlated admixture patterns *in the EPAS1 region*? Can you find any evidence of adaptive introgression?
+
+H. Perform any additional analyses of your own choice.
 
 ### Papers
 
 - [Analysis of Human Sequence Data Reveals Two
 Pulses of Archaic Denisovan Admixture](https://doi.org/10.1016/j.cell.2018.02.031)
-- [Detecting archaic introgression using an unadmixed outgroup](https://doi.org/10.1371/journal.pgen.1007641
-)
 - [Altitude adaptation in Tibetans caused by introgression of Denisovan-like DNA](https://doi.org/10.1038/nature13408)
 
 ### Data
