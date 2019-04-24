@@ -162,6 +162,6 @@ Pulses of Archaic Denisovan Admixture](https://doi.org/10.1016/j.cell.2018.02.03
 
 [Google Drive folder with data](https://drive.google.com/open?id=1lrRfFcoxpyVpXgOi4RYP2_vauM_-rRz_)
 
-- ArchaicSegments.txt: This files is formatted the same was as the one you used for the archiac admixture exercise.
-- SNP.txt: This file has all the non-African SNPs that remain after removing all SNPs found in (Subsaharan) Africa. Each SNP is found in any of the high coverage archaic genomes (Altai or Vindija Neanderthals or the Denisova) it is labelled as such. Otherwise it is labeled "human".
+- ArchaicSegments.txt: This file is formatted the same was as the one you used for the archiac admixture exercise.
+- SNP.txt: This file has all the non-African SNPs that remain after removing all SNPs found in (Subsaharan) Africa. When each SNP is found in any of the high coverage archaic genomes (Altai or Vindija Neanderthals or the Denisova) it is labelled as such. Otherwise it is labeled "human".
 
