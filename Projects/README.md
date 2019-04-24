@@ -118,7 +118,8 @@ G. Do any additional analysis. Using plink, GCTA or any other tool you might fin
 
 ### Papers:
 
-[A GWAS in Latin Americans highlights the convergent evolution of lighter skin pigmentation in Eurasia | Nature Communications](https://www.nature.com/articles/s41467-018-08147-0)
+* [A GWAS in Latin Americans highlights the convergent evolution of lighter skin pigmentation in Eurasia](https://www.nature.com/articles/s41467-018-08147-0)
+* [Genetic determinants of hair, eye and skin pigmentation in Europeans](https://www.nature.com/articles/ng.2007.13)
 
 ### Data:
 
