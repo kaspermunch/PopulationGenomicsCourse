@@ -5,7 +5,7 @@ During the course there will be several exercises that use command line tools th
  If you are on a linux or mac computer then ssh is usually installed by default and you can use the following command to log in to the server:
 
 ```bash
-ssh -X -p 8922 [user]@185.45.23.197
+ssh -p 8922 [user]@185.45.23.197
 ```
 
 Where [user] is your user name. We have created an account for each of you with your first name (all lowercase) as user name and your surname (all lowercase) as password (you can use the command passwd to change the password).
