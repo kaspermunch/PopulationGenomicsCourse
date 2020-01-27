@@ -1,4 +1,4 @@
-# Population Genomics 2019
+# Population Genomics 2020
 
 ## Description
 The participants will after the course have detailed knowledge of the methods and applications required to perform a typical population genomic study.
