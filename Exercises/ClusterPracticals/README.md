@@ -90,6 +90,7 @@ After going through the introduction (if necessary), try do the following mini e
 12) Create a new file named "test_file_4". Write whatever you feel like. Concatenated "test_file_2" and "test_file_4" into a new file called "test_file_5".
 
 If you are done and you want a bit of a challange, you can do the following: (for these you could use grep, awk, vi, wc, chmod, alias). 
+
 13) Check if "test_file_1" contains the word "This".
 14) Check the number of words in "test_file_1".
 15) Change the word "This" by "this".
@@ -98,6 +99,5 @@ If you are done and you want a bit of a challange, you can do the following: (fo
 18) Change the file permissions to -rwxrwxrwx.
 19) Make a new alias, so that every time you write l, the command line interprets it as ls -l.
 20) Fix the alias, so that every time you log in to the session is maintained.
-
 
 
