@@ -89,8 +89,15 @@ After going through the introduction (if necessary), try do the following mini e
 11) See the contents of "test_file_2".
 12) Create a new file named "test_file_4". Write whatever you feel like. Concatenated "test_file_2" and "test_file_4" into a new file called "test_file_5".
 
-If you are done and you want a bit of a challange, you can do the following:
-(grep, awk, vi, bash_profile, permissions)
-13) 
+If you are done and you want a bit of a challange, you can do the following: (for these you could use grep, awk, vi, wc, chmod, alias). 
+13) Check if "test_file_1" contains the word "This".
+14) Check the number of words in "test_file_1".
+15) Change the word "This" by "this".
+16) Print the name of all the files inside "ClusterPracticals".
+17) Do ls -l inside "ClusterPracticals". Try to understand each column. Now, look at the first one. Try to figure out which are the permissions of "test_file_1" (Hint: -rwxrwxrwx means that this is a regular file, and that the file owner, the group owner and all other users have permissions to read, write and execute the file).
+18) Change the file permissions to -rwxrwxrwx.
+19) Make a new alias, so that every time you write l, the command line interprets it as ls -l.
+20) Fix the alias, so that every time you log in to the session is maintained.
+
 
 
