@@ -112,7 +112,7 @@ You can have a look at the bam file generated:
     samtools view ERR1019076.bam | head
 ```
 
-Each line in the bam file corresponds to a read and it follows the following structure:
+Bam files follow this structure:
 
 ![Alt text](https://us.v-cdn.net/5019796/uploads/editor/f4/uuzmf2cbau1y.png)
 
