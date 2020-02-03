@@ -23,11 +23,13 @@ This dataset is a subset of the Simons Diversity Project (discussed last week).
 
 ## Log in to the server via terminal
 
-This time we will add an option so we can open Rstudio from the terminal later. For that to work, we need to install another software first.
+This time we will add an option so we can open Rstudio from the terminal later. For that to work, we need to install another software first. Alternatively, you could also transfer files to your local machine and use the desktop Rstudio. However, when dealing with big files (it shouldn't be a issue in this course, but it might happen in a plausible future), if you have access to a cluster, this might be useful to know. Another option could be to generate a script using a text editor and run it using Rscript.
 
 ### For windows users
 
-Install Xming. You can download it from here: http://sourceforge.net/project/downloading.php?group_id=156984&filename=Xming-6-9-0-31-setup.exe
+If you used MobaXterm, you should have X11 support by default.
+
+Alternatively, if you access the cluster via PuTTy, you should install Xming. You can download it from here: http://sourceforge.net/project/downloading.php?group_id=156984&filename=Xming-6-9-0-31-setup.exe
 
 And then access the terminal like:
 
