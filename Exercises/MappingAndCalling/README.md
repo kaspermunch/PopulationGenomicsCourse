@@ -83,7 +83,7 @@ We will create a soft-link of fasta reference to your folder, so that we don't n
     ln -s /home/Data/Homo_sapiens.GRCh37.75.dna.chromosome.2.fa /home/[user]/
 ```
 
-First we need to index the reference file for later use. This step is important for the speed and process of the mapping algorithm. It takes around 4 minutes. This creates a collecion of files that are used by BWA to perform the alignment. To produce the indexes needed for bwa mapper run the following command:
+First we need to index the reference file for later use. This creates index files used by bwa mem to perform the alignment. To produce these files, run the following command:
 
 ```bash
     bwa index -p Homo_sapiens.GRCh37.75.dna.chromosome.2 -a bwtsw Homo_sapiens.GRCh37.75.dna.chromosome.2.fa
