@@ -112,6 +112,23 @@ You can have a look at the bam file generated:
     samtools view ERR1019076.bam | head
 ```
 
+Each line in the bam file corresponds to a read and it follows the following structure:
+
+![Alt text](https://us.v-cdn.net/5019796/uploads/editor/f4/uuzmf2cbau1y.png)
+
+- Read name: ID for the given read.
+- Flags: Combination of bitwise FLAGs that provide information on how the read is mapped  [Extra information](https://broadinstitute.github.io/picard/explain-flags.html).
+- Position: Chromosome and position of the first base in the alignment. 
+- MAPQ: Probability of wrong mapping of the read. It's in Phred scale, so higher numbers mean lower probabilities:
+![Alt_text](https://genome.sph.umich.edu/w/images/math/e/9/d/e9dc88d1834c4579de12153a67ac3afa.png)
+- CIGAR: summary of the alignment, including start position on the reference sequence, matches, mismatches, deletions and insertions. It may also include information on soft/hard clipping, i.e bases in the 3' and 5' ends of teh read that are not part of the alignment.
+[Extra information](https://wiki.bits.vib.be/index.php/CIGAR)
+- Mate information: chromosome and start position of teh read pair, and inferred insert size.
+- Quality scores: base qualities of the read.
+- Metadata: optional extra information. 
+
+For more information, read [this](https://samtools.github.io/hts-specs/SAMv1.pdf)
+
 Get some useful stats of your mapping:
 
 ```bash
@@ -218,6 +235,14 @@ Even though just a tiny portion (around 2%) of our genomes are based of protein 
 
 Once we have mapped our reads we can now start with variant detection. For now we will be using the software **Platypus**: a tool designed for efficient and accurate variant-detection in high-throughput sequencing data. You can access their website [here](http://www.well.ox.ac.uk/platypus). We will also illustrate how to create an evironment in which to run the **Platypus** software. The reason for creating an environment to run specific software is because a lot of programs have specific dependencies, which may be different to the ones installed on your machine. For example, say that you have python v2.7 as default on your machine and you need to run a software which depends on python v3.5. You could either update the python version of your machine (and potentially disrupt running of other programs which depend on v2.7) or create a virtual environment which has v3.5 installed. By using the virtual environment, you do not disrupt the default state of your machine, but you are still able to run any software with different dependencies. The environment manager we will be using is called **Conda** - you can read more about it here: [website](https://conda.io/projects/conda/en/latest/index.html#).
 
+First, we will install miniconda. The software can be downloaded running the following:
+
+```bash
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+```
+
+The extension .sh is used for bash executable files. You just need to add permissions to execute the file and run it. After accepting eevrything the program asks, you will have your miniconda.
+
 Creating a conda environment:
 
 ```bash
@@ -227,7 +252,7 @@ Creating a conda environment:
 Activating an environment:
 
 ```bash
-    source activate Mapping_environment
+    conda activate Mapping_environment
 ```
 
 Installing platypus:
