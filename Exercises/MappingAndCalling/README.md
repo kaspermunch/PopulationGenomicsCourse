@@ -61,30 +61,31 @@ or
 
 ## Data source
 
-You will be separated in pairs so you can help each other out with the commands. Each of you will be responsible for 2 individuals and at the end of this exercise we will estimate the mean SNP heterozygosity per individual of the 10 MB region in chromosome 2. The data is placed in a folder called **Data** in the same directory as users folder. The individuals for each person is written in the spreadsheet
-[here](https://docs.google.com/spreadsheets/d/1OEHI1tNiwHrwKkl9L5rPtbVKCHQDpCZtKzpnZ1sWKJY/edit?usp=sharing).
-In the following tutorial I am using one individual as an example **ERR1019076**, please replace it by the individual you've got.
+You will be separated in pairs so you can help each other out with the commands. Each of you will be responsible for 2 individuals and at the end of this exercise we will estimate the mean SNP heterozygosity per individual of the 10 MB region in chromosome 2. The data is placed in a folder called **Data** in the same directory as users folder. You should introduce you results [here](https://docs.google.com/spreadsheets/d/1OEHI1tNiwHrwKkl9L5rPtbVKCHQDpCZtKzpnZ1sWKJY/edit?usp=sharing) 
+
+The following tutorial is based on **ERR1019076**.
 
 ## Mapping reads against the reference
 
-The first step when dealing with raw reads is mapping (aligning) them to a reference sequence. For this, we will be using the BWA mapper. BWA stands for Burrows-Wheeler aligner, which allows for fast and accurate alignment of short reads to an indexed reference sequence. If you are interested in understanding a bit more of the software and its algorithm, you can look it up [here](http://bio-bwa.sourceforge.net/bwa.shtml). We have thousands of reads and we want to find out their best location in the genome. We decided to focus on a 10 MB region of chromosome 2, which can be downloaded through [Ensembl](ftp://ftp.ensembl.org/pub/release-75//fasta/homo_sapiens/dna/). This region goes from 135MB to 145MB and it is known to contain the lactase gene.
+The first step when dealing with raw reads is mapping (aligning) them to a reference sequence. For this, we will be using the BWA mapper. BWA stands for Burrows-Wheeler aligner, which allows for fast and accurate alignment of short reads to an indexed reference sequence. [Here](http://bio-bwa.sourceforge.net/bwa.shtml) is the manual. We decided to focus on a 10 MB region of chromosome 2 (from 135MB to 145MB), which contains the lactase gene.
 
 Two input files are needed to do genome mapping:
 
-- Fasta file containing your reference genome
-    ([GRCh37](http://grch37.ensembl.org/index.html))
+- Fasta file containing your reference genome Which was downloaded from:
+    ([GRCh37](ftp://ftp.ensembl.org/pub/release-75//fasta/homo_sapiens/dna/))
 - The reads in fastq format
 
-We will create a soft-link of fasta reference to your folder, so that we don't need to type in the full path to the reference everytime we want to use it:
+We have prepared them for you and can be found in the shared Data folder: /home/Data/
+
+We will create a soft-link of fasta reference to your folder, so that we don't need to type in the full path to the reference everytime we want to use it and avoid copying it to out own directory.
 
 ```bash
-    ln -s /home/Data/Homo_sapiens.GRCh37.75.dna.chromosome.2.fa /home/user_name/
+    ln -s /home/Data/Homo_sapiens.GRCh37.75.dna.chromosome.2.fa /home/[user]/
 ```
 
 First we need to index the reference file for later use. This step is important for the speed and process of the mapping algorithm. It takes around 4 minutes. This creates a collecion of files that are used by BWA to perform the alignment. To produce the indexes needed for bwa mapper run the following command:
 
 ```bash
-
     bwa index -p Homo_sapiens.GRCh37.75.dna.chromosome.2 -a bwtsw Homo_sapiens.GRCh37.75.dna.chromosome.2.fa
 ```
 
