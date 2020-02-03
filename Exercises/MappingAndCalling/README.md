@@ -19,7 +19,7 @@ As we learned last week, high-throughput sequencing technologies have in the pas
 
 ![](img/unnamed-chunk-1-1.png)
 
-This dataset is a subset of the Simons Diversity Project, and as you can see, it covers a bit of the diversity of human population. If you want to go further in details about this project and results, you can click [here](https://www.nature.com/articles/nature18964).
+This dataset is a subset of the Simons Diversity Project (discussed last week).
 
 ## Log in to the server via terminal
 
