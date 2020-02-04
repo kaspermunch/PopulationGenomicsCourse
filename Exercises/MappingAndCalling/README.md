@@ -176,9 +176,7 @@ You can have a look at the resulted file. What do you find in the three differen
     less ERR1019076.coverage
 ```
 
-Now open the subset file in R and plot it. You can transfer it to your local device using scp. Alternatively, you can also do it in the terminal. You can open a R session in the terminal by typing R or you can make a new file with a text editor like vi, add the code, save it with a ".R" extension and run it with Rscript.
-
-Now, you can just launch Rstudio (type rstudio) from the command line and run something like this:
+Using Rstudio or R, run something like this:
 
 ```R
     library(ggplot2)
@@ -225,7 +223,7 @@ Now, you can just launch Rstudio (type rstudio) from the command line and run so
 
 ```
 
-There are other options, you could transfer the file to your local machine using scp and then use your locally installed Rstudio. Alternatively, you could also open a text editor in the terminal (e.g vi) and run the script with Rscript [path to the script].
+You can do it by opening Rsturio on the terminal or transfer the file to your local machine using scp and then use your locally installed Rstudio. Alternatively, you could also open a text editor in the terminal (e.g vi) and run the script with Rscript [path to the script].R .
 
 What are the conclusions you can extract from these analysis? Does the coverage match with what you observed with IGV?
 
