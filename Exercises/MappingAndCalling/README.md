@@ -269,7 +269,7 @@ To run platypus, we can use this line of code:
 
 The output will be a single [VCF](http://samtools.github.io/hts-specs/VCFv4.2.pdf) file containing all the variants that Platypus identified, and a 'log.txt' file, containing log information.
 
-Look at the output vcf file. What does the format look like? Does that match with what you observed in the IGV? Download the VCF file to the IGV brownser.
+Look at the output vcf file. What does the format look like? Does that match with what you observed in the IGV? Download the VCF file to the IGV browser.
 
 ```bash
     less -S AllVariants.vcf
