@@ -278,11 +278,11 @@ Look at the output vcf file. What does the format look like? Does that match wit
 You will be using this format further in the course, for now let's just count the number of heterozygous SNPs in each individual:
 
 ```bash
-    grep -o '0/1' AllVariants.vcf  | wc -l
+    grep -o '0/1\|1/0' AllVariants.vcf  | wc -l
 ```
 
 -   0/0 - the sample is homozygous to the reference (note that these sites usually won't be listed in single sample vcf files as they are not variants)
--   0/1 - the sample is heterozygous, carrying 1 copy of each of the REF
+-   0/1 OR 0/1 - the sample is heterozygous, carrying 1 copy of each of the REF
     and ALT alleles
 -   1/1 - the sample is homozygous for the alternate allele
 
