@@ -225,7 +225,7 @@ Using Rstudio or R, run something like this:
 
 You can do it by opening Rsturio on the terminal or transfer the file to your local machine using scp and then use your locally installed Rstudio. Alternatively, you could also open a text editor in the terminal (e.g vi) and run the script with Rscript [path to the script].R .
 
-What are the conclusions you can extract from these analysis? Does the coverage match with what you observed with IGV?
+What are the conclusions you can extract from these analysis? Does the coverage match with what you observed with IGV? Does it match with what you would expect, i.e what you know from the data? 
 
 ## SNP calling
 
