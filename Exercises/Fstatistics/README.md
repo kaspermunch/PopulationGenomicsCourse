@@ -1,19 +1,18 @@
 # vcfR exercises
 
 ## Data
-In this exercise we will analyse a vcf-file like the one you created yourselves last week. We will only use R so you can do the analyses on your own machine this week. However, in order to practice more how to get data from the cluster, you will have to fetch the files we will use from there. The paths are the following:
+In this exercise we will analyse a vcf-file like the one you created yourselves last week. We will only use R so you can do the analyses on your own machine. However, in order to practice more how to get data from the cluster, you will have to fetch the files we will use from there. The paths are the following:
 
-- vcf file: /home/meritxell/chr2_135_145.vcf.gz
-- annotation file: /home/meritxell/sample_infos_accessionnb.csv
+- vcf file: /home/Data/chr2_135_145.vcf.gz
+- annotation file: /home/Data/sample_infos_accessionnb.csv
 
 The vcf file contains the variants called for 28 individuals from different regions across the globe. It is the same type of file we obtained as an output when running Platypus but with more individuals so we can study population genetics' summary statistics from the variants called. The annotation file is needed to provide more information for each of the samples in the vcf file.  
 
 ## Useful links
-In this exercise we will be using two very useful packages: `dplyr` and `ggplot`. The learning curve can be quite steep, but once you learn it, it becomes very natural and useful! :)
-You can find nice links to go deeper into your learning: [ggplot](https://monashbioinformaticsplatform.github.io/r-more/topics/tidyverse.html) and [dplyr](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html).
+During the exercise, we will use two very useful packages: [dplyr](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) and [ggplot](https://monashbioinformaticsplatform.github.io/r-more/topics/tidyverse.html).
 
 ## vcfR
-In this exercise will use the R package `vcfR` to read vcf-files into R. We can read the vcf-file like this:
+First, to read vcf-files into R, we'll need the R package `vcfR` . We can read the vcf-file like this:
 
 ```r
 install.packages('vcfR')
@@ -34,20 +33,20 @@ tvcf <- vcfR2tidy(vcf,
           format_types = c(NR="i",GQ="i"))
 ```
 
-One of the measures provided for each variant call is the Phred score, which is a measure of the quality associated with that given base pair. It is computed by the following equation:
+One of the measures provided for each variant call is the Phred score, i.e the quality associated with that given base pair. It is computed by the following equation:
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=Q&space;=&space;-10&space;log10(P)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Q&space;=&space;-10&space;log10(P)" title="Q = -10 log10(P)" /></a>
 
 Being P the probability of error of a given the base call.
 
-We also want ta add some info about the samples:
+We also want to add some info about the samples and have all heterozygous sites in the same format:
 ```r
 info <- read.csv2("sample_infos_accessionnb.csv")
 d <- inner_join(tvcf$dat,info, by= c("Indiv" = "ENA.RUN")) %>%
   mutate(gt_GT=replace(gt_GT, gt_GT=="1/0", "0/1"))
 ```
 
-Now `d` contains the relevant data in "tidy" format. We can fx. count the fraction of missing genotypes for each individual:
+Now `d` contains the relevant data in "tidy" format. We can count the fraction of missing genotypes for each individual:
 ```r
 d %>% 
   group_by(Indiv) %>%
@@ -63,7 +62,7 @@ d %>%
   ggplot(aes(x=Indiv,y=missing)) + geom_col() + coord_flip()
 ```
 
-As you can see individual `ERR1025639` is an outlier so we want to remove that individual from the analyses.
+As you can see, individual `ERR1025639` is an outlier, so we want to remove that individual from the analyses.
 ```r
 d <- d %>% filter(Indiv!="ERR1025639")
 ```
