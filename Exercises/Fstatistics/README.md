@@ -50,7 +50,8 @@ Now `d` contains the relevant data in "tidy" format. We can count the fraction o
 ```r
 d %>% 
   group_by(Indiv) %>%
-  summarise(missing = mean(is.na(gt_GT))) 
+  summarise(missing = mean(is.na(gt_GT))) %>%
+  arrange(desc(missing))
 ```
 
 And we can plot it using ggplot:
