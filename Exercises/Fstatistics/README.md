@@ -90,7 +90,7 @@ d2 %>%
 
 ## Calculating F-statistics
 
-`FST` can be calculated as `FST = 1- (H_S/H_T)`. Where `H_T` is the expected heterozygocity of the entire population and `H_S` is the mean expected heterozygocity across subpopulations.
+`FST` can be calculated as `FST = 1- (H_S/H_T)`. Where `H_T` is the expected heterozygosity of the entire population and `H_S` is the mean expected heterozygosity across subpopulations.
 Using `d2` from above you can calculate `H_S` as `H_S=mean(2*pS*qS)` and `H_T=2*mean(pS)*mean(qS)`.
 
 5. *Use `d2` from above to calculate `FST` for each position. What is the median FST value?*
