@@ -81,9 +81,9 @@ To speed up computations you can make a lookup table first. That takes a while, 
 - `-n_pts 101`: number of points in grid: 101 (recommended).
 - `-theta 0.0001`: human theta ($4N_e \mu$).
 
-That produces a file named `new_lk.txt` that I renamed to `lk_n20_theta1e-3.txt`. 
+That produces a file named `new_lk.txt` that we renamed to `lk_n20_theta1e-3.txt`. This file will serve as a look up table for the algorithm. It includes coalescent likelihoods for each pairs of SNPs using a grid of recombination rates.
 
-The next step is to calculate the recombination map. That takes a while so team up in pairs so one of you do the Africans and the other do the West Eurasians. It will take around 8 minutes for the entire dataset.
+The next step is to calculate the recombination map. Again, it may take a while. We suggest you team up in pairs and does the Africans while other does the West Eurasians. It will take around 8 minutes for the entire dataset.
 
 Africa:
 
