@@ -94,8 +94,8 @@ Africa:
     rhomap -seq recmap_data_westeurasia.ldhat.sites -loc recmap_data_africa.ldhat.locs -lk /home/shared/data/lk_n20_theta1e-3.txt -its 1000000 -samp 2000 -burn 0
 
 - `-lk`: likelihood lookup table.
-- `-its`: number of iterations of the MCMC chain.
-- `-samp`: how often to sample from the MCMC chain.
+- `-its`: number of iterations of the MCMC.
+- `-samp`: how often to sample from the MCMC.
 - `-burn`: how many of the initial iterations to discard. Burnin is at least 100,000 divided by the value of `-samp`. Here we set it to zero to leave keep all samples. Then we look later how much burnin to discard.
 
 When rhomap completes it writes three files:
