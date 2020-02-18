@@ -72,7 +72,7 @@ How do you think the information is encoded in these files?
 
 ## Running LDhat
 
-To speed up computations you can make a lookup table first. That takes a while, so I did if for you. But it is done using the `complete` program that comes with LDhat:
+To speed up computations you can make a lookup table first. That takes a while, so we did if for you. But it is done using the `complete` program that comes with LDhat:
 
     /usr/local/bin/complete -n 20 -rhomax 100 -n_pts 101 -theta 0.0001
 
