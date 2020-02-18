@@ -1,6 +1,6 @@
 # Inferring the genotype phase (AKA Phasing)
 
-The base calling exercise you identified the two bases at each position in each diploid individual. However, you do not know which base goes on which of the two chromosomes. That means that you do not know if the two haploid chromosomes look like the left or right example below:
+During base calling, we identified the two bases at each position in each diploid individual. However, we do not know which base goes on which of the two chromosomes. That means that we do not know if the two haploid chromosomes look like the left or right example below:
 
     -----A-----C------         -----T-----C------ 
     -----T-----G------    or   -----A-----G------
@@ -8,7 +8,7 @@ The base calling exercise you identified the two bases at each position in each 
 
 To do that we use the program Beagle, which uses a clusering algorithm to call the genotype phase.
 
-We put the jointly called bases for Africans, West Eurasians, and East Asians in thse three files:
+We put the jointly called bases for Africans, West Eurasians, and East Asians in these three files:
 
 - Africa (10 individuals): `Allvariants_africa.vcf`
 - West Eurasia (10 individuals): `Allvariants_westeurasia.vcf`
@@ -44,7 +44,7 @@ Select chr2, zoom all the way in and select find the base at position 136608646.
 3. Which haplotypes agree?
 4. How wide is the region where they agree?
 
-The SNP at position 136608646. Try to search for 136608646 in the [UCSC genome browser](https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redirect=manual&source=genome.ucsc.edu). Can you find anything that explains your observations?
+The SNP at position 136608646. Try to search for 136608646 in the [UCSC genome browser](https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redirect=manual&source=genome.ucsc.edu). Remember we are using the Hg19 assembly version of the reference human genome. Can you find anything that explains your observations?
 
 # Estimating a recombination map
 
