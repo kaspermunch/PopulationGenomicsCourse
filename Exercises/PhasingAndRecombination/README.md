@@ -91,7 +91,7 @@ Africa:
 
 *or* West Eurasia:
 
-    rhomap -seq recmap_data_westeurasia.ldhat.sites -loc recmap_data_africa.ldhat.locs -lk /home/shared/data/lk_n20_theta1e-3.txt -its 1000000 -samp 2000 -burn 0
+    rhomap -seq recmap_data_westeurasia.ldhat.sites -loc recmap_data_westeurasia.ldhat.locs -lk /home/shared/data/lk_n20_theta1e-3.txt -its 1000000 -samp 2000 -burn 0
 
 - `-lk`: likelihood lookup table.
 - `-its`: number of iterations of the MCMC.
