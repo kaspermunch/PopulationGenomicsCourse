@@ -294,7 +294,7 @@ Plotting the Q estimates. Choose the K that makes more sense to you.
 
 ![rplot](https://user-images.githubusercontent.com/38723379/53338548-47470580-3904-11e9-8e04-75187b031d96.png)
 
-**Q.7** How many cluster do you identify in this plot? Does that agree
+**Q.7** How many clusters do you identify in this plot? Does that agree
 with what was found using PCA?
 
 In the following part of this exercise you will do both analysis (PCA
