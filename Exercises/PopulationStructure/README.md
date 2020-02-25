@@ -35,10 +35,6 @@ Then, open Rstudio and use the following code:
     library(SNPRelate)
     library(ggplot2)
 
-    # Use setwd to allocate to the directory that you have downloaded your files from cluster.
-    # I donwloaded my files to: 
-    setwd("/Users/PM/Dropbox/PG2018/exercises/PCA_admixture")
-
     # Reading the metadata information 
     info = read.csv("Sample_meta_data.csv", header = T, sep = ';')
 
