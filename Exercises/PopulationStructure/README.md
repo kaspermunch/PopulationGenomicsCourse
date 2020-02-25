@@ -218,7 +218,7 @@ Admixture
 =========
 
 Admixture is a program for estimating ancestry in a model based manner
-from autossomal SNP genotype datasets, where individuals are unrelated.
+from SNP genotype datasets, where individuals are unrelated.
 The input format required by the software is in binary PLINK (.bed)
 file. That is why we converted our vcf file into .bed.
 
