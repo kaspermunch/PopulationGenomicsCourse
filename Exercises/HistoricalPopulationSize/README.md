@@ -48,7 +48,7 @@ Now we are finally ready to run PSMC. You do that like this:
 
     psmc -N50 -t15 -r5 -p "4+25*2+4+6" -o ERR1025630_sort_dedup_consensus.psmc ERR1025630_sort_dedup_consensus.psmcfa
 
-The `-p` option specifies that there are 64 atomic time intervals and 28 (=1+25+1+1) free interval parameters. The first parameter spans the first 4 atomic time intervals, each of the next 25 parameters spans 2 intervals, the 27th spans 4 intervals and the last parameter spans the last 6 time intervals. The `-p` and `-t` options are manually chosen such that after 20 rounds of iterations, at least ~10 recombinations are inferred to occur in the intervals each parameter spans. Impropriate settings may lead to overfitting. The command line in the example above has been shown to be suitable for modern humans. `-N` sets the maximum number of EM iterations in the fitting of model parameters.
+The command line in the example above has been shown to be suitable for modern humans, inappropiate settings might lead to under/over-fitting. The `-p` and `-t` options are used to specify the length and number of time intervals. The `-r` option is used to specify the initial theta/rho ratio. The `-N` option sets the maximum number of EM iterations in the fitting of model parameters.
 
 This PSMC analysis takes about 25 minutes to complete. 
 
@@ -109,11 +109,9 @@ library(ggplot2)
 
 g <- ggplot(df3, aes(x=Years, y=Effective_pop_size, color="NCL-08")) + geom_line(aes(color=type), size=1.5) + 
   theme_bw() + 
-  labs(x= expression(paste("Years (g=25, ", mu, "=2,5*", 10^-8,")")), y=expression(paste("Effective population size (x", 10^-8, ")")), title='Results of PSMC') +
+  labs(x= expression(paste("Years (g=25, ", mu, "=2,5*", 10^-8,")")), y="Effective population size", title='Results of PSMC') +
   scale_x_log10(breaks=c(1000, 10000, 100000, 1000000), minor_breaks=c(500, 5000, 50000, 500000)) +
   scale_y_continuous(limits = c(0,3))
 g
 
 ```
-
-Now that you are more familiar with PSMC, revisit the Figure 2 of the Mallick et al (2016) about the The Simons Genome Diversity Project. What conclusions do they draw from running PSMC? What are the conclusions were drawn from running the related MSMC?
