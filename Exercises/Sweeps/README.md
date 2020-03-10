@@ -41,12 +41,7 @@ You will perform a genome wide scan and then focus on candidate SNPs. The packag
 ### Reading in data in REHH format
 
 ``` r
-# Install the package
-#install.packages('rehh')
 library(rehh)
-
-# Define the directory of your working folder:
-setwd("~/Dropbox/PG2018/exercises/rehh")
 
 # Reading the data for each population:
 hap360_400_AF <-data2haplohh(hap_file="genotypes360_400_AF",map_file="snps360_400_filtered",
