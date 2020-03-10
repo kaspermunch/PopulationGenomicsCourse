@@ -39,9 +39,9 @@ library(rehh)
 
 # Reading the data for each population:
 hap360_400_AF <-data2haplohh(hap_file="/home/Data/genotypes360_400_AF",map_file="/home/Data/snps360_400_filtered",
-                             recode.allele=TRUE, 
-                             min_perc_geno.snp=100,
-                             min_perc_geno.hap=80,
+                             allele_coding="map",
+                             min_perc_geno.mrk=100,
+                             min_perc_geno.hap=100,
                              haplotype.in.columns=TRUE,
                              chr.name=1)
 ```
