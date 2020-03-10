@@ -18,12 +18,6 @@ You will have data from the following populations:
 
 The data consists of **24198** SNPs from the region 73-81 Mb on the X chromosome and there is no missing data. The haplotype data for each population is found in separate files (**genotypes360\_400\_.**), whereas they use a common SNP identity file **snps360\_400\_filtered.snp**.
 
-You can find these files at:
-
-```bash
-/home/Data/
-```
-
 Package
 -------
 
@@ -44,7 +38,7 @@ You will perform a genome wide scan and then focus on candidate SNPs. The packag
 library(rehh)
 
 # Reading the data for each population:
-hap360_400_AF <-data2haplohh(hap_file="genotypes360_400_AF",map_file="snps360_400_filtered",
+hap360_400_AF <-data2haplohh(hap_file="/home/Data/genotypes360_400_AF",map_file="/home/Data/snps360_400_filtered",
                              recode.allele=TRUE, 
                              min_perc_geno.snp=100,
                              min_perc_geno.hap=80,
