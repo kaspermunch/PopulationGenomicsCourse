@@ -3,8 +3,6 @@ Background
 
 In this exercise section you will analyse positive selection in human populations. You will be looking at the X chromosome of individuals from the Simons genome diversity project. The advantage of X chromosomes in males is that they are haploid, and therefore, fully phased. We also have other reasons to belive that they often experience natural selection. Finally, they have typically not been investigated previously to the same extent as the autosomes.
 
-You will perform many of the same analysis as in the [Sabeti et al. (2007)](https://www.nature.com/articles/nature06250) paper. They used these to find selection in the human HapMap data (SNP data) on the autosomes.
-
 You will have data from the following populations:
 
 | Population  | Individuals |
@@ -37,24 +35,26 @@ You will perform a genome wide scan and then focus on candidate SNPs. The packag
 ``` r
 library(rehh)
 
-# Reading the data for each population:
-hap360_400_AF <-data2haplohh(hap_file="/home/Data/genotypes360_400_AF",map_file="/home/Data/snps360_400_filtered",
-                             allele_coding="map",
-                             min_perc_geno.mrk=100,
-                             min_perc_geno.hap=100,
-                             haplotype.in.columns=TRUE,
-                             chr.name=1)
+> hap360_400_AF <-data2haplohh(hap_file="/home/Data/genotypes360_400_AF",map_file="/home/Data/snps360_400_filtered",
++                              allele_coding="map", 
++                              min_perc_geno.mrk=100,
++                              min_perc_geno.hap=100,
++                              haplotype.in.columns=TRUE,
++                              chr.name=1)
+* Reading input file(s) *
+Map info: 24198 markers declared for chromosome 1 .
+Haplotype input file in transposed format assumed.
+Alleles are being recoded according to fourth and fifth column of map file.
+* Filtering data *
+Discard haplotypes with less than 100 % of genotyped markers.
+No haplotype discarded.
+Discard markers genotyped on less than 100 % of haplotypes.
+No marker discarded.
+Data consists of 26 haplotypes and 24198 markers.
+Number of mono-, bi-, multi-allelic markers:
+1 2 
+10018 14180 
 ```
-
-    ## Map file seems OK: 24198  SNPs declared for chromosome 1 
-    ## Haplotype are in columns with no header
-    ## Alleles are being recoded according to map file as:
-    ##  0 (missing data), 1 (ancestral allele) or 2 (derived allele)
-    ## Discard Haplotype with less than  80 % of genotyped SNPs
-    ## No haplotype discarded
-    ## Discard SNPs genotyped on less than  100 % of haplotypes
-    ## No SNP discarded
-    ## Data consists of 26 haplotypes and 24198 SNPs
 
 #### Q1. How many haplotypes and snps are found in each population?
 
@@ -69,30 +69,21 @@ Hint: Allele frequencies are calculated and stored as part of the dataframe resu
 
 ``` r
 # Producing the required input dataframe:
-res.scanAF<-scan_hh(hap360_400_AF)
-res.scanWE<-scan_hh(hap360_400_WE)
+> res.scanAF<-scan_hh(hap360_400_AF)
+> head(res.scanAF)
+             CHR POSITION     FREQ_A    FREQ_D NHAPLO_A NHAPLO_D IHH_A IHH_D IES INES
+X:X_73263128   1 73263128 0.00000000 1.0000000        0       26     0    NA  NA   NA
+X:X_73264012   1 73264012 0.03846154 0.9615385        1       25     0    NA  NA   NA
+X:X_73264487   1 73264487 0.03846154 0.9615385        1       25     0    NA  NA   NA
+X:X_73264603   1 73264603 0.03846154 0.9615385        1       25     0    NA  NA   NA
+X:X_73265256   1 73265256 0.00000000 1.0000000        0       26     0    NA  NA   NA
+X:X_73266095   1 73266095 1.00000000 0.0000000       26        0    NA     0  NA   NA
 
-head(res.scanAF)
-```
-
-    ##              CHR POSITION     freq_A iHH_A iHH_D iES_Tang_et_al_2007
-    ## X:X_73263128   1 73263128 0.00000000     0    NA                  NA
-    ## X:X_73264012   1 73264012 0.03846154     0    NA                  NA
-    ## X:X_73264487   1 73264487 0.03846154     0    NA                  NA
-    ## X:X_73264603   1 73264603 0.03846154     0    NA                  NA
-    ## X:X_73265256   1 73265256 0.00000000     0    NA                  NA
-    ## X:X_73266095   1 73266095 1.00000000    NA     0                  NA
-    ##              iES_Sabeti_et_al_2007
-    ## X:X_73263128                    NA
-    ## X:X_73264012                    NA
-    ## X:X_73264487                    NA
-    ## X:X_73264603                    NA
-    ## X:X_73265256                    NA
-    ## X:X_73266095                    NA
-    
-```r
+library(ggplot2)
 res.scanAF %>% ggplot() +
-  geom_histogram(aes(x=freq_A))
+  geom_histogram(aes(x=FREQ_A))
+res.scanAF %>% ggplot() +
+  geom_histogram(aes(x=FREQ_D)) 
 ```
 
 #### Q3. For what reason do they standardize iHS measure?
