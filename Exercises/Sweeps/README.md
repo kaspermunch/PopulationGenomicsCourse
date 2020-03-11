@@ -93,7 +93,7 @@ res.scanAF %>% ggplot() +
 wg.ihsAF<-ihh2ihs(res.scanAF, freqbin = 0.05) 
 
 # Plotting the results:
-ihsplot(wg.ihsAF, plot.pval = TRUE)
+manhattanplot(wg.ihsAF)
 ```
 
 #### Q4. Do you find outliers?
@@ -113,17 +113,15 @@ There are two possible functions to be used, `ies2rsb` and `ies2xpehh`, both req
 #?ies2xpehh()
 
 # Computing ies2rsb between African population over West European population:
-wg.rsbAFWE <- ies2rsb(res.scanAF,res.scanWE, popname1 = "Africa", popname2 = "W Europe",
-                      method = "bilateral")
+wg.rsbAFWE <- ines2rsb(res.scanAF,res.scanWE, popname1 = "Africa", popname2 = "W Europe")
+manhattanplot(wg.rsbAFWE)
 ```
 
 Use the function rsbplot() and xpehhplot() to explore and plot your results:
 
 ``` r
-rsbplot(wg.rsbAFWE, plot.pval = T)
-wg.XPEHHAFWE <- ies2xpehh(res.scanAF,res.scanWE, popname1 = "Africa", popname2 = "W Europe", method = "bilateral")
-
-xpehhplot(wg.XPEHHAFWE, plot.pval = T)
+wg.XPEHHAFWE <- ies2xpehh(res.scanAF,res.scanWE, popname1 = "Africa", popname2 = "W Europe")
+manhattanplot(wg.XPEHHAFWE)
 ```
 
 Zooming in interesting markers
@@ -134,15 +132,10 @@ From the scan you can find SNPs that give extreme values of iEHS or of XPEHH for
 Try to plot markers that show outlier values in the above statistics and compare populations. Hint: use which.max() and which.min() (especially when using XPEHH or Rsb). Select a SNP that shows some interesting results.
 
 ``` r
-#If x is the index of an outlier marker
-a = calc_ehhs(hap360_400_WE, mrk=x)
-
-layout(matrix(1:2,2,1))
-diag = bifurcation.diagram(hap360_400_WE,mrk_foc=x,
-                    all_foc=1,nmrk_l=200,
-                    nmrk_r=200, 
-                    refsize = 0.8,
-                    main="Candidate X: Ancestral Allele")
+marker = which.min(wg.XPEHHAFWE["XPEHH_Africa_W Europe"])
+snp = row.names(wg.XPEHHAFWE)[marker]
+a = calc_furcation(hap360_400_AF, mrk=snp)
+plot(a)
 ```
 
 #### Q6. What is the biological function of the region around this snp?
