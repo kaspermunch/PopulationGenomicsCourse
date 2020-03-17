@@ -7,32 +7,26 @@ using his method in a large number of individuals from the Simons genome
 diversity project and from the 1000 genomes project, paper
 [here](https://www.biorxiv.org/content/early/2018/03/16/283606.full.pdf).
 
-The path to the dataset is the following:
-
-```bash
-  /home/Data/ArchaicSegments.txt
- ```
-Transfer it from the cluster to your local machine and use Rstudio for the rest of the exercise. Here is an example of the code you can use to answer the first set of questions. 
+Here is an example of the code you can use to answer the first set of questions. 
 
 ``` r
-archaic_df = read.table('ArchaicSegments.txt',
+archaic_df = read.table('/home/Data/ArchaicSegments.txt',
     sep='\t', header = T)
-
-# How many individuals do we have?
+```
+How many individuals do we have?
+``` r
 length(unique(archaic_df$name))
 ```
 
     ## [1] 358
-
+How many populations do we have?
 ``` r
-# How many populations?
 length(unique(archaic_df$pop))
 ```
 
     ## [1] 110
-
+How many regions?
 ``` r
-# How many regions?
 unique(archaic_df$region)
 ```
 
@@ -42,6 +36,7 @@ unique(archaic_df$region)
 
 ``` r
 # Average archaic segment length by population:
+library(dplyr)
 mean_seg_pop <- archaic_df %>%
         group_by(pop, region) %>%
         summarise(`Mean segment length` = mean(length))
@@ -87,8 +82,8 @@ The lengths of Archaic fragments
 --------------------------------
 
 The lengths of the fragments are given by the length variable and is
-regarding the segments that appear to have too many SNPs after the
-African SNPs have been filtered away. You will
+regarding the segments that appear to have high density of SNPs after the
+African SNPs (outgroup) have been filtered away. You will
 first look at these before classifying them into their most likely
 archaic origin
 
@@ -108,7 +103,7 @@ The origin of archaic fragments
 -------------------------------
 
 You can assign individuals fragments to archaic origin using the number of SNPs they share with Denisovans, Altai Neanderthal and Vindija Neanderthal. As a simple first approach, we can assign a fragment to the archaic species with whom shares more
-SNPs. If there are no SNPs shared with any of the archaics then considewr the fragment unassigned.
+SNPs. If there are no SNPs shared with any of the archaics then consider the fragment unassigned.
 
 ##### Q1. For each individual, assign the archaic segments to origin and reconstruct a Figure in the same style as Figure 5 of the Cell paper (plot below).
 
