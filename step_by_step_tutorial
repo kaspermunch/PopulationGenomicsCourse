@@ -9,7 +9,7 @@ I check that plink is installed by running plink like this:
 ```bash
 plink
 ```
-This will also show me all the tools inside the program.
+This will also show me the version of the program (1.90) and all the tools inside the program.
 
 Works? Good, we have everything we need to start. The filtering has two parts: Sample filtering and SNP filtering.
 I'll use the commands provided in the README file but I'll change the output prefix each time we filter out samples or variants, thus avoiding the dreadful "~" files, that complicated your lives earlier. That way we'll also be able to trace back any problematic step.
@@ -137,7 +137,25 @@ With these lines of code, I obtain a unique set of 14 samples that show outlying
 
 ```bash
 plink --bfile GWA-data_sflt_mflt_hflt --remove wrong_ibd.txt --make-bed --out GWA-data_sflt_mflt_hflt_iflt
+ls -lth
 ```
+
+I get a new set of files, containing the same number of variables and the samples that survived the wrong sex, the missing data and ibd filtering. At this point, you should have 1940 samples, 988 cases and 952 controls.
+
+## Variant filtering
+
+We need to re-compute the missing data for each variant, since we filtered some samples. I do that by running:
+
+```bash
+plink --bfile GWA-data_sflt_mflt_hflt_iflt --missing --out GWA-data_sflt_mflt_hflt_iflt
+ls -lht
+```
+
+With "ls -lht" I can see again the new files produced. I open "GWA-data_sflt_mflt_hflt_iflt.lmiss" on R:
+
+
+
+
 
 
 
