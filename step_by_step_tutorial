@@ -16,19 +16,21 @@ I'll use the commands provided in the README file but I'll change the output pre
 
 ## Sample filtering
 
+#### Wrong sex
+
 I check for samples with wrong sex aannotation with the following:
 
 ```bash
-ls -lh
+ls -lth
 plink --bfile GWA-data --check-sex --out GWA-data
-ls -lh
+ls -lth
 head GWA-data.sexcheck
 grep -v "OK" GWA-data.sexcheck > wrong_sex.txt
 cat wrong_sex.txt
 ```
 
-I included ls -lh steps before and after running plink --check-sex, so that I could check that the original files had the same size, i.e we it did not modify them so you shoudn't get "~" files. Plus, we can see the only outputs of the command. 
-If you read the standard output, i.e what was written on the screen when you ran the command, or the log file, you will see that there are 3 identified samples with wrong sex information. 
+I included ls -lh steps before and after running plink --check-sex, so that I could check that the original files had the same size, i.e we it did not modify them so you shoudn't get "~" files. Plus, we can see the only outputs of the command. The -l option allows us to see all the information of the different files in the directory, the -h option makes the memory easier to read and the -t option orders the files by time, so we can see the ones added more recently first.
+If you read the standard output (std out), i.e what was written on the screen when you ran the command, or the log file, you will see that there are 3 identified samples with wrong sex information. 
 I inspected the contents and structure of the file "GWA-data.sexcheck" using head. Then, I used grep to susbset the lines that did not have an "OK", since I saw that these was the field to define good variants from the head command -longer than 3 lines. I could also have run something like:
 
 ```bash
@@ -38,6 +40,78 @@ awk '{if (NR > 1) print $5}' GWA-data.sexcheck|sort -k1,1 -u
 This would have omitted the header and printed unique values for column 5, which is the one to store the status of the sample, i.e what we are looking for.
 
 By doing cat "wrong_sex.txt" I can see the wrong samples and I'll filter them out with:
+
+```bash
+plink --bfile GWA-data --remove wrong_sex.txt --make-bed --out GWA-data_sflt
+```
+
+By changing the output prefix, you'll avoid again "~" files. You can see from std out or the log file that we have the same number of variants and 3 samples less. You can also inspect the new files created by running:
+
+```bash
+ls -lth
+```
+
+#### Missing data
+
+To get an analysis of missing data and heterozygosity, I run the following:
+
+```
+plink --bfile GWA-data_sflt --missing --out GWA-data_sflt
+plink --bfile GWA-data_sflt --het --out GWA-data_sflt
+ls -lth
+```
+
+Note that the -bfile is now changed, since I modified the prefix in the last step and we want to keep using the filtered data. I keep the same out prefix because I'm not changing the files, but just generating new files from these, as you can see from the output of "ls -lht".
+
+I'll go to Rstudio now and analyze these results:
+
+```R
+Imiss = read.table('GWA-data_sflt.imiss', header = TRUE)
+mean(Imiss$N_MISS)
+mean(Imiss$F_MISS)
+
+het = read.table('GWA-data.het', header = T)
+het$het_cal = (het$N.NM. - het$O.HOM.)/ het$N.NM.
+mean_het = mean(het$het_cal)
+sd_het = sd(het$het_cal)
+
+plot(x = het$het_cal,y = Imiss$F_MISS, lwd =4, col = 'light blue', xlab = 'Heterozygosity rate per individual', ylab = 'Proportion of missing SNPs per individual')
+abline(h = 0.03, col = 'red', lty = 3)
+abline(v = mean_het + 3*sd_het, col = 'red', lty = 3)
+abline(v = mean_het - 3*sd_het, col = 'red', lty = 3)
+```
+
+By running this I get the mean of number of missing genotypes and missing frequencies for each sample. I also compute the observed heterozygosity on each individual. Then, I plot these results, outlying extreme values on both variables, i.e missing frequency greater than 3% and heterozygosity lower or greaater than 3 standard deviations from the mean.
+A high proportion of missing genotypes is indicative of low DNA quality or concentration, while higher or lower proportion of heterozygotes is indicative of contamination or inbreeding, respectively.
+
+Thus, I proceed to filter samples based on these criteria, with:
+
+```R
+right_tail = mean_het + 3*sd(het$het_cal)
+left_tail =  mean_het - 3*sd(het$het_cal)
+
+filtering = cbind(Imiss, het)
+outlier_ind = subset(filtering, filtering$F_MISS >= 0.03 | filtering$het_cal > right_tail | filtering$het_cal < left_tail)
+
+nrow(filtering_ind)
+
+write.table(outlier_ind[,c(1,2)], 'wrong_het_missing_values.txt', col.names = FALSE, row.names = FALSE)
+```
+
+I save the outlier 43 samples in a file named 'wrong_het_missing_values.txt'. I only need the IDs for filtering, so I just save the first two columns.
+
+Back to the command line, I filter the dataset based on the file I've just created:
+
+```bash
+plink --bfile GWA-data_sflt --remove wrong_het_missing_values.txt --make-bed --out GWA-data_sflt_mflt_hflt
+ls -lht
+```
+
+After that, you should have the same number of variants and 1954 samples left. You should also see that we have created bed, bim and fam files for GWA-data_sflt_mflt_hflt, containing our filtered dataset.
+
+#### Relatedness
+
+
 
 
 
