@@ -111,6 +111,36 @@ After that, you should have the same number of variants and 1954 samples left. Y
 
 #### Relatedness
 
+We want to filter out samples with high identity by descent (IBD), indicative of relatedness between individuals or repeaated samples, that could bias our GWAS.
+Before that, we have to filter out variants in LD that could bias the estimates of IBD.
+
+On the command line, I run:
+
+```bash
+plink --bfile GWA-data_sflt_mflt_hflt --indep-pairwise 500kb 5 0.2 --out GWA-data_sflt_mflt_hflt
+plink --bfile GWA-data_sflt_mflt_hflt --extract GWA-data_sflt_mflt_hflt.prune.in --genome --min 0.185 --out GWA-data_sflt_mflt_hflt
+ls -lht
+```
+
+From the first file you will get a set of variants that show r2 lower than 0.2, using windows of 500Kb and a step size of 5, named "GWA-data_sflt_mflt_hflt.prune.in". Using the second command, I compute IDB with these variants in linkage equilibrium and output the pairs of individuals with IBD greater than 0.185 (mean bewteen second degree relatives and third degree relatives). Again, this is not going to change our files so we don't need to change the prefix on the output files.
+In R, I proceed in analyzing the output file, named "GWA-data_sflt_mflt_hflt.genome":
+
+```R
+ibd = read.table('GWA-data_sflt_mflt_hflt.genome', header = TRUE)
+members = ibd[,1]
+members = unique(members)
+length(members)
+write.table(cbind(members,members), file = 'wrong_ibd.txt', col.names = F, row.names = F)
+```
+
+With these lines of code, I obtain a unique set of 14 samples that show outlying IDB with another sample. Back to the command line, I filter out samples in our dataset using this file by running:
+
+```bash
+plink --bfile GWA-data_sflt_mflt_hflt --remove wrong_ibd.txt --make-bed --out GWA-data_sflt_mflt_hflt_iflt
+```
+
+
+
 
 
 
