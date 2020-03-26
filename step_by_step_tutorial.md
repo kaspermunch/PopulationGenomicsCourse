@@ -18,7 +18,7 @@ I'll use the commands provided in the README file but I'll change the output pre
 
 ## Sample filtering
 
-#### Wrong sex
+#### Wrong sex
 
 I check for samples with wrong sex aannotation with the following:
 
