@@ -111,7 +111,7 @@ ls -lht
 
 After that, you should have the same number of variants and 1954 samples left. You should also see that we have created bed, bim and fam files for GWA-data_sflt_mflt_hflt, containing our filtered dataset.
 
-#### Relatedness
+#### Relatedness
 
 We want to filter out samples with high identity by descent (IBD), indicative of relatedness between individuals or repeaated samples, that could bias our GWAS.
 Before that, we have to filter out variants in LD that could bias the estimates of IBD.
