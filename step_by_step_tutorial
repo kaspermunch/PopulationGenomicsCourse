@@ -70,7 +70,7 @@ Imiss = read.table('GWA-data_sflt.imiss', header = TRUE)
 mean(Imiss$N_MISS)
 mean(Imiss$F_MISS)
 
-het = read.table('GWA-data.het', header = T)
+het = read.table('GWA-data_sflt.het', header = T)
 het$het_cal = (het$N.NM. - het$O.HOM.)/ het$N.NM.
 mean_het = mean(het$het_cal)
 sd_het = sd(het$het_cal)
@@ -93,7 +93,7 @@ left_tail =  mean_het - 3*sd(het$het_cal)
 filtering = cbind(Imiss, het)
 outlier_ind = subset(filtering, filtering$F_MISS >= 0.03 | filtering$het_cal > right_tail | filtering$het_cal < left_tail)
 
-nrow(filtering_ind)
+nrow(outlier_ind)
 
 write.table(outlier_ind[,c(1,2)], 'wrong_het_missing_values.txt', col.names = FALSE, row.names = FALSE)
 ```
@@ -151,13 +151,38 @@ plink --bfile GWA-data_sflt_mflt_hflt_iflt --missing --out GWA-data_sflt_mflt_hf
 ls -lht
 ```
 
-With "ls -lht" I can see again the new files produced. I open "GWA-data_sflt_mflt_hflt_iflt.lmiss" on R:
+With "ls -lht" I can see again the new files produced. I open "GWA-data_sflt_mflt_hflt_iflt.lmiss" on R to plot an histogram of the variant's missing frequency:
 
+```R
+miss_data = read.table('GWA-data_sflt_mflt_hflt_iflt.lmiss', header = T)
+hist(miss_data$F_MISS, breaks = 50, col = 'light blue', main = 'Missing Data Distribution', xlab = 'Missing Data rate')
+```
 
+A lot of care must be taken when filtering variants, since we can lose potential variants associaated with the phenotypic trait. Therefore, we only filter these variants in which the missigness is associated with the phenotype, i.e case or control, so they could be a source of bias in our study. I compute the Fisher exact test between these two variables by running:
 
+```bash
+plink --bfile GWA-data_sflt_mflt_hflt_iflt --test-missing --out GWA-data_sflt_mflt_hflt_iflt
+```
+This outputs a file named "GWA-data_sflt_mflt_hflt_iflt.missing". Using R and applying a significance criterion of 10e-5, I get significant variants by:
 
+```R
+test_missing = read.table('GWA-data_sflt_mflt_hflt_iflt.missing', header = TRUE)
+fail_diffmiss_qc = test_missing[test_missing$P < 10e-5, 2]
+write.table(fail_diffmiss_qc, file = 'fail-diffmiss-qc.txt', row.names = F, col.names = F)
+```
 
+I filter out these variants and also variants that show deviations from HWE and variants with low allele frequency, by running:
 
+```bash
+plink --bfile GWA-data_sflt_mflt_hflt_iflt --exclude fail-diffmiss-qc.txt --geno 0.05 --hwe 0.00001 --maf 0.01 --make-bed --out GWA-data_sflt_mflt_hflt_iflt_vflt
+```
+
+Deviations from HWE might indicate genotype error, but we choose a very low siginifcance value, since deviations from HWE might also be a product of selection implying that we could be filtering out variants potentially associated with the phenotypic trait. 
+Daamples with low allele frequency are also more likely to be misscalls. Additionally, these variants have low power to be significant associations in the GWAS study due to their low small sample size.
+
+After all filtering, you should be left with:
+- 313896 variants.
+- 1940 people (988 cases and 952 controls).
 
 
 
