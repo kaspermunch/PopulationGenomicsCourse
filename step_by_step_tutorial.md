@@ -1,3 +1,5 @@
+# GWAS QC: step-by-step tutorial
+
 First I create a new directory in my home folder in the cluster named GWAS_QC and copy the input files there:
 
 ```bash
