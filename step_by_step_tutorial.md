@@ -180,7 +180,7 @@ plink --bfile GWA-data_sflt_mflt_hflt_iflt --exclude fail-diffmiss-qc.txt --geno
 ```
 
 Deviations from HWE might indicate genotype error, but we choose a very low siginifcance value, since deviations from HWE might also be a product of selection implying that we could be filtering out variants potentially associated with the phenotypic trait. 
-Daamples with low allele frequency are also more likely to be misscalls. Additionally, these variants have low power to be significant associations in the GWAS study due to their low small sample size.
+Samples with low allele frequency are also more likely to be miss-calls. Additionally, these variants have low power to be significant associations in the GWAS study due to their low small sample size.
 
 After all filtering, you should be left with:
 - 313896 variants.
