@@ -25,7 +25,7 @@ plink --bfile gwa --fisher --out gwa
 *2) Is the most significant variant significant if you do Bonferroni correction?*
 
 ### Make plots
-We will use the R package “qqman” to make Manhattan plots and qq-plots. The package is available in CRAN so it can be installed using the “install.packages” command. You can read in the association results and make a Manhattan plot by typing:
+We will use the R package “qqman” to make Manhattan plots and qq-plots. The package is available in CRAN so it can be installed using the “install.packages” command. I have already installed in in rstudio-server. You can read in the association results and make a Manhattan plot by typing:
 ```
 d <- read.table('gwa.assoc.fisher', head=T)
 manhattan(d)
