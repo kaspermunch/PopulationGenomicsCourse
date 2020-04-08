@@ -113,16 +113,11 @@ D. Try to look at the SNPs at the most significant locus. If you want to analyse
 E. Do additional analyses using plink, GCTA, R or any other tool you might find relevant. The list below contains some suggestions for possible analyses, but you can also come up with your ideas
 
 Suggestions for further analyses:
-
-	* Use mixed model for GWAS.
-	
-	* Do imputation (either of the whole genome or the region around the most significant SNP) and see if you can then find variants with lower p-values.
-	
-	* Make association tests where you condition on most significant variant (you can use the —condition option in plink)
-	
-	* Try to treat the categorical data as a quantitative phenotype where some coategories are intermediate values of others.
-	
-	* Test for epistasis.
+- Use mixed model for GWAS.	
+- Do imputation (either of the whole genome or the region around the most significant SNP) and see if you can then find variants with lower p-values.
+- Make association tests where you condition on most significant variant (you can use the —condition option in plink)
+- Try to treat the categorical data as a quantitative phenotype where some coategories are intermediate values of others.
+- Test for epistasis.
 
 ### Papers:
 
