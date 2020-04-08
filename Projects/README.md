@@ -96,9 +96,9 @@ gencode.v30lift37.annotation.gtf.gz: Gtf file containing the gene annotation for
 -----------------------------------------------------------------------------------------------
 
 In this project you will be looking at GWAS data from [openSNP](https://opensnp.org), which is a web site where users of direct-to-customer genetic tests can share their personal data with other users. The phenotype we will be looking at is self-reported eye color. 
-When looking at the data you should have in mind that:
+When looking at the data you should be aware that:
 - The data comes from different companies that use different chips so there are markers that are missing from some individuals because they were not present on the chip used by their company.
-- Many users have not reported their gender. By default plink will ignore the phenotype of these individuals unless you tell it not to.
+- The gender information is missing from the file and by default plink will ignore the phenotype of individuals without gender information. So you have to use “--allow-no-sex” option in plink.
 
 ### Investigate the following
 
@@ -106,15 +106,18 @@ A. Are there any closely related individuals in the sample?
 
 B. Do a PCA plot. What does it tell you about the samples?
 
-C. The file eye_color.txt contains the self-reported eye colors for the individuals in the data set. First try to do a GWAS for Brown vs. Blue eyes. How many loci do you find? 
+C. The file eye_color.txt contains the self-reported eye colors for the individuals in the data set. Do a GWAS on on the dataset. There are 12 categories and you can group some of them together to create a binary phenotype. How many significant loci do you find? 
 
 D. Try to look at the SNPs at the most significant locus. If you want to analyse it in R you can use the "--recode A" together wither the "--snp" and "--window" option in plink to get a the variants around a specific SNP written to a text file that it is easy to load in R. How is the distribution of eye colors for each genotype of the most significant SNP? Is the effect additive, dominant or recessive?
 
-E. Are there any significant variants after you condition on the most significant hit? (you can use the "--condition" option in plink)
+E. Do additional analyses using plink, GCTA, R or any other tool you might find relevant. The list below contains some suggestions for possible analyses, but you can also come up with your ideas
 
-F. Can you find genome-wide significant hits that helps distinguish between other colors (fx. green or hazel)? What if you restrict the analysis to a region around the most significant SNP in the blue vs brown comparison?
-
-G. Do any additional analysis. Using plink, GCTA or any other tool you might find relevant.
+Suggestions for further analyses:
+	* Use mixed model for GWAS.
+	* Do imputation (either of the whole genome or the region around the most significant SNP) and see if you can then find variants with lower p-values.
+	* Make association tests where you condition on most significant variant (you can use the —condition option in plink)
+	* Try to treat the categorical data as a quantitative phenotype where some coategories are intermediate values of others,
+	* Test for epistasis.
 
 ### Papers:
 
