@@ -142,9 +142,9 @@ In your project you must address the questions below, but you are also expected 
 
 A. To what extent do individuals share SNPs contributed by archaic human introgression? In other words, how correlated are the archaic contents in two individuals?
 
-B. Is this correlation stronger when you compare individuals from different populations?
+B. How does this correlation chagne when you compare individuals from different populations?
 
-C. Is it even stronger when comparing individuals from different geographical regions?
+C. How does it chagne when comparing individuals from different geographical regions?
 
 D. Does the region containing the EPAS1 gene stand out in any way? (Redo the analysis above for a 1Mb window surrounding this gene).
 
