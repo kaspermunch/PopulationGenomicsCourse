@@ -51,7 +51,7 @@ When you install Anaconda or Miniconda, Conda makes a single base environment fo
 
 The environmnet on your local machine does not need a lot of packages since it mainly serve to let you connect to the cluster. This creates the enviromnet and installs `slurm-jupyter` from my conda chanel:
 
-```txt
+```bash
 conda create --name popgen -c kaspermunch slurm-jupyter jupyter jupyterlab pandas numpy matplotlib ipympl nodejs seaborn
 ```
 
@@ -59,7 +59,7 @@ Say yes (press Enter) when asked to install packages.
 
 **Important:** Whenever you use the terminal on your own machine to do exercises, you should activate your `popgen` environment like this:
 
-```txt
+```bash
 conda activate popgen
 ```
 
@@ -69,7 +69,7 @@ When you environment is active it says `(popgen)` on the commnad prompt instead 
 
 You connect to the cluster from the terminal by executing this command (replace `username` with your cluster user name):
 
-```txt
+```bash
 ssh username@login.genome.au.dk
 ```
 
@@ -85,26 +85,26 @@ The cluster sends your machine a message encrypted using your public. Your machi
 
 First see if you have these two authentication files on your local machine (you can do so by running `ls -a ~/.ssh` in the terminal):
 
-```txt
+```bash
 ~/.ssh/id_rsa
 ~/.ssh/id_rsa.pub
 ```
 
 if not, you generate a pair of authentication keys like this. Just press Enter when asked "Enter file in which to save the key". Do not enter a passphrase when prompted - just press enter:
 
-```txt
+```bash
 ssh-keygen -t rsa
 ```
 
 Now use `ssh` to create a directory `~/.ssh` on the cluster (assuming your username on the cluster is 'username'):
 
-```txt
+```bash
 ssh username@login.genome.au.dk mkdir -p .ssh
 ```
 
 Finally append the public ssh key on your local machine to the file `.ssh/authorized_keys` on the cluster and enter the password one last time (replace `username` with your cluster user name):
 
-```txt
+```bash
 cat ~/.ssh/id_rsa.pub | ssh username@login.genome.au.dk 'cat >> .ssh/authorized_keys'
 ```
 
@@ -114,7 +114,7 @@ From now on you can log into the cluster from your local machine without being p
 
 Now log in to the cluster
 
-```txt
+```bash
 ssh username@login.genome.au.dk
 ```
 
@@ -122,13 +122,13 @@ ssh username@login.genome.au.dk
 
 You need to install miniconda (a minimal Anaconda version) in your cluster home dir. Log in to the cluster and run this command to download a miniconda installer:
 
-```txt
+```bash
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
 Then this command to download and install miniconda:
 
-```txt
+```bash
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
@@ -138,13 +138,13 @@ Say yes when it asks if it should run `conda init` for you.
 
 You also need a dedicated conda environment on the cluster. We will name this `popgen` too, but in this one we will also install all the scientific software you will use in the exercises. Log in to the cluster and run this command to create the conda envionment:
 
-```txt
+```bash
 conda create -n popgen -c bioconda -c kaspermunch bwa platypus-variant samtools beagle plink admixture
 ```
 
 **Important:** Whenever you log into the cluster to work on your project, you should activate your `popgen` environment like this:
 
-```txt
+```bash
 conda activate popgen
 ```
 
@@ -154,19 +154,19 @@ conda activate popgen
 
 [Jupyter](https://jupyter.org/) is a notebook environment where you can easily combine text, code and plots. Using the [slurm-jupyter](https://slurm-jupyter.readthedocs.io/en/latest) tool, you can run a jupyter notebook on the cluster, but see it in the browser on your own machine. So your analysis runs on the cluster file system where your data is, but the notebook interface is sent to your browser window. The first thing you need to do is create a separate conda environment that has jupyter installed. Do not worry about this extra environment. You will not be using it directly. We just need it to be able to run jupyter notebooks in class. 
 
-```txt
-conda create -n jupyter -c bioconda -c kaspermunch jupyter jupyterlab pandas numpy matplotlib ipympl nodejs seaborn r-essentials rpy2 simplegeneric tzlocal r-vcfr
+```bash
+conda create -n jupyter -c bioconda -c kaspermunch jupyter jupyterlab pandas numpy matplotlib ipympl nodejs seaborn r-essentials rpy2 simplegeneric tzlocal r-vcfr bioconductor-biocinstaller bioconductor-snprelate
 ```
 
 Once created you must activate that environemnt:
 
-```txt
+```bash
 conda activate jupyter
 ```
 
 and then run this this command:
 
-```txt
+```bash
 config-slurm-jupyter.sh
 ```
 
@@ -180,7 +180,7 @@ If you followed each step above, you should now be all set up. When ever you wor
 
 Now log in to the cluster and activate your `popgen` environemnt:
 
-```txt
+```bash
 ssh usernmae@login.genome.au.dk
 conda activate popgen
 ```
@@ -189,7 +189,7 @@ conda activate popgen
 
 When you log into the cluster you are put in your "home folder". All users have a home folder. However, in this course you will not use your home folder. We have made a special folder for you called `populationgenomics/students/username` where you should keep everything related to the course. To get from your home folder to the this folder you just:
 
-```txt
+```bash
 cd populationgenomics/students/username
 ```
 
@@ -199,17 +199,28 @@ cd populationgenomics/students/username
 
 When you log into the cluster you land on the "front-end" of the cluster. The "front-end" is a single machine shared by anyone who log in. You cannot run resource intensive jobs there, but quick commands are ok. Commands that finish in less than ten secons are ok. Try this command that prints "echos" the string "I can run interactive commands!" to the file `nice.txt`:
 
-```txt
+```bash
 echo "I can run interactive commands!" > nice.txt
 ```
 
 Use the `cat` command to show the contents of `nice.txt` in the terminal:
 
-```txt
+```bash
 cat nice.txt
 ```
 
-### Running commands on the cluster
+
+### Running interactive commands on the cluster
+
+Say the command above was a long-running command like some population genomic analysis. Then you cannot run it on the front-end. You need to ask for one of the computing machines on the cluster so you can work on that instead. You do that by running this command:
+
+```bash
+srun --mem-per-cpu=1g --time=3:00:00 --account=populationgenomics --pty bash
+```
+
+Thay way you will use at most one gigabyte of memory, that you need at most three hours (the duration of the exercise), and that the computing expensenses should be billed to the project populationgenomics (which is our course). When you execute the command your terminal will say "srun: job 40924828 queued and waiting for resources". That means that you have asked for a machine. Once it prints "srun: job 40924828 has been allocated resources", you have been logged into a computing node. If you execute the `hostname` command you will get something like `s05n20.genomedk.net`. `s05n20` is a computing mechine. Now you can execute any command you like without causing trouble for anyone. Now try to log out of the compute node by executing the `exit` command or by pressing `Ctrl-d`. If you execute the `hostname` command again you will get `fe1.genomedk.net`. `fe1` is the front-end.
+
+### Queueing commands on the cluster
 
 Say the command above was a long-running command like some population genomic analysis. Then you cannot run it on the front-end. You need to submit it as a job to the cluster. When you do that, the job gets queued along with many other jobs, and as soon as the requested resources are available on the cluster, the job will start on one the many many machines. To submit a job, you must first create a file (a "batch script") that contains both the requested computer resources and the command you want to run. 
 
@@ -229,7 +240,7 @@ The first line says this is a bash script, the lines following three lines says 
 
 You submit the job using the `sbatch` command: 
 
-```txt
+```bash
 sbatch myscript.sh
 ```
 
@@ -244,25 +255,25 @@ Job ID           Username Queue    Jobname    SessID NDS  S Elap Time   nodes
 
 If you want to cancel your this job before it finishes, you can use the `scancel` command:
 
-```txt
+```bash
 scancel 34745986
 ```
 
 Once your job finishes, it has created the file `evennicer.txt` and written "I can submit cluster jobs now!" to it. So see that you can use the `cat` command:
 
-```txt
+```bash
 cat evennicer.txt
 ```
 
 When you a program or script on the commandline it usually also prints some information in the terminal. When you run a job on the cluster there is no terminal to print to. Instead this is written to two files that you can read when the job finishes. In this case the fiels are called `firstjob.stdout` and `firstjob.stderr`. So see what is in them, you can use the `cat` command:
 
-```txt
+```bash
 cat firstjob.stdout
 ```
 
 and
 
-```txt
+```bash
 cat firstjob.stderr
 ```
 
@@ -272,13 +283,13 @@ That is basically it.
 
 You may need to transfer files back and forth between your own machine and the cluster. To copy a file called `file` in a directory called `dir` on the cluster to your own machine you can use the `scp` command:
 
-```txt
+```bash
 scp username@login.genome.au.dk:dir/file .
 ```
 
 To copy a file called `file` on your own machine to a folder called `dir` on the cluster, you do this:
 
-```txt
+```bash
 scp ./file username@login.genome.au.dk:dir/
 ```
 
@@ -286,7 +297,7 @@ scp ./file username@login.genome.au.dk:dir/
 
 Now you should be set up. Log out of the cluster so that you are now back on your local machine. Run this command to start `slurm-jupyter`:
 
-```txt
+```bash
 slurm-jupyter -A populationgenomics -e jupyter
 ```
 
