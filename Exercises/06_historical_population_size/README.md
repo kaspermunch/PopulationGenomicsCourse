@@ -13,6 +13,7 @@ The example individual used below is a Hungarian individual with id ERR1025630. 
 ## Calling consensus sequence
 Starting from mapped reads, the first step is to produce a consensus sequence in FASTQ format, which stores both the sequence and its corresponding quality scores, that will be used for QC filtering. The consensus sequence has A, T, C or G at homozygous sites, and other letters [IUPAC codes](https://www.bioinformatics.org/sms/iupac.html) to represent heterozygotes. To make the consensus calls, we use the samtools/bcftools suite. We first use `samtools mpileup` to take the mapped reads and produce a VCF file. We then generate a consensus sequence with `bcftools`, which we convert to FASTQ (with some additional filtering) by `vcfutils.pl`. We take advantage of Unix pipes and the ability of `samtools` to work with streaming input and output to run the whole pipeline (`samtools` -> `bcftools` -> `vcfutils.pl`) as one command. We run our consensus calling pipeline, consisting of a linked set of `samtools`, `bcftools`, and `vcfutils.pl` commands:
 
+<!-- TODO: Updata file names -->
     samtools mpileup -Q 30 -q 30 -u -v -f /home/Data/Homo_sapiens.GRCh37.75.dna.chromosome.2.fa -r 2 /home/Data/ERR1025630_sort_dedup.bam | bcftools call -c | vcfutils.pl vcf2fq -d 5 -D 100 -Q 30 > ERR1025630_sort_dedup_consensus.fq
 
 The command takes as input an aligned bam file and a reference genome, generates a summary of the coverage of mapped reads on a reference sequence at a single base pair resolution using `samtools mpileup`, then calls the consensus sequence with `bcftools`, and then filters and converts the consensus to FASTQ format. Some parameter explanations:
@@ -31,6 +32,7 @@ The command takes as input an aligned bam file and a reference genome, generates
 
 This takes a long to run (about 5-6 hours) so if you get tired of waiting you can get it here:
 
+<!-- TODO: Updata file names -->
     /home/Data/consensus_files/ERR1025630_sort_dedup_consensus.fq
 
 There you can also find FASTQ files for all the other individuals we have been working with.
@@ -38,6 +40,7 @@ There you can also find FASTQ files for all the other individuals we have been w
 ## Creating a PSMC input file
 PSMC takes the consensus FASTQ file, and infers the history of population sizes, but first we need to convert this FASTQ file to the input format for PSMC:
 
+<!-- TODO: Updata file names -->
     fq2psmcfa -q20 ERR1025630_sort_dedup_consensus.fq > ERR1025630_sort_dedup_consensus.psmcfa
 
 This transforms the consensus sequence into a fasta-like format where the i-th character in the output sequence indicates whether there is at least one heterozygote in the bin [100i, 100i+100). Have a look at the file using `less`.
@@ -46,6 +49,7 @@ This transforms the consensus sequence into a fasta-like format where the i-th c
 
 Now we are finally ready to run PSMC. You do that like this:
 
+<!-- TODO: Updata file names -->
     psmc -N50 -t15 -r5 -p "4+25*2+4+6" -o ERR1025630_sort_dedup_consensus.psmc ERR1025630_sort_dedup_consensus.psmcfa
 
 The command line in the example above has been shown to be suitable for modern humans, inappropiate settings might lead to under/over-fitting. The `-p` and `-t` options are used to specify the length and number of time intervals. The `-r` option is used to specify the initial theta/rho ratio. The `-N` option sets the maximum number of EM iterations in the fitting of model parameters.
@@ -60,6 +64,7 @@ When the PSMC completes you can make the PSMC plot. You have to specify the per-
 
 Then you can generate the plot like this:
 
+<!-- TODO: Updata file names -->
     psmc_plot.pl -R -u 1.2e-08 -g 25 -p ERR1025630_sort_dedup_consensus_plot ERR1025630_sort_dedup_consensus.psmc
 
 The `-u` option specifies the per year mutation rate and the `-g` the generation time. The `-p` option specifies the basen name for the output files and `-R` option preserves the intermediate files the script produces. The latter is handy if you want to make plots yourself combining several PSMC analyses.
@@ -70,6 +75,7 @@ Does the plot resemble the ones in Li and Durbin. We used a different (more corr
 
 Now compare individuals from different regions. You can find all individuals at:
 
+<!-- TODO: Updata file names -->
 ```bash
 /home/Data/consensus_files/PSMC
 ```
@@ -78,6 +84,7 @@ Do they look different? If so, what do you think could explain this?
 
 Try to make a plot that show all your results together. Try out the code below:
 
+<!-- TODO: Updata file names -->
 ```R
 psmc_data1 <- read.table("ERR1025630_sort_dedup_consensus_plot.0.txt", header=F)
 # you can read data from more than one psmc run:

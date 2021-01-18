@@ -25,12 +25,13 @@ As we learned last week, high-throughput sequencing technologies have in the pas
 This dataset is a subset of the Simons Diversity Project (discussed last week).
 
 
-<!-- TODO: Delete this section -->
 ## Log in to the server via terminal
+<!-- TODO: Delete this section -->
 
 This time we will add an option so we can open Rstudio from the terminal later. For that to work, we need to install another software first. Alternatively, you could also transfer files to your local machine and use the desktop Rstudio. However, when dealing with big files (it shouldn't be a issue in this course, but it might happen in a plausible future), if you have access to a cluster, this might be useful to know. Another option could be to generate a script using a text editor and run it using Rscript.
 
 ### For windows users
+<!-- TODO: Delete this section -->
 
 If you used MobaXterm, you should have X11 support by default.
 
@@ -49,6 +50,7 @@ If in our previous exercise session you had problems with the plink command of P
 And then you can access the terminal as we saw last week.
 
 ### For mac users
+<!-- TODO: Delete this section -->
 
 Install XQuarz. It can be downloaded from here: https://www.xquartz.org/
 
@@ -84,16 +86,14 @@ We have prepared them for you and can be found in the shared Data folder: /home/
 
 We will create a soft-link of fasta reference to your folder, so that we don't need to type in the full path to the reference everytime we want to use it and avoid copying it to out own directory.
 
-<!-- TODO: Say this is an interactive command -->
-
+<!-- TODO: Updata file names -->
 ```bash
     ln -s /home/Data/Homo_sapiens.GRCh37.75.dna.chromosome.2.fa /home/[user]/
 ```
 
 First we need to index the reference file for later use. This creates index files used by bwa mem to perform the alignment. To produce these files, run the following command:
 
-<!-- TODO: Show how do make it a batch script (see first exercise) -->
-
+<!-- TODO: Updata file names -->
 ```bash
     bwa index -p Homo_sapiens.GRCh37.75.dna.chromosome.2 -a bwtsw Homo_sapiens.GRCh37.75.dna.chromosome.2.fa
 ```
@@ -102,27 +102,25 @@ where -a bwtsw specifies that we want to use the indexing algorithm that is capa
 
 You also need to generate a fasta file index. This can be done using **samtools**:
 
-<!-- TODO: batch script -->
-
+<!-- TODO: Updata file names -->
 ```bash
     samtools faidx Homo_sapiens.GRCh37.75.dna.chromosome.2.fa
 ```
 
 Now you can map the reads to the reference. This will take around 10 minutes. You can start installing the software that will be used later in this tutorial (IGV) while you wait for it.
 
-<!-- TODO: batch script -->
-
+<!-- TODO: Updata file names -->
 ```bash
     bwa mem -t 16 -p Homo_sapiens.GRCh37.75.dna.chromosome.2 /home/Data/sorted_ERR1019076_reads_135_145.fq | \
     samtools sort -O BAM -o ERR1019076.bam
 ```
 
+<!-- TODO: Updata file names -->
 This command is composed of two sub-commands where the output of the "bwa mem" command is piped ("|" is the pipe symbol) into the "samtools sort" command. The output of the "bwa mem" command is an unsorted bam file, which is then used as input into the "samtools sort" command to produce a sorted bam file, which is necessary for further analysis. We could also run the two commands separately, but by using piping we save disc space, as we do not have to save the intermediate unsorted bam file, and altogether speed up the analysis.
 
 You can have a look at the bam file generated:
 
-<!-- TODO: interactive -->
-
+<!-- TODO: Updata file names -->
 ```bash
     samtools view ERR1019076.bam | head
 ```
@@ -146,16 +144,14 @@ For more information, read [this](https://samtools.github.io/hts-specs/SAMv1.pdf
 
 Get some useful stats of your mapping:
 
-<!-- TODO: interactive -->
-
+<!-- TODO: Updata file names -->
 ```bash
     samtools flagstat ERR1019076.bam
 ```
 
 Once the map is generated, you can index the bam file to visualize it using IGV. Indexing a genome sorted BAM file allows one to quickly extract alignments overlapping particular genomic regions. Moreover, indexing is required by genome viewers such as IGV so that the viewers can quickly display alignments in each genomic region to which you navigate.
 
-<!-- TODO: batch script -->
-
+<!-- TODO: Updata file names -->
 ```bash
     samtools index ERR1019076.bam
 ```
@@ -165,7 +161,7 @@ Once the map is generated, you can index the bam file to visualize it using IGV.
 You can download the data via terminal by the following:
 
 <!-- TODO: should be scp username@login.genome.au.dk:populationgenomics/students/username/ERR1019076.bam folder_on_your_computer -->
-
+<!-- TODO: Updata file names -->
 ```bash
     scp -P 8922 user_name@185.45.23.197:/home/user_name/ERR1019076.bam Directory/My_computer
 ```
@@ -189,12 +185,14 @@ Try to understand what are the different attributes present in the viewer. If yo
 
 One of the attributes one could learn from mapping reads back to the reference is the coverage of reads across the genome. In order to calculate the coverage depth you can use the command **samtools depth**.
 
+<!-- TODO: Updata file names -->
 ```bash
     samtools depth ERR1019076.bam > ERR1019076.coverage
 ```
 
 You can have a look at the resulted file. What do you find in the three different columns?
 
+<!-- TODO: Updata file names -->
 ```bash
     less ERR1019076.coverage
 ```
@@ -291,8 +289,6 @@ Installing platypus:
 Once you install software in a conda environment, you can always use it (like closing a session and open another one) by activating the environment like we did without needing to install again the software.
 
 To run platypus, we can use this line of code:
-
-<!-- TODO: batch script -->
 
 ```bash
     platypus callVariants --bamFile=ERR1019076.bam --refFile=Homo_sapiens.GRCh37.75.dna.chromosome.2.fa --output=AllVariants.vcf

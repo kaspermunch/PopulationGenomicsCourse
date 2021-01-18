@@ -139,7 +139,7 @@ Say yes when it asks if it should run `conda init` for you.
 You also need a dedicated conda environment on the cluster. We will name this `popgen` too, but in this one we will also install all the scientific software you will use in the exercises. Log in to the cluster and run this command to create the conda envionment:
 
 ```bash
-conda create -n popgen -c bioconda -c kaspermunch bwa platypus-variant samtools beagle plink admixture
+conda create -n popgen -c bioconda -c kaspermunch bwa platypus-variant samtools beagle plink admixture gnuplot
 ```
 
 **Important:** Whenever you log into the cluster to work on your project, you should activate your `popgen` environment like this:
@@ -155,7 +155,7 @@ conda activate popgen
 [Jupyter](https://jupyter.org/) is a notebook environment where you can easily combine text, code and plots. Using the [slurm-jupyter](https://slurm-jupyter.readthedocs.io/en/latest) tool, you can run a jupyter notebook on the cluster, but see it in the browser on your own machine. So your analysis runs on the cluster file system where your data is, but the notebook interface is sent to your browser window. The first thing you need to do is create a separate conda environment that has jupyter installed. Do not worry about this extra environment. You will not be using it directly. We just need it to be able to run jupyter notebooks in class. 
 
 ```bash
-conda create -n jupyter -c bioconda -c kaspermunch jupyter jupyterlab pandas numpy matplotlib ipympl nodejs seaborn r-essentials rpy2 simplegeneric tzlocal r-vcfr bioconductor-biocinstaller bioconductor-snprelate
+conda create -n jupyter -c conda-forge -c bioconda -c kaspermunch jupyter jupyterlab ipyparallel pandas numpy matplotlib ipympl nodejs seaborn r-essentials rpy2 simplegeneric tzlocal r-vcfr bioconductor-biocinstaller bioconductor-snprelate r-biocmanager
 ```
 
 Once created you must activate that environemnt:
@@ -195,6 +195,18 @@ cd populationgenomics/students/username
 
 (replace `username` with your cluster user name)
 
+### Running interactive commands on the cluster
+
+When you log into the cluster you land on the "front-end" of the cluster. If you execute the `hostname` command you will get `fe1.genomedk.net`. `fe1` is the name of the front-end machine. The "front-end" is a single machine shared by anyone who log in. You cannot run resource intensive jobs there, but quick commands are ok. Commands that finish in less than ten seconds are ok. In the exercises for this course you will run software that takes some time to complete. Then you cannot run it on the front-end. You need to ask for one of the computing machines on the cluster so you can work on that instead. You do that by running this command:
+
+```bash
+srun --mem-per-cpu=1g --time=3:00:00 --account=populationgenomics --pty bash
+```
+
+Thay way you will use at most one gigabyte of memory, that you need at most three hours (the duration of the exercise), and that the computing expensenses should be billed to the project populationgenomics (which is our course). When you execute the command your terminal will say "srun: job 40924828 queued and waiting for resources". That means that you have asked for a machine. Once it prints "srun: job 40924828 has been allocated resources", you have been logged into a computing node. If you execute the `hostname` command you will get something like `s05n20.genomedk.net`. `s05n20` is a computing mechine. Now you can execute any command you like without causing trouble for anyone. Now try to log out of the compute node by executing the `exit` command or by pressing `Ctrl-d`. If you execute the `hostname` command again you will get `fe1.genomedk.net` showing that you are back at the front-end mechine.
+
+<!-- 
+
 ### Running commands in the terminal
 
 When you log into the cluster you land on the "front-end" of the cluster. The "front-end" is a single machine shared by anyone who log in. You cannot run resource intensive jobs there, but quick commands are ok. Commands that finish in less than ten secons are ok. Try this command that prints "echos" the string "I can run interactive commands!" to the file `nice.txt`:
@@ -209,7 +221,6 @@ Use the `cat` command to show the contents of `nice.txt` in the terminal:
 cat nice.txt
 ```
 
-
 ### Running interactive commands on the cluster
 
 Say the command above was a long-running command like some population genomic analysis. Then you cannot run it on the front-end. You need to ask for one of the computing machines on the cluster so you can work on that instead. You do that by running this command:
@@ -218,8 +229,9 @@ Say the command above was a long-running command like some population genomic an
 srun --mem-per-cpu=1g --time=3:00:00 --account=populationgenomics --pty bash
 ```
 
-Thay way you will use at most one gigabyte of memory, that you need at most three hours (the duration of the exercise), and that the computing expensenses should be billed to the project populationgenomics (which is our course). When you execute the command your terminal will say "srun: job 40924828 queued and waiting for resources". That means that you have asked for a machine. Once it prints "srun: job 40924828 has been allocated resources", you have been logged into a computing node. If you execute the `hostname` command you will get something like `s05n20.genomedk.net`. `s05n20` is a computing mechine. Now you can execute any command you like without causing trouble for anyone. Now try to log out of the compute node by executing the `exit` command or by pressing `Ctrl-d`. If you execute the `hostname` command again you will get `fe1.genomedk.net`. `fe1` is the front-end.
+Thay way you will use at most one gigabyte of memory, that you need at most three hours (the duration of the exercise), and that the computing expensenses should be billed to the project populationgenomics (which is our course). When you execute the command your terminal will say "srun: job 40924828 queued and waiting for resources". That means that you have asked for a machine. Once it prints "srun: job 40924828 has been allocated resources", you have been logged into a computing node. If you execute the `hostname` command you will get something like `s05n20.genomedk.net`. `s05n20` is a computing mechine. Now you can execute any command you like without causing trouble for anyone. Now try to log out of the compute node by executing the `exit` command or by pressing `Ctrl-d`. If you execute the `hostname` command again you will get `fe1.genomedk.net`. `fe1` is the front-end. -->
 
+<!-- 
 ### Queueing commands on the cluster
 
 Say the command above was a long-running command like some population genomic analysis. Then you cannot run it on the front-end. You need to submit it as a job to the cluster. When you do that, the job gets queued along with many other jobs, and as soon as the requested resources are available on the cluster, the job will start on one the many many machines. To submit a job, you must first create a file (a "batch script") that contains both the requested computer resources and the command you want to run. 
@@ -277,7 +289,7 @@ and
 cat firstjob.stderr
 ```
 
-That is basically it. 
+That is basically it.  -->
 
 ### How to copy files to and from the cluster
 
@@ -298,7 +310,7 @@ scp ./file username@login.genome.au.dk:dir/
 Now you should be set up. Log out of the cluster so that you are now back on your local machine. Run this command to start `slurm-jupyter`:
 
 ```bash
-slurm-jupyter -A populationgenomics -e jupyter
+slurm-jupyter -A populationgenomics -e jupyter -m 1g -t 3h --notebook
 ```
 
 Watch the terminal to see what is going on. After a while a jupyter notebook should show up in your browser window. You may be prompted for your password on the way. To close the jupyter notebook, press Ctrl-C twice in the terminal (closing the browser window does not close down the jupyter on the cluster).

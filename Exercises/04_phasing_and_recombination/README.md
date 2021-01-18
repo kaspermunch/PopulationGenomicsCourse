@@ -10,6 +10,8 @@ To do that we use the program Beagle, which uses a clusering algorithm to call t
 
 We put the jointly called bases for Africans, West Eurasians, and East Asians in these three files:
 
+<!-- TODO: Upate file names -->
+
 - Africa (10 individuals): `Allvariants_africa.vcf`
 - West Eurasia (10 individuals): `Allvariants_westeurasia.vcf`
 - Eash Asia (8 individuals): `Allvariants_eastasia.vcf`
@@ -74,6 +76,8 @@ How do you think the information is encoded in these files?
 
 To speed up computations you can make a lookup table first. That takes a while, so we did if for you. But it is done using the `complete` program that comes with LDhat:
 
+<!-- TODO: replace /usr/local/bin/complete with ~/populationgenomics/software/complete -->
+
     /usr/local/bin/complete -n 20 -rhomax 100 -n_pts 101 -theta 0.0001
 
 - `-n 20`:the number of haplotypes (2 * 10).
@@ -84,6 +88,8 @@ To speed up computations you can make a lookup table first. That takes a while, 
 That produces a file named `new_lk.txt` that we renamed to `lk_n20_theta1e-3.txt`. This file will serve as a look up table for the algorithm. It includes coalescent likelihoods for each pairs of SNPs using a grid of recombination rates.
 
 The next step is to calculate the recombination map. Again, it may take a while. We suggest you team up in pairs and does the Africans while other does the West Eurasians. It will take around 8 minutes for the entire dataset.
+
+<!-- TODO: replace rhomap with ~/populationgenomics/software/rhomap -->
 
 Africa:
 
@@ -119,6 +125,12 @@ Open Rstudio from the directory where your output files are. Do that by navigati
 
 Now paste this into Rstudio console:
 
+
+<!-- This needs to run first to allow source to pull from web -->
+```R
+Sys.setenv(https_proxy = "http://in:3128", http_proxy = "http://in:3128")
+```
+
 ```R
 source("http://ldhat.sourceforge.net/R/coalescent.r")
 ```
@@ -135,6 +147,8 @@ The summary produces two plots:
 
 - A graph of the recombination rate across on each polymorphic loci, along with confidence intervals.
 - A plot showing how estimation of recombination rate has progressed with each MCMC sample (taken every 2000 updates). Notice that the initial run of MCMC samples are atypical. This is the "burn-in" of the MCMC. We want to remove that, so take notice of how many samples it corresponds to. If it is 50 they we can produce a new set of estimates that excludes this burn-in using the `stat` program that comes with LDhat:
+
+<!-- TODO: replace /usr/local/bin/stat with ~/populationgenomics/software/stat -->
 
 ```bash
 /usr/local/bin/stat -input rates_africa.txt -loc recmap_data_africa.ldhat.locs -burn 50

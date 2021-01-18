@@ -9,6 +9,7 @@ http://cnsgenomics.com/software/gcta/#Download). We will be also using plink 1.9
 
 We will estimate the amount of variance explained by the SNPs in a GWAS dataset. You can find the data here:
 
+<!-- TODO: Update file names -->
 ```bash
 /home/Data/GWAS_heritability
 ```
@@ -18,12 +19,14 @@ Copy the content of the directory to your home.
 
 We will use plink to calculate the genetic relationship matrix (GRM) since it is faster than gcta. At the shell prompt, type:
 
+<!-- TODO: Update file names -->
 ```
 plink --make-grm-gz --bfile gwa --out gwa
 ```
 
  This will save the genetic relationship matrix in the zipped file gwa.grm.gz. Try to read it into R:
 
+<!-- TODO: Update file names -->
 ```
 d <- read.table(gzfile('gwa.grm.gz'))
 ```
@@ -34,6 +37,7 @@ d <- read.table(gzfile('gwa.grm.gz'))
 
 We can use gcta to estimate how much of the variance in the phenotype in gwa.phen is explained by the SNPs:
 
+<!-- TODO: Update file names -->
 ```
 gcta64 --grm-gz gwa --pheno gwa.phen --reml --out test
 ```

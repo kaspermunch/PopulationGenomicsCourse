@@ -14,6 +14,8 @@ You will have data from the following populations:
 
 ![](img/unnamed-chunk-1-1.png)
 
+<!-- TODO: Update file names -->
+
 The data consists of **24198** SNPs from the region 73-81 Mb on the X chromosome and there is no missing data. The haplotype data for each population is found in separate files (**genotypes360\_400\_.**), whereas they use a common SNP identity file **snps360\_400\_filtered.snp**.
 
 Package
@@ -31,6 +33,16 @@ Analysis
 You will perform a genome wide scan and then focus on candidate SNPs. The package that you will be using on these analysis is `rehh`. The manual of the package can be found [here](https://cran.r-project.org/web/packages/rehh/rehh.pdf). 
 
 ### Reading in data in REHH format
+
+
+<!-- TODO: Update file names. Also:
+
+they need to run this first to install rehh:
+
+```r
+install.packages("rehh")
+```
+-->
 
 ``` r
 library(rehh)

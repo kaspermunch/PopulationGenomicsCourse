@@ -7,6 +7,7 @@ We will also be using R and Rstudio to make plots and make simple calculations.
 ### Data:
 We will use a simulated date set of 47 cases and 41 controls. You can find it in:
 
+<!-- TODO: Update file names -->
 ```bash
 /home/Data/GWAS_test
 ```
@@ -17,6 +18,8 @@ In this practical, we will go through the steps of performing association tests 
 
 ### Test for association with disease status using a Fisher’s exact test
 To test for association between SNPs and disease status using an allelic Fisher’s exact test, type the following command at the shell prompt:
+
+<!-- TODO: Update file names -->
 ```
 plink --bfile gwa --fisher --out gwa
 ```
@@ -26,6 +29,8 @@ plink --bfile gwa --fisher --out gwa
 
 ### Make plots
 We will use the R package “qqman” to make Manhattan plots and qq-plots. The package is available in CRAN so it can be installed using the “install.packages” command. I have already installed in in rstudio-server. You can read in the association results and make a Manhattan plot by typing:
+
+<!-- TODO: Update file names -->
 ```
 d <- read.table('gwa.assoc.fisher', head=T)
 manhattan(d)
@@ -54,13 +59,19 @@ pchisq(q, df=1, lower.tail = F)
 
 ### PCA
 It is best to perform the PCA on a LD-pruned set of SNPs:
+
+<!-- TODO: Update file names -->
 ```
 plink --bfile gwa --indep-pairwise 500kb 5 0.2 --out gwa
 ```
+
 To use the pruned set of SNPs to calculate the relationship matrix and calculate the first 20 principle components (PCs) type:
+
+<!-- TODO: Update file names -->
 ```
 plink --bfile gwa --extract gwa.prune.in --pca 20 --out gwa
 ```
+
 This calculates the eigenvalues and the eigenvectors, and stores them in two files (gwa.eigenval, gwa.eigenvec).
 
 *7) Load gwa.eigenvec into R and make a plot with the first PC on the x-axis and the second PC on the y-axis. Does it look like there is population structure in the data? How many populations?*
@@ -71,9 +82,12 @@ The eigenvalues divided by the number of individuals should correspond approxima
 
 ### Adjusting for PCs
 We can use a logistic regression test to perform an association test while correcting for covariates. To include the first PC as a covariate type:
+
+<!-- TODO: Update file names -->
 ```
 plink --bfile gwa --logistic --covar gwa.eigenvec --covar-number 1
 ```
+
 The resulting file “plink.assoc.logistic” contains p-values for both the SNPs and the covariates. To get the p-values for the SNPs should look at the rows with the value “ADD” in the “TEST” column. (It is possible to include more PCs. To include the first x covariates you can write “--covar-number 1-x”.)
 
 *9) Create Manhattan plot and QQ-plot for the new results. Does the QQ-plot look better?*
