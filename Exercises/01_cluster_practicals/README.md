@@ -1,4 +1,4 @@
-# Data analysis project on GenomeDK
+# Getting set up to use the cluster
 
 The exercises in this course will be done using our cluster computer. It is called GenomeDK and you can [read about it here](https://genome.au.dk/). We have already made a username for you on the cluster. More about that later. 
 
@@ -14,6 +14,7 @@ If you are on a Mac or Limux machine, you can use to default Terminal applicatio
 
 We will assume some familiarity with using a terminal (you may know the terminal programs such as Terminal on OSX, PowerShell on Windows). If not, you should run through [this primer](https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything) before you begin.
 
+<!-- 
 If you are rusty or unfamiliar with the terminal, you should do this small mini-exericse:
 
 1. Obtain the path to your home directory.
@@ -27,7 +28,7 @@ If you are rusty or unfamiliar with the terminal, you should do this small mini-
 9. List the contents of "ClusterPracticals".
 10. Make a soft link of "test_file_2" inside "ClusterPracticals".
 11. See the contents of "test_file_2".
-12. Create a new file named "test_file_4". Write whatever you feel like. Concatenated "test_file_2" and "test_file_4" into a new file called "test_file_5".
+12. Create a new file named "test_file_4". Write whatever you feel like. Concatenated "test_file_2" and "test_file_4" into a new file called "test_file_5". -->
 
 ## Setting up your own machine
 
@@ -69,7 +70,7 @@ When you environment is active it says `(popgen)` on the commnad prompt instead 
 You connect to the cluster from the terminal by executing this command (replace `username` with your cluster user name):
 
 ```txt
-ssh usernmae@login.genome.au.dk
+ssh username@login.genome.au.dk
 ```
 
 When you do, you are promted for you password for your cluster username. Enter that and press enter. You are now in your home folder on the cluster. If you run the `hostname` command, you can see that you are on `fe1.genomedk.net`. To log out of the cluster, you can either use the `exit` commannd or press `Ctrl-d`. Now you are back on your own machine. Try `hostname` again and see what your own machine is called.
