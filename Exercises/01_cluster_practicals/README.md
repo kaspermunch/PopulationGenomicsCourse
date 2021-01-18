@@ -5,6 +5,7 @@ The exercises in this course will be done using our cluster computer. It is call
 > **NB:** Your account on the cluster is **temporary**. It will be deleted once the course is finished, along with any files you have on the cluster. So make sure to download any files you want to keep before the course is over. Also, your files are **not backed up**. So if you delete a file, it is gone.
 
 The cluster is a very large collection of computers with a shared file system. Using a terminal, you can connect to the cluster from your own computer to run run programs. Using the terminal you can also create and edit files the same way you can on your own machine. The goal of this exercise is to make you familiar with the cluster and to get you set up to do the remaining exercises in this course. 
+
 ## The Terminal
 
 If you are on a Mac or Limux machine, you can use to default Terminal application. If you are on a Windwos macinne, you need to download and install the newest version of Powershell. You can [download it here](https://github.com/PowerShell/PowerShell/releases/download/v7.0.0/PowerShell-7.0.0-win-x64.msi). Double click the installer and. Now open the newly installed Powershell and run: `conda init powershell`. The adantage of PowerShell it that it works the same way as a Linux or OXS terminal. There are some exelent quick tutorials online that introduces the most basic commands in a Linux terminal. 
@@ -28,23 +29,28 @@ If you are rusty or unfamiliar with the terminal, you should do this small mini-
 11. See the contents of "test_file_2".
 12. Create a new file named "test_file_4". Write whatever you feel like. Concatenated "test_file_2" and "test_file_4" into a new file called "test_file_5".
 
-# On your own machine
-## Install Python
+## Setting up your own machine
+
+Before we get to the cluster we need to get you set up on your own machine.
+
+### Install Python
 
 If you have not done so already, you shuold a distribution of Python called *Anaconda*. Anaconda is simply an easy way of installing Python on Windows, macOS (Mac), and Linux, but it comes with the conda package management system (see below). To install Anaconda, head to [this](https://www.anaconda.com/download). When the download has completed, you should follow the platform specific instructions:
 
 * **For Windows:** Double-click the `.exe` file you just downloaded and follow the instructions on the screen. When prompted, tick the box to add Anaconda python to your PATH. The installer will also ask you if you want to download and install a program called Visual Studio Code. Do that too.
 * **For OSX:** Double-click the `.pkg` file you just downloaded and follow the instructions on the screen. Make a default installation. The installer will also ask you if you want to download and install a program called Visual Studio Code. Do that too.
-## Conda environments
 
-You need to install packages and programs for use in your analyses and pipelines. Sometimes, however, the versions of packages you need for one project conflicts with the versions you need for other projects that you work on in parallel. Such conflicts seem like an unsolvable problem. Would it not be fantastic if you could create a small world, insulated from the rest of your Anaconda installation. Then that small world could only contain the packages you needed for a single project. If each project had its own isolated world, then there would be no such conflicts. Fortunately, there is a tool that lets you do just that, and its name is Conda. The small worlds that Conda creates are called "environments," and you can create as many as you like, and then switch between them as you switch between your bioinformatics projects. Conda also downloads and installs the packages for you and makes sure that the packages you install in each environment are compatible.  It even makes sure that packages needed by packages  (dependencies) are installed. Conda lets you install mutually compatible versions of software and libraries in an enviromment for your project. By creating an enviromnet for each project, the libraries installed for each project do not interfere. 
-## Create a conda environment on your own machine
+### Conda environments
+
+You need to install packages and programs for use in your analyses and pipelines. Sometimes, however, the versions of packages you need for one project conflicts with the versions you need for other projects that you work on in parallel. Such conflicts seem like an unsolvable problem. Would it not be fantastic if you could create a small world, insulated from the rest of your Anaconda installation. Then that small world could only contain the packages you needed for a single project. If each project had its own isolated world, then there would be no such conflicts. Fortunately, there is a tool that lets you do just that, and its name is Conda. The small worlds that Conda creates are called "environments," and you can create as many as you like, and then switch between them as you switch between your bioinformatics projects. Conda also downloads and installs the packages for you and makes sure that the packages you install in each environment are compatible.  It even makes sure that packages needed by packages  (dependencies) are installed. Conda lets you install mutually compatible versions of software and libraries in an enviromment for your project. By creating an enviromnet for each project, the libraries installed for each project do not interfere.
+
+### Create a conda environment on your own machine
 
 When you install Anaconda or Miniconda, Conda makes a single base environment for you. It is called "base" and this is why it says "(base)" at your terminal prompt. You need a conda enviromnet for you project on both your local machine and on the cluster. Lets call both of them 'bircproject' (you can call it anything you like).
 
 The environmnet on your local machine does not need a lot of packages since it mainly serve to let you connect to the cluster. This creates the enviromnet and installs `slurm-jupyter` from my conda chanel:
 
-```
+```txt
 conda create --name popgen -c kaspermunch slurm-jupyter jupyter jupyterlab pandas numpy matplotlib ipympl nodejs seaborn
 ```
 
@@ -52,21 +58,23 @@ Say yes (press Enter) when asked to install packages.
 
 **Important:** Whenever you use the terminal on your own machine to do exercises, you should activate your `popgen` environment like this:
 
-```
+```txt
 conda activate popgen
 ```
 
-When you environment is active it says `(popgen)` on the commnad prompt instead of `(base)`.    
-## Connecting to the cluster
+When you environment is active it says `(popgen)` on the commnad prompt instead of `(base)`.
+
+### Connecting to the cluster
 
 You connect to the cluster from the terminal by executing this command (replace `username` with your cluster user name):
 
-```
+```txt
 ssh usernmae@login.genome.au.dk
 ```
 
-When you do, you are promted for you password for your cluster username. Enter that and press enter. You are now in your home folder on the cluster. If you run the `hostname` command, you can see that you are on `fe1.genomedk.net`. To log out of the cluster, you can either use the `exit` commannd or press `Ctrl-d`. Now you are back on your own machine. Try `hostname` again and see what your own machine is called. 
-## Allow login without password
+When you do, you are promted for you password for your cluster username. Enter that and press enter. You are now in your home folder on the cluster. If you run the `hostname` command, you can see that you are on `fe1.genomedk.net`. To log out of the cluster, you can either use the `exit` commannd or press `Ctrl-d`. Now you are back on your own machine. Try `hostname` again and see what your own machine is called.
+
+### Allow login without password
 
 You will need to log in to the cluster many many times, so you should set up your `ssh` connection to the cluster so you can connect securely without typing the password every time. You do not need to know *how* this works, but if you are interested here is how:
 
@@ -76,95 +84,131 @@ The cluster sends your machine a message encrypted using your public. Your machi
 
 First see if you have these two authentication files on your local machine (you can do so by running `ls -a ~/.ssh` in the terminal):
 
-```
+```txt
 ~/.ssh/id_rsa
 ~/.ssh/id_rsa.pub
 ```
 
 if not, you generate a pair of authentication keys like this. Just press Enter when asked "Enter file in which to save the key". Do not enter a passphrase when prompted - just press enter:
 
-```
+```txt
 ssh-keygen -t rsa
 ```
 
 Now use `ssh` to create a directory `~/.ssh` on the cluster (assuming your username on the cluster is 'username'):
 
-```
+```txt
 ssh username@login.genome.au.dk mkdir -p .ssh
 ```
 
 Finally append the public ssh key on your local machine to the file `.ssh/authorized_keys` on the cluster and enter the password one last time (replace `username` with your cluster user name):
 
-```
+```txt
 cat ~/.ssh/id_rsa.pub | ssh username@login.genome.au.dk 'cat >> .ssh/authorized_keys'
 ```
 
 From now on you can log into the cluster from your local machine without being prompted for a password.
-# On the cluster
-## Install Python
 
-You need to install miniconda if you do not already have Anaconda Python installed in your cluster home dir. Log in to the cluster and run this command to download a miniconda installer:
+## Setting up your home on the cluster
 
+Now log in to the cluster
+
+```txt
+ssh username@login.genome.au.dk
 ```
+
+### Install Python on your cluster account
+
+You need to install miniconda (a minimal Anaconda version) in your cluster home dir. Log in to the cluster and run this command to download a miniconda installer:
+
+```txt
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
 ```
 
 Then this command to download and install miniconda:
 
-```
+```txt
 bash Miniconda3-latest-Linux-x86_64.sh
 ```
 
 Say yes when it asks if it should run `conda init` for you.
-## Creating an environment
+
+### Create an environment
 
 You also need a dedicated conda environment on the cluster. We will name this `popgen` too, but in this one we will also install all the scientific software you will use in the exercises. Log in to the cluster and run this command to create the conda envionment:
 
-    conda create -n popgen -c bioconda -c kaspermunch bwa platypus-variant samtools beagle plink admixture jupyter jupyterlab pandas numpy matplotlib ipympl nodejs seaborn
+```txt
+conda create -n popgen -c bioconda -c kaspermunch bwa platypus-variant samtools beagle plink admixture
+```
 
 **Important:** Whenever you log into the cluster to work on your project, you should activate your `popgen` environment like this:
 
-```
+```txt
 conda activate popgen
 ```
 
  When you environment is active it says `(popgen)` on the commnad prompt instead of `(base)`.
-## Set up Jupyter
 
-[Jupyter](https://jupyter.org/) is a notebook environment where you can easily combine text, code and plots. Using the [slurm-jupyter](https://slurm-jupyter.readthedocs.io/en/latest) tool, you can run a jupyter notebook on the cluster, but see it in the browser on your own machine. So your analysis runs on the cluster file system where your data is, but the notebook interface is sent to your browser window.  is a package with a script that starts and connects to a jupyter server on compute note and forwards the web display to your local machine. 
+### Set up Jupyter
 
-Before you can start using `slurm-jupyter` for the first time, you need to run this command on the cluster:
+[Jupyter](https://jupyter.org/) is a notebook environment where you can easily combine text, code and plots. Using the [slurm-jupyter](https://slurm-jupyter.readthedocs.io/en/latest) tool, you can run a jupyter notebook on the cluster, but see it in the browser on your own machine. So your analysis runs on the cluster file system where your data is, but the notebook interface is sent to your browser window. The first thing you need to do is create a separate conda environment that has jupyter installed. Do not worry about this extra environment. You will not be using it directly. We just need it to be able to run jupyter notebooks in class. 
 
+```txt
+conda create -n jupyter -c bioconda -c kaspermunch jupyter jupyterlab pandas numpy matplotlib ipympl nodejs seaborn r-essentials rpy2 simplegeneric tzlocal r-vcfr
 ```
+
+Once created you must activate that environemnt:
+
+```txt
+conda activate jupyter
+```
+
+and then run this this command:
+
+```txt
 config-slurm-jupyter.sh
 ```
 
-The script will ask about a lot of information. You can just press enter for all of them except when prompted for what password you want to use. Type a password and remember it.
-# Working on the the cluster
-## Your home on the cluster
+That script will ask about a lot of information. You can just press enter for all of them except when prompted for what password you want to use. Type a password and remember it.
+
+**Now log out of the cluster**.
+
+## Working on the the cluster
+
+If you followed each step above, you should now be all set up. When ever you work on your own machine, you must activate the `popgen` conda environment. When you log into the cluster, you must activate it too. The easiest way to remember, is to make sure it always says `(popgen)` on you command prompt in the terminal.
+
+Now log in to the cluster and activate your `popgen` environemnt:
+
+```txt
+ssh usernmae@login.genome.au.dk
+conda activate popgen
+```
+
+### Your home on the cluster
 
 When you log into the cluster you are put in your "home folder". All users have a home folder. However, in this course you will not use your home folder. We have made a special folder for you called `populationgenomics/students/username` where you should keep everything related to the course. To get from your home folder to the this folder you just:
 
-```ash
+```txt
 cd populationgenomics/students/username
 ```
 
 (replace `username` with your cluster user name)
-## Running commands in the terminal
+
+### Running commands in the terminal
 
 When you log into the cluster you land on the "front-end" of the cluster. The "front-end" is a single machine shared by anyone who log in. You cannot run resource intensive jobs there, but quick commands are ok. Commands that finish in less than ten secons are ok. Try this command that prints "echos" the string "I can run interactive commands!" to the file `nice.txt`:
 
-
-```
+```txt
 echo "I can run interactive commands!" > nice.txt
-````
+```
 
 Use the `cat` command to show the contents of `nice.txt` in the terminal:
 
-```
+```txt
 cat nice.txt
 ```
-## Running commands on the cluster
+
+### Running commands on the cluster
 
 Say the command above was a long-running command like some population genomic analysis. Then you cannot run it on the front-end. You need to submit it as a job to the cluster. When you do that, the job gets queued along with many other jobs, and as soon as the requested resources are available on the cluster, the job will start on one the many many machines. To submit a job, you must first create a file (a "batch script") that contains both the requested computer resources and the command you want to run. 
 
@@ -184,63 +228,65 @@ The first line says this is a bash script, the lines following three lines says 
 
 You submit the job using the `sbatch` command: 
 
-```
+```txt
 sbatch myscript.sh
 ```
 
 Now your job is queued. Use the `mj` command to see what jobs you have queed or running. That will show something like this:
 
-                                                                            Alloc
-    Job ID           Username Queue    Jobname    SessID NDS  S Elap Time   nodes
-    ---------------- -------- -------- ---------- ------ ---  - ----------  -----
-    34745986         kmt      normal   firstjob       --   1  R 0-00:19:27  s03n56
+```txt
+                                                                        Alloc
+Job ID           Username Queue    Jobname    SessID NDS  S Elap Time   nodes
+---------------- -------- -------- ---------- ------ ---  - ----------  -----
+34745986         kmt      normal   firstjob       --   1  R 0-00:19:27  s03n56
+```
 
 If you want to cancel your this job before it finishes, you can use the `scancel` command:
 
-```
+```txt
 scancel 34745986
 ```
 
 Once your job finishes, it has created the file `evennicer.txt` and written "I can submit cluster jobs now!" to it. So see that you can use the `cat` command:
 
-```
+```txt
 cat evennicer.txt
 ```
 
 When you a program or script on the commandline it usually also prints some information in the terminal. When you run a job on the cluster there is no terminal to print to. Instead this is written to two files that you can read when the job finishes. In this case the fiels are called `firstjob.stdout` and `firstjob.stderr`. So see what is in them, you can use the `cat` command:
 
-```
+```txt
 cat firstjob.stdout
 ```
 
-and 
+and
 
-```
+```txt
 cat firstjob.stderr
 ```
 
 That is basically it. 
 
-## How to copy files to and from the cluster
+### How to copy files to and from the cluster
 
 You may need to transfer files back and forth between your own machine and the cluster. To copy a file called `file` in a directory called `dir` on the cluster to your own machine you can use the `scp` command:
 
-```
+```txt
 scp username@login.genome.au.dk:dir/file .
 ```
 
 To copy a file called `file` on your own machine to a folder called `dir` on the cluster, you do this:
 
-```
+```txt
 scp ./file username@login.genome.au.dk:dir/
 ```
 
-## How to run a Jupyter notebook on the cluster
+### How to run a Jupyter notebook on the cluster
 
 Now you should be set up. Log out of the cluster so that you are now back on your local machine. Run this command to start `slurm-jupyter`:
 
-```
-slurm-jupyter -A populationgenomics -e popgen
+```txt
+slurm-jupyter -A populationgenomics -e jupyter
 ```
 
 Watch the terminal to see what is going on. After a while a jupyter notebook should show up in your browser window. You may be prompted for your password on the way. To close the jupyter notebook, press Ctrl-C twice in the terminal (closing the browser window does not close down the jupyter on the cluster).

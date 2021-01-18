@@ -1,7 +1,6 @@
 import os, sys, re
 from gwf import Workflow, AnonymousTarget
 from gwf.workflow import collect
-from templates_vcfmerge import *
 from pathlib import Path
 
 gwf = Workflow(defaults={'account': 'primatediversity'})
