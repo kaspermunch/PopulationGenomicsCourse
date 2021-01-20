@@ -52,7 +52,7 @@ def bam2fastq(path):
 #samtools view -H test.bam | grep @HD # shows SO:coordinate if sorted
 
 # bam files
-bam_data_dir = Path('/home/kmt/populationgenomics/data/bamfiles')
+bam_data_dir = Path('/home/kmt/populationgenomics/data/bam_and_fastq')
 bam_files = list(map(str, bam_data_dir.glob('**/*.bam')))
 
 # index bam files

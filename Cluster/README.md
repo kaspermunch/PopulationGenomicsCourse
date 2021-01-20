@@ -1,21 +1,15 @@
 # Instructor zone
 
-## Student access to the cluster
+This page is for practical information related exercises on the cluster.
+## The populationgenomics project folder
 
-The students have temporary access to the cluster 
+The project folder `populationgenomics` has the following folders:
 
-
-## the populationgenomics project folder
-
-`instructor_data` links to a folder under the git repository. This folder holds all the intermediary files needed for building the files that the students need
-
-`data` is the folder where the student finds the data files he/she needs for the exercises. This folder will contain symlinks to the few required files in the instructor_data folder.
-
-`software`: builds and binaries for LDhat and PSMC
-
-`people`: teachers and instructors folders
-
-`students`: student folders
+- `instructor_data`: This links to a folder under the git repository [PopulationGenomicsCourse](https://github.com/kaspermunch/PopulationGenomicsCourse). This folder holds all the intermediary files needed for building the files that the students need
+- `data` is the folder where the student finds the data files he/she needs for the exercises. This folder will contain symlinks to the few required files in the instructor_data folder.
+- `software`: builds and binaries for LDhat and PSMC
+- `people`: teachers and instructors folders
+- `students`: student folders
 
 # Student data
 
