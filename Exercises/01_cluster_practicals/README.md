@@ -8,9 +8,7 @@ The cluster is a very large collection of computers with a shared file system. U
 
 ## The Terminal
 
-If you are on a Mac or Limux machine, you can use to default Terminal application. If you are on a Windwos macinne, you need to download and install the newest version of Powershell. You can [download it here](https://github.com/PowerShell/PowerShell/releases/download/v7.0.0/PowerShell-7.0.0-win-x64.msi). Double click the installer and. Now open the newly installed Powershell and run: `conda init powershell`. The adantage of PowerShell it that it works the same way as a Linux or OXS terminal. There are some exelent quick tutorials online that introduces the most basic commands in a Linux terminal. 
-
-> **NB:** When ever we refer to "the terminal" below, it means PoweShell if you are on windows, and the Terminal app if you are on Mac.
+> **NB:** When ever we refer to "the terminal" below, it means Anaconda PoweShell Prompt if you are on Windows, and the Terminal app if you are on Mac.
 
 We will assume some familiarity with using a terminal (you may know the terminal programs such as Terminal on OSX, PowerShell on Windows). If not, you should run through [this primer](https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything) before you begin.
 
@@ -36,10 +34,7 @@ Before we get to the cluster we need to get you set up on your own machine.
 
 ### Install Python
 
-If you have not done so already, you shuold a distribution of Python called *Anaconda*. Anaconda is simply an easy way of installing Python on Windows, macOS (Mac), and Linux, but it comes with the conda package management system (see below). To install Anaconda, head to [this](https://www.anaconda.com/download). When the download has completed, you should follow the platform specific instructions:
-
-* **For Windows:** Double-click the `.exe` file you just downloaded and follow the instructions on the screen. When prompted, tick the box to add Anaconda python to your PATH. The installer will also ask you if you want to download and install a program called Visual Studio Code. Do that too.
-* **For OSX:** Double-click the `.pkg` file you just downloaded and follow the instructions on the screen. Make a default installation. The installer will also ask you if you want to download and install a program called Visual Studio Code. Do that too.
+If you have not done so already, you shuold a distribution of Python called *Anaconda*. Anaconda is simply an easy way of installing Python on Windows, macOS (Mac), and Linux, but it comes with the conda package management system (see below). To install Anaconda, head to [this](https://www.anaconda.com/download). When the download has completed, you should follow default installation.
 
 ### Conda environments
 
