@@ -6,11 +6,17 @@ The exercises in this course will be done using our cluster computer. It is call
 
 The cluster is a very large collection of computers with a shared file system. Using a terminal, you can connect to the cluster from your own computer to run run programs. Using the terminal you can also create and edit files the same way you can on your own machine. The goal of this exercise is to make you familiar with the cluster and to get you set up to do the remaining exercises in this course. 
 
+## Setting up your own machine
+
+Before we get to the cluster we need to get you set up on your own machine.
+
+### Install Python
+
+If you have not done so already, you shuold a distribution of Python called *Anaconda*. Anaconda is simply an easy way of installing Python on Windows, macOS (Mac), and Linux, but it comes with the conda package management system (see below). To install Anaconda, head to [this](https://www.anaconda.com/download). When the download has completed, you should follow default installation.
+
 ## The Terminal
 
-> **NB:** When ever we refer to "the terminal" below, it means Anaconda PoweShell Prompt if you are on Windows, and the Terminal app if you are on Mac.
-
-We will assume some familiarity with using a terminal (you may know the terminal programs such as *Terminal* on OSX, *Anaconda PowerShell Prompt* on Windows). If not, you should run through [this primer](https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything) before you begin.
+Most of the programs we will use in this course are command line applications. I.e. programs that are executed by writing their name and arguments in a terminal rather than clicking on an icon and using a graphical user interface. There are many different programs that can serve as a terminal. If you have a Windows machine, you must use the *Anaconda Poweshell Prompt* (*not* the Anaconda Prompt). You installed this application along with Anaconda Python. If you have a Mac, the terminal you will use is called *Terminal*. This application is pre-installed. So whenever we refer to the terminal, this means *Anaconda Poweshell Prompt* on Windows and *Terminal* on Mac. We will assume some familiarity with using a terminal and with executing commands on the command line. If you have not used a terminal before, or if you are a bit rusty, you should run through [this primer](https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything) before you go on.
 
 <!-- 
 If you are rusty or unfamiliar with the terminal, you should do this small mini-exericse:
@@ -27,14 +33,6 @@ If you are rusty or unfamiliar with the terminal, you should do this small mini-
 10. Make a soft link of "test_file_2" inside "ClusterPracticals".
 11. See the contents of "test_file_2".
 12. Create a new file named "test_file_4". Write whatever you feel like. Concatenated "test_file_2" and "test_file_4" into a new file called "test_file_5". -->
-
-## Setting up your own machine
-
-Before we get to the cluster we need to get you set up on your own machine.
-
-### Install Python
-
-If you have not done so already, you shuold a distribution of Python called *Anaconda*. Anaconda is simply an easy way of installing Python on Windows, macOS (Mac), and Linux, but it comes with the conda package management system (see below). To install Anaconda, head to [this](https://www.anaconda.com/download). When the download has completed, you should follow default installation.
 
 ### Conda environments
 
