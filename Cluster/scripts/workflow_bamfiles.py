@@ -3,7 +3,7 @@ from gwf import Workflow, AnonymousTarget
 from gwf.workflow import collect
 from pathlib import Path
 
-gwf = Workflow(defaults={'account': 'primatediversity'})
+gwf = Workflow(defaults={'account': 'populationgenomics'})
 
 def modpath(p, parent=None, base=None, suffix=None):
     par, name = os.path.split(p)
@@ -29,10 +29,10 @@ def bam_index(path):
     spec = f'samtools index {path}'
     return AnonymousTarget(inputs=inputs, outputs=outputs, options=options, spec=spec)
 
-def bam_subset(path):
+def bam_subset(path, index):
     sample_name = os.path.basename(os.path.dirname(path))
     output_path = modpath(path, base=sample_name, suffix='.region.bed')
-    inputs = {'path': path}
+    inputs = {'path': path, 'index': index}
     outputs = {'path': output_path}
     options = {'memory': '4g',
                'walltime': '0-02:00:00'}
@@ -51,12 +51,26 @@ def bam2fastq(path):
 # make sure downloaded bam files are sorted:
 #samtools view -H test.bam | grep @HD # shows SO:coordinate if sorted
 
+# bam files
 bam_data_dir = Path('/home/kmt/populationgenomics/data/bamfiles')
-
 bam_files = list(map(str, bam_data_dir.glob('**/*.bam')))
 
-bam_index_tasks = gwf.map(bam_index, bam_files)
+# index bam files
+bam_index_targets = gwf.map(bam_index, bam_files)
 
-bam_subset_tasks = gwf.map(bam_subset, bam_files)
+# subset bam files
+bam_index_files = [d['path'] for d in bam_index_targets.outputs]
+bam_subset_files = []
+for i, (bam_file, bam_index_file) in enumerate(zip(bam_files, bam_index_files)):
+    target = gwf.target_from_template(f'bam_subset_{i}', bam_subset(path=bam_file, index=bam_index_file))
+    bam_subset_files.append(target.outputs['path'])
+#bam_subset_targets = gwf.map(bam_subset, bam_files)
 
-bam2fastq_tasks = gwf.map(bam2fastq, bam_files)
+# make fastq files
+bam2fastq_targets = gwf.map(bam2fastq, bam_subset_files)
+
+
+
+
+
+
