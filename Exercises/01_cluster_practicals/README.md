@@ -10,7 +10,7 @@ The cluster is a very large collection of computers with a shared file system. U
 
 > **NB:** When ever we refer to "the terminal" below, it means Anaconda PoweShell Prompt if you are on Windows, and the Terminal app if you are on Mac.
 
-We will assume some familiarity with using a terminal (you may know the terminal programs such as Terminal on OSX, PowerShell on Windows). If not, you should run through [this primer](https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything) before you begin.
+We will assume some familiarity with using a terminal (you may know the terminal programs such as *Terminal* on OSX, *Anaconda PowerShell Prompt* on Windows). If not, you should run through [this primer](https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything) before you begin.
 
 <!-- 
 If you are rusty or unfamiliar with the terminal, you should do this small mini-exericse:
