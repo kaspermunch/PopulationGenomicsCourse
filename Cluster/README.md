@@ -17,6 +17,18 @@ The students have temporary access to the cluster
 
 `students`: student folders
 
+# Student data
+
+To build bam and fastq files for the chr2 region run this in `data/bamfiles`:
+
+    conda create -n popgen_data -c gwforg -c bioconda python=3 gwf bedtools samtools
+
+    conda activate popgen_data
+
+    sbatch download_bamfiles.sh
+
+    gwf -f ../../scripts/workflow_bamfiles.py run
+
 ## Software
 
 All command line software, except PSMC and LDhat, is installed in the `popgen` environment.  and LDhat PSMC is available in the software folder
@@ -33,17 +45,6 @@ The students begin each exercise by running this to get an interactive session f
 
 
 
-# Managing access, data, and software for students on the cluster
 
-
-
-Data folder `data` is placed under here and them symlinked (for student access) from `populationgenomics/data`
-
-
-
-
-Instructor conda environment for building data files with `workflow_bedfiles.py`:
-
-    conda create -n popgen_data -c gwforg -c bioconda python=3 gwf bedtools samtools
 
 
