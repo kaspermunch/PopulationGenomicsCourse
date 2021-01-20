@@ -42,7 +42,7 @@ You need to install packages and programs for use in your analyses and pipelines
 
 ### Create a conda environment on your own machine
 
-When you install Anaconda or Miniconda, Conda makes a single base environment for you. It is called "base" and this is why it says "(base)" at your terminal prompt. You need a conda enviromnet for you project on both your local machine and on the cluster. Lets call both of them 'bircproject' (you can call it anything you like).
+When you install Anaconda or Miniconda, Conda makes a single base environment for you. It is called "base" and this is why it says "(base)" at your terminal prompt. You need a conda enviromnet for you project on both your local machine and on the cluster. Lets call both of them `popgen`.
 
 The environmnet on your local machine does not need a lot of packages since it mainly serve to let you connect to the cluster. This creates the enviromnet and installs `slurm-jupyter` from my conda chanel:
 
@@ -150,7 +150,7 @@ conda activate popgen
 [Jupyter](https://jupyter.org/) is a notebook environment where you can easily combine text, code and plots. Using the [slurm-jupyter](https://slurm-jupyter.readthedocs.io/en/latest) tool, you can run a jupyter notebook on the cluster, but see it in the browser on your own machine. So your analysis runs on the cluster file system where your data is, but the notebook interface is sent to your browser window. The first thing you need to do is create a separate conda environment that has jupyter installed. Do not worry about this extra environment. You will not be using it directly. We just need it to be able to run jupyter notebooks in class. 
 
 ```bash
-conda create -n jupyter -c conda-forge -c bioconda -c kaspermunch jupyter jupyterlab ipyparallel pandas numpy matplotlib ipympl nodejs seaborn r-essentials rpy2 simplegeneric tzlocal r-vcfr bioconductor-biocinstaller bioconductor-snprelate r-biocmanager
+conda create -n jupyter -c conda-forge -c bioconda -c kaspermunch slurm-jupyter jupyter jupyterlab ipyparallel pandas numpy matplotlib ipympl nodejs seaborn r-essentials rpy2 simplegeneric tzlocal r-vcfr bioconductor-biocinstaller bioconductor-snprelate r-biocmanager
 ```
 
 Once created you must activate that environemnt:
@@ -302,11 +302,13 @@ scp ./file username@login.genome.au.dk:dir/
 
 ### How to run a Jupyter notebook on the cluster
 
-Now you should be set up. Log out of the cluster so that you are now back on your local machine. Run this command to start `slurm-jupyter`:
+Now you should be set up. Log out of the cluster so that you are now back on your local machine. Make sure that your `popgen` environment is activated. Then run this command to start `slurm-jupyter`:
 
 ```bash
-slurm-jupyter -A populationgenomics -e jupyter -m 1g -t 3h --notebook
+slurm-jupyter -u usernanme -A populationgenomics -e jupyter -m 1g -t 3h --run notebook
 ```
+
+(replace `username` with your cluster user name)
 
 Watch the terminal to see what is going on. After a while a jupyter notebook should show up in your browser window. You may be prompted for your password on the way. To close the jupyter notebook, press Ctrl-C twice in the terminal (closing the browser window does not close down the jupyter on the cluster).
 
