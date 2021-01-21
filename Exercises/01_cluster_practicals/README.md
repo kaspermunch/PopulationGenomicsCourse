@@ -310,7 +310,7 @@ slurm-jupyter -u usernanme -A populationgenomics -e jupyter -m 1g -t 3h --run no
 
 Watch the terminal to see what is going on. 
 
-![](img/thisisunsafe.png =100x20)
+![](img/thisisunsafe.png)
 
 
 After a while a jupyter notebook should show up in your browser window. You may be prompted for your password on the way. To close the jupyter notebook, press Ctrl-C twice in the terminal (closing the browser window does not close down the jupyter on the cluster).
