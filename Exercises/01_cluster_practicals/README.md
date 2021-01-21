@@ -308,7 +308,12 @@ slurm-jupyter -u usernanme -A populationgenomics -e jupyter -m 1g -t 3h --run no
 
 (replace `username` with your cluster user name)
 
-Watch the terminal to see what is going on. After a while a jupyter notebook should show up in your browser window. You may be prompted for your password on the way. To close the jupyter notebook, press Ctrl-C twice in the terminal (closing the browser window does not close down the jupyter on the cluster).
+Watch the terminal to see what is going on. 
+
+![](img/thisisunsafe.png =100x20)
+
+
+After a while a jupyter notebook should show up in your browser window. You may be prompted for your password on the way. To close the jupyter notebook, press Ctrl-C twice in the terminal (closing the browser window does not close down the jupyter on the cluster).
 
 You can [read this tutorial](https://www.dataquest.io/blog/jupyter-notebook-tutorial/) to learn how to use it.
 
