@@ -305,7 +305,7 @@ scp ./file username@login.genome.au.dk:dir/
 
 ### How to run a Jupyter notebook on the cluster
 
-Make sure you are on your own machine and that your `popgen` environment is activated. Then run this command to start a jupyter notebook on the cluster and send the display to your browser:
+Jupyter runs best in the [Chrome browser](https://www.google.com/chrome). For the best experience, install that before you go on. It does not need to be your default browser. `slurm-jupyter` will use it anyway. Now make sure you are on your own machine and that your `popgen` environment is activated. Then run this command to start a jupyter notebook on the cluster and send the display to your browser:
 
 ```bash
 slurm-jupyter -u usernanme -A populationgenomics -e jupyter -m 1g -t 3h --run notebook
