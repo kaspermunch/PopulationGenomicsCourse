@@ -13,6 +13,8 @@ The project folder `populationgenomics` has the following folders:
 
 # Student data
 
+Data is not under git, but backed up on the cluster. Only the bam files are not backed up. 
+
 To build bam and fastq files for the chr2 region run this in `data/bamfiles`:
 
     conda create -n popgen_data -c gwforg -c bioconda python=3 gwf bedtools samtools
