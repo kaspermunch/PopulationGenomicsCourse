@@ -25,20 +25,10 @@ Then, open Rstudio and use the following code:
 
 <!-- TODO: file names need to be updated below -->
 
-
-<!-- TODO: 
-replace
-    source("http://bioconductor.org/biocLite.R")
-    biocLite("SNPRelate")
-with 
-    Sys.setenv(https_proxy = "http://in:3128", http_proxy = "http://in:3128")
-    BiocManager::install(c("SNPRelate"))
- -->
-
 ```R
     # Dependencies
-    source("http://bioconductor.org/biocLite.R")
-    biocLite("SNPRelate")
+    Sys.setenv(https_proxy = "http://in:3128", http_proxy = "http://in:3128")
+    BiocManager::install(c("SNPRelate"))
 
     ## 
     ## The downloaded binary packages are in
@@ -238,9 +228,8 @@ Now with adjusted format and pruned snps, we are ready to run the
 admixture analysis. We believe that our individuals are derived from
 three ancestral populations:
 
-<!-- TODO: no full path to admixture required -->
 ```bash
-    ../shared/PCA_admixture_data/admixture_linux-1.3.0/admixture Allvariants_135_145_chr2_pruned.gds.bed 3
+    admixture Allvariants_135_145_chr2_pruned.gds.bed 3
 ```
 
 **Q.5** Have a look at the Fst across populations, that is printed in

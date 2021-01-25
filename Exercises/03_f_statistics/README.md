@@ -3,7 +3,7 @@
 ## Data
 In this exercise we will analyse a vcf-file like the one you created yourselves last week. We will only use R so you can do the analyses on your own machine. However, in order to practice more how to get data from the cluster, you will have to fetch the files we will use from there. The paths are the following:
 
-<!-- TODO: Updata file names -->
+<!-- TODO: Update file names -->
 
 - vcf file: /home/Data/chr2_135_145.vcf.gz
 - annotation file: /home/Data/sample_infos_accessionnb.csv
@@ -16,20 +16,15 @@ During the exercise, we will use two very useful packages: [dplyr](https://cran.
 ## vcfR
 First, to read vcf-files into R, we'll need the R package `vcfR` . We can read the vcf-file like this:
 
-<!-- TODO: install.packages('vcfR') not needed -->
-
+<!-- TODO: Update file names -->
 ```r
-install.packages('vcfR')
 library(vcfR)
 vcf <- read.vcfR("chr2_135_145.vcf.gz")
 ```
 
 We will use the `dplyr` package to analyse the data so we want the data to be in "tidy" format. We can get that by using the vcfR2tidy function.
 
-<!-- TODO: install.packages('dplyr') not needed -->
-
 ```r
-install.packages('dplyr')
 library(dplyr)
 tvcf <- vcfR2tidy(vcf, 
           single_frame = TRUE,
@@ -47,7 +42,7 @@ Being P the probability of error of a given the base call.
 
 We also want to add some info about the samples and have all heterozygous sites in the same format:
 
-<!-- TODO: Upate file names -->
+<!-- TODO: Update file names -->
 
 ```r
 info <- read.csv2("sample_infos_accessionnb.csv")

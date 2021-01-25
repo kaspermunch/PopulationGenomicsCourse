@@ -1,6 +1,5 @@
 
-<!-- TODO: begin every session by running srun --mem-per-cpu=1g --time=3:00:00 --account=populationgenomics --pty bash
- -->
+
 # Mapping and SNP calling exercise
 
 As we learned last week, high-throughput sequencing technologies have in the past few years been producing millions of reads of human genome and other species. To be useful, this genetic information has to be 'put together' in a smart way, in the same way as the pieces of a puzzle (reads) need to be mounted according to a picture (reference genome). In this exercise section you will be exposed to different softwares used for mapping reads to a reference sequence and calling variants from the produced alignments. We will use a dataset composed of 30 individuals from 3 different regions: Africa, EastAsia and WestEurasia.
@@ -24,46 +23,18 @@ As we learned last week, high-throughput sequencing technologies have in the pas
 
 This dataset is a subset of the Simons Diversity Project (discussed last week).
 
+## Log into the cluster and request a compute node on the cluster
 
-## Log in to the server via terminal
-<!-- TODO: Delete this section -->
-
-This time we will add an option so we can open Rstudio from the terminal later. For that to work, we need to install another software first. Alternatively, you could also transfer files to your local machine and use the desktop Rstudio. However, when dealing with big files (it shouldn't be a issue in this course, but it might happen in a plausible future), if you have access to a cluster, this might be useful to know. Another option could be to generate a script using a text editor and run it using Rscript.
-
-### For windows users
-<!-- TODO: Delete this section -->
-
-If you used MobaXterm, you should have X11 support by default.
-
-Alternatively, if you access the cluster via PuTTy, you should install Xming. You can download it from here: http://sourceforge.net/project/downloading.php?group_id=156984&filename=Xming-6-9-0-31-setup.exe
-
-And then access the terminal like:
+Log into the cluster:
 
 ```bash
-    plink -X -P 8922 [user]@185.45.23.197
+    ssh username@login.genome.au.dk
 ```
 
-If in our previous exercise session you had problems with the plink command of PuTTy and you accessed the cluster by setting the options manually on the program, you will need to modify an additional parameter on the X11 option of SHH as seen here:
-
-![Alt text](https://user-images.githubusercontent.com/38723379/51423518-cd638400-1bc1-11e9-9938-2e06a71cf24d.png)
-
-And then you can access the terminal as we saw last week.
-
-### For mac users
-<!-- TODO: Delete this section -->
-
-Install XQuarz. It can be downloaded from here: https://www.xquartz.org/
-
-And then access the terminal like:
+Now request a machine for your computations. You need five gigabytes (`5g`) in this exercise so you need to run this command (see also the explanation in the previous exercise):
 
 ```bash
-    ssh -X -p 8922 [user]@185.45.23.197
-```
-
-or
-
-```bash
-    ssh -Y -p 8922 [user]@185.45.23.197
+srun --mem-per-cpu=5g --time=3:00:00 --account=populationgenomics --pty bash
 ```
 
 ## Data source
@@ -86,14 +57,14 @@ We have prepared them for you and can be found in the shared Data folder: /home/
 
 We will create a soft-link of fasta reference to your folder, so that we don't need to type in the full path to the reference everytime we want to use it and avoid copying it to out own directory.
 
-<!-- TODO: Updata file names -->
+<!-- TODO: Update file names -->
 ```bash
     ln -s /home/Data/Homo_sapiens.GRCh37.75.dna.chromosome.2.fa /home/[user]/
 ```
 
 First we need to index the reference file for later use. This creates index files used by bwa mem to perform the alignment. To produce these files, run the following command:
 
-<!-- TODO: Updata file names -->
+<!-- TODO: Update file names -->
 ```bash
     bwa index -p Homo_sapiens.GRCh37.75.dna.chromosome.2 -a bwtsw Homo_sapiens.GRCh37.75.dna.chromosome.2.fa
 ```
@@ -102,25 +73,25 @@ where -a bwtsw specifies that we want to use the indexing algorithm that is capa
 
 You also need to generate a fasta file index. This can be done using **samtools**:
 
-<!-- TODO: Updata file names -->
+<!-- TODO: Update file names -->
 ```bash
     samtools faidx Homo_sapiens.GRCh37.75.dna.chromosome.2.fa
 ```
 
 Now you can map the reads to the reference. This will take around 10 minutes. You can start installing the software that will be used later in this tutorial (IGV) while you wait for it.
 
-<!-- TODO: Updata file names -->
+<!-- TODO: Update file names -->
 ```bash
     bwa mem -t 16 -p Homo_sapiens.GRCh37.75.dna.chromosome.2 /home/Data/sorted_ERR1019076_reads_135_145.fq | \
     samtools sort -O BAM -o ERR1019076.bam
 ```
 
-<!-- TODO: Updata file names -->
+<!-- TODO: Update file names -->
 This command is composed of two sub-commands where the output of the "bwa mem" command is piped ("|" is the pipe symbol) into the "samtools sort" command. The output of the "bwa mem" command is an unsorted bam file, which is then used as input into the "samtools sort" command to produce a sorted bam file, which is necessary for further analysis. We could also run the two commands separately, but by using piping we save disc space, as we do not have to save the intermediate unsorted bam file, and altogether speed up the analysis.
 
 You can have a look at the bam file generated:
 
-<!-- TODO: Updata file names -->
+<!-- TODO: Update file names -->
 ```bash
     samtools view ERR1019076.bam | head
 ```
@@ -144,14 +115,14 @@ For more information, read [this](https://samtools.github.io/hts-specs/SAMv1.pdf
 
 Get some useful stats of your mapping:
 
-<!-- TODO: Updata file names -->
+<!-- TODO: Update file names -->
 ```bash
     samtools flagstat ERR1019076.bam
 ```
 
 Once the map is generated, you can index the bam file to visualize it using IGV. Indexing a genome sorted BAM file allows one to quickly extract alignments overlapping particular genomic regions. Moreover, indexing is required by genome viewers such as IGV so that the viewers can quickly display alignments in each genomic region to which you navigate.
 
-<!-- TODO: Updata file names -->
+<!-- TODO: Update file names -->
 ```bash
     samtools index ERR1019076.bam
 ```
@@ -160,10 +131,9 @@ Once the map is generated, you can index the bam file to visualize it using IGV.
 
 You can download the data via terminal by the following:
 
-<!-- TODO: should be scp username@login.genome.au.dk:populationgenomics/students/username/ERR1019076.bam folder_on_your_computer -->
-<!-- TODO: Updata file names -->
+<!-- TODO: Update file names -->
 ```bash
-    scp -P 8922 user_name@185.45.23.197:/home/user_name/ERR1019076.bam Directory/My_computer
+    scp username@login.genome.au.dk:populationgenomics/students/username/ERR1019076.bam folder_on_your_computer
 ```
 
 ## IGV software
@@ -185,14 +155,14 @@ Try to understand what are the different attributes present in the viewer. If yo
 
 One of the attributes one could learn from mapping reads back to the reference is the coverage of reads across the genome. In order to calculate the coverage depth you can use the command **samtools depth**.
 
-<!-- TODO: Updata file names -->
+<!-- TODO: Update file names -->
 ```bash
     samtools depth ERR1019076.bam > ERR1019076.coverage
 ```
 
 You can have a look at the resulted file. What do you find in the three different columns?
 
-<!-- TODO: Updata file names -->
+<!-- TODO: Update file names -->
 ```bash
     less ERR1019076.coverage
 ```
@@ -256,40 +226,9 @@ Even though just a tiny portion (around 2%) of our genomes are based of protein 
 
 Once we have mapped our reads we can now start with variant detection. For now we will be using the software **Platypus**: a tool designed for efficient and accurate variant-detection in high-throughput sequencing data. You can access their website [here](http://www.well.ox.ac.uk/platypus). 
 
-<!-- TODO: conda environment not required any more. Platypus is installed in popgen their evironment -->
-
-We will also illustrate how to create an evironment in which to run the **Platypus** software. The reason for creating an environment to run specific software is because a lot of programs have specific dependencies, which may be different to the ones installed on your machine. For example, say that you have python v2.7 as default on your machine and you need to run a software which depends on python v3.5. You could either update the python version of your machine (and potentially disrupt running of other programs which depend on v2.7) or create a virtual environment which has v3.5 installed. By using the virtual environment, you do not disrupt the default state of your machine, but you are still able to run any software with different dependencies. The environment manager we will be using is called **Conda** - you can read more about it here: [website](https://conda.io/projects/conda/en/latest/index.html#).
-
-First, we will install miniconda. The software can be downloaded running the following:
-
-```bash
-wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
-```
-
-The extension .sh is used for bash executable files. You just need to add permissions to execute the file and run it. After accepting eevrything the program asks, you will have your miniconda.
-
-Creating a conda environment:
-
-```bash
-    conda create --name Mapping_environment
-```
-
-Activating an environment:
-
-```bash
-    conda activate Mapping_environment
-```
-
-Installing platypus:
-
-```bash
-    conda install -c bioconda platypus-variant
-```
-
-Once you install software in a conda environment, you can always use it (like closing a session and open another one) by activating the environment like we did without needing to install again the software.
-
 To run platypus, we can use this line of code:
 
+<!-- TODO: Update file names -->
 ```bash
     platypus callVariants --bamFile=ERR1019076.bam --refFile=Homo_sapiens.GRCh37.75.dna.chromosome.2.fa --output=AllVariants.vcf
 ```
@@ -298,12 +237,14 @@ The output will be a single [VCF](http://samtools.github.io/hts-specs/VCFv4.2.pd
 
 Look at the output vcf file. What does the format look like? Does that match with what you observed in the IGV? Download the VCF file to the IGV browser.
 
+<!-- TODO: Update file names -->
 ```bash
     less -S AllVariants.vcf
 ```
 
 You will be using this format further in the course, for now let's just count the number of heterozygous SNPs in each individual:
 
+<!-- TODO: Update file names -->
 ```bash
     grep -o '0/1\|1/0' AllVariants.vcf  | wc -l
 ```
