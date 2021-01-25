@@ -1,5 +1,4 @@
-Population Structure analysis
------------------------------
+# Population Structure analysis
 
 With the advent of SNP data it is possible to precisely infer the
 genetic distance across individuals or populations. As written in the
@@ -9,6 +8,8 @@ covariance matrix, which in genetic terms means the number of shared
 polymorphisms across individuals. There are many ways to visualize this
 data, in this tutorial you will be exposed to
 `Principal Component Analysis` and `Admixture` software.
+
+## Pricipal component analysis (PCA)
 
 We will use the R package `SNPRelate`, which can easily handle vcf files
 and do the PCA. If you want to explore a bit more on the functionality
@@ -21,79 +22,44 @@ In this first of the exercise please download these files in your local machine:
 /home/Data/Sample_meta_data.csv
 ```
 
-Then, open Rstudio and use the following code:
-
-<!-- TODO: file names need to be updated below -->
+Now run `slurm-jupyter` as your leant in the first exercise. Once juypter is running, create a new R notebook adn run the following code in aseparate code cells:
 
 ```R
-    # Dependencies
-    Sys.setenv(https_proxy = "http://in:3128", http_proxy = "http://in:3128")
-    BiocManager::install(c("SNPRelate"))
+# Dependencies
+Sys.setenv(https_proxy = "http://in:3128", http_proxy = "http://in:3128")
+BiocManager::install(c("SNPRelate"))
 
-    ## 
-    ## The downloaded binary packages are in
-    ##  /var/folders/f7/fngykpfs7317fds_z0s26d2w0000gn/T//Rtmpt4swuq/downloaded_packages
+library(SNPRelate)
+library(ggplot2)
+```
 
-    library(SNPRelate)
-    library(ggplot2)
+<!-- TODO: Update file names -->
+```R
+# Reading the metadata information 
+info = read.csv("Sample_meta_data.csv", header = T, sep = ';')
 
-    # Reading the metadata information 
-    info = read.csv("Sample_meta_data.csv", header = T, sep = ';')
+# Setting the directory of the VCF file 
+vcf.fn <- "Allvariants_135_145_chr2.vcf"
 
-    # Setting the directory of the VCF file 
-    vcf.fn <- "Allvariants_135_145_chr2.vcf"
+# Transforming the vcf file to gds format
+snpgdsVCF2GDS(vcf.fn, "Allvariants_135_145_chr2_2.gds", method="biallelic.only")
+```
 
-    # Transforming the vcf file to gds format
-    snpgdsVCF2GDS(vcf.fn, "Allvariants_135_145_chr2_2.gds", method="biallelic.only")
+<!-- TODO: Update file names -->
+```R
+genofile <- snpgdsOpen("Allvariants_135_145_chr2_2.gds",  FALSE, TRUE, TRUE)
+pca <- snpgdsPCA(genofile)
+```
 
-    ## VCF Format ==> SNP GDS Format
-    ## Method: exacting biallelic SNPs
-    ## Number of samples: 27
-    ## Parsing "Allvariants_135_145_chr2.vcf" ...
-    ##  import 49868 variants.
-    ## + genotype   { Bit2 27x49868, 328.7K } *
-    ## Optimize the access efficiency ...
-    ## Clean up the fragments of GDS file:
-    ##     open the file 'Allvariants_135_145_chr2_2.gds' (626.8K)
-    ##     # of fragments: 48
-    ##     save to 'Allvariants_135_145_chr2_2.gds.tmp'
-    ##     rename 'Allvariants_135_145_chr2_2.gds.tmp' (626.5K, reduced: 336B)
-    ##     # of fragments: 20
-
-    genofile <- snpgdsOpen("Allvariants_135_145_chr2_2.gds",  FALSE, TRUE, TRUE)
-    pca <- snpgdsPCA(genofile)
-
-    ## Principal Component Analysis (PCA) on genotypes:
-    ## Excluding 0 SNP on non-autosomes
-    ## Excluding 397 SNPs (monomorphic: TRUE, < MAF: NaN, or > missing rate: NaN)
-    ## Working space: 27 samples, 49,471 SNPs
-    ##     using 1 (CPU) core
-    ## PCA: the sum of all selected genotypes (0, 1 and 2) = 2250084
-    ## Wed Feb 28 12:35:41 2018    (internal increment: 27760)
-    ## 
-    ## [..................................................]  0%, ETC: ---    
-    ## [==================================================] 100%, completed      
-    ## Wed Feb 28 12:35:41 2018    Begin (eigenvalues and eigenvectors)
-    ## Wed Feb 28 12:35:41 2018    Done.
-
-    summary(pca)
-
-    ##           Length Class  Mode     
-    ## sample.id    27  -none- character
-    ## snp.id    49471  -none- numeric  
-    ## eigenval     27  -none- numeric  
-    ## eigenvect   729  -none- numeric  
-    ## varprop      27  -none- numeric  
-    ## TraceXTX      1  -none- numeric  
-    ## Bayesian      1  -none- logical  
-    ## genmat        0  -none- NULL
-
+```R
+summary(pca)
 ```
 
 **Q.1** How many individuals and snps does this dataset have? What is an
 eigenvector and an eigenvalue? Hint: Have a look at page 180 of HEG.
 
 
+<!-- TODO: Update substitution to match file names -->
 ```R
     eigenvectors = as.data.frame(pca$eigenvect)
     colnames(eigenvectors) = as.vector(sprintf("PC%s", seq(1:nrow(pca$eigenvect))))
@@ -125,10 +91,10 @@ Now, let's plot the two first PC's and color the datapoints by the
 origin of each individual sample.
 
 ```R
-    ggplot(data = eigenvectors, aes(x = PC1, y = PC2, col = region)) + 
-            geom_point(size=3,alpha=0.5) +
-            scale_color_manual(values = c("#FF1BB3","#A7FF5B","#99554D")) +
-            theme_bw()
+ggplot(data = eigenvectors, aes(x = PC1, y = PC2, col = region)) + 
+        geom_point(size=3,alpha=0.5) +
+        scale_color_manual(values = c("#FF1BB3","#A7FF5B","#99554D")) +
+        theme_bw()
 ```
 
 ![](img/unnamed-chunk-4-1.png)
@@ -142,51 +108,33 @@ observe?
 Now we will implement LD prunning.
 
 ```R
-    set.seed(1000)
+set.seed(1000)
 
-    # This function prune the snps with a thrshold of maximum 0.3 of LD
-    snpset <- snpgdsLDpruning(genofile, ld.threshold=0.3)
+# This function prune the snps with a thrshold of maximum 0.3 of LD
+snpset <- snpgdsLDpruning(genofile, ld.threshold=0.3)
+```
 
-    ## SNP pruning based on LD:
-    ## Excluding 0 SNP on non-autosomes
-    ## Excluding 397 SNPs (monomorphic: TRUE, < MAF: NaN, or > missing rate: NaN)
-    ## Working space: 27 samples, 49,471 SNPs
-    ##     using 1 (CPU) core
-    ##  Sliding window: 500000 basepairs, Inf SNPs
-    ##  |LD| threshold: 0.3
-    ## Chromosome 2: 1.20%, 598/49868
-    ## 598 SNPs are selected in total.
+```R
+# Get all selected snp's ids
+snpset.id <- unlist(snpset)
 
-    # Get all selected snp's ids
-    snpset.id <- unlist(snpset)
+pca_pruned <- snpgdsPCA(genofile, snp.id=snpset.id, num.thread=2)
+```
 
-    pca_pruned <- snpgdsPCA(genofile, snp.id=snpset.id, num.thread=2)
+<!-- TODO: Update substitution to match file names -->
+```R
+eigenvectors = as.data.frame(pca_pruned$eigenvect)
+colnames(eigenvectors) = as.vector(sprintf("PC%s", seq(1:nrow(pca$eigenvect))))
+pca_pruned$sample.id = sub("_chr2_piece_dedup", "", pca$sample.id)
 
-    ## Principal Component Analysis (PCA) on genotypes:
-    ## Excluding 49,270 SNPs (non-autosomes or non-selection)
-    ## Excluding 0 SNP (monomorphic: TRUE, < MAF: NaN, or > missing rate: NaN)
-    ## Working space: 27 samples, 598 SNPs
-    ##     using 2 (CPU) cores
-    ## PCA: the sum of all selected genotypes (0, 1 and 2) = 29329
-    ## Wed Feb 28 12:35:42 2018    (internal increment: 27760)
-    ## 
-    ##[..................................................]  0%, ETC: ---    
-    ##[==================================================] 100%, completed      
-    ## Wed Feb 28 12:35:42 2018    Begin (eigenvalues and eigenvectors)
-    ## Wed Feb 28 12:35:42 2018    Done.
+# Matching the sample names with their origin and population
+eigenvectors$region = info[match(pca_pruned$sample.id, info$ENA.RUN),]$region 
+eigenvectors$population = info[match(pca_pruned$sample.id, info$ENA.RUN),]$population
 
-    eigenvectors = as.data.frame(pca_pruned$eigenvect)
-    colnames(eigenvectors) = as.vector(sprintf("PC%s", seq(1:nrow(pca$eigenvect))))
-    pca_pruned$sample.id = sub("_chr2_piece_dedup", "", pca$sample.id)
-
-    # Matching the sample names with their origin and population
-    eigenvectors$region = info[match(pca_pruned$sample.id, info$ENA.RUN),]$region 
-    eigenvectors$population = info[match(pca_pruned$sample.id, info$ENA.RUN),]$population
-
-    ggplot(data = eigenvectors, aes(x = PC1, y = PC2, col = region)) + 
-            geom_point(size=3,alpha=0.5) +
-            scale_color_manual(values = c("#FF1BB3","#A7FF5B","#99554D")) +
-            theme_bw() + coord_flip()
+ggplot(data = eigenvectors, aes(x = PC1, y = PC2, col = region)) + 
+        geom_point(size=3,alpha=0.5) +
+        scale_color_manual(values = c("#FF1BB3","#A7FF5B","#99554D")) +
+        theme_bw() + coord_flip()
 ```
 
 ![](img/unnamed-chunk-5-1.png)
@@ -198,16 +146,9 @@ linked?
 Now we are going to convert this GDS file into a plink format, to be
 later used in the admixture exercise:
 
+<!-- TODO: Update file names -->
 ```R
-    snpgdsGDS2BED(genofile, "Allvariants_135_145_chr2_pruned.gds", sample.id=NULL, snp.id=snpset.id, snpfirstdim=NULL, verbose=TRUE)
-
-    ## Converting from GDS to PLINK binary PED:
-    ## Working space: 27 samples, 598 SNPs
-    ## Output a BIM file.
-    ## Output a BED file ...
-    ##      Wed Feb 28 12:35:43 2018    0%
-    ##      Wed Feb 28 12:35:43 2018    100%
-    ## Done.
+snpgdsGDS2BED(genofile, "Allvariants_135_145_chr2_pruned.gds", sample.id=NULL, snp.id=snpset.id, snpfirstdim=NULL, verbose=TRUE)
 ```
 
 Upload the 3 files produced by this last code
@@ -216,8 +157,16 @@ Upload the 3 files produced by this last code
 **Allvariants\_135\_145\_chr2\_pruned.gds.fam**) to you own folder on
 the cluster.
 
-Admixture
-=========
+
+## Log into the cluster and request a compute node
+
+Log into the cluster. Then request a machine for your computations. You need five gigabytes (`5g`) in this exercise so you need to run this command (see also the explanation in the previous exercise):
+
+```bash
+srun --mem-per-cpu=5g --time=3:00:00 --account=populationgenomics --pty bash
+```
+
+## Admixture
 
 Admixture is a program for estimating ancestry in a model based manner
 from SNP genotype datasets, where individuals are unrelated.
@@ -228,8 +177,9 @@ Now with adjusted format and pruned snps, we are ready to run the
 admixture analysis. We believe that our individuals are derived from
 three ancestral populations:
 
+<!-- TODO: Update file names -->
 ```bash
-    admixture Allvariants_135_145_chr2_pruned.gds.bed 3
+admixture Allvariants_135_145_chr2_pruned.gds.bed 3
 ```
 
 **Q.5** Have a look at the Fst across populations, that is printed in
@@ -246,52 +196,53 @@ Sometimes we may have no priori about K, one good way of choosing the
 best K is by doing a cross-validation procedure impletemented in
 admixture as follow:
 
+<!-- TODO: Update file names -->
 ```bash
-    for K in 1 2 3 4 5; \
-      do ../shared/PCA_admixture_data/admixture_linux-1.3.0/admixture --cv Allvariants_135_145_chr2_pruned.gds.bed $K | tee log${K}.out; done
+for K in 1 2 3 4 5; \
+    do ../shared/PCA_admixture_data/admixture_linux-1.3.0/admixture --cv Allvariants_135_145_chr2_pruned.gds.bed $K | tee log${K}.out; done
 ```
       
 Have a look at the Cross Validation error of each K:
 
 ```bash
-    grep -h CV log*.out
+grep -h CV log*.out
 ```
 
 Save it in a text file:
 
 ```bash
-    grep -h CV log*.out > CV_logs.txt
+grep -h CV log*.out > CV_logs.txt
 ```
 
 Look at the distribution of CV error. You can download your file to your
 own computer or run it in the cluster.
 
 ```R
-    CV = read.table('CV_logs.txt')
-    p <- ggplot(data = CV, aes(x = V3, y = V4, group = 1)) + geom_line() + geom_point() + theme_bw() + labs(x = 'Number of clusters', y = 'Cross validation error')
+CV = read.table('CV_logs.txt')
+p <- ggplot(data = CV, aes(x = V3, y = V4, group = 1)) + geom_line() + geom_point() + theme_bw() + labs(x = 'Number of clusters', y = 'Cross validation error')
 
-    p
+p
 ```
 
 ![](img/unnamed-chunk-11-1.png)
 
-    #ggsave(p, device = "pdf")
 
 **Q.6** What do you understand of Cross validation error? Based on this
 graph, what is the best K?
 
 Plotting the Q estimates. Choose the K that makes more sense to you.
 
+<!-- TODO: Update file names -->
 ```R
-    tbl = read.table("Allvariants_135_145_chr2_pruned.gds.3.Q")
-    ord = tbl[order(tbl$V1,tbl$V2,tbl$V3),]
-    bp = barplot(t(as.matrix(ord)), 
-             space = c(0.2),
-             col=rainbow(3),
-             xlab="Individual #", 
-             ylab="Ancestry",
-             border=NA,
-             las=2)
+tbl = read.table("Allvariants_135_145_chr2_pruned.gds.3.Q")
+ord = tbl[order(tbl$V1,tbl$V2,tbl$V3),]
+bp = barplot(t(as.matrix(ord)), 
+            space = c(0.2),
+            col=rainbow(3),
+            xlab="Individual #", 
+            ylab="Ancestry",
+            border=NA,
+            las=2)
 ```
 
 ![rplot](https://user-images.githubusercontent.com/38723379/53338548-47470580-3904-11e9-8e04-75187b031d96.png)

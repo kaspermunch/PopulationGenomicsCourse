@@ -35,16 +35,10 @@ You will perform a genome wide scan and then focus on candidate SNPs. The packag
 ### Reading in data in REHH format
 
 
-<!-- TODO: Update file names. Also:
-
-they need to run this first to install rehh:
-
-```r
-install.packages("rehh")
-```
--->
+<!-- TODO: Update file names -->
 
 ``` r
+install.packages("rehh")
 library(rehh)
 
 > hap360_400_AF <-data2haplohh(hap_file="/home/Data/genotypes360_400_AF",map_file="/home/Data/snps360_400_filtered",

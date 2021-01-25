@@ -23,15 +23,9 @@ As we learned last week, high-throughput sequencing technologies have in the pas
 
 This dataset is a subset of the Simons Diversity Project (discussed last week).
 
-## Log into the cluster and request a compute node on the cluster
+## Log into the cluster and request a compute node
 
-Log into the cluster:
-
-```bash
-    ssh username@login.genome.au.dk
-```
-
-Now request a machine for your computations. You need five gigabytes (`5g`) in this exercise so you need to run this command (see also the explanation in the previous exercise):
+Log into the cluster. Then request a machine for your computations. You need five gigabytes (`5g`) in this exercise so you need to run this command (see also the explanation in the previous exercise):
 
 ```bash
 srun --mem-per-cpu=5g --time=3:00:00 --account=populationgenomics --pty bash
@@ -149,9 +143,9 @@ When you zoom in to the lactase region on chromosome 2, you will see something l
 
 Try to understand what are the different attributes present in the viewer. If you zoom in very much you will find single nucleotide polymorphisms (SNPs), where the reference sequence does not have the same nucleotide as the data mapped to.
 
-## Plotting results
+## Analyzing read coverage
 
-<!-- TODO: This should be run on the cluster -->
+Now log back into the cluster.
 
 One of the attributes one could learn from mapping reads back to the reference is the coverage of reads across the genome. In order to calculate the coverage depth you can use the command **samtools depth**.
 
@@ -167,53 +161,33 @@ You can have a look at the resulted file. What do you find in the three differen
     less ERR1019076.coverage
 ```
 
-<!-- This should be done in a slurm-jupyter R notebook. Add instructions on how -->
+Log out of the cluster and fire up a jupyter notebook using `slurm-jupyter` (see the first exercise for how to do that). Once jupyter is up and running in your browser, create a new R notebook.
 
-Using Rstudio or R, run something like this:
+Run the following code in separate code cells:
 
 ```R
-    library(ggplot2)
-    library(dplyr)
+library(ggplot2)
+library(dplyr)
+```
 
-    ## 
-    ## Attaching package: 'dplyr'
+```R
+scaf <- read.table("./ERR1019076.coverage",header=FALSE, sep="\t", na.strings="NA", dec=".", strip.white=TRUE, col.names = c("Scaffold", "locus", "depth"))
+    
+head(scaf)
+```
 
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
+```R
+# Compressing the dataframe in windows
+scaf %>% 
+mutate(rounded_position = round(locus, -2)) %>%
+    group_by(rounded_position) %>% 
+        summarize(mean_cov = mean(depth)) -> compressed
 
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
+# Plotting the data
+p <- ggplot(data =  compressed, aes(x=rounded_position, y=mean_cov)) + geom_area() + theme_classic() + ylim(0, 400)
 
-    scaf <- read.table("./ERR1019076.coverage",header=FALSE, sep="\t", na.strings="NA", dec=".", strip.white=TRUE, col.names = c("Scaffold", "locus", "depth"))
-      
-    head(scaf)
-
-    ##   Scaffold  locus depth
-    ## 1        2 833855     1
-    ## 2        2 833856     1
-    ## 3        2 833857     1
-    ## 4        2 833858     1
-    ## 5        2 833859     1
-    ## 6        2 833860     1
-
-    # Compressing the dataframe in windows
-    scaf %>% 
-    mutate(rounded_position = round(locus, -2)) %>%
-        group_by(rounded_position) %>% 
-            summarize(mean_cov = mean(depth)) -> compressed
-
-    # Plotting the data
-    p <- ggplot(data =  compressed, aes(x=rounded_position, y=mean_cov)) + geom_area() + theme_classic() + ylim(0, 400)
-
-    #p
-
-    # Saving your coverage plot
-    ggsave("ERR1019076.coverage.pdf",p)
-
-    ## Saving 7 x 5 in image
-
+# Saving your coverage plot
+ggsave("ERR1019076.coverage.pdf",p)
 ```
 
 You can do it by opening Rsturio on the terminal or transfer the file to your local machine using scp and then use your locally installed Rstudio. Alternatively, you could also open a text editor in the terminal (e.g vi) and run the script with Rscript [path to the script].R .
@@ -230,7 +204,7 @@ To run platypus, we can use this line of code:
 
 <!-- TODO: Update file names -->
 ```bash
-    platypus callVariants --bamFile=ERR1019076.bam --refFile=Homo_sapiens.GRCh37.75.dna.chromosome.2.fa --output=AllVariants.vcf
+platypus callVariants --bamFile=ERR1019076.bam --refFile=Homo_sapiens.GRCh37.75.dna.chromosome.2.fa --output=AllVariants.vcf
 ```
 
 The output will be a single [VCF](http://samtools.github.io/hts-specs/VCFv4.2.pdf) file containing all the variants that Platypus identified, and a 'log.txt' file, containing log information.
@@ -239,14 +213,14 @@ Look at the output vcf file. What does the format look like? Does that match wit
 
 <!-- TODO: Update file names -->
 ```bash
-    less -S AllVariants.vcf
+less -S AllVariants.vcf
 ```
 
 You will be using this format further in the course, for now let's just count the number of heterozygous SNPs in each individual:
 
 <!-- TODO: Update file names -->
 ```bash
-    grep -o '0/1\|1/0' AllVariants.vcf  | wc -l
+grep -o '0/1\|1/0' AllVariants.vcf  | wc -l
 ```
 
 -   0/0 - the sample is homozygous to the reference (note that these sites usually won't be listed in single sample vcf files as they are not variants)

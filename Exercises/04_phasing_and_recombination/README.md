@@ -18,6 +18,14 @@ We put the jointly called bases for Africans, West Eurasians, and East Asians in
 
 In this exercise we will just use the Africans and the West Eurasians.
 
+## Log into the cluster and request a compute node
+
+Log into the cluster. Then request a machine for your computations. You need five gigabytes (`5g`) in this exercise so you need to run this command (see also the explanation in the previous exercise):
+
+```bash
+srun --mem-per-cpu=5g --time=3:00:00 --account=populationgenomics --pty bash
+```
+
 ## Running Beagle
 
 For additional information see the [Beagle 4.1 manual](https://faculty.washington.edu/browning/beagle/beagle_4.1_03Oct15.pdf)
