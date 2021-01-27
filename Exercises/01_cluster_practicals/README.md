@@ -45,7 +45,7 @@ When you install Anaconda, conda makes a single base environment for you. It is 
 The environmnet on your local machine does not need a lot of packages since it mainly serves to let you connect to the cluster. This command creates a `popgen` enviromnet and installs `slurm-jupyter` from my conda chanel along with a few other packages that may come in handy:
 
 ```bash
-conda create --name popgen -c kaspermunch slurm-jupyter jupyter jupyterlab pandas numpy matplotlib ipympl nodejs seaborn
+conda create --name popgen -c kaspermunch slurm-jupyter jupyter jupyterlab pandas numpy matplotlib ipympl nodejs seaborn scikit-learn statsmodels
 ```
 
 Say yes (press Enter) when asked to install packages.

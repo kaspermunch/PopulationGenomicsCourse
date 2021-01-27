@@ -31,3 +31,9 @@ conda activate popgen_binder
 conda install some_needed_library
 conda env export --from-history -f ../binder/environment.yml
 ```
+
+E.g. to add R support, you would need to also install r-essentials rpy2 simplegeneric tzlocal
+
+```bash
+conda install -c r r-essentials rpy2 simplegeneric tzlocal
+```
