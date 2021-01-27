@@ -1,35 +1,33 @@
 
+# Notebooks for students
 
-
-## Binder
-
-    conda create -n popgen_binder -c conda-forge jupyter jupyterlab pandas numpy matplotlib ipympl nodejs seaborn  ipywidgets scikit-learn statsmodels
-
-    conda env export --from-history -f environment.yml
-
+This is a collection of notebooks that you can play with to aid your understanding of population genetic processes. This course feature is experimental. Click on the binder badge below to start a server to view and play with the notebooks.
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kaspermunch/PopulationGenomicsCourse/HEAD?filepath=Notebooks)
 
+If you want to save your notebook, do not save it on the server. Instead, you whould select `Files > Download as` and then select `Notebook .ipynb`.
 
-# How to run Jupyter notebooks
+## How to run Jupyter notebooks on your own machine
 
-To run the notebooks you first need to install [Anaconda Python](https://www.anaconda.com/download/).
+To work on notebooks downloaed to your our own machine, use the terminal to navigate to the folder where you downloaded the notebooks. Then activate your environment and start the juptyer server:
 
-## Create a conda environment
+```bash
+conda activate popgen
+jupyter notebook
+```
 
-The notebooks use various libraries that you need to install too to be able to run them. The best way to set this up is to create a conda environment with the proper libraries installed. To do that, copy/pasete this long command into your command prompt/Terminal and run it.
+## Set up repository for Binder (for instructors only)
 
-    conda create -c anaconda -c conda-forge -c bioconda --name popgen python=3 biopython jupyter matplotlib mpld3 numpy pandas scikit-learn scipy seaborn statsmodels pytables pyfaidx
-    
-Press enter once asked if you want to install a long list of libraries. 
+Created a special environment just for running the notebooks, which is then exported to `environment.yml' in the 'binder' dir under root:
 
-## Running Jupyter
+    conda create -n popgen_binder -c conda-forge jupyter jupyterlab pandas numpy matplotlib ipympl nodejs seaborn scikit-learn statsmodels
 
-Once it finished there are two ways to run Jupyter:
+    conda env export --from-history -f ../binder/environment.yml
 
-- On Windows the easiest way is to find and open the program called Anaconca Navigator. Then under "Home" you can choose the environment "popgen" and then launch Jupyter.
-- On linux and mac you can just type `conda activate popgen`. (to Deactivate type `conda deactivate`)
+**NB:** If any new notebook dependencies are added they need to be added to the exported conda environment too:
 
-Jupyter opens a file browser. Navigate to the folder where you downloaded the notebook files from Blackboard and click on one of them. Then the notebook open and you can see the code.
-
-
+```bash
+conda activate popgen_binder
+conda install some_needed_library
+conda env export --from-history -f ../binder/environment.yml
+```
