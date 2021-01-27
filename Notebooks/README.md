@@ -1,4 +1,16 @@
 
+
+
+## Binder
+
+    conda create -n popgen_binder -c conda-forge jupyter jupyterlab pandas numpy matplotlib ipympl nodejs seaborn  ipywidgets scikit-learn statsmodels
+
+    conda env export --from-history -f environment.yml
+
+
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/kaspermunch/PopulationGenomicsCourse/HEAD?filepath=Notebooks)
+
+
 # How to run Jupyter notebooks
 
 To run the notebooks you first need to install [Anaconda Python](https://www.anaconda.com/download/).
@@ -19,6 +31,5 @@ Once it finished there are two ways to run Jupyter:
 - On linux and mac you can just type `conda activate popgen`. (to Deactivate type `conda deactivate`)
 
 Jupyter opens a file browser. Navigate to the folder where you downloaded the notebook files from Blackboard and click on one of them. Then the notebook open and you can see the code.
-
 
 

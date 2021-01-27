@@ -1,0 +1,20 @@
+name: popgen_binder
+channels:
+  - conda-forge
+  - bioconda
+  - gwforg
+  - kaspermunch
+  - defaults
+dependencies:
+  - numpy
+  - ipywidgets
+  - scikit-learn
+  - statsmodels
+  - nodejs
+  - matplotlib
+  - jupyterlab
+  - seaborn
+  - ipympl
+  - jupyter
+  - pandas
+prefix: /home/kmt/anaconda3/envs/popgen_binder
