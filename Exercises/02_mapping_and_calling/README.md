@@ -2,22 +2,7 @@
 
 # Mapping and SNP calling exercise
 
-As we learned last week, high-throughput sequencing technologies have in the past few years been producing millions of reads of human genome and other species. To be useful, this genetic information has to be 'put together' in a smart way, in the same way as the pieces of a puzzle (reads) need to be mounted according to a picture (reference genome). In this exercise section you will be exposed to different softwares used for mapping reads to a reference sequence and calling variants from the produced alignments. We will use a dataset composed of 30 individuals from 3 different regions: Africa, EastAsia and WestEurasia.
-
-    ##       X...ID    ENA.RUN    population region country latitude longitude
-    ## 1 ERS1042176 ERR1019075 Ju_hoan_North Africa Namibia    -18.9      21.5
-    ## 2 ERS1042177 ERR1019076 Ju_hoan_North Africa Namibia    -18.9      21.5
-    ## 3 ERS1042248 ERR1025622          Esan Africa Nigeria      6.5       6.0
-    ## 4 ERS1042265 ERR1025639         Luhya Africa   Kenya      1.3      36.8
-    ## 5 ERS1042266 ERR1025640      Mandenka Africa Senegal     12.0     -12.0
-    ## 6 ERS1042267 ERR1025641      Mandenka Africa Senegal     12.0     -12.0
-    ##      Sex       Illumina.ID
-    ## 1   male LP6005441-DNA_B11
-    ## 2   male LP6005441-DNA_A11
-    ## 3 female LP6005442-DNA_B10
-    ## 4   male LP6005442-DNA_E11
-    ## 5   male LP6005441-DNA_E07
-    ## 6 female LP6005441-DNA_F07
+As we learned last week, high-throughput sequencing technologies have in the past few years been producing millions of reads of human genome and other species. To be useful, this genetic information has to be 'put together' in a smart way, in the same way as the pieces of a puzzle (reads) need to be mounted according to a picture (reference genome). In this exercise section you will be exposed to different softwares used for mapping reads to a reference sequence and calling variants from the produced alignments. We will use a dataset composed of 28 individuals from 3 different regions: Africa, EastAsia and WestEurasia. You can find the metadata file, containing sample IDs and some extra information for each sample here: ~/populationgenomics/data/metadata/Sample_meta_subset.tsv
 
 ![](img/unnamed-chunk-1-1.png)
 
@@ -31,11 +16,13 @@ Log into the cluster. Then request a machine for your computations. You need fiv
 srun --mem-per-cpu=5g --time=3:00:00 --account=populationgenomics --pty bash
 ```
 
+Remember to activate your conda environment before running the below commands.
+
 ## Data source
 
-You will be separated in pairs so you can help each other out with the commands. Each of you will be responsible for 2 individuals and at the end of this exercise we will estimate the mean SNP heterozygosity per individual of the 10 MB region in chromosome 2. The data is placed in a folder called **Data** in the same directory as users folder. You should introduce you results [here](https://docs.google.com/spreadsheets/d/1OEHI1tNiwHrwKkl9L5rPtbVKCHQDpCZtKzpnZ1sWKJY/edit?usp=sharing) 
+You will be separated in pairs so you can help each other out with the commands. Each of you will be responsible for 2 individuals and at the end of this exercise we will estimate the mean SNP heterozygosity per individual of the 10 MB region in chromosome 2. You should introduce you results [here](https://docs.google.com/spreadsheets/d/1OEHI1tNiwHrwKkl9L5rPtbVKCHQDpCZtKzpnZ1sWKJY/edit?usp=sharing) 
 
-The following tutorial is based on **ERR1019076**.
+The following tutorial is based on **S_Ju_hoan_North-3**.
 
 ## Mapping reads against the reference
 
@@ -44,50 +31,54 @@ The first step when dealing with raw reads is mapping (aligning) them to a refer
 Two input files are needed to do genome mapping:
 
 - Fasta file containing your reference genome Which was downloaded from:
-    ([GRCh37](ftp://ftp.ensembl.org/pub/release-75//fasta/homo_sapiens/dna/))
-- The reads in fastq format
+    ([hg19](https://hgdownload.soe.ucsc.edu/goldenPath/hg19/chromosomes/chr2.fa.gz))
+    The path to the fasta file the referense sequence for the human chromosome 2 is here:
+    ~/populationgenomics/fasta/chr2_135_145_subsampl.fa
+- The reads in fastq format, which can be found in this shared folder:
+    ~/populationgenomics/data/fastq/
 
-We have prepared them for you and can be found in the shared Data folder: /home/Data/
+We will create a soft-link of fasta reference to your folder, so that we don't need to type in the full path to the reference everytime we want to use it and avoid copying it to out own directory. Change username to your user account. You might also want to create a separate folder inside your own folder, contianing the exercises for this week. Update the path to your own directory as you see fit.
 
-We will create a soft-link of fasta reference to your folder, so that we don't need to type in the full path to the reference everytime we want to use it and avoid copying it to out own directory.
-
-<!-- TODO: Update file names -->
 ```bash
-    ln -s /home/Data/Homo_sapiens.GRCh37.75.dna.chromosome.2.fa /home/[user]/
+    ln -s ~/populationgenomics/fasta/chr2.fa ~/populationgenomics/students/username
 ```
 
 First we need to index the reference file for later use. This creates index files used by bwa mem to perform the alignment. To produce these files, run the following command:
 
-<!-- TODO: Update file names -->
+<!-- 3m41.487s -->
 ```bash
-    bwa index -p Homo_sapiens.GRCh37.75.dna.chromosome.2 -a bwtsw Homo_sapiens.GRCh37.75.dna.chromosome.2.fa
+    bwa index -p chr2 -a bwtsw chr2.fa 
 ```
 
-where -a bwtsw specifies that we want to use the indexing algorithm that is capable of handling the human genome.
+where -p gives the path for the index files produced, while -a bwtsw specifies the indexing algorithm, bwtsw is capable of handling the human genome.
 
 You also need to generate a fasta file index. This can be done using **samtools**:
 
-<!-- TODO: Update file names -->
+<!-- 0m0.914s -->
 ```bash
-    samtools faidx Homo_sapiens.GRCh37.75.dna.chromosome.2.fa
+    samtools faidx chr2.fa
+```
+
+We will also create a soft link for the fastq files we want to map to the reference sequence. Please update the path to your own account and samplename with your sample ID. For example, in our case it would be S_Ju_hoan_North-3.
+
+```bash
+ln -s ~/populationgenomics/data/fastq/samplename.region.fq ~/populationgenomics/students/username
 ```
 
 Now you can map the reads to the reference. This will take around 10 minutes. You can start installing the software that will be used later in this tutorial (IGV) while you wait for it.
 
-<!-- TODO: Update file names -->
+<!-- 6m7.240s -->
 ```bash
-    bwa mem -t 16 -p Homo_sapiens.GRCh37.75.dna.chromosome.2 /home/Data/sorted_ERR1019076_reads_135_145.fq | \
-    samtools sort -O BAM -o ERR1019076.bam
+    bwa mem -t 16 -p chr2 S_Ju_hoan_North-3.region.fq | samtools sort -O BAM -o S_Ju_hoan_North-3.bam
 ```
 
-<!-- TODO: Update file names -->
 This command is composed of two sub-commands where the output of the "bwa mem" command is piped ("|" is the pipe symbol) into the "samtools sort" command. The output of the "bwa mem" command is an unsorted bam file, which is then used as input into the "samtools sort" command to produce a sorted bam file, which is necessary for further analysis. We could also run the two commands separately, but by using piping we save disc space, as we do not have to save the intermediate unsorted bam file, and altogether speed up the analysis.
 
 You can have a look at the bam file generated:
 
-<!-- TODO: Update file names -->
+<!-- 0m0.005s -->
 ```bash
-    samtools view ERR1019076.bam | head
+    samtools view S_Ju_hoan_North-3.bam | head
 ```
 
 Bam files follow this structure:
@@ -107,39 +98,39 @@ Bam files follow this structure:
 
 For more information, read [this](https://samtools.github.io/hts-specs/SAMv1.pdf)
 
-Get some useful stats of your mapping:
+You can get some useful stats of your mapping, by running samtools flagstat:
 
-<!-- TODO: Update file names -->
+<!-- 0m2.144s -->
 ```bash
-    samtools flagstat ERR1019076.bam
+    samtools flagstat S_Ju_hoan_North-3.bam 
 ```
 
-Once the map is generated, you can index the bam file to visualize it using IGV. Indexing a genome sorted BAM file allows one to quickly extract alignments overlapping particular genomic regions. Moreover, indexing is required by genome viewers such as IGV so that the viewers can quickly display alignments in each genomic region to which you navigate.
+In order to visualize the alignment of the reads to the reference genome we have just produced, we will use IGV. But first, we need to generate an index file for this software to work. Indexing a genome sorted BAM file allows one to quickly extract alignments overlapping particular genomic regions. Moreover, indexing is required by genome viewers such as IGV so that the viewers can quickly display alignments in each genomic region to which you navigate.
 
-<!-- TODO: Update file names -->
+<!-- 0m2.706s -->
 ```bash
-    samtools index ERR1019076.bam
+    samtools index S_Ju_hoan_North-3.bam 
 ```
 
 ## Downloading via terminal
 
 You can download the data via terminal by the following:
 
-<!-- TODO: Update file names -->
 ```bash
-    scp username@login.genome.au.dk:populationgenomics/students/username/ERR1019076.bam folder_on_your_computer
+    scp username@login.genome.au.dk:populationgenomics/students/username/S_Ju_hoan_North-3.bam* folder_on_your_computer
 ```
+Note that by using the suffix bam* ,we will be downloading all files that start with S_Ju_hoan_North-3.ba, which in this case should be both the BAM and BAI files.
 
 ## IGV software
 
 IGV is an Integrative Genomics viewer and can be very useful to look at the results of Mapping and SNP calling. We have not installed it in the cluster, so you can download it to your machine you can go to its [website](http://software.broadinstitute.org/software/igv/). Three files are necessary to look at this dataset: a reference sequence and the
 **.bam** and **.bai** files, download it from the cluster in a specific directory. Since we are using a human reference, the sequence is already available in the software:
 
-Go to Genomes ----> Load Genome from server... ----> Filter by human and choose the Human hg19 reference (which is the GRCh37).
+Go to Genomes ----> Load Genome from server... ----> Filter by human and choose the Human hg19 reference.
 
-After it you will the chromosomes and genes. Now you can download the mapping results by typing: File ----> Load from File... ----> ERR1019076.bam.
+After it you will the chromosomes and genes. Now you can download the mapping results by typing: File ----> Load from File... ----> S_Ju_hoan_North-3.bam.
 
-When you zoom in to the lactase region on chromosome 2, you will see something like this: ![](img/IGV_example.png)
+When you zoom in to the lactase region on chromosome 2 (chr2:136,545,410-136,594,750), you will see something like this: ![](img/IGV_example.png)
 
 Try to understand what are the different attributes present in the viewer. If you zoom in very much you will find single nucleotide polymorphisms (SNPs), where the reference sequence does not have the same nucleotide as the data mapped to.
 
@@ -149,19 +140,18 @@ Now log back into the cluster.
 
 One of the attributes one could learn from mapping reads back to the reference is the coverage of reads across the genome. In order to calculate the coverage depth you can use the command **samtools depth**.
 
-<!-- TODO: Update file names -->
+<!-- 0m8.062s -->
 ```bash
-    samtools depth ERR1019076.bam > ERR1019076.coverage
+    samtools depth S_Ju_hoan_North-3.bam > S_Ju_hoan_North-3.coverage
 ```
 
 You can have a look at the resulted file. What do you find in the three different columns?
 
-<!-- TODO: Update file names -->
 ```bash
-    less ERR1019076.coverage
+    less S_Ju_hoan_North-3.coverage
 ```
 
-Log out of the cluster and fire up a jupyter notebook using `slurm-jupyter` (see the first exercise for how to do that). Once jupyter is up and running in your browser, create a new R notebook.
+Log out of the cluster and fire up a jupyter notebook using `slurm-jupyter` (see the first exercise for how to do that). For this exercise, specify the memory to 5g (-m 5g). Once jupyter is up and running in your browser, create a new R notebook.
 
 Run the following code in separate code cells:
 
@@ -171,7 +161,7 @@ library(dplyr)
 ```
 
 ```R
-scaf <- read.table("./ERR1019076.coverage",header=FALSE, sep="\t", na.strings="NA", dec=".", strip.white=TRUE, col.names = c("Scaffold", "locus", "depth"))
+scaf <- read.table("S_Ju_hoan_North-3.coverage",header=FALSE, sep="\t", na.strings="NA", dec=".", strip.white=TRUE, col.names = c("Scaffold", "locus", "depth"))
     
 head(scaf)
 ```
@@ -187,10 +177,8 @@ mutate(rounded_position = round(locus, -2)) %>%
 p <- ggplot(data =  compressed, aes(x=rounded_position, y=mean_cov)) + geom_area() + theme_classic() + ylim(0, 400)
 
 # Saving your coverage plot
-ggsave("ERR1019076.coverage.pdf",p)
+ggsave("S_Ju_hoan_North-3.coverage.pdf",p)
 ```
-
-You can do it by opening Rsturio on the terminal or transfer the file to your local machine using scp and then use your locally installed Rstudio. Alternatively, you could also open a text editor in the terminal (e.g vi) and run the script with Rscript [path to the script].R .
 
 What are the conclusions you can extract from these analysis? Does the coverage match with what you observed with IGV? Does it match with what you would expect, i.e what you know from the data? 
 
@@ -198,29 +186,27 @@ What are the conclusions you can extract from these analysis? Does the coverage 
 
 Even though just a tiny portion (around 2%) of our genomes are based of protein coding regions, this partition contains most of the disease causal variants (mutations), and that is why variant calling is so important from a medical point of view. From the population genetics side of view it is also possible to use these variants to establish differences between individuals, populations and species. It can also be used to clarify the genetic basis of adaptation. These topics will come back to your mind during the following weeks.
 
-Once we have mapped our reads we can now start with variant detection. For now we will be using the software **Platypus**: a tool designed for efficient and accurate variant-detection in high-throughput sequencing data. You can access their website [here](http://www.well.ox.ac.uk/platypus). 
+Once we have mapped our reads we can now start with variant detection. We will use the software **Platypus**: a tool designed for efficient and accurate variant-detection in high-throughput sequencing data. You can access their website [here](http://www.well.ox.ac.uk/platypus). 
 
 To run platypus, we can use this line of code:
 
-<!-- TODO: Update file names -->
+<!-- 0m22.420s -->
 ```bash
-platypus callVariants --bamFile=ERR1019076.bam --refFile=Homo_sapiens.GRCh37.75.dna.chromosome.2.fa --output=AllVariants.vcf
+platypus callVariants --bamFile=S_Ju_hoan_North-3.bam --refFile=chr2.fa --output=S_Ju_hoan_North-3.vcf
 ```
 
 The output will be a single [VCF](http://samtools.github.io/hts-specs/VCFv4.2.pdf) file containing all the variants that Platypus identified, and a 'log.txt' file, containing log information.
 
 Look at the output vcf file. What does the format look like? Does that match with what you observed in the IGV? Download the VCF file to the IGV browser.
 
-<!-- TODO: Update file names -->
 ```bash
-less -S AllVariants.vcf
+less -S S_Ju_hoan_North-3.vcf 
 ```
 
 You will be using this format further in the course, for now let's just count the number of heterozygous SNPs in each individual:
 
-<!-- TODO: Update file names -->
 ```bash
-grep -o '0/1\|1/0' AllVariants.vcf  | wc -l
+grep -o '0/1\|1/0' S_Ju_hoan_North-3.vcf | wc -l
 ```
 
 -   0/0 - the sample is homozygous to the reference (note that these sites usually won't be listed in single sample vcf files as they are not variants)
@@ -228,4 +214,4 @@ grep -o '0/1\|1/0' AllVariants.vcf  | wc -l
     and ALT alleles
 -   1/1 - the sample is homozygous for the alternate allele
 
-Given this information you are now able to estimate the mean SNP heterozygosity for your individual of the 10 MB region in chromosome 2.
+Given this information you are now able to estimate the mean heterozygosity for your individual of the 10 MB region in chromosome 2.
