@@ -31,12 +31,14 @@ def bam_index(path):
 
 def bam_subset(path, index):
     sample_name = os.path.basename(os.path.dirname(path))
-    output_path = modpath(path, base=sample_name, suffix='.region.bam')
+    # output_path = modpath(path, base=sample_name, suffix='.region.bam')
+    output_path = modpath(path, base=sample_name, suffix='.chr2.bam')
     inputs = {'path': path, 'index': index}
     outputs = {'path': output_path}
     options = {'memory': '4g',
                'walltime': '0-02:00:00'}
-    spec = f'samtools view -b -h {path} -o {output_path} 2:135000000-145000000'
+    # spec = f'samtools view -b -h {path} -o {output_path} 2:135000000-145000000'
+    spec = f'samtools view -f 3 -F 4 -b -h {path} -o {output_path} 2'
     return AnonymousTarget(inputs=inputs, outputs=outputs, options=options, spec=spec)
 
 def bam2fastq(path):
@@ -53,7 +55,7 @@ def bam2fastq(path):
 
 # bam files
 bam_data_dir = Path('/home/kmt/populationgenomics/people/kmt/PopulationGenomicsCourse/Cluster/data/bam_and_fastq')
-bam_files = list(map(str, bam_data_dir.glob('**/*.bam')))
+bam_files = list(map(str, bam_data_dir.glob('**/*srt.aln.bam')))
 
 # index bam files
 bam_index_targets = gwf.map(bam_index, bam_files)
