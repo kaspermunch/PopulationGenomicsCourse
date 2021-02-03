@@ -16,7 +16,7 @@ If you have not done so already, you should install a distribution of Python cal
 
 ## The Terminal
 
-Most of the programs we will use in this course are command line applications. I.e. programs that are executed by writing their name and any arguments in a terminal rather than clicking on an icon and using a graphical user interface. There are many different programs that can serve as a terminal. If you have a Windows machine, you must use the *Anaconda Poweshell Prompt* (*not* the Anaconda Prompt). You installed Anaconda Poweshell Prompt along with Anaconda Python. If you have a Mac, the terminal you will use is called *Terminal*. The Terminal application is pre-installed on Mac. So from now on, whenever we refer to the terminal, this means *Anaconda Poweshell Prompt* on Windows and *Terminal* on Mac. We will assume some familiarity with using a terminal and with executing commands on the command line. If you have not used a terminal before, or if you are a bit rusty, you should run through [this primer](https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything) before you go on.
+Most of the programs we will use in this course are command line applications. I.e. programs that are executed by writing their name and any arguments in a terminal rather than clicking on an icon and using a graphical user interface. There are many different programs that can serve as a terminal. If you have a Windows machine, you must use the *Anaconda Poweshell Prompt* (*not* the Anaconda Prompt and *not* the `CMD`). You installed Anaconda Powershell Prompt along with Anaconda Python. If you have a Mac, the terminal you will use is called *Terminal*. The Terminal application is pre-installed on Mac. So from now on, whenever we refer to the terminal, this means *Anaconda Poweshell Prompt* on Windows and *Terminal* on Mac. We will assume some familiarity with using a terminal and with executing commands on the command line. If you have not used a terminal before, or if you are a bit rusty, you should run through [this primer](https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything) before you go on.
 
 <!-- 
 If you are rusty or unfamiliar with the terminal, you should do this small mini-exericse:
@@ -42,13 +42,13 @@ You need to install packages and programs for use in your analyses and pipelines
 
 When you install Anaconda, conda makes a single base environment for you. It is called `base` and this is why it says "(base)" at your terminal prompt. For this course, you need a dedicated conda enviromnet for your exercises on both your local machine and on the cluster. Lets call both of them `popgen`.
 
-The environmnet on your local machine does not need a lot of packages since it mainly serves to let you connect to the cluster. This command creates a `popgen` enviromnet and installs `slurm-jupyter` from my conda chanel along with a few other packages that may come in handy:
+The environmnet on your local machine does not need a lot of packages since it mainly serves to let you connect to the cluster. This command creates a `popgen` enviromnet and installs `slurm-jupyter` from my conda channel along with a few other packages that may come in handy:
 
 ```bash
 conda create --name popgen -c kaspermunch slurm-jupyter jupyter jupyterlab pandas numpy matplotlib ipympl nodejs seaborn scikit-learn statsmodels
 ```
 
-Say yes (press Enter) when asked to install packages.
+It may take `conda` a while to create the environment, so be patient. Say yes (press Enter) when asked to install packages.
 
 **Important:** Whenever you use the terminal to do exercises, you should activate your `popgen` environment like this:
 
@@ -58,6 +58,10 @@ conda activate popgen
 
 When the environment is active, it says `(popgen)` on the commnad prompt instead of `(base)`.
 
+# AU VPN
+
+To be able to connect to the cluster, you need to on the AU inernal network. You can do that by either physically being on campus, or by connecting to the AU network using VPN. To install VPN use the instructions [on this page](https://studerende.au.dk/it-support/vpn/). Before you can *use* the VPN, you need to also enable two-step verification. You can see how to do that on the same page. If you are not on phycally on campus, you need to activate your VPN before you can log in to the cluster. Your passworkd for VPN is the same as you use to log on to access Blackboard.
+
 ### Connecting to the cluster
 
 You connect to the cluster from the terminal by executing this command (replace `username` with your cluster user name):
@@ -66,7 +70,18 @@ You connect to the cluster from the terminal by executing this command (replace 
 ssh username@login.genome.au.dk
 ```
 
-When you do, you are promted for the password for your cluster username. Enter that and press enter. You are now in your home folder on the cluster. If you run the `hostname` command, you can see that you are on `fe1.genomedk.net`. Now log out of the cluster again. You do that using `exit` commannd or by presssing `Ctrl-d`. Now you are back on your own machine. Try `hostname` again and see what your own machine is called.
+When you do, you are promted for the password for your cluster username. Enter that and press enter. You are now in your home folder on the cluster. Your terminal looks the same as before but it will print:
+
+```
+  _____                                ______ _   __
+ |  __ \                               |  _  \ | / /
+ | |  \/ ___ _ __   ___  _ __ ___   ___| | | | |/ /
+ | | __ / _ \ '_ \ / _ \| '_ ` _ \ / _ \ | | |    \
+ | |_\ \  __/ | | | (_) | | | | | |  __/ |/ /| |\  \
+  \____/\___|_| |_|\___/|_| |_| |_|\___|___/ \_| \_/
+```
+
+If you run the `hostname` command, you can see that you are on `fe1.genomedk.net`. Now log out of the cluster again. You do that using `exit` commannd or by presssing `Ctrl-d`. Now you are back on your own machine. Try `hostname` again and see what your own machine is called.
 
 ### Allow login without password
 
@@ -127,6 +142,9 @@ bash Miniconda3-latest-Linux-x86_64.sh
 
 Follow the default installation, and say **yes** when it asks you if it should run `conda init` for you.
 
+**NP:** Now log out out of the cluster and log back in. This is needed to make the `conda` command available to you.
+
+
 ### Create an environment
 
 You also need a dedicated conda environment on the cluster. We will name this `popgen` too, but in this one we will also install all the scientific software you will use in the exercises. Run this command to create the conda envionment:
@@ -153,7 +171,7 @@ The first thing you need to do is create a separate conda environment that has j
 conda create -n jupyter -c conda-forge -c bioconda -c kaspermunch slurm-jupyter jupyter jupyterlab ipyparallel pandas numpy matplotlib ipympl nodejs seaborn r-essentials rpy2 simplegeneric tzlocal r-vcfr bioconductor-biocinstaller bioconductor-snprelate r-biocmanager
 ```
 
-Once created, you must activate that environemnt:
+It may take `conda` a while to create the environment, so be patient. Once created, you must activate that environemnt:
 
 ```bash
 conda activate jupyter
