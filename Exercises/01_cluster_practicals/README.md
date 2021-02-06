@@ -14,7 +14,7 @@ Before we get to the cluster we need to get you properly set up on your own mach
 
 If you have not done so already, you should install a distribution of Python called *Anaconda*. Anaconda is not only an easy way of installing Python on Windows, Mac, and Linux, it also comes with the conda package management system (see below). To install Anaconda, head to [this](https://www.anaconda.com/download). When the download has completed, you must follow default installation.
 
-## The Terminal
+### The Terminal
 
 Most of the programs we will use in this course are command line applications. I.e. programs that are executed by writing their name and any arguments in a terminal rather than clicking on an icon and using a graphical user interface. There are many different programs that can serve as a terminal. If you have a Windows machine, you must use the *Anaconda Poweshell Prompt* (*not* the Anaconda Prompt and *not* the `CMD`). You installed Anaconda Powershell Prompt along with Anaconda Python. If you have a Mac, the terminal you will use is called *Terminal*. The Terminal application is pre-installed on Mac. So from now on, whenever we refer to the terminal, this means *Anaconda Poweshell Prompt* on Windows and *Terminal* on Mac. We will assume some familiarity with using a terminal and with executing commands on the command line. If you have not used a terminal before, or if you are a bit rusty, you should run through [this primer](https://lifehacker.com/5633909/who-needs-a-mouse-learn-to-use-the-command-line-for-almost-anything) before you go on.
 
