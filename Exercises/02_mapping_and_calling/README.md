@@ -62,7 +62,7 @@ You also need to generate a fasta file index. This can be done using **samtools*
 We will also create a soft link for the fastq files we want to map to the reference sequence. Please update the path to your own account and samplename with your sample ID. For example, in our case it would be S_Ju_hoan_North-3.
 
 ```bash
-ln -s ~/populationgenomics/data/fastq/samplename.region.fq ~/populationgenomics/students/username
+ln -s ~/populationgenomics/data/fastq/samplename.chr2.fq ~/populationgenomics/students/username
 ```
 
 Now you can map the reads to the reference. This will take around 7 minutes. You can start installing the software that will be used later in this tutorial (IGV) while you wait for it.
