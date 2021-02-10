@@ -65,7 +65,7 @@ We will also create a soft link for the fastq files we want to map to the refere
 ln -s ~/populationgenomics/data/fastq/samplename.region.fq ~/populationgenomics/students/username
 ```
 
-Now you can map the reads to the reference. This will take around 10 minutes. You can start installing the software that will be used later in this tutorial (IGV) while you wait for it.
+Now you can map the reads to the reference. This will take around 7 minutes. You can start installing the software that will be used later in this tutorial (IGV) while you wait for it.
 
 <!-- 6m7.240s -->
 ```bash
