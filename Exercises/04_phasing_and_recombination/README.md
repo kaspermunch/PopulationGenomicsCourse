@@ -136,8 +136,12 @@ Sys.setenv(https_proxy = "http://in:3128", http_proxy = "http://in:3128")
 ```
 
 ```R
-source("http://ldhat.sourceforge.net/R/coalescent.r")
+source("https://raw.githubusercontent.com/kaspermunch/PopulationGenomicsCourse/master/Exercises/04_phasing_and_recombination/ldhat.r")
 ```
+<!-- 
+```R
+source("http://ldhat.sourceforge.net/R/coalescent.r")
+``` -->
 
 That loads a lot of R functions written by the author of LDhat.
 
