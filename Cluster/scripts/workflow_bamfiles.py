@@ -31,14 +31,14 @@ def bam_index(path):
 
 def bam_subset(path, index):
     sample_name = os.path.basename(os.path.dirname(path))
-    # output_path = modpath(path, base=sample_name, suffix='.region.bam')
-    output_path = modpath(path, base=sample_name, suffix='.chr2.bam')
+    output_path = modpath(path, base=sample_name, suffix='.region.bam')
+    # output_path = modpath(path, base=sample_name, suffix='.chr2.bam')
     inputs = {'path': path, 'index': index}
     outputs = {'path': output_path}
     options = {'memory': '4g',
                'walltime': '0-02:00:00'}
-    # spec = f'samtools view -b -h {path} -o {output_path} 2:135000000-145000000'
-    spec = f'samtools view -f 3 -F 4 -b -h {path} -o {output_path} 2'
+    spec = f'samtools view -b -h {path} -o {output_path} 2:135000000-145000000'
+    # spec = f'samtools view -f 3 -F 4 -b -h {path} -o {output_path} 2'
     return AnonymousTarget(inputs=inputs, outputs=outputs, options=options, spec=spec)
 
 def bam2fastq(path):
