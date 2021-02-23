@@ -10,11 +10,9 @@ To do that we use the program Beagle, which uses a clusering algorithm to call t
 
 We put the jointly called bases for Africans, West Eurasians, and East Asians in these three files:
 
-<!-- TODO: Update file names -->
-
-- Africa (10 individuals): `Allvariants_africa.vcf`
-- West Eurasia (10 individuals): `Allvariants_westeurasia.vcf`
-- Eash Asia (8 individuals): `Allvariants_eastasia.vcf`
+- Africa (9 individuals): `~/populationgenomics/data/vcf/Allvariants_africa.vcf`
+- West Eurasia (10 individuals): `~/populationgenomics/data/vcf/Allvariants_westeurasia.vcf`
+- Eash Asia (8 individuals): `~/populationgenomics/data/vcf/Allvariants_eastasia.vcf`
 
 In this exercise we will just use the Africans and the West Eurasians.
 
@@ -30,13 +28,16 @@ srun --mem-per-cpu=5g --time=3:00:00 --account=populationgenomics --pty bash
 
 For additional information see the [Beagle 4.1 manual](https://faculty.washington.edu/browning/beagle/beagle_4.1_03Oct15.pdf)
 
+In order to obtain phased data, Beagle needs a genetic map. You can find the genetic map for chr2 (hg19 assembly) here:
+~/populationgenomics/data/genetic_map/plink.chr2.GRCh37.map
+
 Africa:
 
-    java -jar /home/shared/beagle.08Jun17.d8b.jar gt=/home/shared/data/Allvariants_africa.vcf map=/home/shared/data/plink.chr2.GRCh37.map out=Allvariants_africa_phased
+    beagle gt=Allvariants_africa.vcf map=plink.chr2.GRCh37.map out=Allvariants_africa_phased
 
 West Eurasia
 
-    java -jar /home/shared/beagle.08Jun17.d8b.jar gt=/home/shared/data/Allvariants_westeurasia.vcf map=/home/shared/data/plink.chr2.GRCh37.map out=Allvariants_westeurasia_phased
+    beagle gt=Allvariants_westeurasia.vcf map=plink.chr2.GRCh37.map out=Allvariants_westeurasia_phased
 
 ## Browsing the phased results
 
@@ -47,14 +48,18 @@ Download the phased VCF files to your computer and open them in IGV (integrative
 
 Explore phases of haplotypes at two positions in the alignment:
 
-Select chr2, zoom all the way in and select find the base at position 136608646. Select that base in a European individual (ERR1025620 is English). Sort alignments by genotype (right-click on the base in the alignment tracks to get a popup menu). Consider these questions:
+Select chr2, zoom all the way in and select find the base at position 136608646. First, take a look at the WestEurasian samples. Sort alignments by genotype (right-click on the base in the alignment tracks to get a popup menu). Consider these questions:
 
 1. What does the haplotypes look like?
 2. Do you see any long streches of homozygosity?
 3. Which haplotypes agree?
 4. How wide is the region where they agree?
 
-The SNP at position 136608646. Try to search for 136608646 in the [UCSC genome browser](https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redirect=manual&source=genome.ucsc.edu). Remember we are using the Hg19 assembly version of the reference human genome. Can you find anything that explains your observations?
+To derive your answers, make use of the metadata file: ~/populationgenomics/data/metadata/Sample_meta_subset.tsv
+
+Now, compare it with the African samples.
+
+Try to search the position chr2:136608646 in the [UCSC genome browser](https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redirect=manual&source=genome.ucsc.edu). Remember we are using the Hg19 assembly version of the reference human genome. Can you find anything that explains your observations? (HINT: https://omim.org/entry/601806#0004)
 
 # Estimating a recombination map
 
@@ -62,7 +67,11 @@ The SNP at position 136608646. Try to search for 136608646 in the [UCSC genome b
 
 ## Format input data for LDhat
 
-LDhat needs its input data in a particular format. We will use vcftools to produce these input files from the phased VCF file:
+LDhat needs its input data in a particular format. We will use vcftools to produce these input files from the phased VCF file.
+
+First, we will need to install vcftools in our conda environment. To do so, run:
+
+    conda install vcftools
 
 Africa:
 
@@ -84,29 +93,32 @@ How do you think the information is encoded in these files?
 
 To speed up computations you can make a lookup table first. That takes a while, so we did if for you. But it is done using the `complete` program that comes with LDhat:
 
-    ~/populationgenomics/software/complete-n 20 -rhomax 100 -n_pts 101 -theta 0.0001
+    ~/populationgenomics/software/complete -n 20 -rhomax 100 -n_pts 101 -theta 0.0001
 
 - `-n 20`:the number of haplotypes (2 * 10).
 - `-rhomax 100`: maximum rho ($4N_e r$) alowed: 100 (recommended).
 - `-n_pts 101`: number of points in grid: 101 (recommended).
 - `-theta 0.0001`: human theta ($4N_e \mu$).
 
-That produces a file named `new_lk.txt` that we renamed to `lk_n20_theta1e-3.txt`. This file will serve as a look up table for the algorithm. It includes coalescent likelihoods for each pairs of SNPs using a grid of recombination rates.
+It produces a file that will serve as a look up table for the algorithm. It includes coalescent likelihoods for each pairs of SNPs using a grid of recombination rates. You can find it here:
 
-The next step is to calculate the recombination map. Again, it may take a while. We suggest you team up in pairs and does the Africans while other does the West Eurasians. It will take around 8 minutes for the entire dataset.
+~/populationgenomics/data/ldhat/new_lk.txt
+
+The next step is to calculate the recombination map. This command will take some time to run (~ 6 min). We suggest you team up in pairs, so that one of you runs the command for the African samples while other runs the command for the West Eurasian samples. 
 
 Africa:
 
-    ~/populationgenomics/software/rhomap -seq recmap_data_africa.ldhat.sites -loc recmap_data_africa.ldhat.locs -lk /home/shared/data/lk_n20_theta1e-3.txt -its 1000000 -samp 2000 -burn 0
+    ~/populationgenomics/software/rhomap -seq recmap_data_africa.ldhat.sites -loc recmap_data_africa.ldhat.locs -lk new_lk.txt -its 100000 -samp 500 -burn 0
 
+<!-- 3m9.888s -->
 *or* West Eurasia:
 
-    rhomap -seq recmap_data_westeurasia.ldhat.sites -loc recmap_data_westeurasia.ldhat.locs -lk /home/shared/data/lk_n20_theta1e-3.txt -its 1000000 -samp 2000 -burn 0
+    ~/populationgenomics/software/rhomap -seq recmap_data_westeurasia.ldhat.sites -loc recmap_data_westeurasia.ldhat.locs -lk new_lk.txt -its 100000 -samp 500 -burn 0
 
 - `-lk`: likelihood lookup table.
 - `-its`: number of iterations of the MCMC.
-- `-samp`: how often to sample from the MCMC.
-- `-burn`: how many of the initial iterations to discard. Burnin is at least 100,000 divided by the value of `-samp`. Here we set it to zero to leave keep all samples. Then we look later how much burnin to discard.
+- `-samp`: number of iterations between sampling events, i.e how often to sample from the MCMC.
+- `-burn`: how many of the initial iterations to discard. Here we set it to zero to leave keep all samples. Then we look later how much burnin to discard.
 
 When rhomap completes it writes three files:
 
@@ -121,57 +133,42 @@ mv acceptance_rates.txt acceptance_rates_africa.txt
 mv summary.txt summary_africa.txt
 mv rates.txt rates_africa.txt
 ```      
+
 ## Analyze results
 
-Open Rstudio from the directory where your output files are. Do that by navigating into the right directory and then type `rstudio` in the terminal.
-
-> NB: To make the rstudio window pop up on your screen you need to use the `-Y` option when you log in to the server: `ssh -Y etc...`
-
-Now paste this into Rstudio console:
-
+Open a jupyter notebook in R and paste this set of commands:
 
 <!-- This needs to run first to allow source to pull from web -->
-```R
-Sys.setenv(https_proxy = "http://in:3128", http_proxy = "http://in:3128")
-```
+<!-- Sys.setenv(https_proxy = "http://in:3128", http_proxy = "http://in:3128") -->
 
 ```R
-source("https://raw.githubusercontent.com/kaspermunch/PopulationGenomicsCourse/master/Exercises/04_phasing_and_recombination/ldhat.r")
+source("~/populationgenomics/data/ldhat/ldhat.r")
 ```
-<!-- 
-```R
-source("http://ldhat.sourceforge.net/R/coalescent.r")
-``` -->
 
 That loads a lot of R functions written by the author of LDhat.
 
 Now run this code (if you analyze west eurasians you need to change the arguments accordingly):
 
 ```R
-summary<-summarise.rhomap(rates.file = "rates_africa.txt", locs.file="recmap_data_africa.ldhat.locs")
+summarise.rhomap(rates.file = "rates_africa.txt", locs.file="recmap_data_africa.ldhat.locs")
 ```
 
 The summary produces two plots:
 
 - A graph of the recombination rate across on each polymorphic loci, along with confidence intervals.
-- A plot showing how estimation of recombination rate has progressed with each MCMC sample (taken every 2000 updates). Notice that the initial run of MCMC samples are atypical. This is the "burn-in" of the MCMC. We want to remove that, so take notice of how many samples it corresponds to. If it is 50 they we can produce a new set of estimates that excludes this burn-in using the `stat` program that comes with LDhat:
+- A plot showing how estimation of recombination rate has progressed with each MCMC sample. Notice that the initial run of MCMC samples are atypical. This is the "burn-in" of the MCMC. We want to remove that, so take notice of how many samples it corresponds to. We can produce a new set of estimates that excludes this burn-in using the `stat` program that comes with LDhat:
 
-<!-- TODO: Update file names -->
 ```bash
-~/populationgenomics/software/stat -input rates_africa.txt -loc recmap_data_africa.ldhat.locs -burn 50
+~/populationgenomics/software/stat -input rates_africa.txt -loc recmap_data_africa.ldhat.locs -burn 60
 ```
 
 This produces a file called `res.txt` that describes the confidence in the estimated recombination rate along the sequence. Rename the `res.txt` to `res_africa.txt` or `res_westeurasia.txt` depending on which analysis you do. E.g.:
-
-<!-- TODO: Update file names -->
 
 ```bash
 mv res.txt res_africa.txt
 ```
 
 Now try to plot the final results (if you analyze West Eurasians you must read `res_westeurasia.txt`). In order to have the positions of the loci for which we have estimated mean recombination rates, we will merge the new dataset created with the summary files generated by LDhat:
-
-<!-- TODO: Update file names -->
 
 ```R
 library(ggplot2)
@@ -196,5 +193,3 @@ Look at the plots and ponder the following questions:
 - Are there any regions where the estimated recombination rate is really low? 
 - Can you see any hotspots in Africans that are not found in West Eurasians - other the othe way around?
 - What does the recombination rate look like around the lactase gene?
-
-
