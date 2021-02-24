@@ -71,7 +71,7 @@ LDhat needs its input data in a particular format. We will use vcftools to produ
 
 First, we will need to install vcftools in our conda environment. To do so, run:
 
-    conda install vcftools
+    conda install -c bioconda vcftools
 
 Africa:
 
