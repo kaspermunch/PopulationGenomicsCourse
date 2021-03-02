@@ -254,5 +254,4 @@ analysis, this dataset is placed in the cluster, here:
 
 Answer the same questions
 as answered in this tutorial and write a report (5 pages maximum) about
-the results and the analysis you have done. The deadline of the report
-will be given during the lecture.
+the results and the analysis you have done. 
