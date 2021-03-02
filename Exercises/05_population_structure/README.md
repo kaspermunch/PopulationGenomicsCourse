@@ -16,13 +16,14 @@ and do the PCA. If you want to explore a bit more on the functionality
 of the package access
 [here](https://www.rdocumentation.org/packages/SNPRelate/versions/1.6.4).
 
-In this first of the exercise please download these files in your local machine:
+We are going to use these files throughout the exercise:
+
 ```bash
-/home/shared/PCA_admixture_data/Allvariants_135_145_chr2.vcf
-/home/Data/Sample_meta_data.csv
+~/populationgenomics/data/vcf/chr2_135_145_flt.vcf.gz
+~/populationgenomics/data/metadata/sample_infos_accessionnb.csv
 ```
 
-Now run `slurm-jupyter` as your leant in the first exercise. Once juypter is running, create a new R notebook adn run the following code in aseparate code cells:
+Now run `slurm-jupyter` as your learnt in the first exercise. Once juypter is running, create a new R notebook adn run the following code in aseparate code cells:
 
 ```R
 # Dependencies
@@ -33,21 +34,19 @@ library(SNPRelate)
 library(ggplot2)
 ```
 
-<!-- TODO: Update file names -->
 ```R
 # Reading the metadata information 
-info = read.csv("Sample_meta_data.csv", header = T, sep = ';')
+info = read.csv("sample_infos_accessionnb.csv", header = T, sep = ';')
 
 # Setting the directory of the VCF file 
-vcf.fn <- "Allvariants_135_145_chr2.vcf"
+vcf.fn <- "chr2_135_145_flt.vcf.gz"
 
 # Transforming the vcf file to gds format
-snpgdsVCF2GDS(vcf.fn, "Allvariants_135_145_chr2_2.gds", method="biallelic.only")
+snpgdsVCF2GDS(vcf.fn, "chr2_135_145_flt.gds", method="biallelic.only")
 ```
 
-<!-- TODO: Update file names -->
 ```R
-genofile <- snpgdsOpen("Allvariants_135_145_chr2_2.gds",  FALSE, TRUE, TRUE)
+genofile <- snpgdsOpen("chr2_135_145_flt.gds",  FALSE, TRUE, TRUE)
 pca <- snpgdsPCA(genofile)
 ```
 
@@ -59,11 +58,9 @@ summary(pca)
 eigenvector and an eigenvalue? Hint: Have a look at page 180 of HEG.
 
 
-<!-- TODO: Update substitution to match file names -->
 ```R
     eigenvectors = as.data.frame(pca$eigenvect)
     colnames(eigenvectors) = as.vector(sprintf("PC%s", seq(1:nrow(pca$eigenvect))))
-    pca$sample.id = sub("_chr2_piece_dedup", "", pca$sample.id)
 
     # Matching the sample names with their origin and population
     eigenvectors$region = info[match(pca$sample.id, info$ENA.RUN),]$region 
@@ -99,10 +96,10 @@ ggplot(data = eigenvectors, aes(x = PC1, y = PC2, col = region)) +
 
 ![](img/unnamed-chunk-4-1.png)
 
-**Q.2** Try to plot PC2 and PC3. Do you see the same patterns? What is
+**Q.3** Try to plot PC2 and PC3. Do you see the same patterns? What is
 the correlation between PC2 and PC3 (hint use the function cor())?
 
-**Q.3** Try also to color the graph based on population. What do you
+**Q.4** Try also to color the graph based on population. What do you
 observe?
 
 Now we will implement LD prunning.
@@ -121,11 +118,9 @@ snpset.id <- unlist(snpset)
 pca_pruned <- snpgdsPCA(genofile, snp.id=snpset.id, num.thread=2)
 ```
 
-<!-- TODO: Update substitution to match file names -->
 ```R
 eigenvectors = as.data.frame(pca_pruned$eigenvect)
 colnames(eigenvectors) = as.vector(sprintf("PC%s", seq(1:nrow(pca$eigenvect))))
-pca_pruned$sample.id = sub("_chr2_piece_dedup", "", pca$sample.id)
 
 # Matching the sample names with their origin and population
 eigenvectors$region = info[match(pca_pruned$sample.id, info$ENA.RUN),]$region 
@@ -139,22 +134,21 @@ ggplot(data = eigenvectors, aes(x = PC1, y = PC2, col = region)) +
 
 ![](img/unnamed-chunk-5-1.png)
 
-**Q.4** Implement different LD thresholds (0.1, 0.2, 0.3, 0.4, 0.5). How
+**Q.5** Implement different LD thresholds (0.1, 0.2, 0.3, 0.4, 0.5). How
 many SNPs are left after each filtering threshold? Are these SNPs
 linked?
 
 Now we are going to convert this GDS file into a plink format, to be
 later used in the admixture exercise:
 
-<!-- TODO: Update file names -->
 ```R
-snpgdsGDS2BED(genofile, "Allvariants_135_145_chr2_pruned.gds", sample.id=NULL, snp.id=snpset.id, snpfirstdim=NULL, verbose=TRUE)
+snpgdsGDS2BED(genofile, "chr2_135_145_flt_prunned.gds", sample.id=NULL, snp.id=snpset.id, snpfirstdim=NULL, verbose=TRUE)
 ```
 
 Upload the 3 files produced by this last code
-(**Allvariants\_135\_145\_chr2\_pruned.gds.bed**,
-**Allvariants\_135\_145\_chr2\_pruned.gds.bim** and
-**Allvariants\_135\_145\_chr2\_pruned.gds.fam**) to you own folder on
+(**chr2\_135\_145\_pruned.gds.bed**,
+**chr2\_135\_145\_pruned.gds.bim** and
+**chr2\_135\_145\_pruned.gds.fam**) to you own folder on
 the cluster.
 
 
@@ -177,12 +171,11 @@ Now with adjusted format and pruned snps, we are ready to run the
 admixture analysis. We believe that our individuals are derived from
 three ancestral populations:
 
-<!-- TODO: Update file names -->
 ```bash
-admixture Allvariants_135_145_chr2_pruned.gds.bed 3
+admixture chr2_135_145_flt_prunned.gds.bed 3
 ```
 
-**Q.5** Have a look at the Fst across populations, that is printed in
+**Q.6** Have a look at the Fst across populations, that is printed in
 the terminal. Would you guess which populations are Pop0, Pop1 and Pop2
 referring to?
 
@@ -196,10 +189,9 @@ Sometimes we may have no priori about K, one good way of choosing the
 best K is by doing a cross-validation procedure impletemented in
 admixture as follow:
 
-<!-- TODO: Update file names -->
 ```bash
 for K in 1 2 3 4 5; \
-    do ../shared/PCA_admixture_data/admixture_linux-1.3.0/admixture --cv Allvariants_135_145_chr2_pruned.gds.bed $K | tee log${K}.out; done
+    do admixture --cv chr2_135_145_flt_prunned.gds.bed $K | tee log${K}.out; done
 ```
       
 Have a look at the Cross Validation error of each K:
@@ -227,14 +219,13 @@ p
 ![](img/unnamed-chunk-11-1.png)
 
 
-**Q.6** What do you understand of Cross validation error? Based on this
+**Q.7** What do you understand of Cross validation error? Based on this
 graph, what is the best K?
 
 Plotting the Q estimates. Choose the K that makes more sense to you.
 
-<!-- TODO: Update file names -->
 ```R
-tbl = read.table("Allvariants_135_145_chr2_pruned.gds.3.Q")
+tbl = read.table("chr2_135_145_flt_prunned.gds.3.Q")
 ord = tbl[order(tbl$V1,tbl$V2,tbl$V3),]
 bp = barplot(t(as.matrix(ord)), 
             space = c(0.2),
@@ -247,7 +238,7 @@ bp = barplot(t(as.matrix(ord)),
 
 ![rplot](https://user-images.githubusercontent.com/38723379/53338548-47470580-3904-11e9-8e04-75187b031d96.png)
 
-**Q.7** How many clusters do you identify in this plot? Does that agree
+**Q.8** How many clusters do you identify in this plot? Does that agree
 with what was found using PCA?
 
 In the following part of this exercise you will do both analysis (PCA
@@ -257,8 +248,11 @@ access
 [here](http://www.sanger.ac.uk/resources/downloads/human/hapmap3.html).
 A information file **relationships\_w\_pops\_121708.txt**, as well as
 **.bim**, **.bed**, **.fam** files are available for the admixture
-analysis, this dataset is placed in the cluster:
-**/home/shared/PCA\_admixture\_data/hapmap**. Answer the same questions
+analysis, this dataset is placed in the cluster, here:
+
+~/populationgenomics/data/assignment
+
+Answer the same questions
 as answered in this tutorial and write a report (5 pages maximum) about
 the results and the analysis you have done. The deadline of the report
 will be given during the lecture.
