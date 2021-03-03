@@ -120,7 +120,7 @@ set.seed(1000)
 # This function prune the snps with a thrshold of maximum 0.3 of LD
 snpset <- snpgdsLDpruning(genofile, ld.threshold=0.3)
 ```
-Note: remember that the HapMap data is based on tag-SNPs.
+Note: HapMap data uses tag SNPs, i.e SNPs that contain non-redundant information to differentiate between haplotypes. 
 
 ```R
 # Get all selected snp's ids
