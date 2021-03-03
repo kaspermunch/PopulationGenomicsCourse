@@ -48,7 +48,7 @@ snpgdsVCF2GDS(vcf.fn, "chr2_135_145_flt.gds", method="biallelic.only")
 The total number of PCs can be estimated as the minimum between the total number of samples - 1 and the number of predictors.
 
 ```R
-n_pcs = min(1184-1,1803)
+n_pcs = min(27-1,49868)
 ```
 
 ```R
