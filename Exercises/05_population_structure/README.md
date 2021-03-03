@@ -249,20 +249,19 @@ bp = barplot(t(as.matrix(ord)),
 
 Note: Here we order the X-axis based on proportions for the first population component. However, you will see that in the HapMap data all the individuals show some portion of this component and the different individuals are more admixed in general, i.e they are no longer explained by mostly one component, it’s not useful to use that kind of ordering anymore to interpret the plot. Instead, we should keep the original order, since the files are originally ordered by population, and we should plot each population on the X axis to be able to interpret the plot. This can be achieved with something of the type:
 
+```R
+library(dplyr)
 info <- info[match(pca$sample.id,info$ID),]
-
 d <- info %>% group_by(population) %>%
   summarise(n = n()) %>% mutate(cumsum = cumsum(n))
-  
-tbl = read.table("hapmap_4.gds.6.Q")
-
+tbl = read.table("hapmap.gds.6.Q")
 barplot(t(as.matrix(tbl)),
               space = c(0.01),
               col=rainbow(6),
               ylab="Ancestry",
               border=NA)
 axis(1, at=d$cumsum, labels=d$population,las=2)
-
+```
 
 **Q.8** How many clusters do you identify in this plot? Does that agree
 with what was found using PCA?
