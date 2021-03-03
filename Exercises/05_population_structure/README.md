@@ -37,7 +37,10 @@ library(ggplot2)
 ```R
 # Reading the metadata information 
 info = read.csv("sample_infos_accessionnb.csv", header = T, sep = ';')
+```
+Note: Be aaware that the file used in the assignment is a \t separated file, thus you will need to modify the sep parameter in read.csv accordingly.
 
+```R
 # Setting the directory of the VCF file 
 vcf.fn <- "chr2_135_145_flt.vcf.gz"
 
