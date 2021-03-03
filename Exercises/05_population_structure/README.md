@@ -45,9 +45,15 @@ vcf.fn <- "chr2_135_145_flt.vcf.gz"
 snpgdsVCF2GDS(vcf.fn, "chr2_135_145_flt.gds", method="biallelic.only")
 ```
 
+The total number of PCs can be estimated as the minimum between the total number of samples - 1 and the number of predictors.
+
+```R
+n_pcs = min(1184-1,1803)
+```
+
 ```R
 genofile <- snpgdsOpen("chr2_135_145_flt.gds",  FALSE, TRUE, TRUE)
-pca <- snpgdsPCA(genofile)
+pca <- snpgdsPCA(genofile,eigen.cnt=n_pcs)
 ```
 
 ```R
@@ -60,7 +66,7 @@ eigenvector and an eigenvalue? Hint: Have a look at page 180 of HEG.
 
 ```R
     eigenvectors = as.data.frame(pca$eigenvect)
-    colnames(eigenvectors) = as.vector(sprintf("PC%s", seq(1:nrow(pca$eigenvect))))
+    colnames(eigenvectors) = as.vector(sprintf("PC%s", seq(1:n_pcs)))
 
     # Matching the sample names with their origin and population
     eigenvectors$region = info[match(pca$sample.id, info$ENA.RUN),]$region 
