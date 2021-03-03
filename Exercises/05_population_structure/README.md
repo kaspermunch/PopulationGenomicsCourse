@@ -247,7 +247,7 @@ Consortium, to learn more about the populations studied in this project
 access
 [here](http://www.sanger.ac.uk/resources/downloads/human/hapmap3.html).
 The vcf file **hapmap.vcf**, an information file **relationships\_w\_pops\_121708.txt**, as well as
-**.bim**, **.bed**, **.fam** files are available for the admixture
+**.bim**, **.bed**, **.fam** files (only to be used if you get stuck during the exercise) are available for the admixture
 analysis, this dataset is placed in the cluster, here:
 
 ~/populationgenomics/data/assignment
