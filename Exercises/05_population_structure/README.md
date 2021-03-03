@@ -246,7 +246,7 @@ and Admixture) using a different dataset. The data comes from the HAPMAP
 Consortium, to learn more about the populations studied in this project
 access
 [here](http://www.sanger.ac.uk/resources/downloads/human/hapmap3.html).
-A information file **relationships\_w\_pops\_121708.txt**, as well as
+The vcf file **hapmap.vcf**, an information file **relationships\_w\_pops\_121708.txt**, as well as
 **.bim**, **.bed**, **.fam** files are available for the admixture
 analysis, this dataset is placed in the cluster, here:
 
