@@ -125,13 +125,12 @@ Note: HapMap data uses tag SNPs, i.e SNPs that contain non-redundant information
 ```R
 # Get all selected snp's ids
 snpset.id <- unlist(snpset)
-
-pca_pruned <- snpgdsPCA(genofile, snp.id=snpset.id, num.thread=2)
+pca_pruned <- snpgdsPCA(genofile, snp.id=snpset.id, num.thread=2, ,eigen.cnt=n_pcs)
 ```
 
 ```R
 eigenvectors = as.data.frame(pca_pruned$eigenvect)
-colnames(eigenvectors) = as.vector(sprintf("PC%s", seq(1:nrow(pca$eigenvect))))
+colnames(eigenvectors) = as.vector(sprintf("PC%s", seq(1:n_pcs)))
 
 # Matching the sample names with their origin and population
 eigenvectors$region = info[match(pca_pruned$sample.id, info$ENA.RUN),]$region 
