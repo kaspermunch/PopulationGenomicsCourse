@@ -59,6 +59,21 @@ def bam2fastq(path):
     spec = f'bamToFastq -i {path} -fq {output_path}'
     return AnonymousTarget(inputs=inputs, outputs=outputs, options=options, spec=spec)
 
+def consensus_fastq(path):
+    output_path = modpath(path, parent='/home/kmt/populationgenomics/people/kmt/PopulationGenomicsCourse/Cluster/data/consensus_fastq' ,suffix='.fq')
+    inputs = {'path': path}
+    outputs = {'path': output_path}
+    options = {'memory': '4g',
+               'walltime': '0-07:00:00'}
+    spec = f'''
+    mkdir -p /home/kmt/populationgenomics/people/kmt/PopulationGenomicsCourse/Cluster/data/consensus_fastq
+    samtools mpileup -Q 30 -q 30 -u -v -f /home/kmt/populationgenomics/data/fasta/chr2.fa -r 2 {path} \
+        | /home/kmt/populationgenomics/software/bcftools call -c \
+        | /home/kmt/populationgenomics/software/vcfutils.pl vcf2fq -d 5 -D 100 -Q 30 > {output_path}
+    '''
+    return AnonymousTarget(inputs=inputs, outputs=outputs, options=options, spec=spec)
+
+
 # make sure downloaded bam files are sorted:
 #samtools view -H test.bam | grep @HD # shows SO:coordinate if sorted
 
@@ -82,14 +97,19 @@ for i, (bam_file, bam_index_file) in enumerate(zip(bam_files, bam_index_files)):
     bam_chr2_files.append(target.outputs['path'])
 
 
+bam_region_index_targets = gwf.map(bam_index, bam_region_files, name='bam_region_index')
 bam_chr2_index_targets = gwf.map(bam_index, bam_chr2_files, name='bam_chr2_index')
-
-
 
 #bam_subset_targets = gwf.map(bam_subset, bam_files)
 
 # make fastq files
 bam2fastq_targets = gwf.map(bam2fastq, bam_region_files)
+
+
+# make consensus fastq files for pmsc exercise:
+bam_index_targets = gwf.map(consensus_fastq, bam_chr2_files)
+
+
 
 
 
