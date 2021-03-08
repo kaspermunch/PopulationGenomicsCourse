@@ -149,10 +149,13 @@ Follow the default installation, and say **yes** when it asks you if it should r
 
 You also need a dedicated conda environment on the cluster. We will name this `popgen` too, but in this one we will also install all the scientific software you will use in the exercises. Run this command to create the conda envionment:
 
-<!-- TODO: make an environment that includes bcftools that is not broken -->
+<!-- TODO: make an environment that includes bcftools that is not broken. 
+Students need bcftools in the psmc exercise. For now, bcftools is installed in the software folder.
+So make this work: conda create -n popgen -c bioconda -c kaspermunch bwa platypus-variant samtools beagle plink admixture gnuplot vcftools bcftools
+Maybe also change exercises to only using bcftools and not samtools -->
 
 ```bash
-conda create -n popgen -c bioconda -c kaspermunch bwa platypus-variant samtools beagle plink admixture gnuplot vcftools bcftools
+conda create -n popgen -c bioconda -c kaspermunch bwa platypus-variant samtools beagle plink admixture gnuplot vcftools
 ```
 
 **Important:** Whenever you log into the cluster to work on your project, you should activate your `popgen` environment like this:
