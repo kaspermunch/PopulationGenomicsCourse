@@ -154,6 +154,8 @@ Students need bcftools in the psmc exercise. For now, bcftools is installed in t
 So make this work: conda create -n popgen -c bioconda -c kaspermunch bwa platypus-variant samtools beagle plink admixture gnuplot vcftools bcftools
 Maybe also change exercises to only using bcftools and not samtools -->
 
+<!--TODO: add ghostscript to the jupyter environment for use with psmc plotting: conda install -c conda-forge ghostscript -->
+
 ```bash
 conda create -n popgen -c bioconda -c kaspermunch bwa platypus-variant samtools beagle plink admixture gnuplot vcftools
 ```
