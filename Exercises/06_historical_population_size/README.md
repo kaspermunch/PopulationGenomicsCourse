@@ -70,7 +70,7 @@ Then you can generate the plot like this:
     psmc_plot.pl -R -u 1.2e-08 -g 25 -p S_Ami-1_plot S_Ami-1.chr2.psmc
 ```
 
-The `-u` option specifies the per year mutation rate and the `-g` the generation time. The `-p` option specifies the basen name for the output files and `-R` option preserves the intermediate files the script produces. The latter is handy if you want to make plots yourself combining several PSMC analyses.
+The `-u` option specifies the per year mutation rate and the `-g` the generation time. The `-p` option makes the script produce pdf format. The `-R` option preserves the intermediate files the script produces. The latter is handy if you want to make plots yourself combining several PSMC analyses. The two arguments are the base name for the output files and the input file with the psmc data to plot.
 
 Does the plot resemble the ones in Li and Durbin. We used a different (more correct) mutation rate than Li et al.. What do you think that does to the plot?
 
