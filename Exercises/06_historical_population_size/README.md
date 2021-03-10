@@ -112,7 +112,7 @@ psmc_data1$region = 'European'
 psmc_data2$region = 'African'
 
 d = data.frame(
-                Region = c(psmc_data1$type, psmc_data2$region), 
+                Region = c(psmc_data1$region, psmc_data2$region), 
                 Years = c(psmc_data1$Years, psmc_data2$Years), 
                 Effective_pop_size = c(psmc_data1$Effective_pop_size,psmc_data2$Effective_pop_size)
                 )
