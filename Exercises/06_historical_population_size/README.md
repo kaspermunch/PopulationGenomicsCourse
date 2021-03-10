@@ -105,13 +105,13 @@ psmc_data2 <- read.table("S_Ju_hoan_North-3.chr2.0.txt", header=F, col.names = c
 psmc_data1$region = 'European'
 psmc_data2$region = 'African'
 
-df3 = data.frame(
+d = data.frame(
                 Region = c(psmc_data1$type, psmc_data2$region), 
                 Years = c(psmc_data1$Years, psmc_data2$Years), 
                 Effective_pop_size = c(psmc_data1$Effective_pop_size,psmc_data2$Effective_pop_size)
                 )
 
-ggplot(df3, aes(x=Years, y=Effective_pop_size, color="NCL-08")) + 
+ggplot(d, aes(x=Years, y=Effective_pop_size, color="NCL-08")) + 
   geom_line(aes(color=Region), size=1.5) + 
   theme_bw() + 
   labs(x= expression(paste("Years (g=25, ", mu, "=2,5*", 10^-8,")")), y="Effective population size", title='Results of PSMC') +
