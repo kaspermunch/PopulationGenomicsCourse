@@ -13,7 +13,7 @@ The files we are goint to use are the following:
 
 Start by creating soft links to these files in your own folder. The example individual used below is a Hungarian individual with id ERR1025630. You can replace that to run the same analysis on another individual.
 
-Pick a couple of individuals and mark them as yours in [here](https://docs.google.com/spreadsheets/d/1Zx3nQcpQNTW3DQWmADktRGDvoxiSmEM0kwthxjSvCxQ/edit?usp=sharing). You will all put your results in a shared folder:
+Pick a couple of individuals and mark them as yours in [here](https://docs.google.com/spreadsheets/d/1OEHI1tNiwHrwKkl9L5rPtbVKCHQDpCZtKzpnZ1sWKJY/edit?usp=sharing). You will all put your results in a shared folder:
 
 ~/populationgenomics/shared_results/PSMC
 
