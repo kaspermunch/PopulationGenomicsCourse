@@ -13,6 +13,12 @@ The files we are goint to use are the following:
 
 Start by creating soft links to these files in your own folder. The example individual used below is a Hungarian individual with id ERR1025630. You can replace that to run the same analysis on another individual.
 
+Pick a couple of individuals and mark them as yours in [here](https://docs.google.com/spreadsheets/d/1Zx3nQcpQNTW3DQWmADktRGDvoxiSmEM0kwthxjSvCxQ/edit?usp=sharing). You will all put your results in aa shared folder:
+
+~/populationgenomics/shared_results/PSMC
+
+So you can all use them when plotting.
+
 ## Calling consensus sequence
 
 Start by asking for a computing machine by running this command:
@@ -90,7 +96,7 @@ The `-u` option specifies the per year mutation rate and the `-g` the generation
 
 ## Compare individuals from different regions of the world
 
-We want to compare individuals from different regions. Run the same commands for samples of different regions. 
+We want to compare individuals from different regions. Use all the individuals in the shared folder.
 
 The, plot all results together in a R jupyter notebook. Try out the code below:
 
