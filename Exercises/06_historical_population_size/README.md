@@ -70,7 +70,7 @@ This PSMC analysis takes about 25 minutes to complete.
 When the PSMC completes you can make the PSMC plot. You have to specify the per-generation mutation rate using `-u` and the generation time in years using `-g`. To make the plotting script work must first run the following command so the plotting routine knows where to find a file it needs:
 
 ```bash
-	export GNUPLOT_PS_DIR=~/miniconda3/envs/popgen/share/gnuplot/5.0/PostScript
+    export GNUPLOT_PS_DIR=~/miniconda3/envs/popgen/share/gnuplot/5.0/PostScript
 ```
 
 We will also need to install an additional package to our conda environment:
