@@ -71,6 +71,7 @@ When the PSMC completes you can make the PSMC plot. You have to specify the per-
 
 ```bash
     export GNUPLOT_PS_DIR=~/miniconda3/envs/popgen/share/gnuplot/5.0/PostScript
+    export PATH=$PATH:~/populationgenomics/software
 ```
 
 We will also need to install an additional package to our conda environment:
