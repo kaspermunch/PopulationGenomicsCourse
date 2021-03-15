@@ -1,7 +1,7 @@
 Background
 ----------
 
-In this exercise section you will analyse positive selection in human populations. You will be looking at the X chromosome of individuals from the Simons genome diversity project. The advantage of X chromosomes in males is that they are haploid, and therefore, fully phased. We also have other reasons to belive that they often experience natural selection. Finally, they have typically not been investigated to the same extent as the autosomes.
+In this exercise section you will analyse positive selection in human populations. You will be looking at the X chromosome of individuals from the Simons genome diversity project. The advantage of X chromosomes in males is that they are haploid, and therefore, fully phased. Moreover, there are evidences suggesting that this chromosome has been subject to multiple hard sweeps in the evolutionary history of humans and Great Apes.
 
 You will have data from the following populations:
 
