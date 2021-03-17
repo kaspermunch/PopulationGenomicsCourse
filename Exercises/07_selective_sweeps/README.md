@@ -111,7 +111,7 @@ manhattanplot(wg.XPEHHAFWE)
 Zooming in interesting markers
 ------------------------------
 
-From the scan you can find SNPs that give extreme values of iEHS or of XPEHH for a set of populations. You can then analyse the haplotype structure around them. This is done by including the index position of the interested marker in the functions `calc_ehhs` and `bifurcation.diagram`.
+From the scan you can find SNPs that give extreme values of iES or of XPEHH for a set of populations. You can then analyse the haplotype structure around them. This is done by including the index position of the interested marker in the functions `calc_ehhs` and `bifurcation.diagram`.
 
 Try to plot markers that show outlier values in the above statistics and compare populations. Hint: use which.max() and which.min() (especially when using XPEHH or Rsb). Select a SNP that shows some interesting results.
 
