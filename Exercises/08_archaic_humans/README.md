@@ -37,6 +37,9 @@ unique(archaic_df$region)
 ``` r
 # Average archaic segment length by population:
 library(dplyr)
+library(ggplot2)
+options(repr.plot.width=30, repr.plot.height=10)
+
 mean_seg_pop <- archaic_df %>%
         group_by(pop, region) %>%
         summarise(`Mean segment length` = mean(length))
@@ -48,7 +51,7 @@ mean_seg_pop %>%
         ggplot(aes(x = pop, y = `Mean segment length`, fill = region)) + 
             geom_bar(position = "dodge", stat="identity") + 
             theme_bw() +
-            theme(axis.text.x = element_text(angle = 90, hjust = 1))
+            theme(axis.text.x = element_text(angle = 90, hjust = 1),text = element_text(size=20)) 
 ```
 
 ![](img/unnamed-chunk-2-1.png)
