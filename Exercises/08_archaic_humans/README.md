@@ -9,9 +9,8 @@ diversity project and from the 1000 genomes project, paper
 
 Here is an example of the code you can use to answer the first set of questions. 
 
-<!-- TODO: Update file names -->
 ``` r
-archaic_df = read.table('/home/Data/ArchaicSegments.txt',
+archaic_df = read.table('~/populationgenomics/data/archaic/ArchaicSegments.txt',
     sep='\t', header = T)
 ```
 How many individuals do we have?
