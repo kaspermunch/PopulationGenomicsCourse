@@ -7,11 +7,11 @@ We will also be using R and Rstudio to make plots and make simple calculations.
 ### Data:
 We will use a simulated date set of 47 cases and 41 controls. You can find it in:
 
-<!-- TODO: Update file names -->
 ```bash
-/home/Data/GWAS_test
+~/populationgenomics/data/GWAS/GWAS_test/gwa.bim
+~/populationgenomics/data/GWAS/GWAS_test/gwa.bed
+~/populationgenomics/data/GWAS/GWAS_test/gwa.fam
 ```
-Copy the contents of the folder to your home.
 
 ### Exercise contents:
 In this practical, we will go through the steps of performing association tests in plink and adjusting for principle components.
@@ -19,7 +19,6 @@ In this practical, we will go through the steps of performing association tests 
 ### Test for association with disease status using a Fisher’s exact test
 To test for association between SNPs and disease status using an allelic Fisher’s exact test, type the following command at the shell prompt:
 
-<!-- TODO: Update file names -->
 ```
 plink --bfile gwa --fisher --out gwa
 ```
@@ -30,7 +29,6 @@ plink --bfile gwa --fisher --out gwa
 ### Make plots
 We will use the R package “qqman” to make Manhattan plots and qq-plots. The package is available in CRAN so it can be installed using the “install.packages” command. I have already installed in in rstudio-server. You can read in the association results and make a Manhattan plot by typing:
 
-<!-- TODO: Update file names -->
 ```
 d <- read.table('gwa.assoc.fisher', head=T)
 manhattan(d)
@@ -60,14 +58,12 @@ pchisq(q, df=1, lower.tail = F)
 ### PCA
 It is best to perform the PCA on a LD-pruned set of SNPs:
 
-<!-- TODO: Update file names -->
 ```
 plink --bfile gwa --indep-pairwise 500kb 5 0.2 --out gwa
 ```
 
 To use the pruned set of SNPs to calculate the relationship matrix and calculate the first 20 principle components (PCs) type:
 
-<!-- TODO: Update file names -->
 ```
 plink --bfile gwa --extract gwa.prune.in --pca 20 --out gwa
 ```
@@ -83,7 +79,6 @@ The eigenvalues divided by the number of individuals should correspond approxima
 ### Adjusting for PCs
 We can use a logistic regression test to perform an association test while correcting for covariates. To include the first PC as a covariate type:
 
-<!-- TODO: Update file names -->
 ```
 plink --bfile gwa --logistic --covar gwa.eigenvec --covar-number 1
 ```
