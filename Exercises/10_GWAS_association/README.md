@@ -78,7 +78,7 @@ This calculates the eigenvalues and the eigenvectors, and stores them in two fil
 
 *7) Load gwa.eigenvec into R and make a plot with the first PC on the x-axis and the second PC on the y-axis. Does it look like there is population structure in the data? How many populations?*
 
-The eigenvalues divided by the number of individuals should correspond approximately to the variance explained by the eigenvectors.
+Use the eigenvalues to compute the variance explained by each PC.
  
 *8) How large a percentage of the variance does the first PC approximately explain?*
 
