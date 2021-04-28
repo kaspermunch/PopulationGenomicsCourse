@@ -28,6 +28,7 @@ plink --make-grm-gz --bfile gwa --out gwa
 
 ```
 d <- read.table(gzfile('gwa.grm.gz'))
+names(d) <- c("sample1","sample2","variants","statistic")
 ```
 
 *1) If you exclude the lines where an individual is compared to itself (column 1 is equal to column 2) what is the highest value in the GRM then?*
