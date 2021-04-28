@@ -10,10 +10,10 @@ http://cnsgenomics.com/software/gcta/#Download). We will be also using plink 1.9
 We will estimate the amount of variance explained by the SNPs in a GWAS dataset. You can find the data here:
 
 ```bash
-~/populationgenomics/data/GWAS/GWAS_test/gwa.bim
-~/populationgenomics/data/GWAS/GWAS_test/gwa.bed
-~/populationgenomics/data/GWAS/GWAS_test/gwa.fam
-~/populationgenomics/data/GWAS/GWAS_test/gwa.phen
+~/populationgenomics/data/GWAS/GWAS_heritability/gwa.bim
+~/populationgenomics/data/GWAS/GWAS_heritability/gwa.bed
+~/populationgenomics/data/GWAS/GWAS_heritability/gwa.fam
+~/populationgenomics/data/GWAS/GWAS_heritability/gwa.phen
 ```
 
 ### Calculating the genetic relationship matrix
