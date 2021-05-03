@@ -119,6 +119,7 @@ Suggestions for further analyses:
 - Try to treat the categorical data as a quantitative phenotype where some coategories are intermediate values of others.
 - Test for epistasis.
 - How many of the significant variants found in the largest published GWAS study can you replicate in this data set?
+- If you use half of the data set to calculate a polygenic score, how well does that score predict eye color on the other half?
 
 ### Papers:
 * [Genome-wide association study in almost 195,000 individuals identifies 50 previously unidentified genetic loci for eye color](https://advances.sciencemag.org/content/7/11/eabd1239)
