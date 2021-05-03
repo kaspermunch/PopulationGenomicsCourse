@@ -118,10 +118,10 @@ Suggestions for further analyses:
 - Make association tests where you condition on most significant variant (you can use the —condition option in plink)
 - Try to treat the categorical data as a quantitative phenotype where some coategories are intermediate values of others.
 - Test for epistasis.
+- How many of the significant variants found in the largest published GWAS study can you replicate in this data set?
 
 ### Papers:
-
-* [A GWAS in Latin Americans highlights the convergent evolution of lighter skin pigmentation in Eurasia](https://www.nature.com/articles/s41467-018-08147-0)
+* [Genome-wide association study in almost 195,000 individuals identifies 50 previously unidentified genetic loci for eye color](https://advances.sciencemag.org/content/7/11/eabd1239)
 * [Genetic determinants of hair, eye and skin pigmentation in Europeans](https://www.nature.com/articles/ng.2007.13)
 
 ### Data:
