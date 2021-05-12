@@ -74,7 +74,7 @@ The dataset is composed of 150 male individuals from the Simons Diversity Projec
 
 Files description:
 
-snps_filtered.txt: Text file containing id, chromosome, position, ancestral allele and derived allele.
+snps_filtered.txt: Text file containing id, chromosome, position, derived allele and ancestral allele.
 
 genotypes_* : File containing genotypes for each individual and position. Rows correspond to SNP positions and columns to individuals.
 WE = WestEurasia
