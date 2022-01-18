@@ -6,7 +6,7 @@ This page is for practical information related exercises on the cluster.
 The project folder `populationgenomics` has the following folders:
 
 - `instructor_data`: This links to a folder under the git repository [PopulationGenomicsCourse](https://github.com/kaspermunch/PopulationGenomicsCourse). The folder contains the original and intermediary files needed for building the files that the students need for the exercises.
-- `data` is the folder where the student finds the data files he/she needs for the exercises. This folder will contain symlinks to the few required files in the instructor_data folder.
+- `data` is the folder where the student finds the data files he/she needs for the exercises. This folder contains symlinks to folders in the BACKUP folder.
 - `software`: builds and binaries for LDhat and PSMC
 - `people`: teachers and instructors folders
 - `students`: student folders
