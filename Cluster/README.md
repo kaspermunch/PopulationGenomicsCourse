@@ -3,22 +3,12 @@
 This page is for practical information related exercises on the cluster.
 ## The populationgenomics project folder
 
-The project folder `populationgenomics` has the following folders:
-
-- `instructor_data`: This links to a folder under the git repository [PopulationGenomicsCourse](https://github.com/kaspermunch/PopulationGenomicsCourse). The folder contains the original and intermediary files needed for building the files that the students need for the exercises.
-- `data` is the folder where the student finds the data files he/she needs for the exercises. This folder contains symlinks to folders in the BACKUP folder.
-- `software`: builds and binaries for LDhat and PSMC
-- `people`: teachers and instructors folders
-- `students`: student folders
-
-# Student data
-
-Data is not under git, but backed up on the cluster. Only the bam files are not backed up. Most files are stored at `people/kmt/PopulationGenomicsCourse` and symlinked to the `populationgenomics` folder:
+The project folder `populationgenomics` has the following dirs, many of which are symlinks to dirs under the [PopulationGenomicsCourse](https://github.com/kaspermunch/PopulationGenomicsCourse) git project checked out to my directory in `people/kmt/`:
 
 ```
+populationgenomics
 ├── data
 ├── fasta -> people/kmt/PopulationGenomicsCourse/Cluster/data/fasta/
-├── GWA-QC.log
 ├── instruktor_data -> people/kmt/PopulationGenomicsCourse/Cluster/data
 ├── metadata -> people/kmt/PopulationGenomicsCourse/Cluster/metadata
 ├── people
@@ -27,7 +17,13 @@ Data is not under git, but backed up on the cluster. Only the bam files are not 
 ├── software
 └── students
 ```
-and to the `populationgenomics/data` folder:
+
+- `software`: builds and binaries for LDhat and PSMC
+- `people`: teachers and instructors folders
+- `students`: student folders
+- `instructor_data` links to a folder that contains all data files including the original and intermediary files needed for building the files that the students need for the exercises.
+- `data` is the folder where the student finds the data files he/she needs for the exercises. This folder contains symlinks to only the relevant data folders and files:
+- 
 ```
 data
 ├── archaic -> ../people/kmt/PopulationGenomicsCourse/Cluster/data/archaic
@@ -169,9 +165,13 @@ data
 └── vcf -> ../people/kmt/PopulationGenomicsCourse/Cluster/data/vcf
 ```
 
-# To rebuild data
 
-To build bam and fastq files for the chr2 region run this in `data/bam_and_fastq`:
+
+
+
+# Data
+
+Large data files for exercises and projects are placed under the `PopulationGenomicsCourse`. They are NOT not under version control but are backed up on the cluster. Only the huge bam files are not backed up. To re-build data files for chr2 not under version control (but backed up), run this in `data/bam_and_fastq`:
 
     conda create -n popgen_data -c gwforg -c bioconda python=3 gwf bedtools samtools bcftools
 
@@ -188,7 +188,6 @@ All command line software, except PSMC and LDhat, is installed in the `popgen` e
 ## Running on the cluster
 
 The students begin each exercise by running this to get an interactive session for the duration of the exercise:
-
 
     srun --mem-per-cpu=1g --time=3:00:00 --account=populationgenomics --pty bash
 
