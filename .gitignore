@@ -170,4 +170,7 @@ dmypy.json
 
 .gwf*
 
-data/
+Cluster/data/BACKUP/*
+Cluster/data/bam_and_fastq/*
+Cluster/data/consensus_fastq/*
+!/Cluster/**/*.md
