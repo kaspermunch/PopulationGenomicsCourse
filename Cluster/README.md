@@ -165,6 +165,19 @@ data
 └── vcf -> ../people/kmt/PopulationGenomicsCourse/Cluster/data/vcf
 ```
 
+The symlinks in the `bam` folder are made like this:
+
+```
+find ../../people/kmt/PopulationGenomicsCourse/Cluster/data/bam_and_fastq -name '*.region.bam' -exec ln -s {} \;
+find ../../people/kmt/PopulationGenomicsCourse/Cluster/data/bam_and_fastq -name '*.chr2.bam' -exec ln -s {} \;
+find ../../people/kmt/PopulationGenomicsCourse/Cluster/data/bam_and_fastq -name '*.chr2.bam.bai' -exec ln -s {} \;
+```
+
+and the ones in the `fastq` folder are made like this:
+
+```
+find ../../people/kmt/PopulationGenomicsCourse/Cluster/data/bam_and_fastq -name '*region.fq' -exec ln -s {} \;
+```
 
 
 
