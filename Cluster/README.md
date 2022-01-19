@@ -29,7 +29,6 @@ data
 ├── archaic -> ../people/kmt/PopulationGenomicsCourse/Cluster/data/archaic
 ├── assignment -> ../people/kmt/PopulationGenomicsCourse/Cluster/data/assignment
 ├── bam
-│   ├── README
 │   ├── S_Ami-1.chr2.bam -> ../../people/kmt/PopulationGenomicsCourse/Cluster/data/bam_and_fastq/S_Ami-1/S_Ami-1.chr2.bam
 │   ├── S_Ami-1.chr2.bam.bai -> ../../people/kmt/PopulationGenomicsCourse/Cluster/data/bam_and_fastq/S_Ami-1/S_Ami-1.chr2.bam.bai
 │   ├── S_Ami-1.region.bam -> ../../people/kmt/PopulationGenomicsCourse/Cluster/data/bam_and_fastq/S_Ami-1/S_Ami-1.region.bam
@@ -117,7 +116,6 @@ data
 │   ├── chr2.fa
 │   └── chr2.fa.fai
 ├── fastq
-│   ├── README
 │   ├── S_Ami-1.region.fq -> ../../people/kmt/PopulationGenomicsCourse/Cluster/data/bam_and_fastq/S_Ami-1/S_Ami-1.region.fq
 │   ├── S_Atayal-1.region.fq -> ../../people/kmt/PopulationGenomicsCourse/Cluster/data/bam_and_fastq/S_Atayal-1/S_Atayal-1.region.fq
 │   ├── S_Bulgarian-1.region.fq -> ../../people/kmt/PopulationGenomicsCourse/Cluster/data/bam_and_fastq/S_Bulgarian-1/S_Bulgarian-1.region.fq
