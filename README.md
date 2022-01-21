@@ -46,7 +46,7 @@ The course introduces key concepts in population genomics from generation of pop
     - Lecture (Kasper): TBA / Relate paper
     - Exercise (Erik): aRG dashboard / Inference of trees along sequence
 10. Genome-wide association study (GWAS):
-    - Lecture (Søren): TBA; COOP 99-120
+    - Lecture (Søren): TBA; [Coop lecture notes 99-120](https://github.com/cooplab/popgen-notes/releases/download/v1.2/release_popgen_notes.pdf) 
     - Exercise (Erik): [GWAS quality control](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/09_GWAS_QC)
 11. Heritability:
     - Lecture (Søren): TBA		
