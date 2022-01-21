@@ -34,7 +34,7 @@ The course introduces key concepts in population genomics from generation of pop
     - Lecture (Kasper): Molecular Population Genetics 9; [PSMC paper](https://www.nature.com/articles/nature10231); [ILS review paper](https://zh.booksc.eu/book/32923932/889942)
     - Exercise (Erik): [Inference of population structure and admixture	PCA](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/05_population_structure)
 6. Genome scans for selection:
-    - Lecture (Kasper):Molecular Population Genetics 10; [Coop lecture notes 211-226](https://github.com/cooplab/popgen-notes/releases/download/v1.2/release_popgen_notes.pdf)
+    - Lecture (Kasper): Molecular Population Genetics 10; [Coop lecture notes 211-226](https://github.com/cooplab/popgen-notes/releases/download/v1.2/release_popgen_notes.pdf)
     - Exercise (Erik): [Inferring historical populations](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/06_historical_population_size)
 7. Human expansions:
    - Lecture (Mikkel): TBA
