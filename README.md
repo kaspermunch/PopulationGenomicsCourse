@@ -23,37 +23,37 @@ The course introduces key concepts in population genomics from generation of pop
     - Exercise (Erik): [Cluster practicals](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/01_cluster_practicals)
 2. Variation and recombination:
     - Lecture (Juraj): MPG 3, 4; Platypus paper
-    - Exercise (Erik): Read mapping and base calling
+    - Exercise (Erik): [Read mapping and base calling](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/02_mapping_and_calling)
 3. Population strucure and coalescent:
     - Lecture (Mikkel): MPG 5, 6; HEG 167-183; Novembre PCA paper
-    - Exercise (Erik): Working with VCF files
+    - Exercise (Erik): [Working with VCF files](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/03_f_statistics)
 4. Direct and linked selection:
     - Lecture (Kasper): MPG 7, 8; Tishkoff lactase paper
-    - Exercise (Erik): Phasing and recombination rate	
+    - Exercise (Erik): [Phasing and recombination rate](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/04_phasing_and_recombination)
 5. Demography, ILS:
     - Lecture (Kasper): MPG 9; PSMC paper; ILS review paper
-    - Exercise (Erik): Inference of population structure and admixture	PCA
+    - Exercise (Erik): [Inference of population structure and admixture	PCA](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/05_population_structure)
 6. Genome scans for selection:
     - Lecture (Kasper):MPG 10; COOP 211-226
-    - Exercise (Erik): Inference of demography
+    - Exercise (Erik): [Inferring historical populations](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/06_historical_population_size)
 7. Human expansions:
    - Lecture (Mikkel): TBA
-   - Exercise (Erik): Inference of positive selection
+   - Exercise (Erik): [Inference of positive selection](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/07_selective_sweeps)
 8. Admixture:
    - Lecture (Mikkel): Archaic admixture paper; HEG 443-473
-   - Exercise (Erik): Archaic ancestry	
+   - Exercise (Erik): [Detecting archaic ancestry in modern humans](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/08_archaic_humans)	
 9. Ancestral recombination graph:
     - Lecture (Kasper): TBA / Relate paper
     - Exercise (Erik): aRG dashboard / Inference of trees along sequence
 10. Genome-wide association study (GWAS):
     - Lecture (Søren): TBA; COOP 99-120
-    - Exercise (Erik):GWAS quality control
+    - Exercise (Erik): [GWAS quality control](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/09_GWAS_QC)
 11. Heritability:
     - Lecture (Søren): TBA		
-    - Exercise (Erik): Association testing	
+    - Exercise (Erik): [Association testing](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/10_GWAS_association)
 12. Evolution and disease:
     - Lecture (Søren): TBA	
-    - Exercise (Erik): GCTA (heritability)	
+    - Exercise (Erik): [Estimating heritability](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/11_heritability)
 13. Project presentations:	
     - Lecture (Kasper, Mikkel, Søren): None
     - Exercise (Erik):  None, Focus on projects
