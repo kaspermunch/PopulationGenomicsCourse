@@ -19,28 +19,28 @@ The course introduces key concepts in population genomics from generation of pop
 ## Week plan	
 
 1. Variation: 
-   - Lecture (Kasper): Molecular Population Genetics chapters 1 and 2, Simons paper		
+   - Lecture (Kasper): Molecular Population Genetics chapters 1 and 2, [Genome Diversity Project paper](https://www.nature.com/articles/nature18964)
     - Exercise (Erik): [Cluster practicals](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/01_cluster_practicals)
 2. Variation and recombination:
-    - Lecture (Juraj): Molecular Population Genetics 3, 4; Platypus paper
+    - Lecture (Juraj): Molecular Population Genetics 3, 4; [Platypus paper](https://www.nature.com/articles/ng.3036)
     - Exercise (Erik): [Read mapping and base calling](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/02_mapping_and_calling)
 3. Population strucure and coalescent:
-    - Lecture (Mikkel): Molecular Population Genetics 5, 6; Human Evolutionary Genetics 167-183; Novembre PCA paper
+    - Lecture (Mikkel): Molecular Population Genetics 5, 6; Human Evolutionary Genetics 167-183; [Novembre PCA paper](https://www.nature.com/articles/nature07331)
     - Exercise (Erik): [Working with VCF files](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/03_f_statistics)
 4. Direct and linked selection:
-    - Lecture (Kasper): Molecular Population Genetics 7, 8; Tishkoff lactase paper
+    - Lecture (Kasper): Molecular Population Genetics 7, 8; [Tishkoff lactase paper](https://www.nature.com/articles/ng1946)
     - Exercise (Erik): [Phasing and recombination rate](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/04_phasing_and_recombination)
 5. Demography, ILS:
-    - Lecture (Kasper): Molecular Population Genetics 9; PSMC paper; ILS review paper
+    - Lecture (Kasper): Molecular Population Genetics 9; [PSMC paper](https://www.nature.com/articles/nature10231); [ILS review paper](https://zh.booksc.eu/book/32923932/889942)
     - Exercise (Erik): [Inference of population structure and admixture	PCA](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/05_population_structure)
 6. Genome scans for selection:
-    - Lecture (Kasper):Molecular Population Genetics 10; COOP 211-226
+    - Lecture (Kasper):Molecular Population Genetics 10; [Coop lecture notes 211-226](https://github.com/cooplab/popgen-notes/releases/download/v1.2/release_popgen_notes.pdf)
     - Exercise (Erik): [Inferring historical populations](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/06_historical_population_size)
 7. Human expansions:
    - Lecture (Mikkel): TBA
    - Exercise (Erik): [Inference of positive selection](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/07_selective_sweeps)
 8. Admixture:
-   - Lecture (Mikkel): Archaic admixture paper; Human Evolutionary Genetics 443-473
+   - Lecture (Mikkel): [Archaic admixture paper](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007641); Human Evolutionary Genetics 443-473
    - Exercise (Erik): [Detecting archaic ancestry in modern humans](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/08_archaic_humans)
 9. Ancestral recombination graph:
     - Lecture (Kasper): TBA / Relate paper
