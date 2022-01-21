@@ -20,7 +20,7 @@ The course introduces key concepts in population genomics from generation of pop
 
 1. Variation: 
    - Lecture (Kasper): MPG chapters 1 and 2, Simons paper		
-    - Exercise (Erik): Cluster practicals	
+    - Exercise (Erik): [Cluster practicals](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/01_cluster_practicals)
 2. Variation and recombination:
     - Lecture (Juraj): MPG 3, 4; Platypus paper
     - Exercise (Erik): Read mapping and base calling
