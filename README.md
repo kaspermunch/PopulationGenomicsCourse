@@ -43,8 +43,8 @@ The course introduces key concepts in population genomics from generation of pop
    - Lecture (Mikkel): [Archaic admixture paper](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007641); Human Evolutionary Genetics 443-473
    - Exercise (Erik): [Detecting archaic ancestry in modern humans](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/08_archaic_humans)
 9. Ancestral recombination graph:
-    - Lecture (Kasper): TBA / Relate paper
-    - Exercise (Erik): aRG dashboard / Inference of trees along sequence
+    - Lecture (Kasper): [Relate paper](https://www.nature.com/articles/s41588-019-0484-x)
+    - Exercise (Erik): ARG dashboard exercises + Inference of trees along sequence
 10. Genome-wide association study (GWAS):
     - Lecture (Søren): TBA; [Coop lecture notes 99-120](https://github.com/cooplab/popgen-notes/releases/download/v1.2/release_popgen_notes.pdf) 
     - Exercise (Erik): [GWAS quality control](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/09_GWAS_QC)
