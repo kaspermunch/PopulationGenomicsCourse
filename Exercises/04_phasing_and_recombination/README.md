@@ -38,6 +38,14 @@ Africa:
 West Eurasia
 
     beagle gt=Allvariants_westeurasia.vcf map=plink.chr2.GRCh37.map out=Allvariants_westeurasia_phased
+    
+Vcf files can both be compressed (gz) or uncompressed. IGV needs it in an uncompressed format, so decompress using
+
+```bash
+gunzip -c Allvariants_africa_phased.vcf.gz > Allvariants_africa_phased_t.vcf
+```
+
+This command outputs the decompressed to stdout, which then pipes into your file name of choice.
 
 ## Browsing the phased results
 
@@ -48,14 +56,14 @@ Download the phased VCF files to your computer and open them in IGV (integrative
 
 Explore phases of haplotypes at two positions in the alignment:
 
-Select chr2, zoom all the way in and select find the base at position 136608646. First, take a look at the WestEurasian samples. Sort alignments by genotype (right-click on the base in the alignment tracks to get a popup menu). Consider these questions:
+Select chr2, zoom all the way in and select find the base at position 136608646. First, take a look at the WestEurasian samples. Consider these questions while zooming further out:
 
 1. What does the haplotypes look like?
 2. Do you see any long streches of homozygosity?
 3. Which haplotypes agree?
 4. How wide is the region where they agree?
 
-To derive your answers, make use of the metadata file: ~/populationgenomics/data/metadata/Sample_meta_subset.tsv
+To help derive your answers, make use of the metadata file: ~/populationgenomics/data/metadata/Sample_meta_subset.tsv
 
 Now, compare it with the African samples.
 
@@ -68,10 +76,6 @@ Try to search the position chr2:136608646 in the [UCSC genome browser](https://g
 ## Format input data for LDhat
 
 LDhat needs its input data in a particular format. We will use vcftools to produce these input files from the phased VCF file.
-
-First, we will need to install vcftools in our conda environment. To do so, run:
-
-    conda install -c bioconda vcftools
 
 Africa:
 
