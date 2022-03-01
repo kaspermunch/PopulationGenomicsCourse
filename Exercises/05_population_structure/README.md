@@ -23,11 +23,11 @@ We are going to use these files throughout the exercise:
 ~/populationgenomics/data/metadata/sample_infos_accessionnb.csv
 ```
 
-Now run `slurm-jupyter` as your learnt in the first exercise. Once juypter is running, create a new R notebook adn run the following code in aseparate code cells:
+Now run `slurm-jupyter` as your learnt in the first exercise. Once juypter is running, create a new R notebook and run the following code in aseparate code cells:
 
 ```R
 # Dependencies
-Sys.setenv(https_proxy = "http://in:3128", http_proxy = "http://in:3128")
+Sys.setenv(https_proxy = "http://proxyserv:3128", http_proxy = "http://proxyserv:3128")
 BiocManager::install(c("SNPRelate"))
 
 library(SNPRelate)
@@ -38,7 +38,7 @@ library(ggplot2)
 # Reading the metadata information 
 info = read.csv("sample_infos_accessionnb.csv", header = T, sep = ';')
 ```
-Note: Be aaware that the file used in the assignment is a \t separated file, thus you will need to modify the sep parameter in read.csv accordingly.
+Note: Be aware that the file used in the assignment is a \t separated file, thus you will need to modify the sep parameter in read.csv accordingly.
 
 ```R
 # Setting the directory of the VCF file 
@@ -217,7 +217,7 @@ grep -h CV log*.out > CV_logs.txt
 ```
 
 Look at the distribution of CV error. You can download your file to your
-own computer or run it in the cluster.
+own computer or run it in the cluster using slurm-jupyter.
 
 ```R
 CV = read.table('CV_logs.txt')
