@@ -38,7 +38,6 @@ library(ggplot2)
 # Reading the metadata information 
 info = read.csv("sample_infos_accessionnb.csv", header = T, sep = ';')
 ```
-Note: Be aware that the file used in the assignment is a \t separated file, thus you will need to modify the sep parameter in read.csv accordingly.
 
 ```R
 # Setting the directory of the VCF file 
@@ -75,7 +74,6 @@ eigenvector and an eigenvalue? Hint: Have a look at page 180 of HEG.
     eigenvectors$region = info[match(pca$sample.id, info$ENA.RUN),]$region 
     eigenvectors$population = info[match(pca$sample.id, info$ENA.RUN),]$population
 ```
-Note: Be aware that there is only a population parameter in the metadata for the assignment. Also, instead of sample.id, the variable that identifies a sample is named ID, thus you will have to modify the match function accordingly.
 
 Let's first look at how much of the variance of the data is explained by
 each eigenvector:
