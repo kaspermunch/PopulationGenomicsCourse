@@ -11,9 +11,9 @@ The files we are goint to use are the following:
 - BAI file: ~/populationgenomics/data/bam/S_Hungarian-2.chr2.bam.bai
 - Fasta file: ~/populationgenomics/data/fasta/chr2.fa
 
-Start by creating soft links to these files in your own folder. The example individual used below is a Hungarian individual with id ERR1025630. You can replace that to run the same analysis on another individual.
+Start by creating soft links to these files in your own folder. The example individual used below is a Hungarian individual with id ERR1025630. You should replace that to run the same analysis on another individual.
 
-Pick a couple of individuals and mark them as yours in [here](https://docs.google.com/spreadsheets/d/1OEHI1tNiwHrwKkl9L5rPtbVKCHQDpCZtKzpnZ1sWKJY/edit?usp=sharing). You will all put your results in a shared folder:
+Pick a couple of individuals and mark them as yours in [here](https://docs.google.com/spreadsheets/d/1OEHI1tNiwHrwKkl9L5rPtbVKCHQDpCZtKzpnZ1sWKJY/edit?usp=sharing). You will all put your results in a shared folder with the ln -s command:
 
 ~/populationgenomics/shared_results/PSMC
 
@@ -23,19 +23,21 @@ So you can all use them when plotting.
 
 Start by asking for a computing machine by running this command:
 
+```bash
 srun --mem-per-cpu=5g --time=3:00:00 --account=populationgenomics --pty bash
+```
 
 Starting from mapped reads, the first step is to produce a consensus sequence in FASTQ format, which stores both the sequence and its corresponding quality scores, that will be used for QC filtering. The consensus sequence has A, T, C or G at homozygous sites, and other letters [IUPAC codes](https://www.bioinformatics.org/sms/iupac.html) to represent heterozygotes. To make the consensus calls, we use the samtools/bcftools suite. We first use `samtools mpileup` to get the pileup of reads for each position. We then generate a consensus sequence with `bcftools`, which we convert to FASTQ (with some additional filtering) by `vcfutils.pl`. We take advantage of Unix pipes and the ability of `samtools` to work with streaming input and output to run the whole pipeline (`samtools` -> `bcftools` -> `vcfutils.pl`) as one command. We run our consensus calling pipeline, consisting of a linked set of `samtools`, `bcftools`, and `vcfutils.pl` commands:
 
 ```bash
-    samtools mpileup -Q 30 -q 30 -u -v -f chr2.fa -r 2 S_Hungarian-2.chr2.bam| ~/populationgenomics/software/bcftools call -c ~/populationgenomics/software/vcfutils.pl vcf2fq -d 5 -D 100 -Q 30 > S_Hungarian-2.chr2.fq
+    ~/populationgenomics/software/bcftools mpileup -Q 30 -Ou -q 30 -f chr2.fa -r 2 S_Hungarian-2.chr2.bam | ~/populationgenomics/software/bcftools call -c   ~/populationgenomics/software/vcfutils.pl vcf2fq -d 5 -D 100 -Q 30 > S_Hungarian-2.chr2.fq
 ```
 
-The command takes as input an aligned bam file and a reference genome, generates a summary of the coverage of mapped reads on a reference sequence at a single base pair resolution using `samtools mpileup`, then calls the consensus sequence with `bcftools`, and then filters and converts the consensus to FASTQ format. Some parameter explanations:
+The command takes as input an aligned bam file and a reference genome, generates a summary of the coverage of mapped reads on a reference sequence at a single base pair resolution using `bcftools mpileup`, then calls the consensus sequence with `bcftools`, and then filters and converts the consensus to FASTQ format. Some parameter explanations:
 
-1. `samtools`:
+1. `mpileup`:
     - `-Q` and `-q` in mpileup determine the cutoffs for baseQ and mapQ, respectively
-    - `-v` tells mpileup to produce vcf output, and `-u` says that should be uncompressed
+    - `-Ou` tells bcftools to output as an intermediate file to pipe to bcftools
     - `-f` is the reference fasta used 
     - `-r` is the region to call the mpileup for (in this case, a particular chromosome)
 2. `bcftools`:
@@ -46,7 +48,9 @@ The command takes as input an aligned bam file and a reference genome, generates
 
 This takes a long to run (about 5-6 hours) so if you get tired of waiting you can get it here:
 
+```bash
 ~/populationgenomics/data/consensus_fastq/S_Hungarian-2.chr2.fq
+```
 
 There you can also find FASTQ files for all the other individuals we have been working with.
 
@@ -96,7 +100,7 @@ The `-u` option specifies the per year mutation rate and the `-g` the generation
 
 ## Compare individuals from different regions of the world
 
-We want to compare individuals from different regions. Use all the individuals in the shared folder.
+We want to compare individuals from different regions. Use some of the individuals in the shared folder.
 
 The, plot all results together in a R jupyter notebook. Try out the code below:
 
