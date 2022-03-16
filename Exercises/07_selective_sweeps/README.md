@@ -19,6 +19,11 @@ The data consists of **24198** SNPs from the region 73-81 Mb on the X chromosome
 
 ~/populationgenomics/data/haplotypes_chrX
 
+You can link it using
+```
+ln -s ~/populationgenomics/data/haplotypes_chrX/* .
+```
+
 Package
 -------
 
@@ -38,13 +43,17 @@ You will perform a genome wide scan and then focus on candidate SNPs. The packag
 ``` r
 install.packages("rehh")
 library(rehh)
+```
 
-> hap360_400_AF <-data2haplohh(hap_file="genotypes360_400_AF",map_file="snps360_400_filtered",
+Example of how to read in AF data.
+
+``` r
+hap360_400_AF <-data2haplohh(hap_file="genotypes360_400_AF",map_file="snps360_400_filtered",
                                allele_coding="map", 
                                min_perc_geno.mrk=100,
                                min_perc_geno.hap=100,
                                haplotype.in.columns=TRUE,
-                               chr.name=1)
+                               chr.name="X")
 ```
 
 #### Q1. How many haplotypes and snps are found in each population?
@@ -108,7 +117,7 @@ wg.XPEHHAFWE <- ies2xpehh(res.scanAF,res.scanWE, popname1 = "Africa", popname2 =
 manhattanplot(wg.XPEHHAFWE)
 ```
 
-Zooming in interesting markers
+Zooming in on interesting markers
 ------------------------------
 
 From the scan you can find SNPs that give extreme values of iES or of XPEHH for a set of populations. You can then analyse the haplotype structure around them. This is done by including the index position of the interested marker in the functions `calc_ehhs` and `bifurcation.diagram`.
@@ -119,7 +128,7 @@ Try to plot markers that show outlier values in the above statistics and compare
 marker = which.min(wg.XPEHHAFWE$XPEHH_Africa_West_Europe)
 snp = row.names(wg.XPEHHAFWE)[marker]
 a = calc_furcation(hap360_400_AF, mrk=snp)
-plot(a))
+plot(a)
 ```
 
 #### Q6. What is the biological function of the region around this snp?
