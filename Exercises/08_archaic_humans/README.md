@@ -7,7 +7,7 @@ using his method in a large number of individuals from the Simons genome
 diversity project and from the 1000 genomes project, paper
 [here](https://www.biorxiv.org/content/early/2018/03/16/283606.full.pdf).
 
-Start up a notebook, and let us explore the dataset (remember to put un your username).
+Start up a notebook, and let us explore the dataset (remember to put in your username).
 
 ``` r
 slurm-jupyter -u username -A populationgenomics -e jupyter -m 3g -t 3h --run notebook
