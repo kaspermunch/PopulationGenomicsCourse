@@ -85,6 +85,9 @@ The lengthiest process is this step, in which population size is estimated, and 
 
 ### Q4: At the end, Relate outputs estimated mutation rate and coalescence times along the region - can this tell us anything?
 
+Selection
+---------
+
 With the coalescence rates estimated, it is possible to detect selection.
 
 ```
