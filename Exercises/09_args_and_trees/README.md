@@ -37,11 +37,11 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:~/miniconda3/envs/popgen/lib
 Create some symlinks that lead to the following files:
 
 ```
-~/populationgenomics/data/relate_data/20140520.chr2.strict_mask.fasta
-~/populationgenomics/data/relate_data/genetic_map_chr2_combined_b37.txt
-~/populationgenomics/data/relate_data/human_ancestor_2.fa
-~/populationgenomics/data/relate_data/60_inds.txt
-~/populationgenomics/data/relate_data/chr2_130_145_phased.vcf.gz
+ln -s ~/populationgenomics/data/relate_data/20140520.chr2.strict_mask.fasta
+ln -s ~/populationgenomics/data/relate_data/genetic_map_chr2_combined_b37.txt
+ln -s ~/populationgenomics/data/relate_data/human_ancestor_2.fa
+ln -s ~/populationgenomics/data/relate_data/60_inds.txt
+ln -s~/populationgenomics/data/relate_data/chr2_130_145_phased.vcf.gz
 ```
 
 The first file is a mask containing areas that either have abnormal read depth or has been identified to contain repetitive elements.
@@ -121,8 +121,8 @@ In general, selection scans of this kind will perform better if it is for a sing
 Necessary files for this are:
 
 ```
-~/populationgenomics/data/relate_data/50_GBR_inds.txt
-~/populationgenomics/data/relate_data/chr2_GBR_phased.vcf.gz 
+ln -s ~/populationgenomics/data/relate_data/50_GBR_inds.txt
+ln -s ~/populationgenomics/data/relate_data/chr2_GBR_phased.vcf.gz 
 ```
 
 The rest of the files are still the same.
@@ -143,3 +143,4 @@ conda install -c conda-forge -c plotly -c kaspermunch popgen-dashboards
 Download the notebook by right-clicking <a href="https://raw.githubusercontent.com/kaspermunch/PopulationGenomicsCourse/master/Notebooks/arg-dashboard.ipynb" download="arg-dashboard.ipynb">
 this link
 </a> and "choose save link as".
+To run the dashboard, also download this [file:](https://github.com/kaspermunch/popgen-dashboards/blob/main/popgen_dashboards/arg_dashboard.py) and place it in the same folder.
