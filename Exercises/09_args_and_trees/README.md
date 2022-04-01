@@ -5,7 +5,7 @@ As we saw in Week 7, male X chromosomes are easy to use for haplotype-based anal
 
 Multiple phasing methods are known, such as Beagle (used in Week 4) and Shapeit. If you are lucky, the dataset you are using has already been phased, which is where we start this week. We are back to looking at chr2.
 
-The data is taken from 30 individuals in the 1000Genomes project. In this dataset, there are 5 individuals from the following populations: GBR (Brits/Scots), IBS (Spanish), JPT (Japanese), PJL (Punjabi), YRI (Yoruban), LWK (Luhya).
+The data is taken from 60 individuals in the 1000Genomes project. In this dataset, there are 20 individuals from the following populations: GBR (Brits/Scots), JPT (Japanese), YRI (Yoruban).
 
 Relate
 ------
