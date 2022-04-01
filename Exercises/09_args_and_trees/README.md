@@ -140,7 +140,10 @@ Ancestral Recombination Graphs and Sequence Genealogies
 conda install -c conda-forge -c plotly -c kaspermunch popgen-dashboards
 ```
 
-Download the notebook by right-clicking <a href="https://raw.githubusercontent.com/kaspermunch/PopulationGenomicsCourse/master/Notebooks/arg-dashboard.ipynb" download="arg-dashboard.ipynb">
+First, clone the following github: 
+
+git clone https://github.com/kaspermunch/popgen-dashboards/
+
+Then download the notebook by right-clicking <a href="https://raw.githubusercontent.com/kaspermunch/PopulationGenomicsCourse/master/Notebooks/arg-dashboard.ipynb" download="arg-dashboard.ipynb">
 this link
-</a> and "choose save link as".
-To run the dashboard, also download this [file:](https://github.com/kaspermunch/popgen-dashboards/blob/main/popgen_dashboards/arg_dashboard.py) and place it in the same folder.
+</a> and "choose save link as". Place it in the popgen_dashboards folder, and run it using jupyter notebook -e popgen-dashboards
