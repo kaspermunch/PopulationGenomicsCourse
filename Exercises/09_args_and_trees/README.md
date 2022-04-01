@@ -91,7 +91,7 @@ Selection
 With the coalescence rates estimated, it is possible to detect selection.
 
 ```
-~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i popsize_relate -m 1.25e-8 --poplabels 60_inds.txt -o selection_relate
+~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i popsize -m 1.25e-8 --poplabels 60_inds.txt -o selection_relate
 ```
 
 At this point, we are detecting selection based on three distinct populations. 
@@ -138,7 +138,7 @@ Ancestral Recombination Graphs and Sequence Genealogies
 Set this up on your own machine
 
 ```
-conda install -c conda-forge -c plotly -c kaspermunch popgen-dashboards
+conda create --name popgen-dashboards -c conda-forge -c plotly -c kaspermunch popgen-dashboards
 ```
 
 First, clone the following github: 
