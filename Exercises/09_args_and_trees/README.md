@@ -135,6 +135,7 @@ The rest of the files are still the same.
 Ancestral Recombination Graphs and Sequence Genealogies
 -------------------------------------------------------
 
+Set this up on your own machine
 
 ```
 conda install -c conda-forge -c plotly -c kaspermunch popgen-dashboards
