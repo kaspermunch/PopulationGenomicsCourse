@@ -29,6 +29,12 @@ We will begin by performing sample QC, including calculation of call rates, hete
 ## Sample QC
 
 ### Identification of individuals with discordant sex information
+Remember to start an interactive job:
+
+```
+srun --mem-per-cpu=1g --time=3:00:00 --account=populationgenomics --pty bash
+```
+
 At the shell prompt, type:
 
 ```
@@ -40,6 +46,8 @@ This command will infer the sex of the sample by looking at the mean homozygosit
 *1) Take a look at the output file “GWA-data.sexcheck”. How many problematic samples are there?*
 
 Problematic samples can be removed by copying the family ID (FID) and individual ID (IID) of the samples into a text file (e.g. wrong_sex.txt) and using the remove command:
+
+HINT: To filter for problematic inds, either load it into a notebook or use grep.
 
 ```
 plink --bfile GWA-data --remove wrong_sex.txt --make-bed --out GWA-QC
@@ -80,7 +88,11 @@ d_het <- read.table("GWA-QC.het",header=T)
 d <- inner_join(d_miss,d_het)
 ```
 
-We will filter out outliers for either of the variables. 
+We will filter out outliers for either of the variables, and then save the file like this: 
+
+```
+write.table(d_m, file = "wrong_het_missing_values.txt", col.names = F, row.names = F)
+```
 
 *4) Make a file with the FID and IID of all individuals that have a genotype missing rate >=0.03 or a heterozygosity rate that is more than 3 s.d. from the mean. Then use plink to remove these individuals from the data set.*
 
