@@ -68,7 +68,14 @@ E. Perform any additional analysis of your own choice, such as (diversity along 
 
 ### Data
 
-[Google drive folder with data](https://drive.google.com/open?id=16TKX5WJ0vPDVttb5bHAwcVla2o4ARlay)
+Data for the project can be found in this folder on the cluster:
+
+```
+~/populationgenomics/project_data/Xchromosome
+```
+
+The files are:
+
 
 The dataset is composed of 150 male individuals from the Simons Diversity Project. African individuals with high probability of a non-african component (Masai, Somali, Mozabite and Saharawi) have been excluded. We will use a total of 411892 SNPs with no missing data.
 
@@ -127,7 +134,12 @@ Suggestions for further analyses:
 
 ### Data:
 
-[Google drive folder with data](https://drive.google.com/open?id=1ZaEo_HgkMu9i_yga_nlkTsAbT9Ri7unv)
+Data for the project can be found in this folder on the cluster:
+
+```
+~/populationgenomics/project_data/GWAS
+```
+
 
 -----------------------------------------------------------------------------------------------
 
@@ -165,7 +177,13 @@ Pulses of Archaic Denisovan Admixture](https://doi.org/10.1016/j.cell.2018.02.03
 
 ### Data
 
-[Google Drive folder with data](https://drive.google.com/open?id=1lrRfFcoxpyVpXgOi4RYP2_vauM_-rRz_)
+Data for the project can be found in this folder on the cluster:
+
+```
+~/populationgenomics/project_data/ArchaicAdmixture
+```
+
+The files are:
 
 - ArchaicSegments.txt: This file is formatted the same was as the one you used for the archiac admixture exercise.
 - SNP.txt: This file has all the non-African SNPs that remain after removing all SNPs found in (Subsaharan) Africa. When each SNP is found in any of the high coverage archaic genomes (Altai or Vindija Neanderthals or the Denisova) it is labelled as such. Otherwise it is labeled "human".
