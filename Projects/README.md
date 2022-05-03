@@ -33,10 +33,10 @@ The report must be handed in on the 26th of May at 9 AM.
 
 #### Submission
 
-The project needs to be submitted through Blackboard. 
+The project needs to be submitted through Brightspace. 
 The name of your report must states your *name* and the chosen *project*:
 
-MICA_archaic.pdf, MICA_xchromosome.pdf or MICA_GWAS.pdf
+MYNAME_archaic.pdf, MYNAME_xchromosome.pdf or MYNAME_GWAS.pdf
 
 -----------------------------------------------------------------------------------------------
 
