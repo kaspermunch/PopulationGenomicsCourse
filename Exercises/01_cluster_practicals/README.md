@@ -160,11 +160,15 @@ Students need bcftools in the psmc exercise. For now, bcftools is installed in t
 So make this work: conda create -n popgen -c bioconda -c kaspermunch bwa platypus-variant samtools beagle plink admixture gnuplot vcftools bcftools
 Maybe also change exercises to only using bcftools and not samtools -->
 
-<!--TODO: add ghostscript to the jupyter environment for use with psmc plotting: conda install -c conda-forge ghostscript -->
+<!-- ```bash
+conda create -n popgen -c bioconda -c conda-forge -c kaspermunch bwa platypus-variant samtools beagle=4.1  plink admixture gnuplot vcftools --override-channels
+``` -->
 
 ```bash
-conda create -n popgen -c bioconda -c conda-forge -c kaspermunch bwa platypus-variant samtools beagle=4.1  plink admixture gnuplot vcftools --override-channels
+conda env create -f ~/populationgenomics/env/popgen.yml
 ```
+
+It may take `conda` a while to create the environment, so be patient. Press enter when it says "Proceed ([y]/n)?". 
 
 **Important:** Whenever you log into the cluster to work on your project, you should activate your `popgen` environment like this:
 
@@ -180,11 +184,15 @@ When you environment is active it says `(popgen)` on the commnad prompt instead 
 
 The first thing you need to do is create a separate conda environment that has jupyter installed. Do not worry about this extra environment. You will not be using it directly. We just need it to be able to run jupyter notebooks in class. 
 
-```bash
+<!-- ```bash
 conda create -n jupyter -c conda-forge -c bioconda -c kaspermunch slurm-jupyter popgen-dashboards jupyter jupyterlab ipyparallel pandas numpy matplotlib ipympl ipython ghostscript nodejs seaborn r-essentials rpy2 simplegeneric tzlocal r-vcfr bioconductor-biocinstaller bioconductor-snprelate r-biocmanager
+``` -->
+
+```bash
+conda env create -f ~/populationgenomics/env/jupyter.yml
 ```
 
-It may take `conda` a while to create the environment, so be patient. Once created, you must activate that environemnt:
+It may take `conda` a while to create the environment, so be patient. Press enter when it says "Proceed ([y]/n)?". Once created, you must activate that environemnt:
 
 ```bash
 conda activate jupyter
