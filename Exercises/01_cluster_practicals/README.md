@@ -181,13 +181,13 @@ When you environment is active it says `(popgen)` on the commnad prompt instead 
 The first thing you need to do is create a separate conda environment that has jupyter installed. Do not worry about this extra environment. You will not be using it directly. We just need it to be able to run jupyter notebooks in class. 
 
 ```bash
-conda create -n jupyter -c conda-forge -c bioconda -c kaspermunch slurm-jupyter jupyter jupyterlab ipyparallel pandas numpy matplotlib ipympl nodejs seaborn r-essentials rpy2 simplegeneric tzlocal r-vcfr bioconductor-biocinstaller bioconductor-snprelate r-biocmanager
+conda create -n popgen-jupyter -c conda-forge -c bioconda -c kaspermunch slurm-jupyter popgen-dashboards jupyter jupyterlab ipyparallel pandas numpy matplotlib ipympl ipython ghostscript nodejs seaborn r-essentials rpy2 simplegeneric tzlocal r-vcfr bioconductor-biocinstaller bioconductor-snprelate r-biocmanager
 ```
 
 It may take `conda` a while to create the environment, so be patient. Once created, you must activate that environemnt:
 
 ```bash
-conda activate jupyter
+conda activate popgen-jupyter
 ```
 
 and then run this this command:
@@ -339,7 +339,7 @@ scp ./file username@login.genome.au.dk:dir/
 Jupyter runs best in the [Chrome browser](https://www.google.com/chrome). For the best experience, install that before you go on. It does not need to be your default browser. `slurm-jupyter` will use it anyway. Now make sure you are on your own machine and that your `popgen` environment is activated. Then run this command to start a jupyter notebook on the cluster and send the display to your browser:
 
 ```bash
-slurm-jupyter -u usernanme -A populationgenomics -e jupyter -m 1g -t 3h --run notebook
+slurm-jupyter -u usernanme -A populationgenomics -e popgen-jupyter -m 1g -t 3h --run notebook
 ```
 
 (replace `username` with your cluster user name)
