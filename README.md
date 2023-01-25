@@ -14,8 +14,22 @@ The participants must at the end of the course be able to:
 
 The course introduces key concepts in population genomics from generation of population genetic data sets to the most common population genetic analyses and association studies. The first part of the course focuses on generation of population genetic data sets. The second part introduces the most common population genetic analyses and their theoretical background. Here topics include analysis of demography, population structure, recombination and selection. The last part of the course focus on applications of population genetic data sets for association studies in relation to human health.
 
+## Curriculum
 The curriculum for each week is listed below. "Coop" refers to a set of [lecture notes by Graham Coop](https://github.com/cooplab/popgen-notes/releases/download/v1.2/minicoop.pdf) that we will use throughout the course.
 
+## Student presentations
+You will each do two student presentations together with a fellow student. If possible, you should sign up for one presentation in the first half of the course and one in the last half. In this [Google Sheet](https://docs.google.com/spreadsheets/d/1XuTLhy8Kx14y9XGm_fK9hz6CqvQy79-Mh8IONdPs_PE/edit?usp=sharing), you can see the available dates and the topics to choose from on each date. Fill in your name as "student one" or "student two" for two dates.
+
+## Lectures
+Lectures/discussions are on Thursdays: 12-14. You can see the curriculum for each lecture in the weekly plan below. Each lecture session will be structured roughly as follows:
+
+- 15 min student presentation on a topic related to the past week's week's curriculum.
+- 30 min lecture based on the current week's curriculum.
+- 15 break
+- 45 min student discussion on the current week's curriculum.
+
+## Exercises
+Exercises are on Thursdays: 12-15. You can find the exercises on the GitHub page for the course.
 
 ## Week plan	
 
