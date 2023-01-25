@@ -17,6 +17,9 @@ The course introduces key concepts in population genomics from generation of pop
 ## Curriculum
 The curriculum for each week is listed below. "Coop" refers to a set of [lecture notes by Graham Coop](https://github.com/cooplab/popgen-notes/releases/download/v1.2/minicoop.pdf) that we will use throughout the course.
 
+## Access to computing cluster
+You will do the exercises on the GenomeDK computing cluster. So before the course begins you must request a user acount by applying [here](https://console.genome.au.dk/user-requests/create/). You need to fill in some information. Most of it is selv-explanatory. For "Organization" fill in "Aarhus University", for "Department" fill in "BiRC", for "Zone" choose "Open", for "Reason" fill in "Population genomics course", for "Username" fill in a short username that you think might be unique.
+
 ## Student presentations
 You will each do two student presentations together with a fellow student. If possible, you should sign up for one presentation in the first half of the course and one in the last half. In this [Google Sheet](https://docs.google.com/spreadsheets/d/1XuTLhy8Kx14y9XGm_fK9hz6CqvQy79-Mh8IONdPs_PE/edit?usp=sharing), you can see the available dates and the topics to choose from on each date. Fill in your name as "student one" or "student two" for two dates.
 
