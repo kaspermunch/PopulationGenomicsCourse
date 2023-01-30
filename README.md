@@ -24,7 +24,7 @@ You will do the exercises on the GenomeDK computing cluster. So before the cours
 You will each do two student presentations together with a fellow student. If possible, you should sign up for one presentation in the first half of the course and one in the last half. In this [Google Sheet](https://docs.google.com/spreadsheets/d/1XuTLhy8Kx14y9XGm_fK9hz6CqvQy79-Mh8IONdPs_PE/edit?usp=sharing), you can see the available dates and the topics to choose from on each date. Fill in your name as "student one" or "student two" for two dates.
 
 ## Lectures
-Lectures/discussions are on Thursdays: 12-14. You can see the curriculum for each lecture in the weekly plan below. Each lecture session will be structured roughly as follows:
+Lectures/discussions are on Tuesdays: 12-14. You can see the curriculum for each lecture in the weekly plan below. Each lecture session will be structured roughly as follows:
 
 - 15 min student presentation on a topic related to the past week's week's curriculum.
 - 30 min lecture based on the current week's curriculum.
