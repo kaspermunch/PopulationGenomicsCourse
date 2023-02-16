@@ -46,7 +46,7 @@ Exercises are on Thursdays: 12-15. You can find the exercises on the GitHub page
     - Lecture (Juraj): [Review: Recombination in eukaryotes](https://royalsocietypublishing.org/doi/10.1098/rstb.2016.0455), [Review: Recombination rate estimation](https://www.nature.com/articles/s41576-020-0240-1)
     - Exercise (Jilong): [Phasing and recombination rate](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/04_phasing_and_recombination)
 4. Population strucure and incomplete lineage sorting:
-    - Lecture (Kasper): Coop chapter 6, [Review: Incomplete lineage sorting](https://zh.booksc.eu/book/32923932/889942)
+    - Lecture (Kasper): Coop chapter 6, [Review: Incomplete lineage sorting](https://doi.org/10.1146/annurev-genet-120213-092532)
     - Exercise (Jilong): [Working with VCF files](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/03_f_statistics)
 5. Hidden Markov models:
     - Lecture (Kasper): Durbin chapter 3, [Paper: population structure](https://www.nature.com/articles/nature07331)
