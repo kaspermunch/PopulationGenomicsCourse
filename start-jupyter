@@ -1,0 +1,36 @@
+#!/bin/bash
+
+
+
+echo "-----> Population Genomics Course"
+if [ ! -d "/usr/Material/Data" ] 
+then 
+    echo "downloading data"
+    mkdir -p /usr/Material/Data
+    wget https://zenodo.org/record/7551294/files/Data.tar.gz?download=1 -O /usr/Material/Data.tar.gz
+    tar -zxvf /usr/Material/Data.tar.gz -C /usr/Material/Data
+    rm -f /usr/Material/Data.tar.gz 
+fi
+
+mkdir -p ${CONDA_DIR}/envs/popgen_au_env
+wget -t 10 -O ${CONDA_DIR}/envs/popgen.tar.gz https://zenodo.org/record/7551294/files/popgen_au_env.tar.gz?download=1;
+tar -zxvf ${CONDA_DIR}/envs/popgen.tar.gz -C ${CONDA_DIR}/envs/popgen_au_env
+rm -f ${CONDA_DIR}/envs/popgen.tar.gz
+
+    echo "-----> Installing course kernels on jupyterlab"
+    ${CONDA_DIR}/envs/popgen_au_env/bin/python -m ipykernel install --user --name="args_dashboard" --display-name "args dashboard" && \
+    ${CONDA_DIR}/envs/popgen_au_env/bin/R -e "IRkernel::installspec(user=TRUE, name = 'popgen_course', displayname = 'popgen course')" && \
+    ${CONDA_DIR}/envs/popgen_au_env/bin/python -m bash_kernel.install && \
+    fix-permissions "/home/${NB_USER}" && \
+    ln -s /usr/Material /home/${NB_USER}/work/Course_Material
+
+    cp /usr/uCloud/Configurations/kernelBash.json /usr/local/share/jupyter/kernels/bash/kernel.json && \
+    ln -s ${CONDA_DIR}/envs/popgen_au_env/lib/libcrypto.so.3 ${CONDA_DIR}/envs/popgen_au_env/lib/libcrypto.so.1.0.0
+
+    jupyter labextension install /usr/Splashscreen/
+
+    printf  "\n==================  "
+    printf  "\n Start JupyterLab  \n"
+    printf  "==================  \n\n"
+    #add course name as variable to be used
+    bash -c "COURSE=${COURSE} jupyter lab --NotebookApp.token='' "

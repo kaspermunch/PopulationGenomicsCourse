@@ -1,6 +1,0 @@
-PLINK format genetic map files made by Brian Browning (browning@uw.edu) from HapMap genetic map files.
-
-HapMap genetic map files may be found at:
-
-http://www.hapmap.org
-http://hapmap.ncbi.nlm.nih.gov/downloads/recombination/2011-01_phaseII_B37/

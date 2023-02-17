@@ -1,0 +1,6 @@
+{"argv": ["${CONDA_DIR}/envs/popgen_au_env/bin/python", "-m", "bash_kernel", "-f", "{connection_file}"], 
+ "codemirror_mode": "shell", 
+ "display_name": "Bash", 
+ "language": "bash",
+ "env": {"PATH":"${CONDA_DIR}/envs/popgen_au_env/lib/:${CONDA_DIR}/envs/popgen_au_env/bin/:${CONDA_DIR}/envs/popgen_au_env/libexec/:$PATH"}
+}
