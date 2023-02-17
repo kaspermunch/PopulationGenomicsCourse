@@ -30,7 +30,7 @@ fix-permissions "/home/${NB_USER}" && \
 ln -s /usr/Material /home/${NB_USER}/work/Course_Material
 
 
-cp /usr/uCloud/Configurations/kernelBash.json /usr/local/share/jupyter/kernels/bash/kernel.json && \
+cp /usr/uCloud/Configurations/kernelBash.json ~/.local/share/jupyter/kernels/bash/kernel.json && \
 ln -s ${CONDA_DIR}/envs/popgen_au_env/lib/libcrypto.so.3 ${CONDA_DIR}/envs/popgen_au_env/lib/libcrypto.so.1.0.0
 
 #jupyter labextension install /usr/Splashscreen/
