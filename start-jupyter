@@ -20,7 +20,7 @@ then
     rm -f ${CONDA_DIR}/envs/popgen.tar.gz
 fi
 
-conda activate ${CONDA_DIR}/envs/popgen_au_env
+#conda activate ${CONDA_DIR}/envs/popgen_au_env
 
 echo "-----> Installing course kernels on jupyterlab"
 ${CONDA_DIR}/envs/popgen_au_env/bin/python -m ipykernel install --user --name="args_dashboard" --display-name "args dashboard" && \
