@@ -110,5 +110,4 @@ USER 1000
 WORKDIR /home/${NB_USER}/work/Course_Material
 
 COPY --chown="${NB_USER}":"${NB_GID}" start-jupyter "${CONDA_DIR}"/bin/
-RUN pip install --no-cache-dir conda-pack && \
-    chmod +x "${CONDA_DIR}"/bin/start-jupyter
+RUN chmod +x "${CONDA_DIR}"/bin/start-jupyter

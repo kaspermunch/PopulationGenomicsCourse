@@ -1,4 +1,4 @@
-{"argv": ["${CONDA_DIR}/envs/popgen_au_env/bin/python", "-m", "bash_kernel", "-f", "{connection_file}"], 
+{"argv": ["/opt/conda/envs/popgen_au_env/bin/python", "-m", "bash_kernel", "-f", "{connection_file}"], 
  "codemirror_mode": "shell", 
  "display_name": "Bash", 
  "language": "bash",
