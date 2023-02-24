@@ -1,0 +1,160 @@
+# Project information
+site_name: Population Genomics Course
+site_url: "" # This should be nothing cause we build the webpage from local
+site_author: Samuele Soraggi, Kasper Munch
+site_description: >-
+  Introductory course in population genomics with bioinformatics tools
+
+# Repository
+repo_name: Population Genomics
+repo_url: https://github.com/kaspermunch/PopulationGenomicsCourse
+
+# Configuration
+theme:
+
+  # Use the Material for MkDocs theme
+  # url: https://squidfunk.github.io/mkdocs-material/
+
+  name: material
+
+  # Necessary for search to work properly
+  include_search_page: false
+  search_index_only: true
+
+  # Default values, taken from mkdocs_theme.yml
+  language: en
+  features:
+    - content.code.annotate
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.indexes
+    # - navigation.instant
+    # - navigation.prune
+    - navigation.sections
+    - navigation.footer
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+
+  palette:
+    # Sandbox colours - "brightness" and "slate" - are defined in stylesheets/extra.css 
+    # Palette toggle for light mode
+    - scheme: brightness
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+  
+  favicon: images/favicon.png
+  logo: images/logo.png
+
+# Changes to website colours and image parameters
+extra_css:
+  - stylesheets/extra.css
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://polyfill.io/v3/polyfill.min.js?features=es6
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+
+plugins:
+  - search
+  # - mkdocs-video # embed videos to the docs
+  # minify HTML of a page before it is written to disk
+  #- minify:
+  #    minify_html: true
+  - mkdocs-jupyter:
+     ignore_h1_titles: false
+
+# Analytics and social media
+extra:
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/kaspermunch/PopulationGenomicsCourse
+
+# Extensions
+
+markdown_extensions:
+  - abbr # abbreviations   
+  - admonition  
+  - attr_list # Add HTML/CSS to Markdown elements  
+  - def_list # Definition lists  
+  - footnotes  
+  - md_in_html  
+  - toc: # Table of contents  
+      permalink: true # Adds anchor link, can customise symbol with emoji  
+
+  - tables  
+
+  # Python extensions - can see descriptions  
+  # at https://facelessuser.github.io/pymdown-extensions/  
+
+  - pymdownx.arithmatex: # LaTeX  
+      generic: true  
+  - pymdownx.betterem: # improves emphasis (bold/italic) handling  
+      smart_enable: all   
+  - pymdownx.critic # useful for marking .md file without changes to html  
+  - pymdownx.caret # improved functionality for caret symbol  
+  - pymdownx.details # collapsable elements that hide content  
+  - pymdownx.emoji: 
+      emoji_generator: !!python/name:materialx.emoji.to_svg  
+      emoji_index: !!python/name:materialx.emoji.twemoji  
+  - pymdownx.highlight: # code highlighting  
+      anchor_linenums: true  
+  - pymdownx.inlinehilite # inline code highlight  
+  - pymdownx.keys # to make entering and styling keyboard key presses easier  
+  - pymdownx.mark # highlight/mark text  
+  - pymdownx.smartsymbols # special characters (e.g. arrows, tm, fractions)  
+  - pymdownx.superfences # arbitrary nesting of code and content blocks inside each other
+  - pymdownx.tabbed: # add tabs to .md file
+      alternate_style: true
+  - pymdownx.tasklist: # checkbox task list  
+      custom_checkbox: true
+  - pymdownx.tilde # delete and subscript
+
+# Extra configs
+use_directory_urls: false
+docs_dir: develop # source md files should be saved in the develop folder
+site_dir: docs # built webpage will be created in the docs folder
+
+# Page tree
+nav:
+  - Introduction: 
+    - Course description: index.md
+    #- Instructions: instructions.md
+  - Exercises:
+    - 01: notebooks/01_mapping_and_calling.ipynb
+    - 02: notebooks/02_F_statistics.ipynb
+    - 03: notebooks/03_phasing_and_recombination.ipynb
+    - 04: notebooks/04_population_structure.ipynb
+    - 05: notebooks/05_historical_population_size.ipynb
+    - 06: notebooks/06_selective_sweeps.ipynb
+    - 07: notebooks/07_archaic_humans.ipynb
+    - 08: notebooks/08a_args_and_trees.ipynb
+    - 09: notebooks/09_GWAS_Quality_Control.ipynb
+    - 10: notebooks/10_Association_testing.ipynb
+    - 11: notebooks/11_GWAS_Heritability.ipynb
+  
+  # include your page titles and associating .md files here
+   
