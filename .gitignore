@@ -178,3 +178,7 @@ Cluster/data/consensus_fastq/*
 !/Cluster/**/*.md
 
 Webpage/docs
+
+.ipynb_checkpoints
+
+.DS_Store
