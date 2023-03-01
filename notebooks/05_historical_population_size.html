@@ -1803,7 +1803,7 @@ Licensed under the Apache License, Version 2.0.
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -1818,9 +1818,9 @@ Licensed under the Apache License, Version 2.0.
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="n">..</span><span class="o">/</span><span class="n">..</span><span class="o">/</span><span class="n">Data</span>
-<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="n">..</span><span class="o">/</span><span class="n">..</span><span class="o">/</span><span class="n">Reference</span>
-<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="n">Results</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>ln -s ../../Data
+ln -s ../../Reference
+mkdir -p Results
 </pre></div>
 <div id="cell-1" class="clipboard-copy-txt">ln -s ../../Data
 ln -s ../../Reference
@@ -1842,7 +1842,7 @@ mkdir -p Results</div>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>The example individual used below is a Hungarian individual with id ERR1025630. If you want to try on another individual, remember to check the id in the metadata file.</p>
 <p>Starting from mapped reads, the first step is to produce a consensus sequence in FASTQ format, which stores both the sequence and its corresponding quality scores, that will be used for QC filtering. The consensus sequence has A, T, C or G at homozygous sites, and other letters <a href="https://www.bioinformatics.org/sms/iupac.html">IUPAC codes</a> to represent heterozygotes. To make the consensus calls, we use the samtools/bcftools suite. We first use <code>samtools mpileup</code> to get the pileup of reads for each position. We then generate a consensus sequence with <code>bcftools</code>, which we convert to FASTQ (with some additional filtering) by <code>vcfutils.pl</code>. We take advantage of Unix pipes and the ability of <code>samtools</code> to work with streaming input and output to run the whole pipeline (<code>samtools</code> -&gt; <code>bcftools</code> -&gt; <code>vcfutils.pl</code>) as one command. We run our consensus calling pipeline, consisting of a linked set of <code>samtools</code>, <code>bcftools</code>, and <code>vcfutils.pl</code> commands (<a href="https://samtools.github.io/bcftools/howtos/consensus-sequence.html">see here</a>).</p>
-<p>This might take a long to run (about 5-6 hours) so if you get tired of waiting you can press the stop button in the toolbar, and get the output file here:</p>
+<p>This might take a long to run (about 5-6 hours) so we get the output file we already prepared for you here:</p>
 <div class="highlight"><pre><span></span>Data/consensus_fastq/S_Hungarian-2.chr2.fq
 </pre></div>
 <p>The same folder contains the other individuals for the populations in use.</p>
@@ -1850,13 +1850,13 @@ mkdir -p Results</div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -1871,45 +1871,24 @@ mkdir -p Results</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">bcftools</span> <span class="n">mpileup</span> <span class="o">-</span><span class="n">Q</span> <span class="m">30</span> <span class="o">-</span><span class="n">Ou</span> <span class="o">-</span><span class="n">q</span> <span class="m">30</span> <span class="o">-</span><span class="n">f</span> <span class="n">Data</span><span class="o">/</span><span class="n">fasta</span><span class="o">/</span><span class="n">chr2.fa</span> <span class="o">-</span><span class="n">r</span> <span class="m">2</span> <span class="n">Data</span><span class="o">/</span><span class="n">bam</span><span class="o">/</span><span class="n">S_Hungarian</span><span class="m">-2</span><span class="n">.chr2.bam</span> <span class="o">|</span> \
-<span class="n">bcftools</span> <span class="n">call</span> <span class="o">--</span><span class="n">threads</span> <span class="m">8</span> <span class="o">-</span><span class="n">c</span> <span class="o">-</span> <span class="o">|</span> \
-<span class="n">vcfutils.pl</span> <span class="n">vcf2fq</span> <span class="o">-</span><span class="n">d</span> <span class="m">5</span> <span class="o">-</span><span class="n">D</span> <span class="m">100</span> <span class="o">-</span><span class="n">Q</span> <span class="m">30</span> <span class="o">|</span> \
-<span class="n">gzip</span> <span class="o">&gt;</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Hungarian</span><span class="m">-2</span><span class="n">.chr2.fq</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span><span class="c1">#bcftools mpileup -Q 30 -Ou -q 30 -f Data/fasta/chr2.fa -r 2 Data/bam/S_Hungarian-2.chr2.bam | \</span>
+<span class="c1">#bcftools call --threads 16 -c - | \</span>
+<span class="c1">#vcfutils.pl vcf2fq -d 5 -D 100 -Q 30 | \</span>
+<span class="c1">#gzip &gt; Results/S_Hungarian-2.chr2.fq</span>
+
+cp Data/consensus_fastq/S_Hungarian-2.chr2.fq Results/S_Hungarian-2.chr2.fq
 </pre></div>
-<div id="cell-2" class="clipboard-copy-txt">bcftools mpileup -Q 30 -Ou -q 30 -f Data/fasta/chr2.fa -r 2 Data/bam/S_Hungarian-2.chr2.bam | \
-bcftools call --threads 8 -c - | \
-vcfutils.pl vcf2fq -d 5 -D 100 -Q 30 | \
-gzip > Results/S_Hungarian-2.chr2.fq</div>
+<div id="cell-2" class="clipboard-copy-txt">#bcftools mpileup -Q 30 -Ou -q 30 -f Data/fasta/chr2.fa -r 2 Data/bam/S_Hungarian-2.chr2.bam | \
+#bcftools call --threads 16 -c - | \
+#vcfutils.pl vcf2fq -d 5 -D 100 -Q 30 | \
+#gzip > Results/S_Hungarian-2.chr2.fq
+
+cp Data/consensus_fastq/S_Hungarian-2.chr2.fq Results/S_Hungarian-2.chr2.fq</div>
     
         </div>
     </div>
 
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Note: none of --samples-file, --ploidy or --ploidy-file given, assuming all sites are diploid
-[mpileup] 1 samples in 1 input files
-
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -1950,7 +1929,7 @@ gzip > Results/S_Hungarian-2.chr2.fq</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -1965,9 +1944,9 @@ gzip > Results/S_Hungarian-2.chr2.fq</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">fq2psmcfa</span> <span class="o">-</span><span class="n">q20</span> <span class="n">Data</span><span class="o">/</span><span class="n">consensus_fastq</span><span class="o">/</span><span class="n">S_Hungarian</span><span class="m">-2</span><span class="n">.chr2.fq</span> <span class="o">&gt;</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Hungarian</span><span class="m">-2</span><span class="n">.chr2.psmcfa</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>fq2psmcfa -q20 Results/S_Hungarian-2.chr2.fq &gt; Results/S_Hungarian-2.chr2.psmcfa
 </pre></div>
-<div id="cell-3" class="clipboard-copy-txt">fq2psmcfa -q20 Data/consensus_fastq/S_Hungarian-2.chr2.fq > Results/S_Hungarian-2.chr2.psmcfa</div>
+<div id="cell-3" class="clipboard-copy-txt">fq2psmcfa -q20 Results/S_Hungarian-2.chr2.fq > Results/S_Hungarian-2.chr2.psmcfa</div>
     
         </div>
     </div>
@@ -1997,7 +1976,7 @@ gzip > Results/S_Hungarian-2.chr2.fq</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">less</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Hungarian</span><span class="m">-2</span><span class="n">.chr2.psmcfa</span> <span class="o">|</span> <span class="n">head</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>less Results/S_Hungarian-2.chr2.psmcfa <span class="p">|</span> head
 </pre></div>
 <div id="cell-4" class="clipboard-copy-txt">less Results/S_Hungarian-2.chr2.psmcfa | head</div>
     
@@ -2074,7 +2053,7 @@ TTTTTTTTTTTTTTKTTTTTKTTTTTTTKTTTTTTTKTTTTKTTTTTTTTTTTTTTKTTT
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">psmc</span> <span class="o">-</span><span class="n">N50</span> <span class="o">-</span><span class="n">t15</span> <span class="o">-</span><span class="n">r5</span> <span class="o">-</span><span class="n">p</span> <span class="s">&quot;4+25*2+4+6&quot;</span> <span class="o">-</span><span class="n">o</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Hungarian</span><span class="m">-2</span><span class="n">.chr2.psmc</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Hungarian</span><span class="m">-2</span><span class="n">.chr2.psmcfa</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>psmc -N50 -t15 -r5 -p <span class="s2">&quot;4+25*2+4+6&quot;</span> -o Results/S_Hungarian-2.chr2.psmc Results/S_Hungarian-2.chr2.psmcfa
 </pre></div>
 <div id="cell-5" class="clipboard-copy-txt">psmc -N50 -t15 -r5 -p "4+25*2+4+6" -o Results/S_Hungarian-2.chr2.psmc Results/S_Hungarian-2.chr2.psmcfa</div>
     
@@ -2118,7 +2097,7 @@ TTTTTTTTTTTTTTKTTTTTKTTTTTTTKTTTTTTTKTTTTKTTTTTTTTTTTTTTKTTT
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">psmc_plot.pl</span> <span class="o">-</span><span class="n">R</span> <span class="o">-</span><span class="n">u</span> <span class="m">1.2e-08</span> <span class="o">-</span><span class="n">g</span> <span class="m">25</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Hungarian</span><span class="m">-2</span><span class="n">.chr2</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Hungarian</span><span class="m">-2</span><span class="n">.chr2.psmc</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>psmc_plot.pl -R -u <span class="m">1</span>.2e-08 -g <span class="m">25</span> Results/S_Hungarian-2.chr2 Results/S_Hungarian-2.chr2.psmc
 </pre></div>
 <div id="cell-6" class="clipboard-copy-txt">psmc_plot.pl -R -u 1.2e-08 -g 25 Results/S_Hungarian-2.chr2 Results/S_Hungarian-2.chr2.psmc</div>
     
@@ -2162,9 +2141,9 @@ TTTTTTTTTTTTTTKTTTTTKTTTTTTTKTTTTTTTKTTTTKTTTTTTTTTTTTTTKTTT
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">fq2psmcfa</span> <span class="o">-</span><span class="n">q20</span> <span class="n">Data</span><span class="o">/</span><span class="n">consensus_fastq</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.chr2.fq</span> <span class="o">&gt;</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.chr2.psmcfa</span>
-<span class="n">psmc</span> <span class="o">-</span><span class="n">N50</span> <span class="o">-</span><span class="n">t15</span> <span class="o">-</span><span class="n">r5</span> <span class="o">-</span><span class="n">p</span> <span class="s">&quot;4+25*2+4+6&quot;</span> <span class="o">-</span><span class="n">o</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.chr2.psmc</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.chr2.psmcfa</span>
-<span class="n">psmc_plot.pl</span> <span class="o">-</span><span class="n">R</span> <span class="o">-</span><span class="n">u</span> <span class="m">1.2e-08</span> <span class="o">-</span><span class="n">g</span> <span class="m">25</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.chr2</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.chr2.psmc</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>fq2psmcfa -q20 Data/consensus_fastq/S_Ju_hoan_North-3.chr2.fq &gt; Results/S_Ju_hoan_North-3.chr2.psmcfa
+psmc -N50 -t15 -r5 -p <span class="s2">&quot;4+25*2+4+6&quot;</span> -o Results/S_Ju_hoan_North-3.chr2.psmc Results/S_Ju_hoan_North-3.chr2.psmcfa
+psmc_plot.pl -R -u <span class="m">1</span>.2e-08 -g <span class="m">25</span> Results/S_Ju_hoan_North-3.chr2 Results/S_Ju_hoan_North-3.chr2.psmc
 </pre></div>
 <div id="cell-7" class="clipboard-copy-txt">fq2psmcfa -q20 Data/consensus_fastq/S_Ju_hoan_North-3.chr2.fq > Results/S_Ju_hoan_North-3.chr2.psmcfa
 psmc -N50 -t15 -r5 -p "4+25*2+4+6" -o Results/S_Ju_hoan_North-3.chr2.psmc Results/S_Ju_hoan_North-3.chr2.psmcfa
@@ -2211,28 +2190,28 @@ psmc_plot.pl -R -u 1.2e-08 -g 25 Results/S_Ju_hoan_North-3.chr2 Results/S_Ju_hoa
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>library<span class="o">(</span>ggplot2<span class="o">)</span>
 
-<span class="n">psmc_data1</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="s">&quot;Results/S_Hungarian-2.chr2.0.txt&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">F</span><span class="p">,</span> <span class="n">col.names</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;Years&#39;</span><span class="p">,</span> <span class="s">&#39;Effective_pop_size&#39;</span><span class="p">,</span> <span class="s">&#39;X&#39;</span><span class="p">,</span> <span class="s">&#39;Y&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">))</span>
-<span class="n">psmc_data2</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="s">&quot;Results/S_Ju_hoan_North-3.chr2.0.txt&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="bp">F</span><span class="p">,</span> <span class="n">col.names</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#39;Years&#39;</span><span class="p">,</span> <span class="s">&#39;Effective_pop_size&#39;</span><span class="p">,</span> <span class="s">&#39;X&#39;</span><span class="p">,</span> <span class="s">&#39;Y&#39;</span><span class="p">,</span> <span class="s">&#39;C&#39;</span><span class="p">))</span>
+psmc_data1 &lt;- read.table<span class="o">(</span><span class="s2">&quot;Results/S_Hungarian-2.chr2.0.txt&quot;</span>, <span class="nv">header</span><span class="o">=</span>F, col.names <span class="o">=</span> c<span class="o">(</span><span class="s1">&#39;Years&#39;</span>, <span class="s1">&#39;Effective_pop_size&#39;</span>, <span class="s1">&#39;X&#39;</span>, <span class="s1">&#39;Y&#39;</span>, <span class="s1">&#39;C&#39;</span><span class="o">))</span>
+psmc_data2 &lt;- read.table<span class="o">(</span><span class="s2">&quot;Results/S_Ju_hoan_North-3.chr2.0.txt&quot;</span>, <span class="nv">header</span><span class="o">=</span>F, col.names <span class="o">=</span> c<span class="o">(</span><span class="s1">&#39;Years&#39;</span>, <span class="s1">&#39;Effective_pop_size&#39;</span>, <span class="s1">&#39;X&#39;</span>, <span class="s1">&#39;Y&#39;</span>, <span class="s1">&#39;C&#39;</span><span class="o">))</span>
 
 <span class="c1"># If data 1 is African and data2 is European you can type: </span>
 
-<span class="n">psmc_data1</span><span class="o">$</span><span class="n">region</span> <span class="o">=</span> <span class="s">&#39;European&#39;</span>
-<span class="n">psmc_data2</span><span class="o">$</span><span class="n">region</span> <span class="o">=</span> <span class="s">&#39;African&#39;</span>
+psmc_data1<span class="nv">$region</span> <span class="o">=</span> <span class="s1">&#39;European&#39;</span>
+psmc_data2<span class="nv">$region</span> <span class="o">=</span> <span class="s1">&#39;African&#39;</span>
 
-<span class="n">d</span> <span class="o">=</span> <span class="nf">data.frame</span><span class="p">(</span>
-                <span class="n">Region</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="n">psmc_data1</span><span class="o">$</span><span class="n">region</span><span class="p">,</span> <span class="n">psmc_data2</span><span class="o">$</span><span class="n">region</span><span class="p">),</span> 
-                <span class="n">Years</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="n">psmc_data1</span><span class="o">$</span><span class="n">Years</span><span class="p">,</span> <span class="n">psmc_data2</span><span class="o">$</span><span class="n">Years</span><span class="p">),</span> 
-                <span class="n">Effective_pop_size</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="n">psmc_data1</span><span class="o">$</span><span class="n">Effective_pop_size</span><span class="p">,</span><span class="n">psmc_data2</span><span class="o">$</span><span class="n">Effective_pop_size</span><span class="p">)</span>
-                <span class="p">)</span>
+<span class="nv">d</span> <span class="o">=</span> data.frame<span class="o">(</span>
+                <span class="nv">Region</span> <span class="o">=</span> c<span class="o">(</span>psmc_data1<span class="nv">$region</span>, psmc_data2<span class="nv">$region</span><span class="o">)</span>, 
+                <span class="nv">Years</span> <span class="o">=</span> c<span class="o">(</span>psmc_data1<span class="nv">$Years</span>, psmc_data2<span class="nv">$Years</span><span class="o">)</span>, 
+                <span class="nv">Effective_pop_size</span> <span class="o">=</span> c<span class="o">(</span>psmc_data1<span class="nv">$Effective_pop_size</span>,psmc_data2<span class="nv">$Effective_pop_size</span><span class="o">)</span>
+                <span class="o">)</span>
 
-<span class="nf">ggplot</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">Years</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">Effective_pop_size</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;NCL-08&quot;</span><span class="p">))</span> <span class="o">+</span> 
-  <span class="nf">geom_line</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">Region</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="m">1.5</span><span class="p">)</span> <span class="o">+</span> 
-  <span class="nf">theme_bw</span><span class="p">()</span> <span class="o">+</span> 
-  <span class="nf">labs</span><span class="p">(</span><span class="n">x</span><span class="o">=</span> <span class="nf">expression</span><span class="p">(</span><span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Years (g=25, &quot;</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="s">&quot;=2,5*&quot;</span><span class="p">,</span> <span class="m">10</span><span class="o">^</span><span class="m">-8</span><span class="p">,</span><span class="s">&quot;)&quot;</span><span class="p">)),</span> <span class="n">y</span><span class="o">=</span><span class="s">&quot;Effective population size&quot;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&#39;Results of PSMC&#39;</span><span class="p">)</span> <span class="o">+</span>
-  <span class="nf">scale_x_log10</span><span class="p">(</span><span class="n">breaks</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">1000</span><span class="p">,</span> <span class="m">10000</span><span class="p">,</span> <span class="m">100000</span><span class="p">,</span> <span class="m">1000000</span><span class="p">),</span> <span class="n">minor_breaks</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="m">500</span><span class="p">,</span> <span class="m">5000</span><span class="p">,</span> <span class="m">50000</span><span class="p">,</span> <span class="m">500000</span><span class="p">))</span> <span class="o">+</span>
-  <span class="nf">scale_y_continuous</span><span class="p">(</span><span class="n">limits</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">3</span><span class="p">))</span>
+ggplot<span class="o">(</span>d, aes<span class="o">(</span><span class="nv">x</span><span class="o">=</span>Years, <span class="nv">y</span><span class="o">=</span>Effective_pop_size, <span class="nv">color</span><span class="o">=</span><span class="s2">&quot;NCL-08&quot;</span><span class="o">))</span> + 
+  geom_line<span class="o">(</span>aes<span class="o">(</span><span class="nv">color</span><span class="o">=</span>Region<span class="o">)</span>, <span class="nv">size</span><span class="o">=</span><span class="m">1</span>.5<span class="o">)</span> + 
+  theme_bw<span class="o">()</span> + 
+  labs<span class="o">(</span><span class="nv">x</span><span class="o">=</span> expression<span class="o">(</span>paste<span class="o">(</span><span class="s2">&quot;Years (g=25, &quot;</span>, mu, <span class="s2">&quot;=2,5*&quot;</span>, <span class="m">10</span>^-8,<span class="s2">&quot;)&quot;</span><span class="o">))</span>, <span class="nv">y</span><span class="o">=</span><span class="s2">&quot;Effective population size&quot;</span>, <span class="nv">title</span><span class="o">=</span><span class="s1">&#39;Results of PSMC&#39;</span><span class="o">)</span> +
+  scale_x_log10<span class="o">(</span><span class="nv">breaks</span><span class="o">=</span>c<span class="o">(</span><span class="m">1000</span>, <span class="m">10000</span>, <span class="m">100000</span>, <span class="m">1000000</span><span class="o">)</span>, <span class="nv">minor_breaks</span><span class="o">=</span>c<span class="o">(</span><span class="m">500</span>, <span class="m">5000</span>, <span class="m">50000</span>, <span class="m">500000</span><span class="o">))</span> +
+  scale_y_continuous<span class="o">(</span><span class="nv">limits</span> <span class="o">=</span> c<span class="o">(</span><span class="m">0</span>,3<span class="o">))</span>
 </pre></div>
 <div id="cell-8" class="clipboard-copy-txt">library(ggplot2)
 
