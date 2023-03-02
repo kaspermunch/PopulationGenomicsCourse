@@ -142,7 +142,7 @@ site_dir: docs # built webpage will be created in the docs folder
 nav:
   - Introduction: 
     - Course description: index.md
-    #- Instructions: instructions.md
+    - Instructions: instructions.md
   - Exercises:
     - 01: notebooks/01_mapping_and_calling.ipynb
     - 02: notebooks/02_F_statistics.ipynb
