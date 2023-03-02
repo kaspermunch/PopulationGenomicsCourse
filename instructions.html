@@ -205,13 +205,15 @@
         
   
   
+    
+  
 
 
   
   
   
     <li class="md-tabs__item">
-      <a href="index.html" class="md-tabs__link">
+      <a href="index.html" class="md-tabs__link md-tabs__link--active">
         Introduction
       </a>
     </li>
@@ -289,12 +291,14 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" checked>
       
       
       
@@ -303,12 +307,18 @@
             
           
         
+          
+        
       
       
         
         
         <div class="md-nav__link md-nav__link--index ">
           <a href="index.html">Introduction</a>
+          
+            <label for="__nav_1">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
           
         </div>
       
@@ -319,6 +329,61 @@
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Instructions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="instructions.html" class="md-nav__link md-nav__link--active">
+        Instructions
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#access-the-material-during-the-physical-course" class="md-nav__link">
+    Access the material during the physical course
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
             
           
         </ul>
@@ -566,15 +631,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#access-the-material-on-ucloud" class="md-nav__link">
-    Access the material on uCloud
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-the-docker-container" class="md-nav__link">
-    Run the docker container
+  <a href="#access-the-material-during-the-physical-course" class="md-nav__link">
+    Access the material during the physical course
   </a>
   
 </li>
@@ -599,36 +657,38 @@
 
 <h1 id="instructions">Instructions<a class="headerlink" href="#instructions" title="Permanent link">&para;</a></h1>
 <p>You have various options to run the course material. You can execute it on a supercomputing system or on your own computer.</p>
-<h3 id="access-the-material-on-ucloud">Access the material on uCloud<a class="headerlink" href="#access-the-material-on-ucloud" title="Permanent link">&para;</a></h3>
-<p><code>Ucloud</code> is an interactive online platform from the <a href="https://escience.sdu.dk/">University of Southern Danmark eScience center</a> that allows users to execute softwares and computer code directly from their browser. If you are enrolled in a danish university or hospital, you can access the platform for free and try the course.</p>
+<h2 id="access-the-material-during-the-physical-course">Access the material during the physical course<a class="headerlink" href="#access-the-material-during-the-physical-course" title="Permanent link">&para;</a></h2>
+<p><code>Ucloud</code> is an interactive online platform from the <a href="https://escience.sdu.dk/">University of Southern Danmark eScience center</a> that allows users to execute softwares and computer code directly from their browser. If you are enrolled in a danish university or other scientific institution, you can access the platform for free and try the course.</p>
 <p>Please follow these instructions to access uCloud and get access to the course:</p>
 <ul>
-<li>
-<p>To access uCloud for the first time, go to the <a href="https://cloud.sdu.dk">ucloud webpage</a> and log in by pressing on the green button and writing your credentials. If you have a mail address from a danish institution or university, you should be able to login with your institutional credentials.</p>
-</li>
-<li>
-<p>Once you log into uCloud, you should see a dashboard window similar to the one below
-  <img alt="" src="img/ucloud_dashboard.png" /></p>
-</li>
-<li>
-<p>On top of this page you have <code>My Workspace</code>. That is your private space where you have some free hundreds of CPU hours and GBs of memory to run different applications (that you can see by using the menu <code>Apps</code> on the left). </p>
-</li>
-<li>
-<p>Click on <code>Apps</code> and find the application called <code>Genomics Courses</code>. Here choose the course <code>Intro to NGS data</code>, and use the other options to choose, for example, how many resources you want to use (we suggest at least 8 vCPUs)</p>
-</li>
+<li>To access uCloud for the first time, go to the <a href="https://cloud.sdu.dk">ucloud webpage</a> and log in by pressing on the green button and writing your credentials. If you have a mail address from a danish institution or university, you should be able to login with your institutional credentials.</li>
 </ul>
-<h3 id="run-the-docker-container">Run the docker container<a class="headerlink" href="#run-the-docker-container" title="Permanent link">&para;</a></h3>
-<p>With <code>Docker</code>, you can create containers that will work in the same way on all the machines. The results of the course are <em>exactly</em> reproducible if you use such a <code>Docker</code> container. We created a container for the course that already contains packages and course material installed. You need to download <code>Docker Desktop</code> <a href="https://www.docker.com/products/docker-desktop/">at this link</a>. We suggest you have at least <code>8GB</code> of RAM and <code>20GB</code> of hard disk space.</p>
+<p><img alt="" src="images/login.png" /></p>
 <ul>
 <li>
-<p>When <code>Docker Desktop</code> is installed, you can use the command line to retrieve the container from the web:
-<code>docker pull samuelesoraggi/ngs-summer-aarhus:2022.08.01</code></p>
+<p>Once you log into uCloud, you should see a dashboard window similar to the one below
+  <img alt="" src="images/dashboard.png" /></p>
 </li>
 <li>
-<p>You can now execute the container. You will see a web address in the output of the command line: you need to copy that into your web browser to see <code>jupyterlab</code>.</p>
+<p>On top of this page you have <code>My Workspace</code>. That is your private space where you have some free hundreds of CPU hours and GBs of memory to run different applications (that you can see by using the menu <code>Apps</code> on the left). If you have been invited into the course project, click on the workspace name and choose the project from the menu opening there. In this way you will have access to the course data and packages.
+  <img alt="" src="images/workspace.png" /></p>
+</li>
+<li>
+<p>Click on <code>Apps</code> and find the application called <code>Jupyterlab</code> (Under the title <code>Development</code>). Click on it. Be careful not to choose the app called <code>Jupyterlab (Type 3)</code>.
+<img alt="" src="images/chooseapp.png" /></p>
+</li>
+<li>
+<p>When the app is opened, click on <code>Import parameters --&gt; Import from Ucloud</code> and choose the file <code>JobParameters.json</code> from the folder <code>Setups</code>
+<img alt="" src="images/param_1.png" /><img alt="" src="images/param_2.png" /><img alt="" src="images/param_3.png" /></p>
+</li>
+<li>
+<p>Now add the folder containing the exercises you copied. Click on <code>Add folder</code> and on the empty text bar appearing below. Browse to your personal folder and choose the exercise folder.
+ <img alt="" src="images/add_1.png" /><img alt="" src="images/add_2.png" /></p>
+</li>
+<li>
+<p>Click on submit. You will be waiting in queue. When the job is running, wait around 1-2 minutes (installations will be running in backgroun), then click on <code>Open Interface</code>.</p>
 </li>
 </ul>
-<p><code>docker run --rm -it -p 8888:8888 samuelesoraggi/ngs-summer-aarhus:2022.08.01</code></p>
 
               
             </article>
@@ -644,6 +704,42 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Course description" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Course description
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="notebooks/01_mapping_and_calling.html" class="md-footer__link md-footer__link--next" aria-label="Next: Mapping and SNP Calling Tutorial" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Mapping and SNP Calling Tutorial
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
