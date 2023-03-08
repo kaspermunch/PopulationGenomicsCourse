@@ -1,17 +1,14 @@
-# Relate
+# Tree sequences
 
 ![billede](https://user-images.githubusercontent.com/47324240/158781125-b0d4af85-69dd-4d4a-b722-30da62e8c18f.png)
 
-Male X chromosomes are easy to use for haplotype-based analysis, as they are haploid and therefore does not require phasing. However, autosomes are diploid, and we would like to use haplotype-based analysis here as well. This can be done through phasing.
+If the sequences in your data set are individual haplotypes, it is possible to construct the coalescence trees for each nonrecombining segment of a genomic alignment. If you are working on male X chromosomes this is easy because they are haploid and do not require phasing. However, autosomes are diploid, and we would like to use haplotype-based analysis here as well. This can be done through either phasing of short reads mapped to a reference genome, or by assembing each haplotype `de novo` using long reads such as PacBio HiFi. Your chr2 data set is already phased so you are good to go.
 
-Multiple phasing methods are known, such as Beagle (used in Week 4) and Shapeit. If you are lucky, the dataset you are using has already been phased, which is where we start this week. We are back to looking at chr2.
-
-In this exercise we will run Relate to infer local trees along a genomic region, and subsequently use those trees for inference.
+In this exercise we will run the Relate program to infer local trees. In the upcomming exercises we will revisit this tree sequence and use it for inference of demography and selection. 
 
 ## Request an interactive session on a compute node:
 
-
-To start off, request an interactive job.
+Begin by requesting an interactive job:
 
 ```
 srun --mem-per-cpu=5g --time=3:00:00 --account=populationgenomics --pty bash
@@ -19,15 +16,15 @@ srun --mem-per-cpu=5g --time=3:00:00 --account=populationgenomics --pty bash
 
 ## Set up an environment for the exercise:
 
-Relate will produce plots with its population size and marginal tree scripts, and this requires some specific r packages. To keep the popgen environment light and snappy, let us install this in a separate environment.
+Relate will produce plots with its population size and marginal tree scripts, and this requires some specific r packages. We install these in a separate environment that we just use for running Relate:
 
 <!-- TODO: Add the below packages to the popgen-notebooks env -->
 
 ```
-conda create --name pg-relate -c conda-forge r-base r-tidyverse r-ggplot2 r-cowplot r-gridextra
+conda create -y -n pg-relate -c conda-forge r-base r-tidyverse r-ggplot2 r-cowplot r-gridextra
 ```
 
-All the Relate scripts can be run in this environment, so make sure the `pg-relate` is activated when you are working on this exericse. To help Relate find some files it needs you also need to run these five commands in order:
+All the Relate scripts can be run in this environment, so make sure the `pg-relate` is activated when you are working on this exericse. To allow Relate find some files it needs, you also need to run these five commands below *in order*.
 
 ```
 conda activate pg-relate
@@ -39,9 +36,9 @@ conda activate pg-relate
 
 ## Data
 
-The chr2 data for this exerise is taken from 60 individuals in the 1000Genomes project. In this dataset, there are 20 individuals from the following populations: GBR (Brits/Scots), JPT (Japanese), YRI (Yoruban).
+The chr2 data for this exerise is from 60 individuals in the 1000Genomes project. There are 20 individuals from each of the following populations: GBR (British in England and Scotland), JPT (Japanese), YRI (Yoruban).
 
-Create some symlinks that lead to the following files:
+Create some symlinks that point to the following files:
 
 ```
 ln -s ~/populationgenomics/data/relate_data/20140520.chr2.strict_mask.fasta
@@ -51,17 +48,13 @@ ln -s ~/populationgenomics/data/relate_data/60_inds.txt
 ln -s~/populationgenomics/data/relate_data/chr2_130_145_phased.vcf.gz
 ```
 
-The first file is a mask containing areas that either have abnormal read depth or has been identified to contain repetitive elements.
-The second file is a recombination map.
-The third file is the ancestral state of every site, based on an alignment with Gorilla, Chimp and Human genomes.
-The fourth file is a metadata file detailing the population and region for each sample.
-The last file is the phased genotype vcf.
+This way it looks like the files are in your current folder. You can run `ls` to see them. The first file is a mask of genomic regions that either have abnormal read depth or contain repetitive elements. The second file is a recombination map. The third file is the ancestral state of every site, based on an alignment with gorilla, chimpanzee and human genomes. The fourth file is a metadata file detailing the population and region for each sample. The last file is the phased genotype VCF file.
 
 The documentation for Relate can be found [here](https://myersgroup.github.io/relate/).
 
-> **NB:** The names of input files for Relate are always supplied without file extensions.
+> **NB:** Running Relate below, you should be away that names of input files are always supplied without the file extensions.
 
-Relate does not accept the standard vcf file format, but instead uses a haps/sample format. You can read up on in the Relate documentation. The authors have been so kind as to supply a script to transform it. First, the vcf is converted to another file format (haplotype file format). If you want to know how it is structured, you can read about it [here](https://www.cog-genomics.org/plink/2.0/formats#haps).
+Relate does not accept the standard VCF file format, but instead uses a haps/sample format. You can read up on in the Relate documentation. The authors have been so kind as to supply a script to transform it. First, the vcf is converted to another file format (haplotype file format). If you want to know how it is structured, you can read about it [here](https://www.cog-genomics.org/plink/2.0/formats#haps).
 
 ```
 RelateFileFormats --mode ConvertFromVcf --haps chr2.haps --sample chr2.sample -i chr2_130_145_phased
@@ -111,5 +104,9 @@ We will revisit this exercise in later sessions. So for now, just have a look at
 TreeView.sh --haps chr2.haps --sample chr2.sample --anc popsize.anc --mut popsize.mut --poplabels 60_inds.txt --years_per_gen 28 -o tree --bp_of_interest 14000000
 ```
 
-**Try to view some trees close to each other and far from each other. Are close trees the same, why? Do trees become more different the further away from each other they are, why? How often do individuals from the same population form a single group? What does that tell you about lineage sorting in humans?**
+**Q5: Try to view some trees close to each other and far from each other. Are close trees the same, why?**
+
+**Q6: Do trees become more different the further away from each other they are, why?**
+
+**Q7: How often do individuals from the same population form a single group? What does that tell you about lineage sorting in humans?**
 
