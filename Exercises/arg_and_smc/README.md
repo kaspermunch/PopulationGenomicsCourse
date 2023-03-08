@@ -1,4 +1,4 @@
-# Ancestral Recombination Graphs and Sequence Genealogies
+# Ancestral Recombination Graphs
 
 1. Right-click [this link](https://raw.githubusercontent.com/kaspermunch/popgen-dashboards/main/popgen_dashboards/notebook.ipynb) and choose "save link as".
 2. Save the notebook to a folder.
