@@ -1,6 +1,13 @@
 # Ancestral Recombination Graphs and Sequence Genealogies
 
-Log into [UCloud](https://cloud.sdu.dk/app/dashboard) and complete this part of the exercise there.
+1. Download <a id="raw-url" href="https://raw.githubusercontent.com/kaspermunch/popgen-dashboards/main/popgen_dashboards/notebook.ipynb">this notebook</a>. 
+2. Put it in a folder. 
+4. Open your terminal on your computer and navigate to that folder.
+5. activate your `popgen` enviroinment.
+6. run `jupyter lab`.
+7. Once jupyter lab opens, double-click the notebook and complete the exercise described.
+
+<!-- Log into [UCloud](https://cloud.sdu.dk/app/dashboard) and complete this part of the exercise there. -->
 
 
 <!-- Set this up on your own machine
