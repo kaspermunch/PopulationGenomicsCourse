@@ -111,3 +111,5 @@ We will revisit this exercise in later sessions. So for now, just have a look at
 TreeView.sh --haps chr2.haps --sample chr2.sample --anc popsize.anc --mut popsize.mut --poplabels 60_inds.txt --years_per_gen 28 -o tree --bp_of_interest 14000000
 ```
 
+**Try to view some trees close to each other and far from each other. Are close trees the same, why? Do trees become more different the further away from each other they are, why? How often do individuals from the same population form a single group? What does that tell you about lineage sorting in humans?**
+
