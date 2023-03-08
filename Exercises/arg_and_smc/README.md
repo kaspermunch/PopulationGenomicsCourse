@@ -1,7 +1,7 @@
 # Ancestral Recombination Graphs and Sequence Genealogies
 
-1. Download <a id="raw-url" href="https://raw.githubusercontent.com/kaspermunch/popgen-dashboards/main/popgen_dashboards/notebook.ipynb">this notebook</a>. 
-2. Put it in a folder. 
+1. Right-click [this link](https://raw.githubusercontent.com/kaspermunch/popgen-dashboards/main/popgen_dashboards/notebook.ipynb) and choose "save link as".
+2. Save the notebook to a folder.
 4. Open your terminal on your computer and navigate to that folder.
 5. activate your `popgen` enviroinment.
 6. run `jupyter lab`.
