@@ -45,7 +45,7 @@ ln -s ~/populationgenomics/data/relate_data/20140520.chr2.strict_mask.fasta
 ln -s ~/populationgenomics/data/relate_data/genetic_map_chr2_combined_b37.txt
 ln -s ~/populationgenomics/data/relate_data/human_ancestor_2.fa
 ln -s ~/populationgenomics/data/relate_data/60_inds.txt
-ln -s~/populationgenomics/data/relate_data/chr2_130_145_phased.vcf.gz
+ln -s ~/populationgenomics/data/relate_data/chr2_130_145_phased.vcf.gz
 ```
 
 This way it looks like the files are in your current folder. You can run `ls` to see them. The first file is a mask of genomic regions that either have abnormal read depth or contain repetitive elements. The second file is a recombination map. The third file is the ancestral state of every site, based on an alignment with gorilla, chimpanzee and human genomes. The fourth file is a metadata file detailing the population and region for each sample. The last file is the phased genotype VCF file.
