@@ -105,6 +105,8 @@ To see the tree files, it is most convenient to work through `slurm-jupyter`. So
 slurm-jupyter -e pg-relate -A populationgenomics -m 8g -t 2h -u your_user_name 
 ```
 
+Once you are in, you can start a terminal and activate your `pg-relate` environment and run the command above. The trees will appear in the file browser to the left where you can double-click to view them.
+
 **Q4: Try to view some trees close to each other and far from each other. Are close trees the same, why?**
 
 **Q5: Do trees become more different the further away from each other they are, why?**
