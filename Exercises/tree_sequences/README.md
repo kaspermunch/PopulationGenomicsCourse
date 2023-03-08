@@ -21,7 +21,7 @@ Relate will produce plots with its population size and marginal tree scripts, an
 <!-- TODO: Add the below packages to the popgen-notebooks env -->
 
 ```
-conda create -y -n pg-relate -c conda-forge r-base r-tidyverse r-ggplot2 r-cowplot r-gridextra libgcc
+conda create -y -n pg-relate -c conda-forge r-base r-tidyverse r-ggplot2 r-cowplot r-gridextra libgcc jupyterlab notebook nodejs ipython
 ```
 
 All the Relate scripts can be run in this environment, so make sure the `pg-relate` is activated when you are working on this exericse. To allow Relate find some files it needs, you also need to run the commands below *in order*.
@@ -83,7 +83,7 @@ Now, the input is fully prepared, and Relate can be run. This should take less t
 
 ## Estimate historical population size and reestimate branch lengths of trees
 
-The lengthiest process is this step, in which population size is estimated, and the population size is re-estimates branch lengths. This takes around 20 minutes. While you are waiting, look at the ARG notebook at the bottom of this page.
+The lengthiest process is this step, in which population size is estimated, and the population size is re-estimates branch lengths. This takes around 20 minutes. While you are waiting, explain to a fellow student how an ARG can be constructed backwards in time and how it can be constructed along the sequence. If time permits, make sure to also explain how the SMC and SMC' models approximate the ARG.
 
 ```
 ~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -i chr2_relate -m 1.25e-8 --poplabels 60_inds.txt -o popsize --threshold 0
@@ -97,6 +97,12 @@ We will revisit this exercise in later sessions. So for now, just have a look at
 
 ```
 POSITION=14000000 ~/populationgenomics/software/relate/scripts/TreeView/TreeView.sh --haps chr2.haps --sample chr2.sample --anc popsize.anc --mut popsize.mut --poplabels 60_inds.txt --years_per_gen 28 -o tree_$POSITION --bp_of_interest $POSITION
+```
+
+To see the tree files, it is most convenient to work through `slurm-jupyter`. So you can close your interactive slurm session and run this command to start `slurm-jupyter`:
+
+```
+slurm-jupyter -e pg-relate -A populationgenomics -m 8g -t 2h -u your_user_name 
 ```
 
 **Q4: Try to view some trees close to each other and far from each other. Are close trees the same, why?**
