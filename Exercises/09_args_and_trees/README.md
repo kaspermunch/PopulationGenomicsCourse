@@ -24,16 +24,16 @@ Relate will produce plots with its population size and marginal tree scripts, an
 <!-- TODO: Add the below packages to the popgen-notebooks env -->
 
 ```
-conda create --name relate_r -c conda-forge r-base r-tidyverse r-ggplot2 r-cowplot r-gridextra
+conda create --name pg-relate -c conda-forge r-base r-tidyverse r-ggplot2 r-cowplot r-gridextra
 ```
 
-All the Relate scripts can be run in this environment, so make sure the `relate_r` is activated when you are working on this exericse. To help Relate find some files it needs you also need to run these four commands in order:
+All the Relate scripts can be run in this environment, so make sure the `pg-relate` is activated when you are working on this exericse. To help Relate find some files it needs you also need to run these four commands in order:
 
 ```
-conda activate relate_r
+conda activate pg-relate
 conda env config vars set LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/envs/popgen/lib
 conda deactivate
-conda activate relate_r
+conda activate pg-relate
 ```
 
 ## Data
@@ -113,7 +113,9 @@ We will revisit this exercise in later sessions. So for now, just have a look at
 
 # Ancestral Recombination Graphs and Sequence Genealogies
 
-Set this up on your own machine
+Log into [UCloud](https://cloud.sdu.dk/app/dashboard) and complete this part of the exercise there.
+
+<!-- Set this up on your own machine
 
 ```
 conda create --name popgen-dashboards -c conda-forge -c plotly -c kaspermunch popgen-dashboards
@@ -125,4 +127,4 @@ git clone https://github.com/kaspermunch/popgen-dashboards/
 
 Then download the notebook by right-clicking <a href="https://raw.githubusercontent.com/kaspermunch/PopulationGenomicsCourse/master/Notebooks/arg-dashboard.ipynb" download="arg-dashboard.ipynb">
 this link
-</a> and "choose save link as". Place it in the popgen_dashboards folder, and run it using jupyter notebook -e popgen-dashboards
+</a> and "choose save link as". Place it in the popgen_dashboards folder, and run it using jupyter notebook -e popgen-dashboards -->

@@ -3,7 +3,7 @@
 
 ----
 
-TODO: Make separate conda environments for each exercise. (pg-calling, pg-fstatsistics, pg-recombination, pg-structure, pg-demography, pg-selection, pg-archaic, pg-gwas, pg-heritability)
+TODO: Make separate conda environments for each exercise (with pg-relate, pg-gwas used in more then one exercise). (pg-calling, pg-fstatsistics, pg-recombination, pg-structure, pg-demography, pg-relate, pg-archaic, pg-gwas, pg-heritability)
 
 -----
 
