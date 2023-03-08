@@ -4,9 +4,9 @@
 2. Save the notebook to a folder.
 4. Open your terminal on your computer and navigate to that folder.
 5. activate your `popgen` enviroinment (`conda activate popgen`).
-6. run `conda install -c conda-forge -c plotly -c kaspermunch "popgen-dashboards=1.0.15"`
+6. run `conda install -y -c conda-forge -c plotly -c kaspermunch "popgen-dashboards=1.0.15"`
 7. run `jupyter lab`
-8. Once jupyter lab opens, double-click the notebook and complete the exercise described.
+8. Once jupyter lab opens, double-click the notebook and follow the exercise in the notebook.
 
 <!-- Log into [UCloud](https://cloud.sdu.dk/app/dashboard) and complete this part of the exercise there. -->
 
