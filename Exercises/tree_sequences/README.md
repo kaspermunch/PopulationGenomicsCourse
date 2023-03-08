@@ -30,7 +30,7 @@ All the Relate scripts can be run in this environment, so make sure the `pg-rela
 conda activate pg-relate
 conda env config vars set LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib
 conda deactivate
-conda activate pg-relate
+conda deactivate
 ```
 
 ## Data
@@ -67,9 +67,9 @@ Then, repetitive (unreliably sequenced) regions must be masked to exclude them f
 
 Inspect the generated files. 
 
-**Q1: How many SNPs were removed due to non-matching nucleotides?**
+**Q1: How many SNPs were removed in this filtering step?**
 
-**Q2: How many were removed due to the mask?**
+Hint: `cat chr2.haps | wc -l` counts the number of lines in `chr2.haps`. And `zcat` is `cat` for `.gz` files.
 
 ## Build trees along the genome
 
@@ -79,7 +79,7 @@ Now, the input is fully prepared, and Relate can be run. This should take less t
 ~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 30000 --haps prep.chr2.haps.gz --sample prep.chr2.sample.gz --map genetic_map_chr2_combined_b37.txt -o chr2_relate
 ```
 
-**Q3: How many SNPs are left per haplotype?**
+**Q2: How many SNPs are left per haplotype?**
 
 ## Estimate historical population size and reestimate branch lengths of trees
 
@@ -95,7 +95,7 @@ The lengthiest process is this step, in which population size is estimated, and 
 
 Relate outputs estimated mutation rate and coalescence times along the region
 
-**Q4: Look at the files and see what you learn**
+**Q3: Look at the files and see what you learn**
 
 We will revisit this exercise in later sessions. So for now, just have a look at some of the estimated trees to get an impression of what they look like. You can do this using the command below. You specify the position you want to see using the `--bp_of_interest` option. The command below produces a `tree.pdf` file showing the tree for position 14000000:
 
@@ -103,9 +103,9 @@ We will revisit this exercise in later sessions. So for now, just have a look at
 ~/populationgenomics/software/relate/scripts/TreeView/TreeView.sh --haps chr2.haps --sample chr2.sample --anc popsize.anc --mut popsize.mut --poplabels 60_inds.txt --years_per_gen 28 -o tree --bp_of_interest 14000000
 ```
 
-**Q5: Try to view some trees close to each other and far from each other. Are close trees the same, why?**
+**Q4: Try to view some trees close to each other and far from each other. Are close trees the same, why?**
 
-**Q6: Do trees become more different the further away from each other they are, why?**
+**Q5: Do trees become more different the further away from each other they are, why?**
 
-**Q7: How often do individuals from the same population form a single group? What does that tell you about lineage sorting in humans?**
+**Q6: How often do individuals from the same population form a single group? What does that tell you about lineage sorting in humans?**
 
