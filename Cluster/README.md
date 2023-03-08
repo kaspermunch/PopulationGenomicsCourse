@@ -1,5 +1,13 @@
 # Instructor zone
 
+
+----
+
+TODO: Make separate conda environments for each exercise. (pg-calling, pg-fstatsistics, pg-recombination, pg-structure, pg-demography, pg-selection, pg-archaic, pg-gwas, pg-heritability)
+
+-----
+
+
 This page is for practical information related exercises on the cluster.
 ## The populationgenomics project folder
 
