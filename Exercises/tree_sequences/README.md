@@ -89,10 +89,6 @@ The lengthiest process is this step, in which population size is estimated, and 
 ~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -i chr2_relate -m 1.25e-8 --poplabels 60_inds.txt -o popsize --threshold 0
 ```
 
-> While this is running jump to the bottom part of the exercise about ancestral recombination graphs. One you are done with that part of the exercise, return here to finish the Relate exercise.
-
-----
-
 Relate outputs estimated mutation rate and coalescence times along the region
 
 **Q3: Look at the files and see what you learn**
@@ -100,7 +96,7 @@ Relate outputs estimated mutation rate and coalescence times along the region
 We will revisit this exercise in later sessions. So for now, just have a look at some of the estimated trees to get an impression of what they look like. You can do this using the command below. You specify the position you want to see using the `--bp_of_interest` option. The command below produces a `tree.pdf` file showing the tree for position 14000000:
 
 ```
-~/populationgenomics/software/relate/scripts/TreeView/TreeView.sh --haps chr2.haps --sample chr2.sample --anc popsize.anc --mut popsize.mut --poplabels 60_inds.txt --years_per_gen 28 -o tree --bp_of_interest 14000000
+POSITION=14000000 ~/populationgenomics/software/relate/scripts/TreeView/TreeView.sh --haps chr2.haps --sample chr2.sample --anc popsize.anc --mut popsize.mut --poplabels 60_inds.txt --years_per_gen 28 -o tree_$POSITION --bp_of_interest $POSITION
 ```
 
 **Q4: Try to view some trees close to each other and far from each other. Are close trees the same, why?**
