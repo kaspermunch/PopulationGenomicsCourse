@@ -96,7 +96,7 @@ Relate outputs estimated mutation rate and coalescence times along the region
 We will revisit this exercise in later sessions. So for now, just have a look at some of the estimated trees to get an impression of what they look like. You can do this using the command below. You specify the position you want to see using the `--bp_of_interest` option. The command below produces a `tree.pdf` file showing the tree for position 14000000:
 
 ```
-POSITION=14000000 ~/populationgenomics/software/relate/scripts/TreeView/TreeView.sh --haps chr2.haps --sample chr2.sample --anc popsize.anc --mut popsize.mut --poplabels 60_inds.txt --years_per_gen 28 -o tree_$POSITION --bp_of_interest $POSITION
+export POSITION=14000000 && ~/populationgenomics/software/relate/scripts/TreeView/TreeView.sh --haps chr2.haps --sample chr2.sample --anc popsize.anc --mut popsize.mut --poplabels 60_inds.txt --years_per_gen 28 -o tree_$POSITION --bp_of_interest $POSITION
 ```
 
 To see the tree files, it is most convenient to work through `slurm-jupyter`. So you can close your interactive slurm session and run this command to start `slurm-jupyter`:
