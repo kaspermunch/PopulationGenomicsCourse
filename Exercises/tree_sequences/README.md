@@ -20,8 +20,12 @@ Relate will produce plots with its population size and marginal tree scripts, an
 
 <!-- TODO: Add the below packages to the popgen-notebooks env -->
 
-```
+<!-- ```
 conda create -y -n pg-relate -c conda-forge r-base r-tidyverse r-ggplot2 r-cowplot r-gridextra libgcc jupyterlab notebook nodejs ipython
+``` -->
+
+```
+conda env create -f ~/populationgenomics/env/pg-relate.yml
 ```
 
 All the Relate scripts can be run in this environment, so make sure the `pg-relate` is activated when you are working on this exericse. To allow Relate find some files it needs, you also need to run the commands below *in order*.
