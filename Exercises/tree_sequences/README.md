@@ -32,7 +32,7 @@ All the Relate scripts can be run in this environment, so make sure the `pg-rela
 
 ```
 conda activate pg-relate
-conda env config vars set LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib
+conda env config vars set LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
 conda deactivate
 conda conda activate pg-relate
 ```
