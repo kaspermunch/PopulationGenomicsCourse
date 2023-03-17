@@ -1,9 +1,13 @@
 
 ---
 
-## Selection
+## Inference of positive selection
 
-With the coalescence rates estimated, it is possible to detect selection.
+In this exercise we will work on inference of selection using the RELATE tool that we also used in the [exercise about tree sequences](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/tree_sequences). In that exercise we inferred all the trees along the chr2 region we have been working on. So we already have the files we need to take the analysis a step further and look for positive selection. So we pick up the [tree sequences exercise](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/tree_sequences) where we left it, you should continue this exericse in the same folder, so you have access to the files you already made. 
+
+Before running the analysis you need to make sure you understand how RELATE quantifies evidence of selelction and how it relates to what you know about positive selection. So team up with one or more fellow student and make sure you understand the relevant Methods section in the [RELATE paper](https://www.nature.com/articles/s41588-019-0484-x) and the section "A tree-based statistic for detecting positive selection" in the [supplementary note for the paper](https://static-content.springer.com/esm/art%3A10.1038%2Fs41588-019-0484-x/MediaObjects/41588_2019_484_MOESM1_ESM.pdf). 
+
+Since we already have the trees along our genomic alignment we can now use Relate to look for evidence of selection in each one.
 
 ```
 ~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i popsize -m 1.25e-8 --poplabels 60_inds.txt -o selection_relate
