@@ -31,6 +31,10 @@ Since we already have the trees along our genomic alignment we can now use Relat
 
 When you are ready, you should have a command prompt from srun. Use that terminal to activate the `pg-relate` environment.
 
+```
+conda activate pg-relate
+```
+
 The Relate command below detects positive selection. At this point, we are detecting selection based on three distinct populations. 
 
 ```
@@ -40,7 +44,7 @@ The Relate command below detects positive selection. At this point, we are detec
 Have a look at the `selection_relate.sele` produced, and see what is in there. Column 35 is the log10 p-value for selection. Run slurm-jupyter with this command on your own computer:
 
 ```
-slurm-jupyter -e pg-relate -A populationgenomics -m 8g -t 3h
+slurm-jupyter -e pg-relate -A populationgenomics -m 8g -t 3h -u username
 ```
 
 and open an R notebook (click big blue `+` button top left and click R notebook). Then this R code to to plot the p-values across the chr2 region:
