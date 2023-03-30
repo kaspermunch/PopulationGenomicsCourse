@@ -133,7 +133,7 @@ along the genome.
 
 ##### Q1. Determine the amount of archaic introgression on each chromosome for each of the five regions.
 
-##### Q2. Repeat this with assignment of archaic regions to archaic species.
+##### Q2. Repeat Q1 with assignment of archaic regions to archaic species.
 
 ##### Q3. You will find that the X chromosome is an outlier (compared to a chromosome of a similar size - chr8). How and why?
 
