@@ -41,6 +41,16 @@ Exercises are on Thursdays: 12-15. You can find the exercises on the GitHub page
 
 ## Week plan	
 
+<!-- 
+TODO:
+Change lectures to the 3-hour slot
+Maybe drop either calling or phasing
+Maybe change from LD hat to pyro
+Drop PCA and Admixture and do MOSAIC instead
+Take over the admixture lecture from Mikkel
+Maybe start the projects earlier so they work on them on the side for longer
+-->
+
 1. Course intro and overview: 
    - Lecture (Kasper): Coop chapters 1, 2, 3, [Paper: Genome Diversity Project](https://www.nature.com/articles/nature18964)
     - Exercise (Jilong): [Cluster practicals](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/01_cluster_practicals)

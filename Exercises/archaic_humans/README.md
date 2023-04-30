@@ -114,7 +114,7 @@ The origin of archaic fragments
 You can assign individuals fragments to archaic origin using the number of SNPs they share with Denisovans, Altai Neanderthal and Vindija Neanderthal. As a simple first approach, we can assign a fragment to the archaic species with whom shares more
 SNPs. If there are no SNPs shared with any of the archaics then consider the fragment unassigned.
 
-##### Q1. For each individual, assign the archaic segments to origin and reconstruct a Figure in the same style as Figure 5 of the Cell paper (plot below).
+##### Q1. For each individual, assign the archaic segments to origin and reconstruct a Figure in the same style as Figure 5 of [the Cell paper](https://www.cell.com/fulltext/S0092-8674(18)30175-2#%20) (plot below).
 
 ![](img/figure5_cell.png)
 
@@ -133,7 +133,7 @@ along the genome.
 
 ##### Q1. Determine the amount of archaic introgression on each chromosome for each of the five regions.
 
-##### Q2. Repeat this with assignment of archaic regions to archaic species.
+##### Q2. Repeat Q1 with assignment of archaic regions to archaic species.
 
 ##### Q3. You will find that the X chromosome is an outlier (compared to a chromosome of a similar size - chr8). How and why?
 
