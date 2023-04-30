@@ -1,5 +1,5 @@
 
-### Project description and requirements
+# Project description and requirements
 
 The last part of this course focus on applying the knowledge acquired during these 10 weeks into real genetic datasets. We encourage you to work on the project in class Monday and Wednesday where one (or several of us) will be there to guide you and answer questions. 
 
@@ -28,10 +28,10 @@ You can choose between three different projects:
 
 Each project lists two relevant papers. The two papers, which go with the project you choose, are included in your curriculum for the oral exam.
 
-#### Deadline
+## Deadline
 The report must be handed in on the 27th of May at 9 AM.
 
-#### Submission
+## Submission
 
 The project needs to be submitted through Brightspace. 
 The name of your report must states your *name* and the chosen *project*:
@@ -40,6 +40,58 @@ MYNAME_archaic.pdf, MYNAME_xchromosome.pdf or MYNAME_GWAS.pdf
 
 -----------------------------------------------------------------------------------------------
 
+# Positive selection among in the chromosome 3 region 3p21.31
+
+The 3p21.31 region on the human chromosome 3 spans about five megabases where positive selection seems to act recurrently. Previously published papers suggest that genes in the region have been under selection on multiple occasions in both African humans, in the ancestors of humans and chimpanzees, and more generally across primates. With your newly aquired skills, you can apply the the most advanced population genomic methods and produce an updated inference of selection in Africans. For this project you have phased genotypes for chr3:46000000-54000000 individuals from the following populations:
+
+```
+YRI 	Yoruba      Yoruba in Ibadan, Nigeria
+LWK 	Luhya       Luhya in Webuye, Kenya
+GWD 	Gambian     Gambian in Western Division, The Gambia 
+MSL 	Mende       Mende in Sierra Leone
+ESN 	Esan        Esan in Nigeria
+```
+
+## Investigate the following
+
+A. Use Relate on all the individuals and visualize trees to an impression of the relationship between the populations.
+
+B. Use Relate on each population seperately to infer positive selection.
+
+C. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, comparing at least five pairs of populations. Identify the Fst outlier regions in each case .
+
+D. Run CLUES or another tree sequence based method for selection inference and compare the results to those obtained using Relate.
+
+E. Identify genes potentially under selection and any known function of these genes. Consider what may drive recurrent selection in this region.
+
+## Papers
+
+[Patterns of Ancestry, Signatures of Natural Selection, and Genetic Association with Stature in Western African Pygmies](https://doi.org/10.1371/journal.pgen.1002641)
+
+## Data
+
+Data for the project can be found in this folder on the cluster:
+
+```
+~/populationgenomics/project_data/Xchromosome/chr3region/chr3_all_460_540_phased.vcf.gz
+~/populationgenomics/project_data/Xchromosome/chr3region/chr3_ESN_460_540_phased.vcf.gz
+~/populationgenomics/project_data/Xchromosome/chr3region/chr3_GWD_460_540_phased.vcf.gz
+~/populationgenomics/project_data/Xchromosome/chr3region/chr3_LWK_460_540_phased.vcf.gz
+~/populationgenomics/project_data/Xchromosome/chr3region/chr3_MSL_460_540_phased.vcf.gz
+~/populationgenomics/project_data/Xchromosome/chr3region/chr3_YRI_460_540_phased.vcf.gz
+~/populationgenomics/project_data/Xchromosome/chr3region/all_inds.txt
+~/populationgenomics/project_data/Xchromosome/chr3region/ESN_inds.txt
+~/populationgenomics/project_data/Xchromosome/chr3region/GWD_inds.txt
+~/populationgenomics/project_data/Xchromosome/chr3region/LWK_inds.txt
+~/populationgenomics/project_data/Xchromosome/chr3region/MSL_inds.txt
+~/populationgenomics/project_data/Xchromosome/chr3region/YRI_inds.txt
+~/populationgenomics/project_data/Xchromosome/chr3region/20140520.chr3.strict_mask.fasta.gz
+~/populationgenomics/project_data/Xchromosome/chr3region/human_ancestor_3.fa
+```
+
+The files are VCF files for all individuals and for each African population seperately. Each file has a corresponding file with the individuals included. The last two files are a mask file and an ancestor sequence file used by Relate. The files are named as in the Relate exercises.
+
+<!-- 
 ## Population Genetics on X-chromosome 
 
 -----------------------------------------------------------------------------------------------
@@ -96,18 +148,20 @@ metadata.txt: Text file containing the population and region of all individuals 
 
 gencode.v30lift37.annotation.gtf.gz: Gtf file containing the gene annotation for human (assembly version Hg19; the same used in Simons Diversity Project). 
 
+----------------------------------------------------------------------------------------------- 
+
+-->
+
 -----------------------------------------------------------------------------------------------
 
-## GWAS of eye color
-
------------------------------------------------------------------------------------------------
+# GWAS of eye color
 
 In this project you will be looking at GWAS data from [openSNP](https://opensnp.org), which is a web site where users of direct-to-customer genetic tests can share their personal data with other users. The phenotype we will be looking at is self-reported eye color. 
 When looking at the data you should be aware that:
 - The data comes from different companies that use different chips so there are markers that are missing from some individuals because they were not present on the chip used by their company.
 - The gender information is missing from the file and by default plink will ignore the phenotype of individuals without gender information. So you have to use “--allow-no-sex” option in plink.
 
-### Investigate the following
+## Investigate the following
 
 A. Are there any closely related individuals in the sample?
 
@@ -128,11 +182,12 @@ Suggestions for further analyses:
 - How many of the significant variants found in the largest published GWAS study can you replicate in this data set?
 - If you use half of the data set to calculate a polygenic score, how well does that score predict eye color on the other half?
 
-### Papers:
+## Papers
+
 * [Genome-wide association study in almost 195,000 individuals identifies 50 previously unidentified genetic loci for eye color](https://advances.sciencemag.org/content/7/11/eabd1239)
 * [Genetic determinants of hair, eye and skin pigmentation in Europeans](https://www.nature.com/articles/ng.2007.13)
 
-### Data:
+## Data
 
 Data for the project can be found in this folder on the cluster:
 
@@ -143,13 +198,11 @@ Data for the project can be found in this folder on the cluster:
 
 -----------------------------------------------------------------------------------------------
 
-## Exploring non-African archaic segments
-
------------------------------------------------------------------------------------------------
+# Exploring non-African archaic segments
 
 In this project you will be looking at segments of archaic genomes idendentified individual modern humans. You will investigate how alike  non-African genomes are in terms of how archaic segments are distributed. You will be working with an extended version of the data set that you worked with in the admixture exercise. In this version you also have an addtional file with the positions of candidate archaic SNPs.
 
-### Investigate the following
+## Investigate the following
 
 In your project you must address the questions below, but you are also expected to expand the project to answer your own questions. How you do this is up to you. You do not need to answer them in the order they are listed. Make a project plan with a set of analyses that  will allow you to answer the questions. 
 
@@ -169,13 +222,13 @@ G. Do individuals with large admixture totals have more correlated admixture pat
 
 H. Perform any additional analyses of your own choice.
 
-### Papers
+## Papers
 
 - [Analysis of Human Sequence Data Reveals Two
 Pulses of Archaic Denisovan Admixture](https://doi.org/10.1016/j.cell.2018.02.031)
 - [Altitude adaptation in Tibetans caused by introgression of Denisovan-like DNA](https://doi.org/10.1038/nature13408)
 
-### Data
+## Data
 
 Data for the project can be found in this folder on the cluster:
 
