@@ -40,9 +40,9 @@ MYNAME_archaic.pdf, MYNAME_xchromosome.pdf or MYNAME_GWAS.pdf
 
 -----------------------------------------------------------------------------------------------
 
-# Positive selection among in the chromosome 3 region 3p21.31
+# Positive selection in the chromosome 3 region 3p21.31
 
-The 3p21.31 region on the human chromosome 3 spans about five megabases where positive selection seems to act recurrently. Previously published papers suggest that genes in the region have been under selection on multiple occasions in both African humans, in the ancestors of humans and chimpanzees, and more generally across primates. With your newly aquired skills, you can apply the the most advanced population genomic methods and produce an updated inference of selection in Africans. For this project you have phased genotypes for chr3:46000000-54000000 individuals from the following populations:
+The 3p21.31 region on the human chromosome 3 spans about five megabases where positive selection seems to act recurrently. Previously published papers suggest that genes in the region have been under selection on multiple occasions in both African humans, in the ancestors of humans and chimpanzees, and more generally across primates. Why strong selection so often affects this region and which genes this selection affects is not not really known. With your newly aquired skills, you can apply the the most advanced population genomic methods and produce an updated inference of selection in Africans. For this project you have phased genotypes for chr3:46000000-54000000 individuals from the following populations:
 
 ```
 YRI 	Yoruba      Yoruba in Ibadan, Nigeria
@@ -54,13 +54,13 @@ ESN 	Esan        Esan in Nigeria
 
 ## Investigate the following
 
-A. Use Relate on all the individuals and visualize trees to an impression of the relationship between the populations.
+A. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, comparing at least five pairs of populations. Identify the Fst outlier regions in each case.
 
-B. Use Relate on each population seperately to infer positive selection.
+B. Use Relate on all the individuals and visualize trees (using Relate or tskit) to get an impression of the relationship between the populations. How does this relate to your Fst retults?
 
-C. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, comparing at least five pairs of populations. Identify the Fst outlier regions in each case .
+C. Use Relate on each population seperately to infer positive selection.
 
-D. Run CLUES or another tree sequence based method for selection inference and compare the results to those obtained using Relate.
+D. Run one or more additional methods for selecion inference. If possible this should be  another tree sequence based method such as CLUES. Compare the results to those obtained using Relate.
 
 E. Identify genes potentially under selection and any known function of these genes. Consider what may drive recurrent selection in this region.
 
