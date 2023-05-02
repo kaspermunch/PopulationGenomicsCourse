@@ -52,6 +52,8 @@ MSL 	Mende       Mende in Sierra Leone
 ESN 	Esan        Esan in Nigeria
 ```
 
+Make yourself familar with the study populations. Where in Africa are they? How are they related?
+
 ## Investigate the following
 
 A. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, comparing at least five pairs of populations. Identify the Fst outlier regions in each case.
