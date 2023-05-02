@@ -40,9 +40,9 @@ MYNAME_archaic.pdf, MYNAME_xchromosome.pdf or MYNAME_GWAS.pdf
 
 -----------------------------------------------------------------------------------------------
 
-# Positive selection among in the chromosome 3 region 3p21.31
+# Positive selection in the chromosome 3 region 3p21.31
 
-The 3p21.31 region on the human chromosome 3 spans about five megabases where positive selection seems to act recurrently. Previously published papers suggest that genes in the region have been under selection on multiple occasions in both African humans, in the ancestors of humans and chimpanzees, and more generally across primates. With your newly aquired skills, you can apply the the most advanced population genomic methods and produce an updated inference of selection in Africans. For this project you have phased genotypes for chr3:46000000-54000000 individuals from the following populations:
+The 3p21.31 region on the human chromosome 3 spans about five megabases where positive selection seems to act recurrently. Previously published papers suggest that genes in the region have been under selection on multiple occasions in both African humans, in the ancestors of humans and chimpanzees, and more generally across primates. Why strong selection so often affects this region and which genes this selection affects is not not really known. With your newly aquired skills, you can apply the the most advanced population genomic methods and produce an updated inference of selection in Africans. For this project you have phased genotypes for chr3:46000000-54000000 individuals from the following populations:
 
 ```
 YRI 	Yoruba      Yoruba in Ibadan, Nigeria
@@ -52,21 +52,27 @@ MSL 	Mende       Mende in Sierra Leone
 ESN 	Esan        Esan in Nigeria
 ```
 
+Make yourself familar with the study populations. Where in Africa are they? How are they related?
+
 ## Investigate the following
 
-A. Use Relate on all the individuals and visualize trees to an impression of the relationship between the populations.
+A. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, comparing at least five pairs of populations. Identify the Fst outlier regions in each case.
 
-B. Use Relate on each population seperately to infer positive selection.
+B. Use Relate on all the individuals and visualize trees (using Relate or tskit) to get an impression of the relationship between the populations. How does this relate to your Fst retults?
 
-C. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, comparing at least five pairs of populations. Identify the Fst outlier regions in each case .
+C. Use Relate on each population seperately to infer positive selection.
 
-D. Run CLUES or another tree sequence based method for selection inference and compare the results to those obtained using Relate.
+D. Run one or more additional methods for selecion inference. If possible this should be  another tree sequence based method such as CLUES. Compare the results to those obtained using Relate.
 
 E. Identify genes potentially under selection and any known function of these genes. Consider what may drive recurrent selection in this region.
 
 ## Papers
 
 [Patterns of Ancestry, Signatures of Natural Selection, and Genetic Association with Stature in Western African Pygmies](https://doi.org/10.1371/journal.pgen.1002641)
+
+Perhaps: [An approximate full-likelihood method for inferring selection and allele frequency trajectories from DNA sequence data](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1008384)
+
+
 
 ## Data
 
@@ -154,9 +160,9 @@ gencode.v30lift37.annotation.gtf.gz: Gtf file containing the gene annotation for
 
 -----------------------------------------------------------------------------------------------
 
-# GWAS of eye color
+# GWAS of eye color or height
 
-In this project you will be looking at GWAS data from [openSNP](https://opensnp.org), which is a web site where users of direct-to-customer genetic tests can share their personal data with other users. The phenotype we will be looking at is self-reported eye color. 
+In this project you will be looking at GWAS data from [openSNP](https://opensnp.org), which is a web site where users of direct-to-customer genetic tests can share their personal data with other users. The phenotypes we will be looking at is self-reported eye color and height. 
 When looking at the data you should be aware that:
 - The data comes from different companies that use different chips so there are markers that are missing from some individuals because they were not present on the chip used by their company.
 - The gender information is missing from the file and by default plink will ignore the phenotype of individuals without gender information. So you have to use “--allow-no-sex” option in plink.
@@ -167,25 +173,24 @@ A. Are there any closely related individuals in the sample?
 
 B. Do a PCA plot. What does it tell you about the samples?
 
-C. The file eye_color.txt contains the self-reported eye colors for the individuals in the data set. Do a GWAS on on the dataset. There are 12 categories and you can group some of them together to create a binary phenotype. How many significant loci do you find? 
+C. The files eye_color.txt and height.txt contains the self-reported eye color and height for the individuals in the data. Do a GWAS on one these traits. There are 12 eye color categories and you can group some of them together to create a binary phenotype. How many significant loci do you find? 
 
-D. Try to look at the SNPs at the most significant locus. If you want to analyse it in R you can use the "--recode A" together wither the "--snp" and "--window" option in plink to get the variants around a specific SNP written to a text file that it is easy to load in R. How is the distribution of eye colors for each genotype of the most significant SNP? Is the effect additive, dominant or recessive?
-
-E. Do additional analyses using plink, GCTA, R or any other tool you might find relevant. The list below contains some suggestions for possible analyses, but you can also come up with your ideas
+D. Do additional analyses using plink, GCTA, R or any other tool you might find relevant. The list below contains some suggestions for possible analyses, but you can also come up with your ideas
 
 Suggestions for further analyses:
 - Use mixed model for GWAS.	
 - Do imputation (either of the whole genome or the region around the most significant SNP) and see if you can then find variants with lower p-values.
-- Make association tests where you condition on most significant variant (you can use the —condition option in plink)
-- Try to treat the categorical data as a quantitative phenotype where some coategories are intermediate values of others.
+- If you use half of the data set to calculate a polygenic score, how well does that score predict height on the other half?
+- Find a trained height PRS on the internet. How well does it predict the height in this data set?
 - Test for epistasis.
-- How many of the significant variants found in the largest published GWAS study can you replicate in this data set?
-- If you use half of the data set to calculate a polygenic score, how well does that score predict eye color on the other half?
+- What are the distribution of phenotypes for each of the genotypes at th most significant SNP? If you want to analyse it in R you can use the "--recode A" together with the "--snp" and "--window" option in plink to get the variants around a specific SNP written to a text file that it is easy to load in R. 
+- How many of the significant variants found in the largest published GWAS study can you replicate those hits in this data set?
+- Make association tests where you condition on most significant variant (you can use the --condition option in plink)
 
 ## Papers
 
 * [Genome-wide association study in almost 195,000 individuals identifies 50 previously unidentified genetic loci for eye color](https://advances.sciencemag.org/content/7/11/eabd1239)
-* [Genetic determinants of hair, eye and skin pigmentation in Europeans](https://www.nature.com/articles/ng.2007.13)
+* [A saturated map of common genetic variants associated with human height | Nature](https://www.nature.com/articles/s41586-022-05275-y)
 
 ## Data
 
