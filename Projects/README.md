@@ -156,9 +156,9 @@ gencode.v30lift37.annotation.gtf.gz: Gtf file containing the gene annotation for
 
 -----------------------------------------------------------------------------------------------
 
-# GWAS of eye color
+# GWAS of eye color or height
 
-In this project you will be looking at GWAS data from [openSNP](https://opensnp.org), which is a web site where users of direct-to-customer genetic tests can share their personal data with other users. The phenotype we will be looking at is self-reported eye color. 
+In this project you will be looking at GWAS data from [openSNP](https://opensnp.org), which is a web site where users of direct-to-customer genetic tests can share their personal data with other users. The phenotypes we will be looking at is self-reported eye color and height. 
 When looking at the data you should be aware that:
 - The data comes from different companies that use different chips so there are markers that are missing from some individuals because they were not present on the chip used by their company.
 - The gender information is missing from the file and by default plink will ignore the phenotype of individuals without gender information. So you have to use “--allow-no-sex” option in plink.
@@ -169,25 +169,24 @@ A. Are there any closely related individuals in the sample?
 
 B. Do a PCA plot. What does it tell you about the samples?
 
-C. The file eye_color.txt contains the self-reported eye colors for the individuals in the data set. Do a GWAS on on the dataset. There are 12 categories and you can group some of them together to create a binary phenotype. How many significant loci do you find? 
+C. The files eye_color.txt and height.txt contains the self-reported eye color and height for the individuals in the data. Do a GWAS on one these traits. There are 12 eye color categories and you can group some of them together to create a binary phenotype. How many significant loci do you find? 
 
-D. Try to look at the SNPs at the most significant locus. If you want to analyse it in R you can use the "--recode A" together wither the "--snp" and "--window" option in plink to get the variants around a specific SNP written to a text file that it is easy to load in R. How is the distribution of eye colors for each genotype of the most significant SNP? Is the effect additive, dominant or recessive?
-
-E. Do additional analyses using plink, GCTA, R or any other tool you might find relevant. The list below contains some suggestions for possible analyses, but you can also come up with your ideas
+D. Do additional analyses using plink, GCTA, R or any other tool you might find relevant. The list below contains some suggestions for possible analyses, but you can also come up with your ideas
 
 Suggestions for further analyses:
 - Use mixed model for GWAS.	
 - Do imputation (either of the whole genome or the region around the most significant SNP) and see if you can then find variants with lower p-values.
-- Make association tests where you condition on most significant variant (you can use the —condition option in plink)
-- Try to treat the categorical data as a quantitative phenotype where some coategories are intermediate values of others.
+- If you use half of the data set to calculate a polygenic score, how well does that score predict height on the other half?
+- Find a trained height PRS on the internet. How well does it predict the height in this data set?
 - Test for epistasis.
-- How many of the significant variants found in the largest published GWAS study can you replicate in this data set?
-- If you use half of the data set to calculate a polygenic score, how well does that score predict eye color on the other half?
+- What are the distribution of phenotypes for each of the genotypes at th most significant SNP? If you want to analyse it in R you can use the "--recode A" together with the "--snp" and "--window" option in plink to get the variants around a specific SNP written to a text file that it is easy to load in R. 
+- How many of the significant variants found in the largest published GWAS study can you replicate those hits in this data set?
+- Make association tests where you condition on most significant variant (you can use the --condition option in plink)
 
 ## Papers
 
 * [Genome-wide association study in almost 195,000 individuals identifies 50 previously unidentified genetic loci for eye color](https://advances.sciencemag.org/content/7/11/eabd1239)
-* [Genetic determinants of hair, eye and skin pigmentation in Europeans](https://www.nature.com/articles/ng.2007.13)
+* [A saturated map of common genetic variants associated with human height | Nature](https://www.nature.com/articles/s41586-022-05275-y)
 
 ## Data
 
