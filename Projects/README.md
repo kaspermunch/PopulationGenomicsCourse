@@ -70,6 +70,10 @@ E. Identify genes potentially under selection and any known function of these ge
 
 [Patterns of Ancestry, Signatures of Natural Selection, and Genetic Association with Stature in Western African Pygmies](https://doi.org/10.1371/journal.pgen.1002641)
 
+Perhaps: [An approximate full-likelihood method for inferring selection and allele frequency trajectories from DNA sequence data](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1008384)
+
+
+
 ## Data
 
 Data for the project can be found in this folder on the cluster:
