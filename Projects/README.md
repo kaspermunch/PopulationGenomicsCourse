@@ -20,9 +20,9 @@ The requirements of the report are:
 
 You can choose between three different projects:
 
-1. **Selective sweeps on the X-chromosome**
+1. **Selective sweeps on chromosome 3**
 
-2. **GWAS of eye color**
+2. **GWAS of eye color or height**
 
 3. **Exploring non-African archaic segments**
 
