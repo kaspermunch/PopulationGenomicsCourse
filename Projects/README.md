@@ -79,20 +79,20 @@ Perhaps: [An approximate full-likelihood method for inferring selection and alle
 Data for the project can be found in this folder on the cluster:
 
 ```
-~/populationgenomics/project_data/Xchromosome/chr3region/chr3_all_460_540_phased.vcf.gz
-~/populationgenomics/project_data/Xchromosome/chr3region/chr3_ESN_460_540_phased.vcf.gz
-~/populationgenomics/project_data/Xchromosome/chr3region/chr3_GWD_460_540_phased.vcf.gz
-~/populationgenomics/project_data/Xchromosome/chr3region/chr3_LWK_460_540_phased.vcf.gz
-~/populationgenomics/project_data/Xchromosome/chr3region/chr3_MSL_460_540_phased.vcf.gz
-~/populationgenomics/project_data/Xchromosome/chr3region/chr3_YRI_460_540_phased.vcf.gz
-~/populationgenomics/project_data/Xchromosome/chr3region/all_inds.txt
-~/populationgenomics/project_data/Xchromosome/chr3region/ESN_inds.txt
-~/populationgenomics/project_data/Xchromosome/chr3region/GWD_inds.txt
-~/populationgenomics/project_data/Xchromosome/chr3region/LWK_inds.txt
-~/populationgenomics/project_data/Xchromosome/chr3region/MSL_inds.txt
-~/populationgenomics/project_data/Xchromosome/chr3region/YRI_inds.txt
-~/populationgenomics/project_data/Xchromosome/chr3region/20140520.chr3.strict_mask.fasta.gz
-~/populationgenomics/project_data/Xchromosome/chr3region/human_ancestor_3.fa
+~/populationgenomics/project_data/chr3region/chr3_all_460_540_phased.vcf.gz
+~/populationgenomics/project_data/chr3region/chr3_ESN_460_540_phased.vcf.gz
+~/populationgenomics/project_data/chr3region/chr3_GWD_460_540_phased.vcf.gz
+~/populationgenomics/project_data/chr3region/chr3_LWK_460_540_phased.vcf.gz
+~/populationgenomics/project_data/chr3region/chr3_MSL_460_540_phased.vcf.gz
+~/populationgenomics/project_data/chr3region/chr3_YRI_460_540_phased.vcf.gz
+~/populationgenomics/project_data/chr3region/all_inds.txt
+~/populationgenomics/project_data/chr3region/ESN_inds.txt
+~/populationgenomics/project_data/chr3region/GWD_inds.txt
+~/populationgenomics/project_data/chr3region/LWK_inds.txt
+~/populationgenomics/project_data/chr3region/MSL_inds.txt
+~/populationgenomics/project_data/chr3region/YRI_inds.txt
+~/populationgenomics/project_data/chr3region/20140520.chr3.strict_mask.fasta.gz
+~/populationgenomics/project_data/chr3region/human_ancestor_3.fa
 ```
 
 The files are VCF files for all individuals and for each African population seperately. Each file has a corresponding file with the individuals included. The last two files are a mask file and an ancestor sequence file used by Relate. The files are named as in the Relate exercises.
