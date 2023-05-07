@@ -171,7 +171,7 @@ When looking at the data you should be aware that:
 
 ## Investigate the following
 
-A. Are there any closely related individuals in the sample?
+A. Do QC. Are there any closely related individuals in the sample?
 
 B. Do a PCA plot. What does it tell you about the samples?
 
