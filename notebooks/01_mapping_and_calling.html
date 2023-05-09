@@ -1878,13 +1878,13 @@ The following tutorial is based on the individual <strong>S_Ju_hoan_North-3</str
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -1899,11 +1899,11 @@ The following tutorial is based on the individual <strong>S_Ju_hoan_North-3</str
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="n">..</span><span class="o">/</span><span class="n">..</span><span class="o">/</span><span class="n">Reference</span>
-<span class="n">cp</span> <span class="n">..</span><span class="o">/</span><span class="n">..</span><span class="o">/</span><span class="n">Data</span><span class="o">/</span><span class="n">fasta</span><span class="o">/</span><span class="n">chr2.fa</span> <span class="n">..</span><span class="o">/</span><span class="n">..</span><span class="o">/</span><span class="n">Reference</span><span class="o">/</span>
-<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="n">..</span><span class="o">/</span><span class="n">..</span><span class="o">/</span><span class="n">Data</span>
-<span class="n">ln</span> <span class="o">-</span><span class="n">s</span> <span class="n">..</span><span class="o">/</span><span class="n">..</span><span class="o">/</span><span class="n">Reference</span>
-<span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="n">Results</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>mkdir -p ../../Reference
+cp ../../Data/fasta/chr2.fa ../../Reference/
+ln -s ../../Data
+ln -s ../../Reference
+mkdir -p Results
 </pre></div>
 <div id="cell-1" class="clipboard-copy-txt">mkdir -p ../../Reference
 cp ../../Data/fasta/chr2.fa ../../Reference/
@@ -1915,29 +1915,6 @@ mkdir -p Results</div>
     </div>
 
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>ln: failed to create symbolic link &#39;./Data&#39;: File exists
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -1960,7 +1937,7 @@ mkdir -p Results</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -1975,7 +1952,7 @@ mkdir -p Results</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">bwa</span> <span class="n">index</span> <span class="o">-</span><span class="n">a</span> <span class="n">bwtsw</span> <span class="n">Reference</span><span class="o">/</span><span class="n">chr2.fa</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>bwa index -a bwtsw Reference/chr2.fa
 </pre></div>
 <div id="cell-2" class="clipboard-copy-txt">bwa index -a bwtsw Reference/chr2.fa</div>
     
@@ -1999,7 +1976,7 @@ mkdir -p Results</div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[bwa_index] Pack FASTA... 1.49 sec
+<pre>[bwa_index] Pack FASTA... 1.54 sec
 [bwa_index] Construct BWT for the packed sequence...
 [BWTIncCreate] textLength=486398746, availableWord=46224508
 [BWTIncConstructFromPacked] 10 iterations done. 75165770 characters processed.
@@ -2014,13 +1991,13 @@ mkdir -p Results</div>
 [BWTIncConstructFromPacked] 100 iterations done. 455729658 characters processed.
 [BWTIncConstructFromPacked] 110 iterations done. 478114410 characters processed.
 [bwt_gen] Finished constructing BWT in 115 iterations.
-[bwa_index] 123.49 seconds elapse.
-[bwa_index] Update BWT... 1.26 sec
-[bwa_index] Pack forward-only FASTA... 0.94 sec
-[bwa_index] Construct SA from BWT and Occ... 57.30 sec
+[bwa_index] 120.03 seconds elapse.
+[bwa_index] Update BWT... 1.17 sec
+[bwa_index] Pack forward-only FASTA... 0.99 sec
+[bwa_index] Construct SA from BWT and Occ... 56.32 sec
 [main] Version: 0.7.17-r1188
 [main] CMD: bwa index -a bwtsw Reference/chr2.fa
-[main] Real time: 199.439 sec; CPU: 184.484 sec
+[main] Real time: 182.078 sec; CPU: 180.045 sec
 </pre>
 </div>
 </div>
@@ -2048,7 +2025,7 @@ mkdir -p Results</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2063,7 +2040,7 @@ mkdir -p Results</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">ls</span> <span class="n">Reference</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>ls Reference
 </pre></div>
 <div id="cell-3" class="clipboard-copy-txt">ls Reference</div>
     
@@ -2115,7 +2092,7 @@ mkdir -p Results</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2130,7 +2107,7 @@ mkdir -p Results</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">samtools</span> <span class="n">faidx</span> <span class="n">Reference</span><span class="o">/</span><span class="n">chr2.fa</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>samtools faidx Reference/chr2.fa
 </pre></div>
 <div id="cell-4" class="clipboard-copy-txt">samtools faidx Reference/chr2.fa</div>
     
@@ -2147,7 +2124,7 @@ mkdir -p Results</div>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2162,7 +2139,7 @@ mkdir -p Results</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">ls</span> <span class="n">Reference</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>ls Reference
 </pre></div>
 <div id="cell-5" class="clipboard-copy-txt">ls Reference</div>
     
@@ -2215,7 +2192,7 @@ chr2.fa.amb  chr2.fa.bwt  chr2.fa.pac
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2230,9 +2207,9 @@ chr2.fa.amb  chr2.fa.bwt  chr2.fa.pac
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">bwa</span> <span class="n">mem</span> <span class="o">-</span><span class="n">t</span> <span class="m">16</span> <span class="o">-</span><span class="n">p</span> <span class="n">Reference</span><span class="o">/</span><span class="n">chr2.fa</span> <span class="s">&#39;./fastq/S_Ju_hoan_North-3.region.fq&#39;</span> <span class="o">|</span> <span class="n">samtools</span> <span class="n">sort</span> <span class="o">-</span><span class="n">O</span> <span class="n">BAM</span> <span class="o">-</span><span class="n">o</span> <span class="s">&#39;./Results/S_Ju_hoan_North-3.bam&#39;</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>bwa mem -t <span class="m">16</span> -p Reference/chr2.fa <span class="s1">&#39;./Data/fastq/S_Ju_hoan_North-3.region.fq&#39;</span> <span class="p">|</span> samtools sort -O BAM -o <span class="s1">&#39;./Results/S_Ju_hoan_North-3.bam&#39;</span>
 </pre></div>
-<div id="cell-6" class="clipboard-copy-txt">bwa mem -t 16 -p Reference/chr2.fa './fastq/S_Ju_hoan_North-3.region.fq' | samtools sort -O BAM -o './Results/S_Ju_hoan_North-3.bam'</div>
+<div id="cell-6" class="clipboard-copy-txt">bwa mem -t 16 -p Reference/chr2.fa './Data/fastq/S_Ju_hoan_North-3.region.fq' | samtools sort -O BAM -o './Results/S_Ju_hoan_North-3.bam'</div>
     
         </div>
     </div>
@@ -2258,7 +2235,7 @@ chr2.fa.amb  chr2.fa.bwt  chr2.fa.pac
 [M::process] read 1600642 sequences (160000012 bp)...
 [M::process] 1586946 single-end sequences; 13696 paired-end sequences
 [M::process] read 1600786 sequences (160000003 bp)...
-[M::mem_process_seqs] Processed 1586946 reads in 230.885 CPU sec, 29.368 real sec
+[M::mem_process_seqs] Processed 1586946 reads in 206.812 CPU sec, 14.668 real sec
 [M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (4, 710, 0, 0)
 [M::mem_pestat] skip orientation FF as there are not enough pairs
 [M::mem_pestat] analyzing insert size distribution for orientation FR...
@@ -2268,10 +2245,10 @@ chr2.fa.amb  chr2.fa.bwt  chr2.fa.pac
 [M::mem_pestat] low and high boundaries for proper pairs: (11, 158)
 [M::mem_pestat] skip orientation RF as there are not enough pairs
 [M::mem_pestat] skip orientation RR as there are not enough pairs
-[M::mem_process_seqs] Processed 13696 reads in 3.202 CPU sec, 0.380 real sec
+[M::mem_process_seqs] Processed 13696 reads in 2.811 CPU sec, 0.193 real sec
 [M::process] 1588148 single-end sequences; 12638 paired-end sequences
 [M::process] read 642285 sequences (64201734 bp)...
-[M::mem_process_seqs] Processed 1588148 reads in 203.147 CPU sec, 26.514 real sec
+[M::mem_process_seqs] Processed 1588148 reads in 183.861 CPU sec, 13.272 real sec
 [M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (1, 757, 0, 1)
 [M::mem_pestat] skip orientation FF as there are not enough pairs
 [M::mem_pestat] analyzing insert size distribution for orientation FR...
@@ -2281,9 +2258,9 @@ chr2.fa.amb  chr2.fa.bwt  chr2.fa.pac
 [M::mem_pestat] low and high boundaries for proper pairs: (7, 161)
 [M::mem_pestat] skip orientation RF as there are not enough pairs
 [M::mem_pestat] skip orientation RR as there are not enough pairs
-[M::mem_process_seqs] Processed 12638 reads in 2.745 CPU sec, 0.351 real sec
+[M::mem_process_seqs] Processed 12638 reads in 2.390 CPU sec, 0.162 real sec
 [M::process] 637205 single-end sequences; 5080 paired-end sequences
-[M::mem_process_seqs] Processed 637205 reads in 91.616 CPU sec, 12.521 real sec
+[M::mem_process_seqs] Processed 637205 reads in 78.603 CPU sec, 6.054 real sec
 [M::mem_pestat] # candidate unique pairs for (FF, FR, RF, RR): (0, 300, 0, 0)
 [M::mem_pestat] skip orientation FF as there are not enough pairs
 [M::mem_pestat] analyzing insert size distribution for orientation FR...
@@ -2293,10 +2270,10 @@ chr2.fa.amb  chr2.fa.bwt  chr2.fa.pac
 [M::mem_pestat] low and high boundaries for proper pairs: (14, 154)
 [M::mem_pestat] skip orientation RF as there are not enough pairs
 [M::mem_pestat] skip orientation RR as there are not enough pairs
-[M::mem_process_seqs] Processed 5080 reads in 1.123 CPU sec, 0.116 real sec
+[M::mem_process_seqs] Processed 5080 reads in 1.033 CPU sec, 0.072 real sec
 [main] Version: 0.7.17-r1188
-[main] CMD: bwa mem -t 16 -p Reference/chr2.fa ./fastq/S_Ju_hoan_North-3.region.fq
-[main] Real time: 94.034 sec; CPU: 535.906 sec
+[main] CMD: bwa mem -t 16 -p Reference/chr2.fa ./Data/fastq/S_Ju_hoan_North-3.region.fq
+[main] Real time: 48.797 sec; CPU: 478.664 sec
 [bam_sort_core] merging from 1 files and 1 in-memory blocks...
 </pre>
 </div>
@@ -2351,7 +2328,7 @@ chr2.fa.amb  chr2.fa.bwt  chr2.fa.pac
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2366,7 +2343,7 @@ chr2.fa.amb  chr2.fa.bwt  chr2.fa.pac
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">samtools</span> <span class="n">view</span> <span class="n">.</span><span class="o">/</span><span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.bam</span> <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="n">n5</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>samtools view ./Results/S_Ju_hoan_North-3.bam <span class="p">|</span> head -n5
 </pre></div>
 <div id="cell-7" class="clipboard-copy-txt">samtools view ./Results/S_Ju_hoan_North-3.bam | head -n5</div>
     
@@ -2424,7 +2401,7 @@ samtools view: error closing standard output: -1
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2439,7 +2416,7 @@ samtools view: error closing standard output: -1
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">samtools</span> <span class="n">flagstat</span> <span class="n">.</span><span class="o">/</span><span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.bam</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>samtools flagstat ./Results/S_Ju_hoan_North-3.bam
 </pre></div>
 <div id="cell-8" class="clipboard-copy-txt">samtools flagstat ./Results/S_Ju_hoan_North-3.bam</div>
     
@@ -2504,7 +2481,7 @@ samtools view: error closing standard output: -1
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2519,10 +2496,10 @@ samtools view: error closing standard output: -1
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">minimap2</span> <span class="o">-</span><span class="n">a</span> <span class="o">-</span><span class="n">x</span> <span class="n">sr</span> <span class="n">Reference</span><span class="o">/</span><span class="n">chr2.fa</span> <span class="n">fastq</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.region.fq</span> <span class="o">|</span> \
-                  <span class="n">samtools</span> <span class="n">sort</span> <span class="o">-</span><span class="n">O</span> <span class="n">BAM</span> <span class="o">-</span><span class="n">o</span> <span class="s">&#39;./Results/S_Ju_hoan_North-3.minimap.bam&#39;</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>minimap2 -a -x sr Reference/chr2.fa Data/fastq/S_Ju_hoan_North-3.region.fq <span class="p">|</span> <span class="se">\</span>
+                  samtools sort -O BAM -o <span class="s1">&#39;./Results/S_Ju_hoan_North-3.minimap.bam&#39;</span>
 </pre></div>
-<div id="cell-9" class="clipboard-copy-txt">minimap2 -a -x sr Reference/chr2.fa fastq/S_Ju_hoan_North-3.region.fq | \
+<div id="cell-9" class="clipboard-copy-txt">minimap2 -a -x sr Reference/chr2.fa Data/fastq/S_Ju_hoan_North-3.region.fq | \
                   samtools sort -O BAM -o './Results/S_Ju_hoan_North-3.minimap.bam'</div>
     
         </div>
@@ -2545,23 +2522,23 @@ samtools view: error closing standard output: -1
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>[M::mm_idx_gen::6.499*1.00] collected minimizers
-[M::mm_idx_gen::7.354*1.23] sorted minimizers
-[M::main::7.354*1.23] loaded/built the index for 1 target sequence(s)
-[M::mm_mapopt_update::7.354*1.23] mid_occ = 1000
+<pre>[M::mm_idx_gen::6.872*1.00] collected minimizers
+[M::mm_idx_gen::7.766*1.23] sorted minimizers
+[M::main::7.766*1.23] loaded/built the index for 1 target sequence(s)
+[M::mm_mapopt_update::7.766*1.23] mid_occ = 1000
 [M::mm_idx_stat] kmer size: 21; skip: 11; is_hpc: 0; #seq: 1
-[M::mm_idx_stat::7.762*1.22] distinct minimizers: 34516711 (96.91% are singletons); average occurrences: 1.154; average spacing: 6.108; total length: 243199373
-[M::worker_pipeline::18.784*2.30] mapped 500234 sequences
-[M::worker_pipeline::25.132*2.52] mapped 500191 sequences
-[M::worker_pipeline::32.092*2.66] mapped 500194 sequences
-[M::worker_pipeline::37.964*2.74] mapped 500202 sequences
-[M::worker_pipeline::43.456*2.80] mapped 500257 sequences
-[M::worker_pipeline::66.683*2.45] mapped 500275 sequences
-[M::worker_pipeline::67.986*2.41] mapped 500203 sequences
-[M::worker_pipeline::68.832*2.39] mapped 342157 sequences
+[M::mm_idx_stat::8.201*1.21] distinct minimizers: 34516711 (96.91% are singletons); average occurrences: 1.154; average spacing: 6.108; total length: 243199373
+[M::worker_pipeline::20.089*2.30] mapped 500234 sequences
+[M::worker_pipeline::26.500*2.52] mapped 500191 sequences
+[M::worker_pipeline::33.960*2.66] mapped 500194 sequences
+[M::worker_pipeline::40.352*2.74] mapped 500202 sequences
+[M::worker_pipeline::45.576*2.80] mapped 500257 sequences
+[M::worker_pipeline::62.586*2.72] mapped 500275 sequences
+[M::worker_pipeline::64.095*2.67] mapped 500203 sequences
+[M::worker_pipeline::64.966*2.64] mapped 342157 sequences
 [M::main] Version: 2.24-r1122
-[M::main] CMD: minimap2 -a -x sr Reference/chr2.fa fastq/S_Ju_hoan_North-3.region.fq
-[M::main] Real time: 68.928 sec; CPU: 164.602 sec; Peak RSS: 2.686 GB
+[M::main] CMD: minimap2 -a -x sr Reference/chr2.fa Data/fastq/S_Ju_hoan_North-3.region.fq
+[M::main] Real time: 65.094 sec; CPU: 171.885 sec; Peak RSS: 2.659 GB
 [bam_sort_core] merging from 1 files and 1 in-memory blocks...
 </pre>
 </div>
@@ -2602,7 +2579,7 @@ samtools view: error closing standard output: -1
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2617,7 +2594,7 @@ samtools view: error closing standard output: -1
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">samtools</span> <span class="n">index</span> <span class="n">.</span><span class="o">/</span><span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.bam</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>samtools index ./Results/S_Ju_hoan_North-3.bam
 </pre></div>
 <div id="cell-10" class="clipboard-copy-txt">samtools index ./Results/S_Ju_hoan_North-3.bam</div>
     
@@ -2652,7 +2629,7 @@ samtools view: error closing standard output: -1
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2667,7 +2644,7 @@ samtools view: error closing standard output: -1
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">samtools</span> <span class="n">depth</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.bam</span> <span class="o">&gt;</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.coverage</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>samtools depth Results/S_Ju_hoan_North-3.bam &gt; Results/S_Ju_hoan_North-3.coverage
 </pre></div>
 <div id="cell-11" class="clipboard-copy-txt">samtools depth Results/S_Ju_hoan_North-3.bam > Results/S_Ju_hoan_North-3.coverage</div>
     
@@ -2684,7 +2661,7 @@ samtools view: error closing standard output: -1
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2699,7 +2676,7 @@ samtools view: error closing standard output: -1
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">less</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.coverage</span> <span class="o">|</span> <span class="n">head</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>less Results/S_Ju_hoan_North-3.coverage <span class="p">|</span> head
 </pre></div>
 <div id="cell-12" class="clipboard-copy-txt">less Results/S_Ju_hoan_North-3.coverage | head</div>
     
@@ -2775,8 +2752,8 @@ samtools view: error closing standard output: -1
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>library<span class="o">(</span>ggplot2<span class="o">)</span>
+library<span class="o">(</span>dplyr<span class="o">)</span>
 </pre></div>
 <div id="cell-13" class="clipboard-copy-txt">library(ggplot2)
 library(dplyr)</div>
@@ -2801,7 +2778,11 @@ library(dplyr)</div>
 
 
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
+<pre>Warning message:
+“package ‘ggplot2’ was built under R version 4.1.3”
+Warning message:
+“package ‘dplyr’ was built under R version 4.1.3”
+
 Attaching package: ‘dplyr’
 
 
@@ -2845,11 +2826,11 @@ The following objects are masked from ‘package:base’:
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">scaf</span> <span class="o">&lt;-</span> <span class="nf">read.table</span><span class="p">(</span><span class="s">&quot;./Results/S_Ju_hoan_North-3.coverage&quot;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;\t&quot;</span><span class="p">,</span> 
-                   <span class="n">na.strings</span><span class="o">=</span><span class="s">&quot;NA&quot;</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="s">&quot;.&quot;</span><span class="p">,</span> <span class="n">strip.white</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">,</span>
-                   <span class="n">col.names</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;Scaffold&quot;</span><span class="p">,</span> <span class="s">&quot;locus&quot;</span><span class="p">,</span> <span class="s">&quot;depth&quot;</span><span class="p">))</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>scaf &lt;- read.table<span class="o">(</span><span class="s2">&quot;./Results/S_Ju_hoan_North-3.coverage&quot;</span>, <span class="nv">header</span><span class="o">=</span>FALSE, <span class="nv">sep</span><span class="o">=</span><span class="s2">&quot;\t&quot;</span>, 
+                   na.strings<span class="o">=</span><span class="s2">&quot;NA&quot;</span>, <span class="nv">dec</span><span class="o">=</span><span class="s2">&quot;.&quot;</span>, strip.white<span class="o">=</span>TRUE,
+                   col.names <span class="o">=</span> c<span class="o">(</span><span class="s2">&quot;Scaffold&quot;</span>, <span class="s2">&quot;locus&quot;</span>, <span class="s2">&quot;depth&quot;</span><span class="o">))</span>
     
-<span class="nf">head</span><span class="p">(</span><span class="n">scaf</span><span class="p">)</span>
+head<span class="o">(</span>scaf<span class="o">)</span>
 </pre></div>
 <div id="cell-14" class="clipboard-copy-txt">scaf <- read.table("./Results/S_Ju_hoan_North-3.coverage", header=FALSE, sep="\t", 
                    na.strings="NA", dec=".", strip.white=TRUE,
@@ -2879,18 +2860,12 @@ head(scaf)</div>
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
 <table class="dataframe">
-<caption>A data.frame: 6 × 3</caption>
+<caption>A data.frame: 0 × 3</caption>
 <thead>
-	<tr><th></th><th scope=col>Scaffold</th><th scope=col>locus</th><th scope=col>depth</th></tr>
-	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th></tr>
+	<tr><th scope=col>Scaffold</th><th scope=col>locus</th><th scope=col>depth</th></tr>
+	<tr><th scope=col>&lt;lgl&gt;</th><th scope=col>&lt;lgl&gt;</th><th scope=col>&lt;lgl&gt;</th></tr>
 </thead>
 <tbody>
-	<tr><th scope=row>1</th><td>2</td><td>48688</td><td>1</td></tr>
-	<tr><th scope=row>2</th><td>2</td><td>48689</td><td>1</td></tr>
-	<tr><th scope=row>3</th><td>2</td><td>48690</td><td>1</td></tr>
-	<tr><th scope=row>4</th><td>2</td><td>48691</td><td>1</td></tr>
-	<tr><th scope=row>5</th><td>2</td><td>48692</td><td>1</td></tr>
-	<tr><th scope=row>6</th><td>2</td><td>48693</td><td>1</td></tr>
 </tbody>
 </table>
 
@@ -2915,13 +2890,13 @@ head(scaf)</div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -2936,17 +2911,17 @@ head(scaf)</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="c1"># Average in windows</span>
-<span class="n">scaf</span> <span class="o">%&gt;%</span> 
-<span class="nf">mutate</span><span class="p">(</span><span class="n">rounded_position</span> <span class="o">=</span> <span class="nf">round</span><span class="p">(</span><span class="n">locus</span><span class="p">,</span> <span class="m">-2</span><span class="p">))</span> <span class="o">%&gt;%</span>
-    <span class="nf">group_by</span><span class="p">(</span><span class="n">rounded_position</span><span class="p">)</span> <span class="o">%&gt;%</span> 
-        <span class="nf">summarize</span><span class="p">(</span><span class="n">mean_cov</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">depth</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">compressed</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span><span class="c1"># Average in windows</span>
+scaf %&gt;% 
+mutate<span class="o">(</span><span class="nv">rounded_position</span> <span class="o">=</span> round<span class="o">(</span>locus, -2<span class="o">))</span> %&gt;%
+    group_by<span class="o">(</span>rounded_position<span class="o">)</span> %&gt;% 
+        summarize<span class="o">(</span><span class="nv">mean_cov</span> <span class="o">=</span> mean<span class="o">(</span>depth<span class="o">))</span> -&gt; compressed
 
 <span class="c1"># Plotting the data</span>
-<span class="n">p</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">data</span> <span class="o">=</span>  <span class="n">compressed</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">rounded_position</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">mean_cov</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_area</span><span class="p">()</span> <span class="o">+</span> <span class="nf">theme_classic</span><span class="p">()</span> <span class="o">+</span> <span class="nf">ylim</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">400</span><span class="p">)</span>
+p &lt;- ggplot<span class="o">(</span><span class="nv">data</span> <span class="o">=</span>  compressed, aes<span class="o">(</span><span class="nv">x</span><span class="o">=</span>rounded_position, <span class="nv">y</span><span class="o">=</span>mean_cov<span class="o">))</span> + geom_area<span class="o">()</span> + theme_classic<span class="o">()</span> + ylim<span class="o">(</span><span class="m">0</span>, <span class="m">400</span><span class="o">)</span>
 
 <span class="c1"># Saving your coverage plot</span>
-<span class="nf">ggsave</span><span class="p">(</span><span class="s">&quot;Results/S_Ju_hoan_North-3.coverage.pdf&quot;</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+ggsave<span class="o">(</span><span class="s2">&quot;Results/S_Ju_hoan_North-3.coverage.pdf&quot;</span>,p<span class="o">)</span>
 </pre></div>
 <div id="cell-15" class="clipboard-copy-txt"># Average in windows
 scaf %>% 
@@ -2964,30 +2939,6 @@ ggsave("Results/S_Ju_hoan_North-3.coverage.pdf",p)</div>
     </div>
 
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>Saving 6.67 x 6.67 in image
-
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -3018,13 +2969,13 @@ ggsave("Results/S_Ju_hoan_North-3.coverage.pdf",p)</div>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -3039,8 +2990,8 @@ ggsave("Results/S_Ju_hoan_North-3.coverage.pdf",p)</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">bcftools</span> <span class="n">mpileup</span> <span class="o">--</span><span class="n">threads</span> <span class="m">16</span> <span class="o">-</span><span class="n">Ou</span> <span class="o">--</span><span class="n">skip</span><span class="o">-</span><span class="n">indels</span> <span class="o">-</span><span class="n">f</span> <span class="n">Reference</span><span class="o">/</span><span class="n">chr2.fa</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.bam</span> <span class="o">|</span> \
-         <span class="n">bcftools</span> <span class="n">call</span> <span class="o">-</span><span class="n">mv</span> <span class="o">-</span><span class="n">Ov</span> <span class="o">-</span><span class="n">o</span> <span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.vcf</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>bcftools mpileup --threads <span class="m">16</span> -Ou --skip-indels -f Reference/chr2.fa Results/S_Ju_hoan_North-3.bam <span class="p">|</span> <span class="se">\</span>
+         bcftools call -mv -Ov -o Results/S_Ju_hoan_North-3.vcf
 </pre></div>
 <div id="cell-16" class="clipboard-copy-txt">bcftools mpileup --threads 16 -Ou --skip-indels -f Reference/chr2.fa Results/S_Ju_hoan_North-3.bam | \
          bcftools call -mv -Ov -o Results/S_Ju_hoan_North-3.vcf</div>
@@ -3049,30 +3000,6 @@ ggsave("Results/S_Ju_hoan_North-3.coverage.pdf",p)</div>
     </div>
 
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>Note: none of --samples-file, --ploidy or --ploidy-file given, assuming all sites are diploid
-[mpileup] 1 samples in 1 input files
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -3090,13 +3017,13 @@ Look at the output vcf file. What does the format look like? Does that match wit
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -3111,7 +3038,7 @@ Look at the output vcf file. What does the format look like? Does that match wit
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">less</span> <span class="n">.</span><span class="o">/</span><span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.vcf</span> <span class="o">|</span> <span class="n">wc</span> <span class="o">-</span><span class="n">l</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>less ./Results/S_Ju_hoan_North-3.vcf <span class="p">|</span> wc -l
 </pre></div>
 <div id="cell-17" class="clipboard-copy-txt">less ./Results/S_Ju_hoan_North-3.vcf | wc -l</div>
     
@@ -3119,29 +3046,6 @@ Look at the output vcf file. What does the format look like? Does that match wit
     </div>
 
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>15793
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -3157,13 +3061,13 @@ Look at the output vcf file. What does the format look like? Does that match wit
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -3178,7 +3082,7 @@ Look at the output vcf file. What does the format look like? Does that match wit
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">less</span> <span class="n">.</span><span class="o">/</span><span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.vcf</span> <span class="o">|</span> <span class="n">head</span> <span class="o">-</span><span class="n">n</span> <span class="m">30</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>less ./Results/S_Ju_hoan_North-3.vcf <span class="p">|</span> head -n <span class="m">30</span>
 </pre></div>
 <div id="cell-18" class="clipboard-copy-txt">less ./Results/S_Ju_hoan_North-3.vcf | head -n 30</div>
     
@@ -3186,58 +3090,6 @@ Look at the output vcf file. What does the format look like? Does that match wit
     </div>
 
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>##fileformat=VCFv4.2
-##FILTER=&lt;ID=PASS,Description=&#34;All filters passed&#34;&gt;
-##bcftoolsVersion=1.8+htslib-1.8
-##bcftoolsCommand=mpileup --threads 16 -Ou --skip-indels -f Reference/chr2.fa Results/S_Ju_hoan_North-3.bam
-##reference=file://Reference/chr2.fa
-##contig=&lt;ID=2,length=243199373&gt;
-##ALT=&lt;ID=*,Description=&#34;Represents allele(s) other than observed.&#34;&gt;
-##INFO=&lt;ID=INDEL,Number=0,Type=Flag,Description=&#34;Indicates that the variant is an INDEL.&#34;&gt;
-##INFO=&lt;ID=IDV,Number=1,Type=Integer,Description=&#34;Maximum number of reads supporting an indel&#34;&gt;
-##INFO=&lt;ID=IMF,Number=1,Type=Float,Description=&#34;Maximum fraction of reads supporting an indel&#34;&gt;
-##INFO=&lt;ID=DP,Number=1,Type=Integer,Description=&#34;Raw read depth&#34;&gt;
-##INFO=&lt;ID=VDB,Number=1,Type=Float,Description=&#34;Variant Distance Bias for filtering splice-site artefacts in RNA-seq data (bigger is better)&#34;,Version=&#34;3&#34;&gt;
-##INFO=&lt;ID=RPB,Number=1,Type=Float,Description=&#34;Mann-Whitney U test of Read Position Bias (bigger is better)&#34;&gt;
-##INFO=&lt;ID=MQB,Number=1,Type=Float,Description=&#34;Mann-Whitney U test of Mapping Quality Bias (bigger is better)&#34;&gt;
-##INFO=&lt;ID=BQB,Number=1,Type=Float,Description=&#34;Mann-Whitney U test of Base Quality Bias (bigger is better)&#34;&gt;
-##INFO=&lt;ID=MQSB,Number=1,Type=Float,Description=&#34;Mann-Whitney U test of Mapping Quality vs Strand Bias (bigger is better)&#34;&gt;
-##INFO=&lt;ID=SGB,Number=1,Type=Float,Description=&#34;Segregation based metric.&#34;&gt;
-##INFO=&lt;ID=MQ0F,Number=1,Type=Float,Description=&#34;Fraction of MQ0 reads (smaller is better)&#34;&gt;
-##FORMAT=&lt;ID=PL,Number=G,Type=Integer,Description=&#34;List of Phred-scaled genotype likelihoods&#34;&gt;
-##FORMAT=&lt;ID=GT,Number=1,Type=String,Description=&#34;Genotype&#34;&gt;
-##INFO=&lt;ID=ICB,Number=1,Type=Float,Description=&#34;Inbreeding Coefficient Binomial test (bigger is better)&#34;&gt;
-##INFO=&lt;ID=HOB,Number=1,Type=Float,Description=&#34;Bias in the number of HOMs number (smaller is better)&#34;&gt;
-##INFO=&lt;ID=AC,Number=A,Type=Integer,Description=&#34;Allele count in genotypes for each ALT allele, in the same order as listed&#34;&gt;
-##INFO=&lt;ID=AN,Number=1,Type=Integer,Description=&#34;Total number of alleles in called genotypes&#34;&gt;
-##INFO=&lt;ID=DP4,Number=4,Type=Integer,Description=&#34;Number of high-quality ref-forward , ref-reverse, alt-forward and alt-reverse bases&#34;&gt;
-##INFO=&lt;ID=MQ,Number=1,Type=Integer,Description=&#34;Average mapping quality&#34;&gt;
-##bcftools_callVersion=1.8+htslib-1.8
-##bcftools_callCommand=call -mv -Ov -o Results/S_Ju_hoan_North-3.vcf; Date=Tue Jan  3 15:05:21 2023
-#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	Results/S_Ju_hoan_North-3.bam
-2	5282534	.	T	A	5.04598	.	DP=1;SGB=-0.379885;MQ0F=0;AC=2;AN=2;DP4=0,0,1,0;MQ=60	GT:PL	1/1:33,3,0
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -3260,13 +3112,13 @@ and ALT alleles</li>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -3281,7 +3133,7 @@ and ALT alleles</li>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">grep</span> <span class="s">&#39;1/1&#39;</span> <span class="n">.</span><span class="o">/</span><span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.vcf</span> <span class="o">|</span> <span class="n">wc</span> <span class="o">-</span><span class="n">l</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>grep <span class="s1">&#39;1/1&#39;</span> ./Results/S_Ju_hoan_North-3.vcf <span class="p">|</span> wc -l
 </pre></div>
 <div id="cell-19" class="clipboard-copy-txt">grep '1/1' ./Results/S_Ju_hoan_North-3.vcf | wc -l</div>
     
@@ -3289,29 +3141,6 @@ and ALT alleles</li>
     </div>
 
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>5444
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -3327,13 +3156,13 @@ and ALT alleles</li>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -3348,7 +3177,7 @@ and ALT alleles</li>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">grep</span> <span class="s">&#39;0/1\|1/0&#39;</span> <span class="n">..</span><span class="o">/</span><span class="n">..</span><span class="o">/</span><span class="n">Results</span><span class="o">/</span><span class="n">S_Ju_hoan_North</span><span class="m">-3</span><span class="n">.vcf</span> <span class="o">|</span> <span class="n">wc</span> <span class="o">-</span><span class="n">l</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>grep <span class="s1">&#39;0/1\|1/0&#39;</span> ../../Results/S_Ju_hoan_North-3.vcf <span class="p">|</span> wc -l
 </pre></div>
 <div id="cell-20" class="clipboard-copy-txt">grep '0/1\|1/0' ../../Results/S_Ju_hoan_North-3.vcf | wc -l</div>
     
@@ -3356,29 +3185,6 @@ and ALT alleles</li>
     </div>
 
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain">
-<pre>10308
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -3395,13 +3201,13 @@ and ALT alleles</li>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div><div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
         
         
         <div class="CodeMirror cm-s-jupyter">
@@ -3416,9 +3222,9 @@ and ALT alleles</li>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="nf">read.table</span><span class="p">(</span><span class="s">&quot;../../Results/S_Ju_hoan_North-3.vcf&quot;</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s">&quot;\t&quot;</span><span class="p">,</span> <span class="n">na.strings</span><span class="o">=</span><span class="s">&quot;NA&quot;</span><span class="p">,</span> <span class="n">dec</span><span class="o">=</span><span class="s">&quot;.&quot;</span><span class="p">,</span> <span class="n">strip.white</span><span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span><span class="nv">t</span> <span class="o">=</span> read.table<span class="o">(</span><span class="s2">&quot;../../Results/S_Ju_hoan_North-3.vcf&quot;</span>,header<span class="o">=</span>FALSE, <span class="nv">sep</span><span class="o">=</span><span class="s2">&quot;\t&quot;</span>, na.strings<span class="o">=</span><span class="s2">&quot;NA&quot;</span>, <span class="nv">dec</span><span class="o">=</span><span class="s2">&quot;.&quot;</span>, strip.white<span class="o">=</span>TRUE<span class="o">)</span>
     
-<span class="nf">head</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+head<span class="o">(</span>t<span class="o">)</span>
 </pre></div>
 <div id="cell-21" class="clipboard-copy-txt">t = read.table("../../Results/S_Ju_hoan_North-3.vcf",header=FALSE, sep="\t", na.strings="NA", dec=".", strip.white=TRUE)
     
@@ -3428,45 +3234,6 @@ head(t)</div>
     </div>
 
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
-<table class="dataframe">
-<caption>A data.frame: 6 × 10</caption>
-<thead>
-	<tr><th></th><th scope=col>V1</th><th scope=col>V2</th><th scope=col>V3</th><th scope=col>V4</th><th scope=col>V5</th><th scope=col>V6</th><th scope=col>V7</th><th scope=col>V8</th><th scope=col>V9</th><th scope=col>V10</th></tr>
-	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><th scope=row>1</th><td>2</td><td> 5282534</td><td>.</td><td>T</td><td>A</td><td> 5.04598</td><td>.</td><td>DP=1;SGB=-0.379885;MQ0F=0;AC=2;AN=2;DP4=0,0,1,0;MQ=60                     </td><td>GT:PL</td><td>1/1:33,3,0</td></tr>
-	<tr><th scope=row>2</th><td>2</td><td> 8015657</td><td>.</td><td>C</td><td>G</td><td> 4.38466</td><td>.</td><td>DP=1;SGB=-0.379885;MQ0F=0;AC=2;AN=2;DP4=0,0,0,1;MQ=54                     </td><td>GT:PL</td><td>1/1:32,3,0</td></tr>
-	<tr><th scope=row>3</th><td>2</td><td>10349722</td><td>.</td><td>C</td><td>T</td><td>17.49230</td><td>.</td><td>DP=2;VDB=0.06;SGB=-0.453602;MQSB=1;MQ0F=0;AC=2;AN=2;DP4=0,0,1,1;MQ=24     </td><td>GT:PL</td><td>1/1:47,6,0</td></tr>
-	<tr><th scope=row>4</th><td>2</td><td>12297549</td><td>.</td><td>T</td><td>C</td><td> 4.38466</td><td>.</td><td>DP=1;SGB=-0.379885;MQ0F=0;AC=2;AN=2;DP4=0,0,0,1;MQ=40                     </td><td>GT:PL</td><td>1/1:32,3,0</td></tr>
-	<tr><th scope=row>5</th><td>2</td><td>13959931</td><td>.</td><td>T</td><td>G</td><td>18.47640</td><td>.</td><td>DP=3;VDB=0.0312982;SGB=-0.511536;MQSB=1;MQ0F=0;AC=2;AN=2;DP4=0,0,2,1;MQ=19</td><td>GT:PL</td><td>1/1:48,9,0</td></tr>
-	<tr><th scope=row>6</th><td>2</td><td>13959944</td><td>.</td><td>T</td><td>C</td><td>24.42990</td><td>.</td><td>DP=3;VDB=0.0433485;SGB=-0.511536;MQSB=1;MQ0F=0;AC=2;AN=2;DP4=0,0,2,1;MQ=19</td><td>GT:PL</td><td>1/1:54,9,0</td></tr>
-</tbody>
-</table>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div>
@@ -3503,7 +3270,7 @@ head(t)</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">geno_column</span> <span class="o">=</span> <span class="n">t</span><span class="p">[[</span><span class="s">&#39;V10&#39;</span><span class="p">]]</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span><span class="nv">geno_column</span> <span class="o">=</span> t<span class="o">[[</span><span class="s1">&#39;V10&#39;</span><span class="o">]]</span>
 </pre></div>
 <div id="cell-22" class="clipboard-copy-txt">geno_column = t[['V10']]</div>
     
@@ -3535,7 +3302,7 @@ head(t)</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">geno_column</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>geno_column<span class="o">[</span><span class="m">1</span>:10<span class="o">]</span>
 </pre></div>
 <div id="cell-23" class="clipboard-copy-txt">geno_column[1:10]</div>
     
@@ -3609,7 +3376,7 @@ head(t)</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">geno</span> <span class="o">=</span> <span class="nf">sapply</span><span class="p">(</span><span class="n">geno_column</span><span class="p">,</span> <span class="nf">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="nf">unlist</span><span class="p">(</span><span class="nf">strsplit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="s">&#39;:&#39;</span><span class="p">))[</span><span class="m">1</span><span class="p">])</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span><span class="nv">geno</span> <span class="o">=</span> sapply<span class="o">(</span>geno_column, <span class="k">function</span><span class="o">(</span>x<span class="o">)</span> unlist<span class="o">(</span>strsplit<span class="o">(</span>x,<span class="s1">&#39;:&#39;</span><span class="o">))[</span><span class="m">1</span><span class="o">])</span>
 </pre></div>
 <div id="cell-24" class="clipboard-copy-txt">geno = sapply(geno_column, function(x) unlist(strsplit(x,':'))[1])</div>
     
@@ -3641,7 +3408,7 @@ head(t)</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="n">geno</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">]</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span>geno<span class="o">[</span><span class="m">1</span>:10<span class="o">]</span>
 </pre></div>
 <div id="cell-25" class="clipboard-copy-txt">geno[1:10]</div>
     
@@ -3715,7 +3482,7 @@ head(t)</div>
                 </div>
             </clipboard-copy>
         </div>
-            <div class="highlight-ipynb hl-R"><pre><span></span><span class="m">1</span> <span class="o">-</span> <span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">geno</span><span class="o">==</span><span class="s">&#39;0/1&#39;</span><span class="p">)</span><span class="o">/</span><span class="nf">length</span><span class="p">(</span><span class="n">geno</span><span class="p">))</span><span class="o">^</span><span class="m">2</span> <span class="o">-</span> <span class="p">(</span><span class="nf">sum</span><span class="p">(</span><span class="n">geno</span><span class="o">==</span><span class="s">&#39;1/1&#39;</span><span class="p">)</span><span class="o">/</span><span class="nf">length</span><span class="p">(</span><span class="n">geno</span><span class="p">))</span><span class="o">^</span><span class="m">2</span>
+            <div class="highlight-ipynb hl-bash"><pre><span></span><span class="m">1</span> - <span class="o">(</span>sum<span class="o">(</span><span class="nv">geno</span><span class="o">==</span><span class="s1">&#39;0/1&#39;</span><span class="o">)</span>/length<span class="o">(</span>geno<span class="o">))</span>^2 - <span class="o">(</span>sum<span class="o">(</span><span class="nv">geno</span><span class="o">==</span><span class="s1">&#39;1/1&#39;</span><span class="o">)</span>/length<span class="o">(</span>geno<span class="o">))</span>^2
 </pre></div>
 <div id="cell-26" class="clipboard-copy-txt">1 - (sum(geno=='0/1')/length(geno))^2 - (sum(geno=='1/1')/length(geno))^2</div>
     
