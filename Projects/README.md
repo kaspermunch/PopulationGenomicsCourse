@@ -29,7 +29,7 @@ You can choose between three different projects:
 Each project lists two relevant papers. The two papers, which go with the project you choose, are included in your curriculum for the oral exam.
 
 ## Deadline
-The report must be handed in on the 27th of May at 9 AM.
+To be eligible for the exam, the report must be handed before **May 24. at 7 AM**.
 
 ## Submission
 
