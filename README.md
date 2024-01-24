@@ -98,11 +98,11 @@ Maybe start the projects earlier so they work on them on the side for longer
     - Lecture (Søren): [Genetic architecture review]() ; [Article about "omnigenic" model]() ; Coop Lecture notes Sec. 11.0.1 (p217-221)    
     - Exercise (Bjarke): [Estimating heritability](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/11_heritability)
 12. Project presentations:  
-    - Lecture (Kasper, Mikkel, Søren): None
+    - Lecture (Kasper, Søren): None
     - Exercise (Bjarke):  None. Focus on projects
 13. Project guidance:   
-    - Lecture (Kasper, Mikkel, Søren): None
+    - Lecture (Kasper, Søren): None
     - Exercise (Bjarke):  None. Focus on projects
 14. Project guidance:   
-    - Lecture (Kasper, Mikkel, Søren): None
+    - Lecture (Kasper, Søren): None
     - Exercise (Bjarke):  None. Focus on projects
