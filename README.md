@@ -1,4 +1,4 @@
-# Population Genomics 2021
+# Population genomics course
 
 ## Description
 After the course, the participants will have detailed knowledge of the methods and applications required to perform a typical population genomic study.
