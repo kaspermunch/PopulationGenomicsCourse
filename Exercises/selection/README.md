@@ -109,3 +109,4 @@ Now you can rerun all the relate commands with these two new files, including th
 **Try plotting trees at the same positions in the two different analyses, and see whether the trees in the analysis of only GBR are similar to the ones including all three populations.**
 
 
+<!-- TODO: Add Clues analysis -->
