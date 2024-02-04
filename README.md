@@ -70,14 +70,14 @@ Maybe start the projects earlier so they work on them on the side for longer
 1. Course intro and overview: 
    - Lecture (Kasper): Coop chapters 1, 2, 3, [Paper: Simons Genome Diversity Project](https://www.nature.com/articles/nature18964)
     - Exercise (Bjarke): [Cluster practicals](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/cluster_practicals)
-2. Drift and the coalescent:
+2. Drift and the coalescent, Ancestral recombination graph:
     - Lecture (Kasper): Coop chapter 4; [Paper: Platypus](https://www.nature.com/articles/ng.3036),
     - Exercise (Bjarke): [Read mapping and base calling](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/mapping_and_calling)
 3. Past population demography, Ancestral recombination graph, Tree Sequences:
-    - Lecture (Kasper): Revisit Coop chapter 4, [Paper: Approximating the ARG](https://bmcgenomdata.biomedcentral.com/articles/10.1186/1471-2156-7-16), [Paper: Tree inference](https://www.nature.com/articles/s41588-019-0484-x)
+    - Lecture (Kasper): [Paper: Approximating the ARG](https://bmcgenomdata.biomedcentral.com/articles/10.1186/1471-2156-7-16), [Paper: Tree inference](https://www.nature.com/articles/s41588-019-0484-x)
     - Exercise (Bjarke): [Tree sequences and inference of demography](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/tree_sequences)
-4. Recombination:
-    - Lecture (Juraj): Recombination in eukaryotes, Phasing and recombination inference[Review: Recombination in eukaryotes](https://royalsocietypublishing.org/doi/10.1098/rstb.2016.0455), [Review: Recombination rate estimation](https://www.nature.com/articles/s41576-020-0240-1)
+4. Recombination: Recombination, Phasing and recombination inference
+    - Lecture (Juraj): [Review: Recombination in eukaryotes](https://royalsocietypublishing.org/doi/10.1098/rstb.2016.0455), [Review: Recombination rate estimation](https://www.nature.com/articles/s41576-020-0240-1)
     - Exercise (Bjarke): [Phasing and recombination rate](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/phasing_and_recombination)
 5. Population structure and incomplete lineage sorting:
     - Lecture: Coop chapter 6, [Review: Incomplete lineage sorting](https://doi.org/10.1146/annurev-genet-120213-092532)
