@@ -7,7 +7,7 @@
 Create a conda environment on your own computer:
 
 ```bash
-conda create -n arg-dashboard -c conda-forge -c plotly -c kaspermunch popgen-dashboards=1.1.4
+conda create -n arg-dashboard -c conda-forge -c plotly -c kaspermunch popgen-dashboards=1.1.5
 ```
 
 Acitvate the environment:
