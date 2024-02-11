@@ -31,7 +31,7 @@ Start the Docker Desktop application (you may be prompted to create a login and 
 Run the dashboard app in your in the Terminal on Mac or in Anaconda PowerShell Prompt on Windows:
 
 ```bash
-docker run --rm -i -t -p 8050:8050 kaspermunch/arg-dashboard-linux-amd64:1.0
+docker run --rm -i -t -p 8050:8050 kaspermunch/arg-dashboard-linux-amd64:1.1.5
 ```
 
 To view the dashboard, right-click (open in new tab) or paste this address into your browser : [http://127.0.0.1:8050](http://127.0.0.1:8050)
