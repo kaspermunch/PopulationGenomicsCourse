@@ -20,7 +20,7 @@ Run the dashboard app:
 
     arg-dashboard
 
-if it does not show up in your browser, you can click or paste this address into your browser: [http://127.0.0.1:8050](http://127.0.0.1:8050 "localhost" target="_blank")
+if it does not show up in your browser, you can right-click (open in new tab) or paste this address into your browser : [http://127.0.0.1:8050](http://127.0.0.1:8050)
 
 ### Plan B: Docker
 
@@ -34,7 +34,7 @@ Run the dashboard app in your in the Terminal on Mac or in Anaconda PowerShell P
 docker run --rm -i -t -p 8050:8050 kaspermunch/arg-dashboard-linux-amd64:1.0
 ```
 
-To view the dashboard, click or paste this address into your browser: [http://127.0.0.1:8050](http://127.0.0.1:8050 "localhost" target="_blank")
+To view the dashboard, right-click (open in new tab) or paste this address into your browser : [http://127.0.0.1:8050](http://127.0.0.1:8050)
 
 
 ## Exercise 1 Simulate some ARGs
