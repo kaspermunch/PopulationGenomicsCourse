@@ -37,6 +37,8 @@ docker run --rm -i -t -p 8050:8050 kaspermunch/arg-dashboard-linux-amd64:1.0
 To view the dashboard, right-click (open in new tab) or paste this address into your browser : [http://127.0.0.1:8050](http://127.0.0.1:8050)
 
 
+> If you have a small screen, you may need to zoom out a bit to see en entire dashboard. On Chrome, you click the top right three dots and select a zoom level of 80%.
+
 ## Exercise 1: Simulate some ARGs
 
 1. The *Main* panel shows a simulated graph. Click `New` to generate a new graph. Dropdown menus control the type of graph, the number of samples and the sequence length. Choose "ARG" for the simulation, a sample size of "5" and a sequence length of "2kb". 
