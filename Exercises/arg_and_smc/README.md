@@ -26,20 +26,12 @@ if it does not show up in your browser, you can click or paste this address into
 
 Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) on your own machine. 
 
-Start Docker Desktop (you may be prompted to create a login and password for DockerHub)
+Start the Docker Desktop application (you may be prompted to create a login and password for DockerHub)
 
-To run the dashboard app in the Linux container you need different commamnds on Mac and Windows:
-
-**Mac:**
+Run the dashboard app in your in the Terminal on Mac or in Anaconda PowerShell Prompt on Windows:
 
 ```bash
-docker run --rm -v $HOME/.anaconda:/root/.anaconda -v $(pwd):$(pwd) -w $(pwd) -i -t -p 8050:8050 kaspermunch/arg-dashboard-linux-amd64:1.0
-```
-
-**Windows:**
-
-```bash
-docker run --rm -v //c/users/$env:username/.anaconda:/root/.anaconda -v //c/users/$env:username://c/users/$env:username -i -t -p 8050:8050 kaspermunch/arg-dashboard-linux-amd64:1.0
+docker run --rm -i -t -p 8050:8050 kaspermunch/arg-dashboard-linux-amd64:1.0
 ```
 
 To view the dashboard, click or paste this address into your browser: [http://127.0.0.1:8050](http://127.0.0.1:8050)
