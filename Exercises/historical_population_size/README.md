@@ -26,6 +26,11 @@ Start by asking for a computing machine by running this command:
 ```bash
 srun --mem-per-cpu=5g --time=3:00:00 --account=populationgenomics --pty bash
 ```
+## Create and activate PSMC environment 
+```bash
+conda env create -f ~populationgenomics/env/exercise_envs/psmc_wk3
+conda activate psmc_wk3
+```
 
 Starting from mapped reads, the first step is to produce a consensus sequence in FASTQ format, which stores both the sequence and its corresponding quality scores, that will be used for QC filtering. The consensus sequence has A, T, C or G at homozygous sites, and other letters [IUPAC codes](https://www.bioinformatics.org/sms/iupac.html) to represent heterozygotes. To make the consensus calls, we use the samtools/bcftools suite. We first use `samtools mpileup` to get the pileup of reads for each position. We then generate a consensus sequence with `bcftools`, which we convert to FASTQ (with some additional filtering) by `vcfutils.pl`. We take advantage of Unix pipes and the ability of `samtools` to work with streaming input and output to run the whole pipeline (`samtools` -> `bcftools` -> `vcfutils.pl`) as one command. We run our consensus calling pipeline, consisting of a linked set of `samtools`, `bcftools`, and `vcfutils.pl` commands:
 
@@ -84,11 +89,6 @@ When the PSMC completes you can make the PSMC plot. You have to specify the per-
     export PATH=$PATH:~/populationgenomics/software
 ```
 
-We will also need to install an additional package to our conda environment:
-
-```bash
-    conda install -c conda-forge ghostscript
-```
 
 Then you can generate the plot like this:
 
