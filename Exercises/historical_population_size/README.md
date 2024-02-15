@@ -11,7 +11,11 @@ The files we are goint to use are the following:
 - BAI file: ~/populationgenomics/data/bam/S_Hungarian-2.chr2.bam.bai
 - Fasta file: ~/populationgenomics/data/fasta/chr2.fa
 
+
 Start by creating soft links to these files in your own folder. The example individual used below is a Hungarian individual with id ERR1025630. You should replace that to run the same analysis on another individual.
+
+The code of creating soft links looks like this:
+ln -s ~/populationgenomics/data/bam/filename_here
 
 Pick a couple of individuals and mark them as yours in [here](https://docs.google.com/spreadsheets/d/1OEHI1tNiwHrwKkl9L5rPtbVKCHQDpCZtKzpnZ1sWKJY/edit?usp=sharing). You will all put your results in a shared folder with the ln -s command:
 
@@ -28,7 +32,7 @@ srun --mem-per-cpu=5g --time=3:00:00 --account=populationgenomics --pty bash
 ```
 ## Create and activate PSMC environment 
 ```bash
-conda env create -f ~populationgenomics/env/exercise_envs/psmc_wk3
+conda env create -f ~/populationgenomics/env/exercise_envs/psmc_wk3.yml
 conda activate psmc_wk3
 ```
 
