@@ -12,7 +12,7 @@ The files we are goint to use are the following:
 - Fasta file: ~/populationgenomics/data/fasta/chr2.fa
 
 
-Start by creating soft links to these files in your own folder. The example individual used below is a Hungarian individual with id ERR1025630. You should replace that to run the same analysis on another individual.
+Start by creating soft links to these files in your *own* folder. The example individual used below is a Hungarian individual with id ERR1025630. You should replace that to run the same analysis on another individual.
 
 The code of creating soft links looks like this:
 ln -s ~/populationgenomics/data/bam/filename_here
