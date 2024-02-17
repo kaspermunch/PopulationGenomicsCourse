@@ -45,64 +45,42 @@ Exercises are on Thursdays from 12:15 to 14:00. The week plan below has links to
 
 ## Week plan    
 
-<!-- 
-TODO:
-Change lectures to the 3-hour slot
-Maybe drop either calling or phasing
-Maybe change from LD hat to pyro
-Drop PCA and Admixture and do MOSAIC instead
-Take over the admixture lecture from Mikkel
-Maybe start the projects earlier so they work on them on the side for longer
--->
+<!-- SEE 2025 PLAN BELOW!  -->
 
-<!-- 5. Hidden Markov models:
-    - Lecture : Durbin chapter 3, [Paper: population structure](https://www.nature.com/articles/nature07331)
-    - Exercise (Bjarke): [Inference of population structure and admixture](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/05_population_structure)
- -->
-
-
-<!-- - Exercise (Bjarke): [Working with VCF files](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/03_f_statistics) -->
-
-<!-- 5. Ancestral recombination graphs:
-    - Lecture : [Paper: Approximating the ARG](https://bmcgenomdata.biomedcentral.com/articles/10.1186/1471-2156-7-16), [Paper: Tree inference](https://www.nature.com/articles/s41588-019-0484-x)
-    - Exercise (Bjarke): ARG dashboard exercises + Inference of trees along sequence -->
-
-  <!--  [Paper: Approximating the ARG](https://bmcgenomdata.biomedcentral.com/articles/10.1186/1471-2156-7-16),  --> 
-
-1. Course intro and overview:  <!-- bla bla -->
+1. Course intro and overview:  
    - Lecture (Kasper): Coop chapters 1, 2, 3, [Paper: Simons Genome Diversity Project](https://www.nature.com/articles/nature18964)
     - Exercise (Bjarke): [Cluster practicals](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/cluster_practicals)
-2. Drift and the coalescent, Ancestral recombination graph: <!-- bla bla -->
+2. Drift and the coalescent, Ancestral recombination graph: 
     - Lecture (Kasper): Coop chapter 4; [Paper about Platypus](https://www.nature.com/articles/ng.3036),
     - Exercise (Bjarke): [Read mapping and base calling](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/mapping_and_calling)
-3. Past population demography, HMMs, Ancestral recombination graph, : <!-- ARG slide amimation, popgen dashboard exsercise, PSMC apper with HMM intro -->
+3. Past population demography, HMMs, Ancestral recombination graph, :
     - Lecture (Kasper):  [Paper about PSMC](https://www.nature.com/articles/nature10231)
     - Exercise (Bjarke): [Estimating past population sizes](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/demography)
-4. Recombination, Phasing, HMMs, Ancestral recombination graph, PSMC: <!-- Juraj about recombination and phasing amd me about RELATE -->
+4. Recombination, Phasing, HMMs, Ancestral recombination graph, PSMC: 
     - Lecture (Kasper and Juraj): [Paper about tree inference](https://www.nature.com/articles/s41588-019-0484-x), [Review about recombination rate estimation](https://www.nature.com/articles/s41576-020-0240-1)
-    - Exercise (Bjarke): [Phasing](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/phasing)
-5. Population structure, Incomplete lineage sorting, HMMs: <!-- bla bla -->
+    - Exercise (Bjarke): [Phasing and recombination](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/phasing)
+5. Population structure, Incomplete lineage sorting, HMMs: 
     - Lecture: Coop chapter 6, [Review about incomplete lineage sorting](https://doi.org/10.1146/annurev-genet-120213-092532)
     - Exercise: [Inference of population structure and admixture](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/population_structure)
-6. Admixture, HMMs: <!-- bla bla -->
+6. Admixture, HMMs: 
    - Lecture (Kasper): [Review about admixture](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007349), [Paper about admixture inference](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007641)
    - Exercise (Bjarke): [Detecting archaic ancestry in modern humans](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/admixture)
 7. Tree Sequences:
     - Lecture (Kasper): [Paper about tree inference](https://www.nature.com/articles/s41588-019-0484-x),
     - Exercise (Bjarke): [Tree sequences](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/tree_sequences)
-8. Direct and linked selection: <!-- bla bla -->
+8. Direct and linked selection: 
     - Lecture: Coop chapters 12, 13, revisit [Paper about tree inference](https://www.nature.com/articles/s41588-019-0484-x)
     - Exercise (Bjarke): [Inference of positive selection](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/selection)
-9.  Genome-wide association study (GWAS): <!-- bla bla -->
+9.  Genome-wide association study (GWAS): 
     - Lecture (Søren): GWAS review, Population stratification review, [Coop lecture notes](https://github.com/cooplab/popgen-notes/releases/download/v1.2/release_popgen_notes.pdf) 99-120
     - Exercise (Bjarke): [GWAS quality control](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/GWAS_QC)
-10. Heritability: <!-- bla bla -->
+10. Heritability: 
     - Lecture (Søren): [Missing heritability and mixed models review]() ; Coop Lecture notes Sec. 2.2 (p23-36) + Chap. 7 (p119-142)     
     - Exercise (Bjarke): [Association testing](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/GWAS_association)
-11.  Evolution and disease: <!-- bla bla -->
+11.  Evolution and disease: 
     - Lecture (Søren): [Genetic architecture review]() ; [Article about "omnigenic" model]() ; Coop Lecture notes Sec. 11.0.1 (p217-221)    
     - Exercise (Bjarke): [Estimating heritability](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/heritability)
-12.  Project presentations: <!-- bla bla -->
+12.  Project presentations: 
      - Lecture (Kasper, Søren): None
      - Exercise (Bjarke):  None. Focus on projects
 13.  Project guidance:   
@@ -113,19 +91,47 @@ Maybe start the projects earlier so they work on them on the side for longer
     - Exercise (Bjarke):  None. Focus on projects
 
 <!-- 
-1. Course intro and overview:
-2. Drift and the coalescent: 
-3. Recombination, Phasing: 
-4. Ancestral recombination graph:
-5. HMMs, Past population demography, PSMC: 
-6. Population structure, Incomplete lineage sorting, HMMs:
-7. Admixture, HMMs: 
-8. Tree Sequences:
-9. Direct and linked selection:
-10. Genome-wide association study (GWAS):
-11. Heritability:
-12.  Evolution and disease:
+1. Course intro, propagation of genes, coalescent:  
+   - Lecture (Kasper): Coop chapters 1, 2, 3, [Paper: Simons Genome Diversity Project](https://www.nature.com/articles/nature18964)
+    - Exercise (Bjarke): [Cluster practicals](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/cluster_practicals)
+2.  Drift and the coalescent: 
+    - Lecture (Kasper): Coop chapter 4; [Paper about Platypus](https://www.nature.com/articles/ng.3036),
+    - Exercise (Bjarke): [Read mapping and base calling](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/mapping_and_calling)
+3.  Recombination, Phasing, Ancestral recombination graph:
+    - Lecture (Kasper): [Review about recombination rate estimation](https://www.nature.com/articles/s41576-020-0240-1), [SMC paper]()
+    - Exercise (Bjarke): [Phasing](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/phasing)
+4.  HMMs, Past population demography, PSMC: 
+    - Lecture (Kasper): [Paper about PSMC](https://www.nature.com/articles/nature10231)
+    - Exercise (Bjarke): [Estimating past population sizes](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/demography)
+5.  Population structure, Incomplete lineage sorting, HMMs: 
+    - Lecture: Coop chapter 6, [Review about incomplete lineage sorting](https://doi.org/10.1146/annurev-genet-120213-092532)
+    - Exercise: [Inference of population structure and admixture](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/population_structure)
+6.  Admixture, HMMs: 
+   - Lecture (Kasper): [Review about admixture](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007349), [Paper about admixture inference](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007641)
+   - Exercise (Bjarke): [Detecting archaic ancestry in modern humans](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/admixture)
+7.  Tree Sequences:
+    - Lecture (Kasper): [Paper about tree inference](https://www.nature.com/articles/s41588-019-0484-x),
+    - Exercise (Bjarke): [Tree sequences](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/tree_sequences)
+8.  Direct and linked selection: 
+    - Lecture: Coop chapters 12, 13, revisit [Paper about tree inference](https://www.nature.com/articles/s41588-019-0484-x)
+    - Exercise (Bjarke): [Inference of positive selection](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/selection)
+9.  Genome-wide association study (GWAS): 
+    - Lecture (Søren): GWAS review, Population stratification review, [Coop lecture notes](https://github.com/cooplab/popgen-notes/releases/download/v1.2/release_popgen_notes.pdf) 99-120
+    - Exercise (Bjarke): [GWAS quality control](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/GWAS_QC)
+11. Heritability: 
+    - Lecture (Søren): [Missing heritability and mixed models review]() ; Coop Lecture notes Sec. 2.2 (p23-36) + Chap. 7 (p119-142)     
+    - Exercise (Bjarke): [Association testing](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/GWAS_association)
+12.  Evolution and disease: 
+    - Lecture (Søren): [Genetic architecture review]() ; [Article about "omnigenic" model]() ; Coop Lecture notes Sec. 11.0.1 (p217-221)    
+    - Exercise (Bjarke): [Estimating heritability](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/heritability)
 13.  Project presentations: 
+     - Lecture (Kasper, Søren): None
+     - Exercise (Bjarke):  None. Focus on projects
 14.  Project guidance:   
-15. Project guidance:    
--->
+     - Lecture (Kasper, Søren): None
+     - Exercise (Bjarke):  None. Focus on projects
+15. Project guidance:   
+    - Lecture (Kasper, Søren): None
+    - Exercise (Bjarke):  None. Focus on projects
+  -->
+
