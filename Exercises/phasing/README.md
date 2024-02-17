@@ -69,6 +69,7 @@ Now, compare it with the African samples.
 
 Try to search the position chr2:136608646 in the [UCSC genome browser](https://genome-euro.ucsc.edu/cgi-bin/hgGateway?redirect=manual&source=genome.ucsc.edu). Remember we are using the Hg19 assembly version of the reference human genome. Can you find anything that explains your observations? (HINT: https://omim.org/entry/601806#0004)
 
+<!-- 
 # Estimating a recombination map
 
 [LDhat  manual](https://github.com/auton1/LDhat/blob/master/manual.pdf)
@@ -114,7 +115,6 @@ Africa:
 
     ~/populationgenomics/software/rhomap -seq recmap_data_africa.ldhat.sites -loc recmap_data_africa.ldhat.locs -lk new_lk.txt -its 100000 -samp 500 -burn 0
 
-<!-- 3m9.888s -->
 *or* West Eurasia:
 
     ~/populationgenomics/software/rhomap -seq recmap_data_westeurasia.ldhat.sites -loc recmap_data_westeurasia.ldhat.locs -lk new_lk.txt -its 100000 -samp 500 -burn 0
@@ -141,9 +141,6 @@ mv rates.txt rates_africa.txt
 ## Analyze results
 
 Open a jupyter notebook in R and paste this set of commands:
-
-<!-- This needs to run first to allow source to pull from web -->
-<!-- Sys.setenv(https_proxy = "http://in:3128", http_proxy = "http://in:3128") -->
 
 ```R
 source("~/populationgenomics/data/ldhat/ldhat.r")
@@ -196,4 +193,6 @@ Look at the plots and ponder the following questions:
 - Are there any recombination hotspots?
 - Are there any regions where the estimated recombination rate is really low? 
 - Can you see any hotspots in Africans that are not found in West Eurasians - other the othe way around?
-- What does the recombination rate look like around the lactase gene?
+- What does the recombination rate look like around the lactase gene? 
+
+-->
