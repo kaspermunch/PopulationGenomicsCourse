@@ -71,14 +71,25 @@ Exercises are on Thursdays from 12:15 to 14:00. The week plan below has links to
 8. Direct and linked selection: 
     - Lecture: Coop chapters 12, 13, revisit [Paper about tree inference](https://www.nature.com/articles/s41588-019-0484-x)
     - Exercise (Bjarke): [Inference of positive selection](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/selection)
-9.  Genome-wide association study (GWAS): 
-    - Lecture (Søren): GWAS review, Population stratification review, [Coop lecture notes](https://github.com/cooplab/popgen-notes/releases/download/v1.2/release_popgen_notes.pdf) 99-120
+  
+
+<ul>
+<li><b>Thursday lecture April 4. 13:15-15:00</b>:
+<ul dir="auto">
+<li dir="auto">Lecture&nbsp;(Søren): GWAS review, Population stratification review,&nbsp;<a data-href="https://github.com/cooplab/popgen-notes/releases/download/v1.2/release_popgen_notes.pdf" href="https://github.com/cooplab/popgen-notes/releases/download/v1.2/release_popgen_notes.pdf">Coop lecture notes</a>&nbsp;99-120.</li>
+<li>(No Exercise this week)</li>
+</ul>
+</li>
+</ul>
+
+9. Heritability: 
+    - Lecture (Søren): [Missing heritability and mixed models review]() ; Coop Lecture notes Sec. 2.2 (p23-36) + Chap. 7 (p119-142)  
     - Exercise (Bjarke): [GWAS quality control](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/GWAS_QC)
-10. Heritability: 
-    - Lecture (Søren): [Missing heritability and mixed models review]() ; Coop Lecture notes Sec. 2.2 (p23-36) + Chap. 7 (p119-142)     
+10. Evolution and disease: 
+    - Lecture (Søren): [Genetic architecture review]() ; [Article about "omnigenic" model]() ; Coop Lecture notes Sec. 11.0.1 (p217-221)
     - Exercise (Bjarke): [Association testing](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/GWAS_association)
-11.  Evolution and disease: 
-    - Lecture (Søren): [Genetic architecture review]() ; [Article about "omnigenic" model]() ; Coop Lecture notes Sec. 11.0.1 (p217-221)    
+11. TBA: 
+    - Lecture: TBA    
     - Exercise (Bjarke): [Estimating heritability](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Exercises/heritability)
 12.  Project presentations: 
      - Lecture (Kasper, Søren): None
