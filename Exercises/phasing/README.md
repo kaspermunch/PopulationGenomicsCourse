@@ -30,7 +30,7 @@ srun --mem-per-cpu=5g --time=3:00:00 --account=populationgenomics --pty bash
 
 ## Install and Activate Todays Environment 
 ```bash
-    conda create -f ~/populationgenomics/env/exercise_envs/phasing_wk4
+    conda create env -f ~/populationgenomics/env/exercise_envs/phasing_wk4
     conda activate phasing_wk4
 ```
 
