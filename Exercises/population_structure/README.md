@@ -25,6 +25,27 @@ We are going to use these files throughout the exercise:
 
 Now run `slurm-jupyter` as your learnt in the first exercise. Once juypter is running, create a new R notebook and run the following code in aseparate code cells:
 
+to create softlinks from the notebook you can write 
+```
+%%bash
+ln -s ~/populationgenomics/data/vcf/chr2_135_145_flt.vcf.gz
+ln -s ~/populationgenomics/data/metadata/sample_infos_accessionnb.csv
+```
+
+
+## if my environment works, you should start by opening a notebook and call these commands
+```
+import rpy2
+%load_ext rpy2.ipython
+```
+Now you can jump from python cells to R cells by writing %%R in the start of the cell if you want to run R within that cell. Be aware that you'll have to write it in each cell you want to execute R within.
+
+```
+%%R
+library(SNPRelate)
+```
+
+## if it didnt download the files and run everthing in your own r studio by using thse commands 
 ```R
 # Dependencies
 Sys.setenv(https_proxy = "http://proxyserv:3128", http_proxy = "http://proxyserv:3128")
@@ -35,6 +56,7 @@ library(ggplot2)
 ```
 
 ```R
+%%R #if your are on slurm-jupyter, not if you are on your own computer
 # Reading the metadata information 
 info = read.csv("sample_infos_accessionnb.csv", header = T, sep = ';')
 ```
