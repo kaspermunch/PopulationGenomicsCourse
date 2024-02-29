@@ -267,36 +267,4 @@ bp = barplot(t(as.matrix(ord)),
 ```
 ![rplot](https://user-images.githubusercontent.com/38723379/53338548-47470580-3904-11e9-8e04-75187b031d96.png)
 
-Note: Here we order the X-axis based on proportions for the first population component. However, you will see that in the HapMap data all the individuals show some portion of this component and the different individuals are more admixed in general, i.e they are no longer explained by mostly one component, it’s not useful to use that kind of ordering anymore to interpret the plot. Instead, we should keep the original order, since the files are originally ordered by population, and we should plot each population on the X axis to be able to interpret the plot. This can be achieved with something of the type:
 
-```R
-library(dplyr)
-info <- info[match(pca$sample.id,info$ID),]
-d <- info %>% group_by(population) %>%
-  summarise(n = n()) %>% mutate(cumsum = cumsum(n))
-tbl = read.table("hapmap.gds.6.Q")
-barplot(t(as.matrix(tbl)),
-              space = c(0.01),
-              col=rainbow(6),
-              ylab="Ancestry",
-              border=NA)
-axis(1, at=d$cumsum, labels=d$population,las=2)
-```
-
-**Q.8** How many clusters do you identify in this plot? Does that agree
-with what was found using PCA?
-
-In the following part of this exercise you will do both analysis (PCA
-and Admixture) using a different dataset. The data comes from the HAPMAP
-Consortium, to learn more about the populations studied in this project
-access
-[here](http://www.sanger.ac.uk/resources/downloads/human/hapmap3.html).
-The vcf file **hapmap.vcf**, an information file **relationships\_w\_pops\_121708.txt**, as well as
-**.bim**, **.bed**, **.fam** files (only to be used if you get stuck during the exercise) are available for the admixture
-analysis, this dataset is placed in the cluster, here:
-
-~/populationgenomics/data/assignment
-
-Answer the same questions
-as answered in this tutorial and write a report (5 pages maximum) about
-the results and the analysis you have done. 
