@@ -58,7 +58,7 @@ library(ggplot2)
 ```R
 %%R #if your are on slurm-jupyter, not if you are on your own computer
 # Reading the metadata information 
-info = read.csv("sample_infos_accessionnb.csv", header = T, sep = ';')
+info <- read.csv("sample_infos_accessionnb.csv", header = T, sep = ';')
 ```
 
 ```R
