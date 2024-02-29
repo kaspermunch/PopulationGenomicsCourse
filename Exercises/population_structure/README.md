@@ -85,7 +85,7 @@ summary(pca)
 ```
 
 **Q.1** How many individuals and snps does this dataset have? What is an
-eigenvector and an eigenvalue? Hint: Have a look at page 180 of HEG.
+eigenvector and an eigenvalue?
 
 
 ```R
