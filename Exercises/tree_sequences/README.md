@@ -25,16 +25,16 @@ conda create -y -n pg-relate -c conda-forge r-base r-tidyverse r-ggplot2 r-cowpl
 ``` -->
 
 ```
-conda env create -f ~/populationgenomics/env/pg-relate.yml
+conda env create -f ~/populationgenomics/env/exercise_envs/bjarke-relate.yml
 ```
 
 All the Relate scripts can be run in this environment, so make sure the `pg-relate` is activated when you are working on this exericse. To allow Relate find some files it needs, you also need to run the commands below *in order*.
 
 ```
-conda activate pg-relate
+conda activate bjarke-relate
 conda env config vars set LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
 conda deactivate
-conda conda activate pg-relate
+conda conda activate bjarke-relate
 ```
 
 ## Data
@@ -95,6 +95,8 @@ The lengthiest process is this step, in which population size is estimated, and 
 
 Relate outputs estimated mutation rate and coalescence times along the region
 
+Using the --pop_of_interest flag you can isolate specific populations and see their population size back through time.
+
 **Q3: Look at the files and see what you learn**
 
 We will revisit this exercise in later sessions. So for now, just have a look at some of the estimated trees to get an impression of what they look like. You can do this using the command below. You specify the position you want to see using the `--bp_of_interest` option. The command below produces a `tree.pdf` file showing the tree for position 14000000:
@@ -106,7 +108,7 @@ export POSITION=14000000 && ~/populationgenomics/software/relate/scripts/TreeVie
 To see the tree files, it is most convenient to work through `slurm-jupyter`. So you can close your interactive slurm session and run this command to start `slurm-jupyter`:
 
 ```
-slurm-jupyter -e pg-relate -A populationgenomics -m 8g -t 2h -u your_user_name 
+slurm-jupyter -e bjarke-relate -A populationgenomics -m 8g -t 2h -u your_user_name 
 ```
 
 Once you are in, you can start a terminal and activate your `pg-relate` environment and run the command above. The trees will appear in the file browser to the left where you can double-click to view them.
