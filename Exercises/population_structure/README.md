@@ -268,3 +268,21 @@ bp = barplot(t(as.matrix(ord)),
 ![rplot](https://user-images.githubusercontent.com/38723379/53338548-47470580-3904-11e9-8e04-75187b031d96.png)
 
 
+
+
+In the following part of this exercise you will do both analysis (PCA
+and Admixture) using a different dataset. The data comes from the HAPMAP
+Consortium, to learn more about the populations studied in this project
+access
+[here](http://www.sanger.ac.uk/resources/downloads/human/hapmap3.html).
+The vcf file **hapmap.vcf**, an information file **relationships\_w\_pops\_121708.txt**, as well as
+**.bim**, **.bed**, **.fam** files (only to be used if you get stuck during the exercise) are available for the admixture
+analysis, this dataset is placed in the cluster, here:
+
+~/populationgenomics/data/assignment
+
+Answer the same questions
+as answered in this tutorial and write a report (5 pages maximum) about
+the results and the analysis you have done. 
+
+
