@@ -1,7 +1,7 @@
 
 # Project description and requirements
 
-The last part of this course focus on applying the knowledge acquired during these 10 weeks into real genetic datasets. We encourage you to work on the project in class Monday and Wednesday where one (or several of us) will be there to guide you and answer questions. 
+The last part of this course focus on applying the knowledge acquired during these 10 weeks into real genetic datasets. We encourage you to work on the project in class Monday and Thursday where one (or several of us) will be there to guide you and answer questions. 
 
 The project is **mandatory** and needs to be handed in as a report. 
 
