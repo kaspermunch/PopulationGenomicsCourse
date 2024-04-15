@@ -62,7 +62,7 @@ B. Use Relate on all the individuals and visualize trees (using Relate or tskit)
 
 C. Use Relate on each population seperately to infer positive selection.
 
-D. Run one or more additional methods for selecion inference. If possible this should be  another tree sequence based method such as CLUES. Compare the results to those obtained using Relate.
+D. Run one or more additional methods for selection inference. If possible, this should be another tree sequence-based method or statistic. Compare the results to those obtained using Relate.
 
 E. Identify genes potentially under selection and any known function of these genes. Consider what may drive recurrent selection in this region.
 
