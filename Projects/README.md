@@ -60,9 +60,13 @@ A. Perform an Fst scan between sets of populations in a sliding window of 100 SN
 
 B. Use Relate on all the individuals and visualize trees (using Relate or tskit) to get an impression of the relationship between the populations. How does this relate to your Fst results?
 
-C. Use Relate on each population seperately to infer positive selection.
+C. Run Relate on each population separately to infer positive selection.
 
-D. Run one or more additional methods for selection inference. If possible, this should be another tree sequence-based method or statistic. Compare the results to those obtained using Relate.
+D. Do one or more additional analyses to address selection and compare the results to those obtained using Relate. If possible, these should also based on tree sequences and might involve:
+
+- Alternative statistics computed based on the trees already obtained from Relate. [tskit](https://tskit.dev/tskit/docs/stable/introduction.html) has ready-made ones, or you can devise one yourself.
+- Use another method of inference, such as Clues.
+- or do something else...
 
 E. Identify genes potentially under selection and any known function of these genes. Consider what may drive recurrent selection in this region.
 
