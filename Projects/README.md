@@ -60,7 +60,7 @@ A. Perform an Fst scan between sets of populations in a sliding window of 100 SN
 
 B. Use Relate on all the individuals and visualize trees (using Relate or tskit) to get an impression of the relationship between the populations. How does this relate to your Fst results?
 
-C. Run Relate on each population separately to infer positive selection.
+C. Run Relate on each population separately to infer positive selection. You can run Relate the 46-54Mb region only but also on the entire chr3 (see below). Even if you only investigate the 46-54Mb region you should consider the latter option, as it will produce a more reliable estimation of population demography, which is used in the selection inference. 
 
 D. Do one or more additional analyses to address selection and compare the results to those obtained using Relate. If possible, these should also based on tree sequences and might involve:
 
@@ -84,6 +84,10 @@ Perhaps: [An approximate full-likelihood method for inferring selection and alle
 
 Data for the project can be found in this folder on the cluster:
 
+```
+~/populationgenomics/project_data/chr3region
+```
+
 <!-- 
 ```
 ~/populationgenomics/project_data/chr3region/chr3_all_460_540_phased.vcf.gz
@@ -105,10 +109,25 @@ Data for the project can be found in this folder on the cluster:
 The files are VCF files for all individuals and for each African population seperately. Each file has a corresponding file with the individuals included. The last two files are a mask file and an ancestor sequence file used by Relate. The files are named as in the Relate exercises.
 -->
 
-In your project directory, run these commands to create links to the data files:
+In your project directory, run these commands to create links to the main data files:
 
 ```
 ln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_AFR.vcf
+ln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_AFR.vcf
+ln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_YRI.vcf
+ln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_LWK.vcf
+ln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_GWD.vcf
+ln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_MSL.vcf
+ln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_ESN.vcf
+```
+
+The first one is a VCF with all Africans for the entire chr3. The second one has all Africans but only for the region 46Mb-54Mb. The last four are also only the region 46Mb-54Mb but these contain only data for individuals from each of the five African populations.
+
+## Running Relate
+
+Run these commands to create links to the additional files you need for the Relate analyses:
+
+```
 ln -s ~/populationgenomics/project_data/chr3region/AFR.poplabels
 ln -s ~/populationgenomics/project_data/chr3region/YRI.poplabels
 ln -s ~/populationgenomics/project_data/chr3region/LWK.poplabels
@@ -124,6 +143,28 @@ ln -s ~/populationgenomics/project_data/chr3region/human_ancestor_3.fa
 ln -s ~/populationgenomics/project_data/chr3region/20140520.chr3.strict_mask.fasta.gz
 ln -s ~/populationgenomics/project_data/chr3region/genetic_map_chr3_combined_b37.txt
 ```
+
+The first ten are meta data. The last three are human ancestor, quality mask, and recombination map.
+
+
+### Relate on region 46-54Mb only
+
+Run this command to create files in the Relate input file format for all the African individuals:
+
+```
+~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps 1000g_chr3_46_54_AFR.haps --sample 1000g_chr3_46_54_AFR.sample -i 1000g_chr3_46_54_AFR --poplabels AFR.poplabels
+```
+
+Then run separate analyses for each of the populations populations: Yoruba in Ibadan, Nigeria (YRI), Luhya in Webuye, Kenya (LWK), Gambian in Western Division – Mandinka (GWD), Mende in Sierra Leone (MSL), and Esan in Nigeria (ESN). The commands below run Relate on the individuals from the Luhya population (Notice the LWK-part of file names):
+
+```
+~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps 1000g_chr3_46_54_AFR.haps --sample 1000g_chr3_46_54_AFR.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz --remove_ids all_except_LWK.txt -o 1000g_chr3_46_54_AFR_LWK
+~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 20000 --sample 1000g_chr3_46_54_AFR_LWK.sample.gz --haps 1000g_chr3_46_54_AFR_LWK.haps.gz --map genetic_map_chr3_combined_b37.txt --annot 1000g_chr3_46_54_AFR_LWK.annot --dist 1000g_chr3_46_54_AFR_LWK.dist.gz --memory 20 -o 1000g_chr3_46_54_AFR_LWK
+~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -m 1.25e-8 -N 20000 -i 1000g_chr3_46_54_AFR_LWK --poplabels LWK.poplabels -o 1000g_chr3_46_54_AFR_LWK_popsize --threshold 0 --num_iter 5 --years_per_gen 29 --threads 14 --threshhold 0
+~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i 1000g_chr3_46_54_AFR_LWK -m 1.25e-8 --poplabels LWK.poplabels -o 1000g_chr3_46_54_AFR_LWK_selection
+```
+
+### Relate on entire chr3
 
 Run this command to create files in the Relate input file format for all the African individuals:
 
