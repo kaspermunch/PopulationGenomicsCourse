@@ -158,10 +158,10 @@ Run this command to create files in the Relate input file format for all the Afr
 To run the remaining steps on all Africans you do:
 
 ```
-~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps 1000g_chr3_46_54_AFR.haps --sample 1000g_chr3_46_54_AFR.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o 1000g_chr3_46_54_AFR
-~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 20000 --sample 1000g_chr3_46_54_AFR.sample.gz --haps 1000g_chr3_46_54_AFR.haps.gz --map genetic_map_chr3_combined_b37.txt --annot 1000g_chr3_46_54_AFR.annot --dist 1000g_chr3_46_54_AFR.dist.gz --memory 20 -o 1000g_chr3_46_54_AFR
-~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -m 1.25e-8 -N 20000 -i 1000g_chr3_46_54_AFR --poplabels LWK.poplabels -o 1000g_chr3_46_54_AFR_popsize --threshold 0 --num_iter 5 --years_per_gen 29 --threads 14 --threshhold 0
-~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i 1000g_chr3_46_54_AFR -m 1.25e-8 --poplabels LWK.poplabels -o 1000g_chr3_46_54_AFR_selection
+~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps 1000g_chr3_46_54_AFR.haps --sample 1000g_chr3_46_54_AFR.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o 1000g_chr3_46_54_AFR_ALL
+~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 20000 --sample 1000g_chr3_46_54_AFR_ALL.sample.gz --haps 1000g_chr3_46_54_AFR_ALL.haps.gz --map genetic_map_chr3_combined_b37.txt --annot 1000g_chr3_46_54_AFR_ALL.annot --dist 1000g_chr3_46_54_AFR_ALL.dist.gz --memory 20 -o 1000g_chr3_46_54_AFR_ALL
+~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -m 1.25e-8 -N 20000 -i 1000g_chr3_46_54_AFR_ALL --poplabels LWK.poplabels -o 1000g_chr3_46_54_AFR_ALL_popsize --threshold 0 --num_iter 5 --years_per_gen 29 --threads 14 --threshhold 0
+~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i 1000g_chr3_46_54_AFR_ALL -m 1.25e-8 --poplabels LWK.poplabels -o 1000g_chr3_46_54_AFR_ALL_selection
 ```
 
 To run separate analyses for each of the populations populations: Yoruba in Ibadan, Nigeria (YRI), Luhya in Webuye, Kenya (LWK), Gambian in Western Division – Mandinka (GWD), Mende in Sierra Leone (MSL), and Esan in Nigeria (ESN). The commands below run Relate on the individuals from the Luhya population (Notice the LWK-part of file names):
@@ -184,10 +184,10 @@ Run this command to create files in the Relate input file format for all the Afr
 To run the remaining steps on all Africans you do:
 
 ```
-~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps 1000g_chr3_AFR.haps --sample 1000g_chr3_AFR.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o 1000g_chr3_AFR
-~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 20000 --sample 1000g_chr3_AFR.sample.gz --haps 1000g_chr3_AFR.haps.gz --map genetic_map_chr3_combined_b37.txt --annot 1000g_chr3_AFR.annot --dist 1000g_chr3_AFR.dist.gz --memory 20 -o 1000g_chr3_AFR
-~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -m 1.25e-8 -N 20000 -i 1000g_chr3_AFR --poplabels LWK.poplabels -o 1000g_chr3_AFR_popsize --threshold 0 --num_iter 5 --years_per_gen 29 --threads 14 --threshhold 0
-~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i 1000g_chr3_AFR -m 1.25e-8 --poplabels LWK.poplabels -o 1000g_chr3_AFR_selection
+~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps 1000g_chr3_AFR.haps --sample 1000g_chr3_AFR.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o 1000g_chr3_AFR_ALL
+~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 20000 --sample 1000g_chr3_AFR_ALL.sample.gz --haps 1000g_chr3_AFR_ALL.haps.gz --map genetic_map_chr3_combined_b37.txt --annot 1000g_chr3_AFR_ALL.annot --dist 1000g_chr3_AFR_ALL.dist.gz --memory 20 -o 1000g_chr3_AFR_ALL
+~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -m 1.25e-8 -N 20000 -i 1000g_chr3_AFR_ALL --poplabels LWK.poplabels -o 1000g_chr3_AFR_ALL_popsize --threshold 0 --num_iter 5 --years_per_gen 29 --threads 14 --threshhold 0
+~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i 1000g_chr3_AFR_ALL -m 1.25e-8 --poplabels LWK.poplabels -o 1000g_chr3_AFR_ALL_selection
 ```
 
 To run separate analyses for each of the populations populations: Yoruba in Ibadan, Nigeria (YRI), Luhya in Webuye, Kenya (LWK), Gambian in Western Division – Mandinka (GWD), Mende in Sierra Leone (MSL), and Esan in Nigeria (ESN). The commands below run Relate on the individuals from the Luhya population (Notice the LWK-part of file names):
