@@ -155,7 +155,16 @@ Run this command to create files in the Relate input file format for all the Afr
 ~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps 1000g_chr3_46_54_AFR.haps --sample 1000g_chr3_46_54_AFR.sample -i 1000g_chr3_46_54_AFR --poplabels AFR.poplabels
 ```
 
-Then run separate analyses for each of the populations populations: Yoruba in Ibadan, Nigeria (YRI), Luhya in Webuye, Kenya (LWK), Gambian in Western Division – Mandinka (GWD), Mende in Sierra Leone (MSL), and Esan in Nigeria (ESN). The commands below run Relate on the individuals from the Luhya population (Notice the LWK-part of file names):
+To run the remaining steps on all Africans you do:
+
+```
+~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps 1000g_chr3_46_54_AFR.haps --sample 1000g_chr3_46_54_AFR.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o 1000g_chr3_46_54_AFR
+~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 20000 --sample 1000g_chr3_46_54_AFR.sample.gz --haps 1000g_chr3_46_54_AFR.haps.gz --map genetic_map_chr3_combined_b37.txt --annot 1000g_chr3_46_54_AFR.annot --dist 1000g_chr3_46_54_AFR.dist.gz --memory 20 -o 1000g_chr3_46_54_AFR
+~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -m 1.25e-8 -N 20000 -i 1000g_chr3_46_54_AFR --poplabels LWK.poplabels -o 1000g_chr3_46_54_AFR_popsize --threshold 0 --num_iter 5 --years_per_gen 29 --threads 14 --threshhold 0
+~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i 1000g_chr3_46_54_AFR -m 1.25e-8 --poplabels LWK.poplabels -o 1000g_chr3_46_54_AFR_selection
+```
+
+To run separate analyses for each of the populations populations: Yoruba in Ibadan, Nigeria (YRI), Luhya in Webuye, Kenya (LWK), Gambian in Western Division – Mandinka (GWD), Mende in Sierra Leone (MSL), and Esan in Nigeria (ESN). The commands below run Relate on the individuals from the Luhya population (Notice the LWK-part of file names):
 
 ```
 ~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps 1000g_chr3_46_54_AFR.haps --sample 1000g_chr3_46_54_AFR.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz --remove_ids all_except_LWK.txt -o 1000g_chr3_46_54_AFR_LWK
@@ -169,17 +178,33 @@ Then run separate analyses for each of the populations populations: Yoruba in Ib
 Run this command to create files in the Relate input file format for all the African individuals:
 
 ```
-~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps chr3_460_540_phased_AFR.haps --sample chr3_460_540_phased_AFR.sample -i chr3_460_540_phased_AFR --poplabels AFR.poplabels
+~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps 1000g_chr3_AFR.haps --sample 1000g_chr3_AFR.sample -i 1000g_chr3_AFR --poplabels AFR.poplabels
 ```
 
-Then run separate analyses for each of the populations populations: Yoruba in Ibadan, Nigeria (YRI), Luhya in Webuye, Kenya (LWK), Gambian in Western Division – Mandinka (GWD), Mende in Sierra Leone (MSL), and Esan in Nigeria (ESN). The commands below run Relate on the individuals from the Luhya population (Notice the LWK-part of file names):
+To run the remaining steps on all Africans you do:
 
 ```
-~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps chr3_460_540_phased_AFR.haps --sample chr3_460_540_phased_AFR.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz --remove_ids all_except_LWK.txt -o chr3_460_540_phased_AFR_LWK
-~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 20000 --sample chr3_460_540_phased_AFR_LWK.sample.gz --haps chr3_460_540_phased_AFR_LWK.haps.gz --map genetic_map_chr3_combined_b37.txt --annot chr3_460_540_phased_AFR_LWK.annot --dist chr3_460_540_phased_AFR_LWK.dist.gz --memory 20 -o chr3_460_540_phased_AFR_LWK
-~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -m 1.25e-8 -N 20000 -i chr3_460_540_phased_AFR_LWK --poplabels LWK.poplabels -o chr3_460_540_phased_AFR_LWK_popsize --threshold 0 --num_iter 5 --years_per_gen 29 --threads 14 --threshhold 0
-~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i chr3_460_540_phased_AFR_LWK -m 1.25e-8 --poplabels LWK.poplabels -o chr3_460_540_phased_AFR_LWK_selection
+~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps 1000g_chr3_AFR.haps --sample 1000g_chr3_AFR.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o 1000g_chr3_AFR
+~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 20000 --sample 1000g_chr3_AFR.sample.gz --haps 1000g_chr3_AFR.haps.gz --map genetic_map_chr3_combined_b37.txt --annot 1000g_chr3_AFR.annot --dist 1000g_chr3_AFR.dist.gz --memory 20 -o 1000g_chr3_AFR
+~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -m 1.25e-8 -N 20000 -i 1000g_chr3_AFR --poplabels LWK.poplabels -o 1000g_chr3_AFR_popsize --threshold 0 --num_iter 5 --years_per_gen 29 --threads 14 --threshhold 0
+~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i 1000g_chr3_AFR -m 1.25e-8 --poplabels LWK.poplabels -o 1000g_chr3_AFR_selection
 ```
+
+To run separate analyses for each of the populations populations: Yoruba in Ibadan, Nigeria (YRI), Luhya in Webuye, Kenya (LWK), Gambian in Western Division – Mandinka (GWD), Mende in Sierra Leone (MSL), and Esan in Nigeria (ESN). The commands below run Relate on the individuals from the Luhya population (Notice the LWK-part of file names):
+
+```
+~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps 1000g_chr3_AFR.haps --sample 1000g_chr3_AFR.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz --remove_ids all_except_LWK.txt -o 1000g_chr3_AFR_LWK
+~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 20000 --sample 1000g_chr3_AFR_LWK.sample.gz --haps 1000g_chr3_AFR_LWK.haps.gz --map genetic_map_chr3_combined_b37.txt --annot 1000g_chr3_AFR_LWK.annot --dist 1000g_chr3_AFR_LWK.dist.gz --memory 20 -o 1000g_chr3_AFR_LWK
+~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -m 1.25e-8 -N 20000 -i 1000g_chr3_AFR_LWK --poplabels LWK.poplabels -o 1000g_chr3_AFR_LWK_popsize --threshold 0 --num_iter 5 --years_per_gen 29 --threads 14 --threshhold 0
+~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i 1000g_chr3_AFR_LWK -m 1.25e-8 --poplabels LWK.poplabels -o 1000g_chr3_AFR_LWK_selection
+```
+
+
+
+
+
+
+
 
 <!-- 
 ## Population Genetics on X-chromosome 
