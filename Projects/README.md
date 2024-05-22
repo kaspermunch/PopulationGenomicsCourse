@@ -181,7 +181,7 @@ Run this command to create files in the Relate input file format for all the Afr
 ~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertFromVcf --haps 1000g_chr3_AFR.haps --sample 1000g_chr3_AFR.sample -i 1000g_chr3_AFR --poplabels AFR.poplabels
 ```
 
-To run the remaining steps on all Africans you do:
+To run the remaining steps on all Africans (will take a *long* time) you do:
 
 ```
 ~/populationgenomics/software/relate/scripts/PrepareInputFiles/PrepareInputFiles.sh --haps 1000g_chr3_AFR.haps --sample 1000g_chr3_AFR.sample --ancestor human_ancestor_3.fa --mask 20140520.chr3.strict_mask.fasta.gz -o 1000g_chr3_AFR_ALL
