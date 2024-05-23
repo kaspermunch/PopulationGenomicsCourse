@@ -56,7 +56,9 @@ Make yourself familiar with the study populations. Where in Africa are they? How
 
 ## Investigate the following
 
-A. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, comparing at least five pairs of populations. You can also use [tskit](https://tskit.dev/tskit/docs/stable/introduction.html) to compute Fst from the tree sequences you produce with Relate. Identify the Fst outlier regions in each case.
+A. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, comparing at least five pairs of populations. 
+<!-- You can also use [tskit](https://tskit.dev/tskit/docs/stable/introduction.html) to compute Fst from the tree sequences you produce with Relate.  -->
+Identify the Fst outlier regions in each case.
 
 B. Use Relate on all the individuals and visualize trees (using Relate or [tskit](https://tskit.dev/tskit/docs/stable/introduction.html)) to get an impression of the relationship between the populations. How does this relate to your Fst results?
 
