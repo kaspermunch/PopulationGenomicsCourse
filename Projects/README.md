@@ -56,9 +56,9 @@ Make yourself familiar with the study populations. Where in Africa are they? How
 
 ## Investigate the following
 
-A. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, comparing at least five pairs of populations. Identify the Fst outlier regions in each case.
+A. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, comparing at least five pairs of populations. You can also use [tskit](https://tskit.dev/tskit/docs/stable/introduction.html) to compute Fst from the tree sequences you produce with Relate. Identify the Fst outlier regions in each case.
 
-B. Use Relate on all the individuals and visualize trees (using Relate or tskit) to get an impression of the relationship between the populations. How does this relate to your Fst results?
+B. Use Relate on all the individuals and visualize trees (using Relate or [tskit](https://tskit.dev/tskit/docs/stable/introduction.html)) to get an impression of the relationship between the populations. How does this relate to your Fst results?
 
 C. Run Relate on each population separately to infer positive selection. You can run Relate the 46-54Mb region only but also on the entire chr3 (see below). Even if you only investigate the 46-54Mb region you should consider the latter option, as it will produce a more reliable estimation of population demography, which is used in the selection inference. 
 
@@ -162,6 +162,7 @@ To run the remaining steps on all Africans you do:
 ~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 20000 --sample 1000g_chr3_46_54_AFR_ALL.sample.gz --haps 1000g_chr3_46_54_AFR_ALL.haps.gz --map genetic_map_chr3_combined_b37.txt --annot 1000g_chr3_46_54_AFR_ALL.annot --dist 1000g_chr3_46_54_AFR_ALL.dist.gz --memory 20 -o 1000g_chr3_46_54_AFR_ALL
 ~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -m 1.25e-8 -N 20000 -i 1000g_chr3_46_54_AFR_ALL --poplabels ARF.poplabels -o 1000g_chr3_46_54_AFR_ALL_popsize --threshold 0 --num_iter 5 --years_per_gen 29 --threads 14 --threshhold 0
 ~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i 1000g_chr3_46_54_AFR_ALL -m 1.25e-8 --poplabels ARF.poplabels -o 1000g_chr3_46_54_AFR_ALL_selection
+~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertToTreeSequence -i 1000g_chr3_46_54_AFR_ALL -o 1000g_chr3_46_54_AFR_ALL
 ```
 
 To run separate analyses for each of the populations populations: Yoruba in Ibadan, Nigeria (YRI), Luhya in Webuye, Kenya (LWK), Gambian in Western Division – Mandinka (GWD), Mende in Sierra Leone (MSL), and Esan in Nigeria (ESN). The commands below run Relate on the individuals from the Luhya population (Notice the LWK-part of file names):
@@ -171,6 +172,7 @@ To run separate analyses for each of the populations populations: Yoruba in Ibad
 ~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 20000 --sample 1000g_chr3_46_54_AFR_LWK.sample.gz --haps 1000g_chr3_46_54_AFR_LWK.haps.gz --map genetic_map_chr3_combined_b37.txt --annot 1000g_chr3_46_54_AFR_LWK.annot --dist 1000g_chr3_46_54_AFR_LWK.dist.gz --memory 20 -o 1000g_chr3_46_54_AFR_LWK
 ~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -m 1.25e-8 -N 20000 -i 1000g_chr3_46_54_AFR_LWK --poplabels LWK.poplabels -o 1000g_chr3_46_54_AFR_LWK_popsize --threshold 0 --num_iter 5 --years_per_gen 29 --threads 14 --threshhold 0
 ~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i 1000g_chr3_46_54_AFR_LWK -m 1.25e-8 --poplabels LWK.poplabels -o 1000g_chr3_46_54_AFR_LWK_selection
+~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertToTreeSequence -i 1000g_chr3_46_54_AFR_LWK -o 1000g_chr3_46_54_AFR_LWK
 ```
 
 ### Relate on entire chr3
@@ -188,6 +190,7 @@ To run the remaining steps on all Africans (will take a *long* time) you do:
 ~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 20000 --sample 1000g_chr3_AFR_ALL.sample.gz --haps 1000g_chr3_AFR_ALL.haps.gz --map genetic_map_chr3_combined_b37.txt --annot 1000g_chr3_AFR_ALL.annot --dist 1000g_chr3_AFR_ALL.dist.gz --memory 20 -o 1000g_chr3_AFR_ALL
 ~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -m 1.25e-8 -N 20000 -i 1000g_chr3_AFR_ALL --poplabels AFR.poplabels -o 1000g_chr3_AFR_ALL_popsize --threshold 0 --num_iter 5 --years_per_gen 29 --threads 14 --threshhold 0
 ~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i 1000g_chr3_AFR_ALL -m 1.25e-8 --poplabels AFR.poplabels -o 1000g_chr3_AFR_ALL_selection
+~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertToTreeSequence -i 1000g_chr3_AFR_ALL -o 1000g_chr3_AFR_ALL
 ```
 
 To run separate analyses for each of the populations populations: Yoruba in Ibadan, Nigeria (YRI), Luhya in Webuye, Kenya (LWK), Gambian in Western Division – Mandinka (GWD), Mende in Sierra Leone (MSL), and Esan in Nigeria (ESN). The commands below run Relate on the individuals from the Luhya population (Notice the LWK-part of file names):
@@ -197,6 +200,7 @@ To run separate analyses for each of the populations populations: Yoruba in Ibad
 ~/populationgenomics/software/relate/bin/Relate --mode All -m 1.25e-8 -N 20000 --sample 1000g_chr3_AFR_LWK.sample.gz --haps 1000g_chr3_AFR_LWK.haps.gz --map genetic_map_chr3_combined_b37.txt --annot 1000g_chr3_AFR_LWK.annot --dist 1000g_chr3_AFR_LWK.dist.gz --memory 20 -o 1000g_chr3_AFR_LWK
 ~/populationgenomics/software/relate/scripts/EstimatePopulationSize/EstimatePopulationSize.sh -m 1.25e-8 -N 20000 -i 1000g_chr3_AFR_LWK --poplabels LWK.poplabels -o 1000g_chr3_AFR_LWK_popsize --threshold 0 --num_iter 5 --years_per_gen 29 --threads 14 --threshhold 0
 ~/populationgenomics/software/relate/scripts/DetectSelection/DetectSelection.sh -i 1000g_chr3_AFR_LWK -m 1.25e-8 --poplabels LWK.poplabels -o 1000g_chr3_AFR_LWK_selection
+~/populationgenomics/software/relate/bin/RelateFileFormats --mode ConvertToTreeSequence -i 1000g_chr3_AFR_LWK -o 1000g_chr3_AFR_LWK
 ```
 
 
