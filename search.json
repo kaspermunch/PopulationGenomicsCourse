@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Genomic Thinking",
     "section": "",
-    "text": "Welcome\nThis is the homepage for the AU course Genomic Thinking. You will find all course content here. The Brightspace course page is only used for communication, and assignments.\n\n\nSchedule\n\n1234567891011121314\n\n\n(Week 5)\nLectures: Course intro and overview: Coop chapt 1, 2, 3 Exercises: Cluster practicals\n\n\n\n\nWeek 6\nLectures: The Coalescent and the ARG: Coop chapt 4, Paper: Simons Genome Diversity Project \nExercises: Browsing ARGs\n\n\n\n\n\n(Week 7) \nLectures: Population structure, Incomplete lineage sorting, HMMs, Coop chapt 6, Review on ILS\nExercises: Inference of population structure and admixture\n\n\n\nLectures: Past population demography, HMMs, PSMC, Paper on PSMC\nExercises: Estimating past population sizes\n\n\n\n(Week 9)\n(Week 8)\nLectures: HMMs, ARG Paper on tree inference \nExercises: Tree sequences\n\n\n\n(Week 10)\nLectures: Admixture, HMMs, Review on admixture, Paper on admixture inference\nExercises: Phasing and recombination\n\n\n\n(Week 11)\nLectures: Direct and linked selection, Coop chapt 12, 13\nExercises: Inference of positive selection\n\n\n\n(Week 12)\nLectures: Projects, Popgen overview Mandatory project description\nExercises: GWAS quality control\n\n\n\n(Week 13)\nLectures: GWAS review, Population stratification review, Coop 99-120\nExercises: Association testing\n\n\n\n(Week 14)\nReading:\nLectures: Heritability, Review on heritability and LMM ; Coop Sec 2.2 (p23-36) + Chapt 7 (p119-142)\nExercises: Estimating heritability\n\n\n\n(Week 15)\nLectures: Project\nExercises: Project\n\n\n\n(Week 16)\nLectures: Project\nExercises: SKÆRTORSDAG\n\n\n\n(Week 17)\nLectures: 2. PÅSKEDAG\nExercises: Project\n\n\n\n(Week 18)\nLectures: Project\nExercises: Project\n\n\n\n\n\n\n\n\n\nStudent presentations\nWe begin each Monday lecture with two short student presentations. Sign up for three dates in this Google Sheet:\nSchedule for student presentations",
+    "text": "Welcome\nThis is the homepage for the AU course Genomic Thinking. You will find all course content here. The Brightspace course page is only used for communication, and assignments.\n\n\nSchedule\n\n123456 {.unnumbered} 7891011121314\n\n\n(Week 5)\nLectures: Course intro and overview: Coop chapt 1, 2, 3 Exercises: Cluster practicals\n\n\n\n\nWeek 6\nLectures: The Coalescent and the ARG: Coop chapt 4, Paper: Simons Genome Diversity Project \nExercises: Browsing ARGs\n\n\n\n\n\n(Week 7) \nLectures: Population structure, Incomplete lineage sorting, HMMs, Coop chapt 6, Review on ILS\nExercises: Inference of population structure and admixture\n\n\n\n(Week 8)\nLectures: Past population demography, HMMs, PSMC, Paper on PSMC\nExercises: Estimating past population sizes\n\n\n\n(Week 9)\nLectures: HMMs, ARG Paper on tree inference \nExercises: Tree sequences\n\n\n\n(Week 10)\nLectures: Admixture, HMMs, Review on admixture, Paper on admixture inference\nExercises: Phasing and recombination\n\n\n\n(Week 11)\nLectures: Direct and linked selection, Coop chapt 12, 13\nExercises: Inference of positive selection\n\n\n\n(Week 12) \nLectures: Projects, Popgen overview Mandatory project description\nExercises: GWAS quality control\n\n\n\n(Week 13) \nLectures: GWAS review, Population stratification review, Coop 99-120\nExercises: Association testing\n\n\n\n(Week 14) \nReading:\nLectures: Heritability, Review on heritability and LMM ; Coop Sec 2.2 (p23-36) + Chapt 7 (p119-142)\nExercises: Estimating heritability\n\n\n\n(Week 15)\nLectures: Project\nExercises: Project\n\n\n\n(Week 16)\nLectures: Project\nExercises: SKÆRTORSDAG\n\n\n\n(Week 17)\nLectures: 2. PÅSKEDAG\nExercises: Project\n\n\n\n(Week 18)\nLectures: Project\nExercises: Project\n\n\n\n\n\n\n\n\n\nStudent presentations\nWe begin each Monday lecture with two short student presentations. Sign up for three dates in this Google Sheet:\nSchedule for student presentations",
     "crumbs": [
       "Welcome"
     ]
@@ -74,7 +74,7 @@
     "href": "weekplan.html#section-3",
     "title": "Week plan",
     "section": "4",
-    "text": "4\nLectures: Past population demography, HMMs, PSMC, Paper on PSMC\nExercises: Estimating past population sizes",
+    "text": "4\n(Week 8)\nLectures: Past population demography, HMMs, PSMC, Paper on PSMC\nExercises: Estimating past population sizes",
     "crumbs": [
       "Week plan"
     ]
@@ -84,7 +84,17 @@
     "href": "weekplan.html#section-4",
     "title": "Week plan",
     "section": "5",
-    "text": "5\n(Week 9)\n(Week 8)\nLectures: HMMs, ARG Paper on tree inference \nExercises: Tree sequences",
+    "text": "5\n(Week 9)\nLectures: HMMs, ARG Paper on tree inference \nExercises: Tree sequences",
+    "crumbs": [
+      "Week plan"
+    ]
+  },
+  {
+    "objectID": "weekplan.html#unnumbered",
+    "href": "weekplan.html#unnumbered",
+    "title": "Week plan",
+    "section": "6 {.unnumbered} ",
+    "text": "6 {.unnumbered} \n(Week 10)\nLectures: Admixture, HMMs, Review on admixture, Paper on admixture inference\nExercises: Phasing and recombination",
     "crumbs": [
       "Week plan"
     ]
@@ -93,8 +103,8 @@
     "objectID": "weekplan.html#section-5",
     "href": "weekplan.html#section-5",
     "title": "Week plan",
-    "section": "6",
-    "text": "6\n(Week 10)\nLectures: Admixture, HMMs, Review on admixture, Paper on admixture inference\nExercises: Phasing and recombination",
+    "section": "7",
+    "text": "7\n(Week 11)\nLectures: Direct and linked selection, Coop chapt 12, 13\nExercises: Inference of positive selection",
     "crumbs": [
       "Week plan"
     ]
@@ -103,8 +113,8 @@
     "objectID": "weekplan.html#section-6",
     "href": "weekplan.html#section-6",
     "title": "Week plan",
-    "section": "7",
-    "text": "7\n(Week 11)\nLectures: Direct and linked selection, Coop chapt 12, 13\nExercises: Inference of positive selection",
+    "section": "8",
+    "text": "8\n(Week 12) \nLectures: Projects, Popgen overview Mandatory project description\nExercises: GWAS quality control",
     "crumbs": [
       "Week plan"
     ]
@@ -113,8 +123,8 @@
     "objectID": "weekplan.html#section-7",
     "href": "weekplan.html#section-7",
     "title": "Week plan",
-    "section": "8",
-    "text": "8\n(Week 12)\nLectures: Projects, Popgen overview Mandatory project description\nExercises: GWAS quality control",
+    "section": "9",
+    "text": "9\n(Week 13) \nLectures: GWAS review, Population stratification review, Coop 99-120\nExercises: Association testing",
     "crumbs": [
       "Week plan"
     ]
@@ -123,8 +133,8 @@
     "objectID": "weekplan.html#section-8",
     "href": "weekplan.html#section-8",
     "title": "Week plan",
-    "section": "9",
-    "text": "9\n(Week 13)\nLectures: GWAS review, Population stratification review, Coop 99-120\nExercises: Association testing",
+    "section": "10",
+    "text": "10\n(Week 14) \nReading:\nLectures: Heritability, Review on heritability and LMM ; Coop Sec 2.2 (p23-36) + Chapt 7 (p119-142)\nExercises: Estimating heritability",
     "crumbs": [
       "Week plan"
     ]
@@ -133,8 +143,8 @@
     "objectID": "weekplan.html#section-9",
     "href": "weekplan.html#section-9",
     "title": "Week plan",
-    "section": "10",
-    "text": "10\n(Week 14)\nReading:\nLectures: Heritability, Review on heritability and LMM ; Coop Sec 2.2 (p23-36) + Chapt 7 (p119-142)\nExercises: Estimating heritability",
+    "section": "11",
+    "text": "11\n(Week 15)\nLectures: Project\nExercises: Project",
     "crumbs": [
       "Week plan"
     ]
@@ -143,8 +153,8 @@
     "objectID": "weekplan.html#section-10",
     "href": "weekplan.html#section-10",
     "title": "Week plan",
-    "section": "11",
-    "text": "11\n(Week 15)\nLectures: Project\nExercises: Project",
+    "section": "12",
+    "text": "12\n\n(Week 16)\nLectures: Project\nExercises: SKÆRTORSDAG",
     "crumbs": [
       "Week plan"
     ]
@@ -153,16 +163,6 @@
     "objectID": "weekplan.html#section-11",
     "href": "weekplan.html#section-11",
     "title": "Week plan",
-    "section": "12",
-    "text": "12\n\n(Week 16)\nLectures: Project\nExercises: SKÆRTORSDAG",
-    "crumbs": [
-      "Week plan"
-    ]
-  },
-  {
-    "objectID": "weekplan.html#section-12",
-    "href": "weekplan.html#section-12",
-    "title": "Week plan",
     "section": "13",
     "text": "13\n(Week 17)\nLectures: 2. PÅSKEDAG\nExercises: Project",
     "crumbs": [
@@ -170,8 +170,8 @@
     ]
   },
   {
-    "objectID": "weekplan.html#section-13",
-    "href": "weekplan.html#section-13",
+    "objectID": "weekplan.html#section-12",
+    "href": "weekplan.html#section-12",
     "title": "Week plan",
     "section": "14",
     "text": "14\n(Week 18)\nLectures: Project\nExercises: Project",
@@ -184,7 +184,7 @@
     "href": "slides_2026/slides.html",
     "title": "Lecture slides",
     "section": "",
-    "text": "NB: You need to be logged into Brightspace to download the slides.\n\n\n\nWeek 1\n\nMonday",
+    "text": "NB: You need to be logged into Brightspace to download the slides.\n\n\n\nWeek 1\n\nMonday\n\nWeek 2\n\nMonday",
     "crumbs": [
       "Lecture slides"
     ]
@@ -425,7 +425,7 @@
     "href": "exercises/arg-dashboard/index.html",
     "title": "4  Browsing ARGs",
     "section": "",
-    "text": "Exercise setup\nMake a folder called arg-dashboard\nMove into the folder\nInitialize a pixi environment\nAdd the munch-group channel:\nInstall the packages:\nDownload the notebook to your folder:",
+    "text": "Exercise setup\nMake a folder called arg-dashboard\nMove into the folder\nInitialize a pixi environment\nAdd the munch-group channel:\nInstall the packages:\nDownload the notebook to by running this command in your arg-dashboard folder:\nOpen the notebook in VS Code and execute the first cell.",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Browsing ARGs</span>"

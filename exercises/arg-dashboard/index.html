@@ -253,18 +253,19 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="exercise-setup" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-setup">Exercise setup</h2>
-<p>Make a folder called arg-dashboard</p>
+<p>Make a folder called <code>arg-dashboard</code></p>
 <pre><code>mkdir arg-dashboard</code></pre>
 <p>Move into the folder</p>
 <pre><code>cd arg-dashboard</code></pre>
 <p>Initialize a pixi environment</p>
 <pre><code>pixi init</code></pre>
-<p>Add the munch-group channel:</p>
+<p>Add the <code>munch-group</code> channel:</p>
 <pre><code>pixi workspace channel add munch-group</code></pre>
 <p>Install the packages:</p>
 <pre><code>pixi add jupyter nodejs "jupyter-server-proxy&gt;=4,&lt;5" argdash</code></pre>
-<p>Download the notebook to your folder:</p>
+<p>Download the notebook to by running this command in your <code>arg-dashboard</code> folder:</p>
 <pre><code>wget https://raw.githubusercontent.com/munch-group/genomic-thinking/refs/heads/master/content/exercises/arg-dashboard/arg-dashboard.ipynb</code></pre>
+<p>Open the notebook in VS Code and execute the first cell.</p>
 </section>
 <section id="exercise-1" class="level2">
 <h2 class="anchored" data-anchor-id="exercise-1">Exercise 1</h2>
