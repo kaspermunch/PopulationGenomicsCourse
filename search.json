@@ -425,7 +425,7 @@
     "href": "exercises/arg-dashboard/index.html",
     "title": "4  Browsing ARGs",
     "section": "",
-    "text": "Exercise setup\nMake a folder called arg-dashboard\nMove into the folder\nInitialize a pixi environment\nAdd the munch-group channel:\nInstall the packages:\nDownload the notebook to by running this command in your arg-dashboard folder:\nOpen the notebook in VS Code and execute the first cell.",
+    "text": "Exercise setup\ngit clone git@github.com:munch-group/arg-dashboard\ncd arg-dashboard\npixi shell\npixi run install-dev\nMake a folder called arg-dashboard\nMove into the folder\nInitialize a pixi environment\nAdd the munch-group channel:\nInstall the packages:\nDownload the notebook to by running this command in your arg-dashboard folder:\nOpen the notebook in VS Code and execute the first cell.",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Browsing ARGs</span>"
@@ -436,7 +436,7 @@
     "href": "exercises/arg-dashboard/index.html#exercise-setup",
     "title": "4  Browsing ARGs",
     "section": "",
-    "text": "mkdir arg-dashboard\n\ncd arg-dashboard\n\npixi init\n\npixi workspace channel add munch-group\n\npixi add jupyter nodejs \"jupyter-server-proxy&gt;=4,&lt;5\" argdash\n\nwget https://raw.githubusercontent.com/munch-group/genomic-thinking/refs/heads/master/content/exercises/arg-dashboard/arg-dashboard.ipynb",
+    "text": "mkdir arg-dashboard\n\ncd arg-dashboard\n\npixi init\n\npixi workspace channel add munch-group\n\npixi add arg-dashboard\n\nwget https://raw.githubusercontent.com/munch-group/genomic-thinking/refs/heads/master/content/exercises/arg-dashboard/arg-dashboard.ipynb",
     "crumbs": [
       "Exercises",
       "<span class='chapter-number'>4</span>  <span class='chapter-title'>Browsing ARGs</span>"
