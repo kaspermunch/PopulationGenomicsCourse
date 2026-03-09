@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Genomic Thinking",
     "section": "",
-    "text": "Welcome\nThis is the homepage for the AU course Genomic Thinking. You will find all course content here. The Brightspace course page is only used for communication, and assignments.\n\n\nSchedule\n\n1234567891011121314\n\n\n(Week 5)\nMonday: Course intro and overview Coop chapt 1, 2, 3\nThursday: Cluster practicals\n\n\n\n(Week 6)\nMonday: The Coalescent and the ARG Coop chapt 4, Paper: Simons Genome Diversity Project \nThursday: Browsing ARGs\n\n\n\n(Week 7)\nMonday: Population structure, Incomplete lineage sorting, HMMs Coop chapt 6, Review on ILS\nThursday: Inference of population structure and admixture\n\n\n\n(Week 8)\nMonday: Past population demography, HMMs, PSMC, Paper on PSMC\nThursday: Estimating past population sizes\n\n\n\n(Week 9)\nMonday: Relate tree sequences\nThursday: HMMs, ARG Paper on tree inference\n\n\n\n(Week 10)\nMonday: Admixture, HMMs, Review on admixture, Paper on admixture inference\n\n\n\n\n(Week 11)\nMonday: Direct and linked selection, Coop chapt 12, 13\nThursday: Inference of positive selection\n\n\n\n(Week 12)\nMonday: GWAS review, Population stratification review, Coop 99-120 Mandatory project description\nThursday: GWAS quality control\n\n\n\n(Week 13)\nMonday: Heritability, Review on heritability and LMM ; Coop Sec 2.2 (p23-36) + Chapt 7 (p119-142)\nThursday: Association testing\n\n\n\n(Week 14)\nMonday: Estimating heritability\nThursday: HOLYDAY\n\n\n\n(Week 15)\nMonday: HOLYDAY\nThursday: Project\n\n\n\n(Week 16)\nMonday: Project\nThursday: HOLYDAY\n\n\n\n(Week 17)\nMonday: Project\nThursday: Project\n\n\n\n(Week 18)\nMonday: Project\nThursday: Project\n\n\n\n\n\n\n\n\n\nStudent presentations\nWe begin each Monday lecture with two short student presentations. Sign up for three dates in this Google Sheet:\nSchedule for student presentations",
+    "text": "Welcome\nThis is the homepage for the AU course Genomic Thinking. You will find all course content here. The Brightspace course page is only used for communication, and assignments.\n\n\nSchedule\n\n1234567891011121314\n\n\n(Week 5)\nMonday: Course intro and overview. Coop chapt 1, 2, 3\nThursday: Exercise on cluster practicals\n\n\n\n(Week 6)\nMonday: Lecture on the coalescent and the ARG. Coop chapt 4, Paper: Simons Genome Diversity Project \n\n\n\n\n(Week 7)\nMonday: Lecture on population structure, incomplete lineage sorting, HMMs. Coop chapt 6, Review on ILS\nThursday: Inference of population structure and admixture. GitHub: munch-group/pca-admixture-exercise.\n\n\n\n(Week 8)\nMonday: Lecture on past population demography, HMMs, PSMC, Paper on PSMC\nThursday: Exercise on estimating past population sizes. GitHub: munch-group/psmc-exercise.\n\n\n\n(Week 9)\nMonday: Exercise on tree sequences inference. GitHub: munch-group/relate-tree-exercise.\nThursday: Lecture on Tree sequences, HMMs, ARG Paper on tree inference\n\n\n\n(Week 10)\nMonday: Tree sequences. Direct and linked selection, Coop chapt 12, 13\nThursday: Exercise on tree sequence inference (continued). GitHub: munch-group/relate-tree-exercise.\n\n\n\n\n\n\n(Week 11)\nMonday: Overview\nThursday: Exercise on positive selection\n\n\n\n(Week 12)\nMonday: https://munch-group.org/docs/genomic-thinking/exercises/mapping_and_calling\nThursday: Lecture on GWAS review, Population stratification review, Coop 99-120 Mandatory project description\n\n\n\n(Week 13)\nMonday: Exercise on GWAS quality control\nThursday: Lecture on heritability, Review on heritability and LMM ; Coop Sec 2.2 (p23-36) + Chapt 7 (p119-142)\n\n\n\n(Week 14)\nMonday: Association testing\nThursday: HOLYDAY\n\n\n\n(Week 15)\nMonday: HOLYDAY\nThursday: Exercise on estimating heritability\n\n\n\n(Week 16)\nMonday: Project\nThursday: HOLYDAY\n\n\n\n(Week 17)\nMonday: Project\nThursday: Project\n\n\n\n(Week 18)\nMonday: Project\nThursday: Project\n\n\n\n\n\n\n\n\n\nLectures\n\n\nStudent presentations\nWe begin each Monday lecture with two short student presentations. Sign up for three dates in this Google Sheet:\nSchedule for student presentations\n\n\nExercises\nYou run each exercise in the following way:\n\nOpen Vscode\nOpen a remote connection to GenomeDK (click bottom left corner and then “Connect current window to host”)\nOn the Welcome page, click open GitHub repository and find the repository for exercise.\nChoose a folder to put the exercise repository in.\nAgree to open repository when asked.\nOnce opened, open a shell in vscode and run pixi shell.\nNow you can open the notebook.ipynb that holds the exercise.\nThe first time you execute a shell you may be prompted to select a python kernel. Choose form “Python kernels” and make sure the one you chose begins with “.pixi”, not “~/.pixi”.",
     "crumbs": [
       "Welcome"
     ]
@@ -44,7 +44,7 @@
     "href": "weekplan.html",
     "title": "Week plan",
     "section": "",
-    "text": "1\nSchedule for student presentations\n(Week 5)\nMonday: Course intro and overview Coop chapt 1, 2, 3\nThursday: Cluster practicals",
+    "text": "1\nSchedule for student presentations\n(Week 5)\nMonday: Course intro and overview. Coop chapt 1, 2, 3\nThursday: Exercise on cluster practicals",
     "crumbs": [
       "Week plan"
     ]
@@ -54,7 +54,7 @@
     "href": "weekplan.html#section-1",
     "title": "Week plan",
     "section": "2",
-    "text": "2\n(Week 6)\nMonday: The Coalescent and the ARG Coop chapt 4, Paper: Simons Genome Diversity Project \nThursday: Browsing ARGs",
+    "text": "2\n(Week 6)\nMonday: Lecture on the coalescent and the ARG. Coop chapt 4, Paper: Simons Genome Diversity Project",
     "crumbs": [
       "Week plan"
     ]
@@ -64,7 +64,7 @@
     "href": "weekplan.html#section-2",
     "title": "Week plan",
     "section": "3",
-    "text": "3\n(Week 7)\nMonday: Population structure, Incomplete lineage sorting, HMMs Coop chapt 6, Review on ILS\nThursday: Inference of population structure and admixture",
+    "text": "3\n(Week 7)\nMonday: Lecture on population structure, incomplete lineage sorting, HMMs. Coop chapt 6, Review on ILS\nThursday: Inference of population structure and admixture. GitHub: munch-group/pca-admixture-exercise.",
     "crumbs": [
       "Week plan"
     ]
@@ -74,7 +74,7 @@
     "href": "weekplan.html#section-3",
     "title": "Week plan",
     "section": "4",
-    "text": "4\n(Week 8)\nMonday: Past population demography, HMMs, PSMC, Paper on PSMC\nThursday: Estimating past population sizes",
+    "text": "4\n(Week 8)\nMonday: Lecture on past population demography, HMMs, PSMC, Paper on PSMC\nThursday: Exercise on estimating past population sizes. GitHub: munch-group/psmc-exercise.",
     "crumbs": [
       "Week plan"
     ]
@@ -84,7 +84,7 @@
     "href": "weekplan.html#section-4",
     "title": "Week plan",
     "section": "5",
-    "text": "5\n(Week 9)\nMonday: Relate tree sequences\nThursday: HMMs, ARG Paper on tree inference",
+    "text": "5\n(Week 9)\nMonday: Exercise on tree sequences inference. GitHub: munch-group/relate-tree-exercise.\nThursday: Lecture on Tree sequences, HMMs, ARG Paper on tree inference",
     "crumbs": [
       "Week plan"
     ]
@@ -94,7 +94,7 @@
     "href": "weekplan.html#section-5",
     "title": "Week plan",
     "section": "6",
-    "text": "6\n(Week 10)\nMonday: Admixture, HMMs, Review on admixture, Paper on admixture inference",
+    "text": "6\n(Week 10)\nMonday: Tree sequences. Direct and linked selection, Coop chapt 12, 13\nThursday: Exercise on tree sequence inference (continued). GitHub: munch-group/relate-tree-exercise.",
     "crumbs": [
       "Week plan"
     ]
@@ -104,7 +104,7 @@
     "href": "weekplan.html#section-6",
     "title": "Week plan",
     "section": "7",
-    "text": "7\n(Week 11)\nMonday: Direct and linked selection, Coop chapt 12, 13\nThursday: Inference of positive selection",
+    "text": "7\n(Week 11)\nMonday: Overview\nThursday: Exercise on positive selection",
     "crumbs": [
       "Week plan"
     ]
@@ -114,7 +114,7 @@
     "href": "weekplan.html#section-7",
     "title": "Week plan",
     "section": "8",
-    "text": "8\n(Week 12)\nMonday: GWAS review, Population stratification review, Coop 99-120 Mandatory project description\nThursday: GWAS quality control",
+    "text": "8\n(Week 12)\nMonday: https://munch-group.org/docs/genomic-thinking/exercises/mapping_and_calling\nThursday: Lecture on GWAS review, Population stratification review, Coop 99-120 Mandatory project description",
     "crumbs": [
       "Week plan"
     ]
@@ -124,7 +124,7 @@
     "href": "weekplan.html#section-8",
     "title": "Week plan",
     "section": "9",
-    "text": "9\n(Week 13)\nMonday: Heritability, Review on heritability and LMM ; Coop Sec 2.2 (p23-36) + Chapt 7 (p119-142)\nThursday: Association testing",
+    "text": "9\n(Week 13)\nMonday: Exercise on GWAS quality control\nThursday: Lecture on heritability, Review on heritability and LMM ; Coop Sec 2.2 (p23-36) + Chapt 7 (p119-142)",
     "crumbs": [
       "Week plan"
     ]
@@ -134,7 +134,7 @@
     "href": "weekplan.html#section-9",
     "title": "Week plan",
     "section": "10",
-    "text": "10\n(Week 14)\nMonday: Estimating heritability\nThursday: HOLYDAY",
+    "text": "10\n(Week 14)\nMonday: Association testing\nThursday: HOLYDAY",
     "crumbs": [
       "Week plan"
     ]
@@ -144,7 +144,7 @@
     "href": "weekplan.html#section-10",
     "title": "Week plan",
     "section": "11",
-    "text": "11\n(Week 15)\nMonday: HOLYDAY\nThursday: Project",
+    "text": "11\n(Week 15)\nMonday: HOLYDAY\nThursday: Exercise on estimating heritability",
     "crumbs": [
       "Week plan"
     ]
@@ -202,51 +202,51 @@
   {
     "objectID": "projects/README.html",
     "href": "projects/README.html",
-    "title": "1  Final project",
+    "title": "Final project",
     "section": "",
     "text": "Description and requirements\nThe last part of this course focus on applying the knowledge acquired during these 10 weeks into real genetic datasets. We encourage you to work on the project in class Monday and Thursday where one (or several of us) will be there to guide you and answer questions.\nThe project is mandatory and needs to be handed in as a report.\nThe requirements of the report are:\nYou can choose between three different projects:\nThe two papers that go with your project are included in your curriculum for the oral exam.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Final project</span>"
+      "Final project"
     ]
   },
   {
     "objectID": "projects/README.html#description-and-requirements",
     "href": "projects/README.html#description-and-requirements",
-    "title": "1  Final project",
+    "title": "Final project",
     "section": "",
     "text": "It should be at most 10 pages (including references and figures)\nIt must be divided into sections: abstract, introduction, results/discussion, conclusion, and references.\nIt must be cohesive and coherent.\nSource code must be provided (appended or linked/GitHub repository).\nIt must be in a PDF format.\n\n\n\nSelective sweeps on chromosome 3\nGWAS of eye color or height\nExploring non-African archaic segments\n\n\n\nDeadline\nTBA, probably early June. \n\n\nSubmission\nThe project needs to be submitted through Brightspace. The name of your report file must state your name: FIRSTNAME_LASTNAME.pdf",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Final project</span>"
+      "Final project"
     ]
   },
   {
     "objectID": "projects/README.html#positive-selection-in-the-chromosome-3-region-3p21.31",
     "href": "projects/README.html#positive-selection-in-the-chromosome-3-region-3p21.31",
-    "title": "1  Final project",
+    "title": "Final project",
     "section": "Positive selection in the chromosome 3 region 3p21.31",
-    "text": "Positive selection in the chromosome 3 region 3p21.31\nThe 3p21.31 region on the human chromosome 3 spans about five megabases where positive selection seems to act recurrently. Previously published papers suggest that genes in the region have been under selection on multiple occasions in both African humans, in the ancestors of humans and chimpanzees, and more generally across primates. Why strong selection so often affects this region and which genes this selection affects is not really known. With your newly acquired skills, you can apply the most advanced population genomic methods and produce an updated inference of selection in Africans. For this project, you have phased genotypes for chr3:46000000-54000000 individuals from the following populations:\nYRI     Yoruba      Yoruba in Ibadan, Nigeria\nLWK     Luhya       Luhya in Webuye, Kenya\nGWD     Gambian     Gambian in Western Division, The Gambia \nMSL     Mende       Mende in Sierra Leone\nESN     Esan        Esan in Nigeria\nMake yourself familiar with the study populations. Where in Africa are they? How are they related?\n\nInvestigate the followinga\nA. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, comparing at least five pairs of populations.\nIdentify the Fst outlier regions in each case.\nB. Use Relate on all the individuals and visualize trees (using Relate or tskit) to get an impression of the relationship between the populations. How does this relate to your Fst results?\nC. Run Relate on each population separately to infer positive selection. You can run Relate the 46-54Mb region only but also on the entire chr3 (see below). Even if you only investigate the 46-54Mb region you should consider the latter option, as it will produce a more reliable estimation of population demography, which is used in the selection inference.\nD. Do one or more additional analyses to address selection and compare the results to those obtained using Relate. If possible, these should also based on tree sequences and might involve:\n\nAlternative statistics computed based on the trees already obtained from Relate. tskit has ready-made ones, or you can devise one yourself.\nUse another method of inference, such as Clues.\nor do something else…\n\nE. Identify genes potentially under selection and any known function of these genes. Consider what may drive recurrent selection in this region.\n\n\nPapers\nPatterns of Ancestry, Signatures of Natural Selection, and Genetic Association with Stature in Western African Pygmies\nSelective Sweeps across Twenty Millions Years of Primate Evolution\nPerhaps: An approximate full-likelihood method for inferring selection and allele frequency trajectories from DNA sequence data\n\n\nData\nData for the project can be found in this folder on the cluster:\n~/populationgenomics/project_data/chr3region\nIn your project directory, run these commands to create links to the main data files:\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_AFR.vcf\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_AFR.vcf\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_YRI.vcf\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_LWK.vcf\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_GWD.vcf\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_MSL.vcf\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_ESN.vcf\nThe first one is a VCF with all Africans for the entire chr3. The second one has all Africans but only for the region 46Mb-54Mb. The last four are also only the region 46Mb-54Mb but these contain only data for individuals from each of the five African populations.",
+    "text": "Positive selection in the chromosome 3 region 3p21.31\nThe 3p21.31 region on the human chromosome 3 spans about five megabases where positive selection seems to act recurrently. Previously published papers suggest that genes in the region have been under selection on multiple occasions in both African humans, in the ancestors of humans and chimpanzees, and more generally across primates. Why strong selection so often affects this region and which genes this selection affects is not really known. With your newly acquired skills, you can apply the most advanced population genomic methods and produce an updated inference of selection in Africans. For this project, you have phased genotypes for chr3:46000000-54000000 individuals from the following populations:\nYRI     Yoruba      Yoruba in Ibadan, Nigeria\nLWK     Luhya       Luhya in Webuye, Kenya\nGWD     Gambian     Gambian in Western Division, The Gambia \nMSL     Mende       Mende in Sierra Leone\nESN     Esan        Esan in Nigeria\nMake yourself familiar with the study populations. Where in Africa are they? How are they related?\n\nInvestigate the following\nA. Perform an Fst scan between sets of populations in a sliding window of 100 SNP positions, comparing at least five pairs of populations.\nIdentify the Fst outlier regions in each case.\nB. Use Relate on all the individuals and visualize trees (using Relate or tskit) to get an impression of the relationship between the populations. How does this relate to your Fst results?\nC. Run Relate on each population separately to infer positive selection. You can run Relate the 46-54Mb region only but also on the entire chr3 (see below). Even if you only investigate the 46-54Mb region you should consider the latter option, as it will produce a more reliable estimation of population demography, which is used in the selection inference.\nD. Do one or more additional analyses to address selection and compare the results to those obtained using Relate. If possible, these should also based on tree sequences and might involve:\n\nAlternative statistics computed based on the trees already obtained from Relate. tskit has ready-made ones, or you can devise one yourself.\nUse another method of inference, such as Clues.\nor do something else…\n\nE. Identify genes potentially under selection and any known function of these genes. Consider what may drive recurrent selection in this region.\n\n\nPapers\nPatterns of Ancestry, Signatures of Natural Selection, and Genetic Association with Stature in Western African Pygmies\nSelective Sweeps across Twenty Millions Years of Primate Evolution\nPerhaps: An approximate full-likelihood method for inferring selection and allele frequency trajectories from DNA sequence data\n\n\nData\nData for the project can be found in this folder on the cluster:\n~/populationgenomics/project_data/chr3region\nIn your project directory, run these commands to create links to the main data files:\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_AFR.vcf\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_AFR.vcf\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_YRI.vcf\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_LWK.vcf\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_GWD.vcf\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_MSL.vcf\nln -s ~/populationgenomics/project_data/chr3region/1000g_chr3_46_54_ESN.vcf\nThe first one is a VCF with all Africans for the entire chr3. The second one has all Africans but only for the region 46Mb-54Mb. The last four are also only the region 46Mb-54Mb but these contain only data for individuals from each of the five African populations.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Final project</span>"
+      "Final project"
     ]
   },
   {
     "objectID": "projects/README.html#gwas-of-eye-color-or-height",
     "href": "projects/README.html#gwas-of-eye-color-or-height",
-    "title": "1  Final project",
+    "title": "Final project",
     "section": "GWAS of eye color or height",
     "text": "GWAS of eye color or height\nIn this project, you will be looking at GWAS data from openSNP, which is a website where users of direct-to-customer genetic tests can share their personal data with other users. The phenotypes we will be looking at are self-reported eye color and height. When looking at the data, you should be aware that: - The data comes from different companies that use different chips so there are markers that are missing from some individuals because they were not present on the chip used by their company. - The gender information is missing from the file and by default plink will ignore the phenotype of individuals without gender information. So you have to use “–allow-no-sex” option in plink.\n\nInvestigate the following\nA. Do QC. Are there any closely related individuals in the sample?\nB. Do a PCA plot. What does it tell you about the samples?\nC. The files eye_color.txt and height.txt contain the self-reported eye color and height of the individuals in the data. Do a GWAS on one of these traits. There are 12 eye color categories, and you can group some of them together to create a binary phenotype. How many significant loci do you find?\nD. Do additional analyses using Plink, GCTA, R, or any other tool you might find relevant. The list below contains some suggestions for possible analyses, but you can also come up with your ideas\nSuggestions for further analyses: - Use mixed model for GWAS. - Do imputation (either of the whole genome or the region around the most significant SNP) and see if you can then find variants with lower p-values. - If you use half of the data set to calculate a polygenic score, how well does that score predict height on the other half? - Find a trained height PRS on the internet. How well does it predict the height in this data set? - Test for epistasis. - What are the distribution of phenotypes for each of the genotypes at th most significant SNP? If you want to analyse it in R you can use the “–recode A” together with the “–snp” and “–window” option in plink to get the variants around a specific SNP written to a text file that it is easy to load in R. - How many of the significant variants found in the largest published GWAS study can you replicate those hits in this data set? - Make association tests where you condition on the most significant variant (you can use the –condition option in plink)\n\n\nPapers\n\nGenome-wide association study in almost 195,000 individuals identifies 50 previously unidentified genetic loci for eye color\nA saturated map of common genetic variants associated with human height | Nature\n\n\n\nData\nData for the project can be found in this folder on the cluster:\n~/populationgenomics/project_data/GWAS",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Final project</span>"
+      "Final project"
     ]
   },
   {
     "objectID": "projects/README.html#exploring-non-african-archaic-segments",
     "href": "projects/README.html#exploring-non-african-archaic-segments",
-    "title": "1  Final project",
+    "title": "Final project",
     "section": "Exploring non-African archaic segments",
     "text": "Exploring non-African archaic segments\nIn this project, you will be looking at segments of archaic genomes identified in individual modern humans. You will investigate how alike non-African genomes are in terms of how archaic segments are distributed. You will be working with an extended version of the data set that you worked with in the admixture exercise. In this version you also have an addtional file with the positions of candidate archaic SNPs.\n\nInvestigate the following\nIn your project, you must address the questions below, but you are also expected to expand the project to answer your own questions. How you do this is up to you. You do not need to answer them in the order they are listed. Make a project plan with a set of analyses that will allow you to answer the questions.\nA. To what extent do individuals share SNPs contributed by archaic human introgression? In other words, how correlated are the archaic contents in two individuals?\nB. How does this correlation change when you compare individuals from different populations?\nC. How does it change when comparing individuals from different geographical regions?\nD. Does the region containing the EPAS1 gene stand out in any way? (Redo the analysis above for a 1Mb window surrounding this gene).\nE. What is the total amount of admixture (archaic genomic sequence) in each non-African individual genome?\nF. What is the total amount of admixture (archaic genomic sequence) in the region around EPAS1 in each individual?\nG. Do individuals with large admixture totals have more correlated admixture patterns? Do individuals with large admixture totals in the EPAS1 region have more correlated admixture patterns in the EPAS1 region? Can you find any evidence of adaptive introgression?\nH. Perform any additional analyses of your own choice.\n\n\nPapers\n\nAnalysis of Human Sequence Data Reveals Two Pulses of Archaic Denisovan Admixture\nAltitude adaptation in Tibetans caused by introgression of Denisovan-like DNA\n\n\n\nData\nData for the project can be found in this folder on the cluster:\n~/populationgenomics/project_data/ArchaicAdmixture\nThe files are:\n\nArchaicSegments.txt: This file is formatted the same way as the one you used for the archaic admixture exercise.\nSNP.txt: This file has all the non-African SNPs that remain after removing all SNPs found in (Subsaharan) Africa. When each SNP is found in any of the high-coverage archaic genomes (Altai or Vindija Neanderthals or the Denisova), it is labeled as such. Otherwise, it is labeled “human”.",
     "crumbs": [
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Final project</span>"
+      "Final project"
     ]
   },
   {
