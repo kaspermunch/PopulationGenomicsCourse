@@ -21,8 +21,25 @@ This is the homepage for the AU course Genomic Thinking. You will find all cours
 
 :::
 
+# Lectures {.unnumbered}
+
+
 # Student presentations {.unnumbered}
 
 We begin each Monday lecture with two short student presentations. Sign up for three dates in this Google Sheet:
 
 [Schedule for student presentations](https://docs.google.com/spreadsheets/d/1t0UzO-aOj53uVPh39hG9EYR0AvrWdXj-uPFNdFWH660/edit?usp=sharing)
+
+# Exercises {.unnumbered}
+
+You run each exercise in the following way:
+
+1. Open Vscode
+2. Open a remote connection to GenomeDK (click bottom left corner and then "Connect current window to host")
+3. On the Welcome page, click open GitHub repository and find the repository for exercise.
+4. Choose a folder to put the exercise repository in.
+5. Agree to open repository when asked.
+6. Once opened, open a shell in vscode and run `pixi shell`.
+7. Now you can open the `notebook.ipynb` that holds the exercise.
+8. The first time you execute a shell you may be prompted to select a python kernel. Choose form "Python kernels" and make sure the one you chose begins with ".pixi", not "~/.pixi".
+

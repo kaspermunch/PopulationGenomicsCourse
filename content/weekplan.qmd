@@ -14,9 +14,9 @@ panels: true
 
 **(Week 5)**
 
-**Monday:** *Course intro and overview* Coop chapt 1, 2, 3
+**Monday:** Course intro and overview. Coop chapt 1, 2, 3
 
-**Thursday:** [Cluster practicals](exercises/cluster_practicals/README.md)
+**Thursday:** Exercise on [cluster practicals](exercises/cluster_practicals/README.md)
 
 <!-- ------------------------------------------------------------------------------------- -->
 
@@ -24,9 +24,9 @@ panels: true
 
 **(Week 6)**
 
-**Monday:** *The Coalescent and the ARG* Coop chapt 4, [Paper: Simons Genome Diversity Project] <!-- [Paper on Platypus] -->
+**Monday:** Lecture on the coalescent and the ARG. Coop chapt 4, [Paper: Simons Genome Diversity Project] <!-- [Paper on Platypus] -->
 
-**Thursday:** [Browsing ARGs](https://munch-group.org/docs/genomic-thinking/exercises/mapping_and_calling)
+<!-- **Thursday:** [Browsing ARGs](https://munch-group.org/docs/genomic-thinking/exercises/mapping_and_calling) -->
 
 <!-- ------------------------------------------------------------------------------------- -->
 
@@ -34,10 +34,9 @@ panels: true
 
 **(Week 7)** 
 
-**Monday:** *Population structure, Incomplete lineage sorting, HMMs* Coop chapt 6, [Review on ILS](https://doi.org/10.1146/annurev-genet-120213-092532)
+**Monday:** Lecture on population structure, incomplete lineage sorting, HMMs. Coop chapt 6, [Review on ILS](https://doi.org/10.1146/annurev-genet-120213-092532)
 
-**Thursday:** [Inference of population structure and admixture](https://munch-group.org/docs/genomic-thinking/exercises/population_structure)
-
+**Thursday:** Inference of population structure and admixture. GitHub: `munch-group/pca-admixture-exercise`.
 
 <!-- ------------------------------------------------------------------------------------- -->
 
@@ -45,10 +44,9 @@ panels: true
 
 **(Week 8)**
 
-**Monday:** *Past population demography, HMMs, PSMC*, [Paper on PSMC](https://www.nature.com/articles/nature10231)
+**Monday:** Lecture on past population demography, HMMs, PSMC, [Paper on PSMC](https://www.nature.com/articles/nature10231)
 
-**Thursday:** [Estimating past population sizes](https://munch-group.org/docs/genomic-thinking/exercises/demography)
-
+**Thursday:** Exercise on estimating past population sizes. GitHub: `munch-group/psmc-exercise`.
 
 <!-- ------------------------------------------------------------------------------------- -->
 
@@ -56,9 +54,9 @@ panels: true
 
 **(Week 9)**
 
-**Monday:** [Relate tree sequences](exercises.qmd)
+**Monday:** Exercise on tree sequences inference. GitHub: `munch-group/relate-tree-exercise`.
 
-**Thursday:** *HMMs, ARG* [Paper on tree inference](https://www.nature.com/articles/s41588-019-0484-x) 
+**Thursday:** Lecture on Tree sequences, HMMs, ARG [Paper on tree inference](https://www.nature.com/articles/s41588-019-0484-x) 
 
 
 <!-- ------------------------------------------------------------------------------------- -->
@@ -67,7 +65,13 @@ panels: true
 
 **(Week 10)**
 
-**Monday:** *Admixture, HMMs*, [Review on admixture](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007349), [Paper on admixture inference](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007641)
+**Monday:** Tree sequences. *Direct and linked selection*, Coop chapt 12, 13
+
+**Thursday:** Exercise on tree sequence inference (continued). GitHub: `munch-group/relate-tree-exercise`.
+
+<!-- [Review on admixture](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007349),  -->
+
+<!-- [Paper on admixture inference](https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1007641) -->
 
 <!-- **Thursday:** [Phasing and recombination](https://munch-group.org/docs/genomic-thinking/exercises/phasing) -->
 
@@ -77,9 +81,9 @@ panels: true
 
 **(Week 11)**
 
-**Monday:** *Direct and linked selection*, Coop chapt 12, 13
+**Monday:** Overview
 
-**Thursday:** [Inference of positive selection](https://munch-group.org/docs/genomic-thinking/exercises/selection)
+**Thursday:** Exercise on positive selection
 
 <!-- ------------------------------------------------------------------------------------- -->
 
@@ -87,9 +91,9 @@ panels: true
 
 **(Week 12)** 
 
-**Monday:** [GWAS review], [Population stratification review], Coop 99-120 [Mandatory project description](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Projects)
+**Monday:** https://munch-group.org/docs/genomic-thinking/exercises/mapping_and_calling
 
-**Thursday:** [GWAS quality control](https://munch-group.org/docs/genomic-thinking/exercises/GWAS_QC)
+**Thursday:** Lecture on [GWAS review], [Population stratification review], Coop 99-120 [Mandatory project description](https://github.com/kaspermunch/PopulationGenomicsCourse/tree/master/Projects)
 
 <!-- ------------------------------------------------------------------------------------- -->
 
@@ -97,9 +101,10 @@ panels: true
 
 **(Week 13)** 
 
-**Monday:** *Heritability*, [Review on heritability and LMM](https://dl.acm.org/doi/10.1145/2817827) ; Coop Sec 2.2 (p23-36) + Chapt 7 (p119-142)
+**Monday:** Exercise on [GWAS quality control](https://munch-group.org/docs/genomic-thinking/exercises/GWAS_QC)
 
-**Thursday:** [Association testing](https://munch-group.org/docs/genomic-thinking/exercises/GWAS_association)
+**Thursday:** Lecture on heritability, [Review on heritability and LMM](https://dl.acm.org/doi/10.1145/2817827) ; Coop Sec 2.2 (p23-36) + Chapt 7 (p119-142)
+
 
 <!-- ------------------------------------------------------------------------------------- -->
 
@@ -107,7 +112,7 @@ panels: true
 
 **(Week 14)** 
 
-**Monday:** [Estimating heritability](https://munch-group.org/docs/genomic-thinking/exercises/heritability)
+**Monday:** [Association testing](https://munch-group.org/docs/genomic-thinking/exercises/GWAS_association)
 
 **Thursday:** HOLYDAY 
  
@@ -120,7 +125,7 @@ panels: true
 
 **Monday:** HOLYDAY
 
-**Thursday:** Project
+**Thursday:** Exercise on [estimating heritability](https://munch-group.org/docs/genomic-thinking/exercises/heritability)
 
 ## 12 {.unnumbered}
 
